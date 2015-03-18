@@ -8,7 +8,7 @@
   = @venue.address
 %p
   %b Url:
-  = @venue.url
+  = link_to @venue.url, @venue.url
 
 = link_to 'Edit', edit_venue_path(@venue)
 \|

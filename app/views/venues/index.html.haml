@@ -15,7 +15,7 @@
       %tr
         %td= venue.title
         %td= venue.address
-        %td= venue.url
+        %td= link_to venue.url, venue.url, :target => '_blank'
         %td= link_to 'Show', venue
         %td= link_to 'Edit', edit_venue_path(venue)
         %td= link_to 'Destroy', venue, :method => :delete, :data => { :confirm => 'Are you sure?' }
