@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Event:
+  = @performance.event
+%p
+  %b Artist:
+  = @performance.artist
+%p
+  %b Stage:
+  = @performance.stage
+%p
+  %b Date start:
+  = @performance.date_start
+%p
+  %b Date end:
+  = @performance.date_end
+
+= link_to 'Edit', edit_performance_path(@performance)
+\|
+= link_to 'Back', performances_path

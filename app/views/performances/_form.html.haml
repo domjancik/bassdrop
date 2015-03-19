@@ -1,0 +1,12 @@
+= simple_form_for(@performance) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :event
+    = f.association :artist
+    = f.association :stage
+    = f.input :date_start
+    = f.input :date_end
+
+  .form-actions
+    = f.button :submit

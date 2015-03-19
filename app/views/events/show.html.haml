@@ -1,8 +1,8 @@
 %p#notice= notice
 
-%p
-  %b Title:
+%h1
   = @event.title
+
 %p
   %b Venue:
   = @event.venue
@@ -15,6 +15,34 @@
 %p
   %b Preorder url:
   = @event.preorder_url
+
+-# Artists write out
+
+%h2 Artists
+%p
+  - @event.artists.each do |artist|
+    =artist
+
+
+-# Performances write out (Line up)
+
+%h2 Lineup
+
+%table
+  %thead
+    %tr
+      %th Artist
+      %th Stage
+      %th Start
+      %th End
+
+  %tbody
+    - @event.performances.each do |performance|
+      %tr
+        %td= performance.artist
+        %td= performance.stage
+        %td= performance.date_start
+        %td= performance.date_end
 
 = link_to 'Edit', edit_event_path(@event)
 \|
