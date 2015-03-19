@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @stage.title
+%p
+  %b Venue:
+  = @stage.venue
+
+= link_to 'Edit', edit_stage_path(@stage)
+\|
+= link_to 'Back', stages_path

@@ -1,0 +1,23 @@
+%h1 Listing stages
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Venue
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @stages.each do |stage|
+      %tr
+        %td= stage.title
+        %td= stage.venue
+        %td= link_to 'Show', stage
+        %td= link_to 'Edit', edit_stage_path(stage)
+        %td= link_to 'Destroy', stage, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Stage', new_stage_path

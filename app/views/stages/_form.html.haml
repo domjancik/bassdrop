@@ -1,0 +1,9 @@
+= simple_form_for(@stage) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.association :venue
+
+  .form-actions
+    = f.button :submit
