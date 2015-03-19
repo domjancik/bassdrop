@@ -1,0 +1,9 @@
+= simple_form_for(@country) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :abbreviation
+
+  .form-actions
+    = f.button :submit

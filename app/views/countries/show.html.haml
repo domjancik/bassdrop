@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @country.title
+%p
+  %b Abbreviation:
+  = @country.abbreviation
+
+= link_to 'Edit', edit_country_path(@country)
+\|
+= link_to 'Back', countries_path
