@@ -16,6 +16,10 @@
   %b Date end:
   = @performance.date_end
 
+%p
+  %b Is headliner?:
+  = @performance.is_headliner?
+
 = link_to 'Edit', edit_performance_path(@performance)
 \|
 = link_to 'Back', performances_path

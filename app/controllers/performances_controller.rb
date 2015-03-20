@@ -69,6 +69,6 @@ class PerformancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def performance_params
-      params.require(:performance).permit(:event_id, :artist_id, :stage_id, :date_start, :date_end)
+      params.require(:performance).permit(:event_id, :artist_id, :stage_id, :date_start, :date_end, :is_headliner)
     end
 end

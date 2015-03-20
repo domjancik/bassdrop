@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319153702) do
+ActiveRecord::Schema.define(version: 20150319235737) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -51,13 +51,14 @@ ActiveRecord::Schema.define(version: 20150319153702) do
   add_index "events", ["venue_id"], name: "index_events_on_venue_id", using: :btree
 
   create_table "performances", force: :cascade do |t|
-    t.integer  "event_id",   limit: 4
-    t.integer  "artist_id",  limit: 4
-    t.integer  "stage_id",   limit: 4
+    t.integer  "event_id",     limit: 4
+    t.integer  "artist_id",    limit: 4
+    t.integer  "stage_id",     limit: 4
     t.datetime "date_start"
     t.datetime "date_end"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.boolean  "is_headliner", limit: 1
   end
 
   add_index "performances", ["artist_id"], name: "index_performances_on_artist_id", using: :btree

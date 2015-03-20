@@ -20,9 +20,10 @@
 
 %h2 Artists
 %p
-  - @event.artists.each do |artist|
+  - @event.headliners.each do |artist|
+    %b= artist
+  - @event.non_headliners.each do |artist|
     =artist
-
 
 -# Performances write out (Line up)
 
@@ -39,7 +40,11 @@
   %tbody
     - @event.performances.each do |performance|
       %tr
-        %td= performance.artist
+        %td
+          - if(performance.is_headliner?)
+            %b= performance.artist
+          - else
+            = performance.artist
         %td= performance.stage
         %td= performance.date_start
         %td= performance.date_end

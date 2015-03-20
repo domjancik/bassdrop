@@ -8,6 +8,7 @@
       %th Stage
       %th Date start
       %th Date end
+      %th Headliner flag
       %th
       %th
       %th
@@ -20,6 +21,7 @@
         %td= performance.stage
         %td= performance.date_start
         %td= performance.date_end
+        %td= performance.is_headliner?
         %td= link_to 'Show', performance
         %td= link_to 'Edit', edit_performance_path(performance)
         %td= link_to 'Destroy', performance, :method => :delete, :data => { :confirm => 'Are you sure?' }
