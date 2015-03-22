@@ -3,6 +3,8 @@ class Event < ActiveRecord::Base
 
   has_many :performances, -> { order(:stage_id) }
 
+  has_many :stages, -> { uniq }, through: :performances
+
   has_many :artists, -> { uniq }, through: :performances
   has_many :headliners, -> { where(:performances => {is_headliner: true}).uniq },
            through: :performances, :source => :artist
@@ -11,5 +13,13 @@ class Event < ActiveRecord::Base
 
   def to_s
     title
+  end
+
+  def stage_lineup(stage)
+    lineup.where(stage: stage)
+  end
+
+  def lineup
+    performances.order :date_start
   end
 end
