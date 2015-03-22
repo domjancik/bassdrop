@@ -29,25 +29,17 @@
 
 %h2 Lineup
 
-%table
-  %thead
-    %tr
-      %th Artist
-      %th Stage
-      %th Start
-      %th End
-
-  %tbody
-    - @event.performances.each do |performance|
+- @event.stages.each do |stage|
+  %h3= stage
+  %table
+    - @event.stage_lineup(stage).each do |performance|
       %tr
+        %td= lineup_from_to(performance.date_start, performance.date_end)
         %td
           - if(performance.is_headliner?)
             %b= performance.artist
           - else
             = performance.artist
-        %td= performance.stage
-        %td= performance.date_start
-        %td= performance.date_end
 
 = link_to 'Edit', edit_event_path(@event)
 \|
