@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323184413) do
+ActiveRecord::Schema.define(version: 20150323185334) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -34,8 +34,9 @@ ActiveRecord::Schema.define(version: 20150323184413) do
   create_table "countries", force: :cascade do |t|
     t.string   "title",        limit: 255
     t.string   "abbreviation", limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.boolean  "favorite",     limit: 1,   default: false
   end
 
   add_index "countries", ["abbreviation"], name: "index_countries_on_abbreviation", unique: true, using: :btree
