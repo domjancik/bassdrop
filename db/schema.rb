@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319235737) do
+ActiveRecord::Schema.define(version: 20150323184413) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -37,6 +37,9 @@ ActiveRecord::Schema.define(version: 20150319235737) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
+
+  add_index "countries", ["abbreviation"], name: "index_countries_on_abbreviation", unique: true, using: :btree
+  add_index "countries", ["title"], name: "index_countries_on_title", unique: true, using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "title",        limit: 255
