@@ -6,7 +6,7 @@
       %p
         - image_url = artist.image_url
         - if !image_url.nil?
-          %img{src: artist.image_url}
+          = image_tag(artist.image_url)
         - else
           = image_tag('default_avatar.jpg')
       %p= link_to artist, artist
