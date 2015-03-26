@@ -1,16 +1,5 @@
 %h1 Artists
 
-%ul.small-block-grid-3.medium-block-grid-5
-  - @artists.each do |artist|
-    %li
-      %p
-        - image_url = artist.image_url
-        - if !image_url.nil?
-          = image_tag(artist.image_url)
-        - else
-          = image_tag('default_avatar.jpg')
-      %p= link_to artist, artist
-
-%br
+= render partial: 'artist_grid', locals: {artists: @artists}
 
 = link_to 'New Artist', new_artist_path

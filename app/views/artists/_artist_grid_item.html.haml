@@ -1,0 +1,8 @@
+%li
+  %p
+    - image_url = artist_grid_item.image_url
+    - if !image_url.nil?
+      = image_tag(artist_grid_item.image_url)
+    - else
+      = image_tag('default_avatar.jpg')
+  %p= link_to artist_grid_item, artist_grid_item

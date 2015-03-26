@@ -19,27 +19,25 @@
 -# Artists write out
 
 %h2 Artists
-%p
-  - @event.headliners.each do |artist|
-    %b= artist
-  - @event.non_headliners.each do |artist|
-    =artist
+
+= render partial: 'artists/artist_grid', locals: {artists: @event.headliners}
+= render partial: 'artists/artist_grid', locals: {artists: @event.non_headliners, small: true}
 
 -# Performances write out (Line up)
+- unless @event.stages.empty?
+  %h2 Lineup
 
-%h2 Lineup
-
-- @event.stages.each do |stage|
-  %h3= stage
-  %table
-    - @event.stage_lineup(stage).each do |performance|
-      %tr
-        %td= lineup_from_to(performance.date_start, performance.date_end)
-        %td
-          - if(performance.is_headliner?)
-            %b= performance.artist
-          - else
-            = performance.artist
+  - @event.stages.each do |stage|
+    %h3= stage
+    %table
+      - @event.stage_lineup(stage).each do |performance|
+        %tr
+          %td= lineup_from_to(performance.date_start, performance.date_end)
+          %td
+            - if(performance.is_headliner?)
+              %b= performance.artist
+            - else
+              = performance.artist
 
 = link_to 'Edit', edit_event_path(@event)
 \|
