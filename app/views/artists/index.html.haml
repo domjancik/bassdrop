@@ -1,22 +1,11 @@
-%h1 Listing artists
+%h1 Artists
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th City
-      %th
-      %th
-      %th
-      
-  %tbody
-    - @artists.each do |artist|
-      %tr
-        %td= artist.title
-        %td= artist.city
-        %td= link_to 'Show', artist
-        %td= link_to 'Edit', edit_artist_path(artist)
-        %td= link_to 'Destroy', artist, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%ul.small-block-grid-3.medium-block-grid-5
+  - @artists.each do |artist|
+    %li
+      %p
+        %img{src: artist.image_url}
+      %p= link_to artist, artist
 
 %br
 
