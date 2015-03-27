@@ -1,3 +1,5 @@
+require 'json'
+
 class Event < ActiveRecord::Base
   belongs_to :venue
 
@@ -21,5 +23,18 @@ class Event < ActiveRecord::Base
 
   def lineup
     performances.order :date_start
+  end
+
+  def update_from_fb
+    params = {access_token: FacebookHelper.access_token, fields: 'description,cover'}
+    response =  RestClient.get "#{FacebookHelper.graph_url}/#{link_fb}", {params: params}
+    json_response = JSON.parse response
+
+    self.description = json_response['description']
+    self.image_url_cached = json_response['cover']['source']
+
+    self.cached_at = Time.now
+
+    self.save
   end
 end

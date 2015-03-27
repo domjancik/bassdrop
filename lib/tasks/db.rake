@@ -2,15 +2,13 @@ require 'rest_client'
 require 'json'
 
 namespace :db do
-  desc "Download BASS DROP events from facebook (Basic data only)"
+  desc 'Download BASS DROP events from facebook (Basic data only)'
   task loadevents: :environment do
-    fb_graph_url = 'https://graph.facebook.com'
-
     page_id = 'bassdropcz'
 
-    params = {access_token: access_token}
+    params = {access_token: FacebookHelper.access_token}
 
-    response =  RestClient.get "#{fb_graph_url}/#{page_id}/events", {params: params}
+    response =  RestClient.get "#{FacebookHelper.graph_url}/#{page_id}/events", {params: params}
     json_response = JSON.parse(response)
     add_events json_response
 
@@ -43,9 +41,8 @@ namespace :db do
     end
   end
 
-  def access_token
-    app_id = ENV['facebook_app_id']
-    app_secret = ENV['facebook_secret']
-    "#{app_id}|#{app_secret}"
+  desc 'Download additional data for events from facebook'
+  task fillevents: :environment do
+    Event.all.each { |event| event.update_from_fb }
   end
 end
