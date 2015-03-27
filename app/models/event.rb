@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :venue
 
-  has_many :performances, -> { order(:stage_id) }
+  has_many :performances, -> { order(:stage_id) }, dependent: :destroy
 
   has_many :stages, -> { uniq }, through: :performances
 
