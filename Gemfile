@@ -23,6 +23,8 @@ gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'upmin-admin'
 gem 'json'
+gem 'rest-client'
+gem 'figaro'
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'
