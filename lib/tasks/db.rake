@@ -29,13 +29,17 @@ namespace :db do
   def add_events(json_response)
     json_response['data'].each do |fb_event|
       title = fb_event['name']
-      date_start = fb_event['start_time']
-      link_fb = fb_event['id']
-      event = Event.new({title: title, date_start: date_start, link_fb: link_fb})
-      event.date_end = fb_event['end_time'] if fb_event.has_key? 'end_time'
 
-      event.save
-      puts 'Loaded ' + event
+      begin
+        date_start = fb_event['start_time']
+        link_fb = fb_event['id']
+        event = Event.new({title: title, date_start: date_start, link_fb: link_fb})
+        event.date_end = fb_event['end_time'] if fb_event.has_key? 'end_time'
+        event.save
+        puts 'Loaded ' + event
+      rescue ActiveRecord::RecordNotUnique
+        puts 'Already in DB: ' + title
+      end
     end
   end
 
@@ -44,5 +48,4 @@ namespace :db do
     app_secret = ENV['facebook_secret']
     "#{app_id}|#{app_secret}"
   end
-
 end
