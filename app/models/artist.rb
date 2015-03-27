@@ -26,19 +26,17 @@ class Artist < ActiveRecord::Base
     Time.now - image_url_cached_at
   end
 
+  def fb_image_url
+    url = "http://graph.facebook.com/v2.3/#{link_fb}/picture?type=large"
+    resp = Net::HTTP.get_response(URI.parse(url))
+    resp['location']
+  end
+
   def refresh_image_cache
     return if seconds_since_image_cache < 60 * 60 * 24 * 10
     return if link_fb.nil?
 
-    url = "http://graph.facebook.com/v2.3/#{link_fb}/picture?redirect=false&type=large"
-    resp = Net::HTTP.get_response(URI.parse(url))
-
-    data = resp.body
-    fb_data = JSON.parse(data)['data']
-
-    return nil if fb_data.nil?
-
-    self.image_url_cached = fb_data['url']
+    self.image_url_cached = fb_image_url
     self.image_url_cached_at = Time.now
     save
   end
