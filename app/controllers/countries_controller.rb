@@ -15,6 +15,7 @@ class CountriesController < ApplicationController
   # GET /countries/new
   def new
     @country = Country.new
+    authorize @country
   end
 
   # GET /countries/1/edit
@@ -25,6 +26,7 @@ class CountriesController < ApplicationController
   # POST /countries.json
   def create
     @country = Country.new(country_params)
+    authorize @country
 
     respond_to do |format|
       if @country.save

@@ -15,6 +15,7 @@ class CitiesController < ApplicationController
   # GET /cities/new
   def new
     @city = City.new
+    authorize @city
   end
 
   # GET /cities/1/edit
@@ -25,6 +26,7 @@ class CitiesController < ApplicationController
   # POST /cities.json
   def create
     @city = City.new(city_params)
+    authorize @city
 
     respond_to do |format|
       if @city.save

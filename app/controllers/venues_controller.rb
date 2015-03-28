@@ -15,6 +15,7 @@ class VenuesController < ApplicationController
   # GET /venues/new
   def new
     @venue = Venue.new
+    authorize @venue
   end
 
   # GET /venues/1/edit
@@ -25,6 +26,7 @@ class VenuesController < ApplicationController
   # POST /venues.json
   def create
     @venue = Venue.new(venue_params)
+    authorize @venue
 
     respond_to do |format|
       if @venue.save

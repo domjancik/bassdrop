@@ -15,6 +15,7 @@ class PerformancesController < ApplicationController
   # GET /performances/new
   def new
     @performance = Performance.new
+    authorize @performance
   end
 
   # GET /performances/1/edit
@@ -25,6 +26,7 @@ class PerformancesController < ApplicationController
   # POST /performances.json
   def create
     @performance = Performance.new(performance_params)
+    authorize @performance
 
     respond_to do |format|
       if @performance.save
