@@ -26,12 +26,14 @@ class Event < ActiveRecord::Base
   end
 
   def update_from_fb
-    params = {access_token: FacebookHelper.access_token, fields: 'description,cover'}
+    params = {access_token: FacebookHelper.access_token, fields: 'description,cover,place'}
     response =  RestClient.get "#{FacebookHelper.graph_url}/#{link_fb}", {params: params}
     json_response = JSON.parse response
 
-    self.description = json_response['description']
-    self.image_url_cached = json_response['cover']['source']
+    self.venue = Venue.from_fb_json json_response['place'] if json_response.has_key? 'place'
+
+    self.description = json_response['description'] if json_response.has_key? 'description'
+    self.image_url_cached = json_response['cover']['source'] if json_response.has_key? 'cover'
 
     self.cached_at = Time.now
 
