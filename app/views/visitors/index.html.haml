@@ -1,0 +1,16 @@
+%h2 Welcome
+
+%h3 Next Event
+%p= image_tag @next_event.image_url_cached
+%p= @next_event
+
+%h3
+  Upcoming events
+  %ul
+    - @upcoming_events.each do |event|
+      %li= event
+
+%p
+  = link_to 'Users:', users_path
+  = User.count
+  registered

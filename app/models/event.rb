@@ -1,6 +1,8 @@
 require 'json'
 
 class Event < ActiveRecord::Base
+  default_scope { order('date_start desc') }
+
   belongs_to :venue
 
   has_many :performances, -> { order(:stage_id) }, dependent: :destroy
@@ -12,6 +14,8 @@ class Event < ActiveRecord::Base
            through: :performances, :source => :artist
   has_many :non_headliners, -> { where(:performances => {is_headliner: false}) },
            through: :performances, :source => :artist
+
+  scope :upcoming, -> { where('date_start > ?', Time.now).reorder('date_start asc') }
 
   def to_s
     title
@@ -38,5 +42,9 @@ class Event < ActiveRecord::Base
     self.cached_at = Time.now
 
     self.save
+  end
+
+  def self.next
+    self.upcoming.take!
   end
 end
