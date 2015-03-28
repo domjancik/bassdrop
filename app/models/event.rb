@@ -53,6 +53,6 @@ class Event < ActiveRecord::Base
   end
 
   def self.next
-    self.upcoming.take!
+    self.upcoming.take
   end
 end
