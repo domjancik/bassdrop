@@ -10,7 +10,7 @@ module TimeFormatHelper
   end
 
   def event_date(event)
-    if event.date_end.nil?
+    unless event.spans_more_days?
       I18n.l event.date_start, format: :event_date
     else
       I18n.l(event.date_start, format: :event_date_from)\

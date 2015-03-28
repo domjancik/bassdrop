@@ -30,6 +30,13 @@ class Event < ActiveRecord::Base
     performances.order :date_start
   end
 
+  # True if the event spans more than one day
+  def spans_more_days?
+    return false if self.date_end.nil?
+    return false if self.date_end - self.date_start < 60 * 60 * 12
+    true
+  end
+
   def update_from_fb
     params = {access_token: FacebookHelper.access_token, fields: 'description,cover,place'}
     response =  RestClient.get "#{FacebookHelper.graph_url}/#{link_fb}", {params: params}
