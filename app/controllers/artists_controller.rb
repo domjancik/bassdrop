@@ -4,7 +4,11 @@ class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.json
   def index
-    @artists = policy_scope Artist.all
+    artist_roles = Artist.roles.keys.reverse
+    @artist_groups = []
+    artist_roles.each do |role|
+      @artist_groups << {name: role, artists: policy_scope(Artist.send(role))}
+    end
   end
 
   # GET /artists/1

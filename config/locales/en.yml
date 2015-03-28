@@ -21,8 +21,15 @@
 
 en:
   hello: "Hello world"
+  artist:
+    roles:
+      bassdrop: We are
+      headliner: We've booked
+      supported: We've played with
+      artist: And also had these
   time:
     formats:
       event_date: '%-d.%-m. %Y'
       event_date_from: '%-d.–'
       event_date_to: '%-d.%-m. %Y'
+
