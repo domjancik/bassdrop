@@ -2,6 +2,9 @@ require 'net/http'
 require 'json'
 
 class Artist < ActiveRecord::Base
+  enum role: [:artist, :headliner, :bassdrop]
+  default_scope { order('role desc') }
+
   belongs_to :city
   belongs_to :country
 

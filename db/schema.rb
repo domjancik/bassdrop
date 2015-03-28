@@ -11,22 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150328190920) do
+ActiveRecord::Schema.define(version: 20150328215534) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",               limit: 255
     t.integer  "city_id",             limit: 4
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.integer  "country_id",          limit: 4
     t.string   "link_fb",             limit: 255
     t.datetime "image_url_cached_at"
     t.string   "image_url_cached",    limit: 255
+    t.integer  "role",                limit: 4,   default: 0
   end
 
   add_index "artists", ["city_id"], name: "index_artists_on_city_id", using: :btree
   add_index "artists", ["country_id"], name: "index_artists_on_country_id", using: :btree
   add_index "artists", ["link_fb"], name: "index_artists_on_link_fb", unique: true, using: :btree
+  add_index "artists", ["title"], name: "index_artists_on_title", unique: true, using: :btree
 
   create_table "cities", force: :cascade do |t|
     t.string   "title",      limit: 255
