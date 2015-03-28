@@ -4,7 +4,7 @@ class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.json
   def index
-    @artists = Artist.all
+    @artists = policy_scope Artist.all
   end
 
   # GET /artists/1
@@ -65,6 +65,7 @@ class ArtistsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_artist
       @artist = Artist.find(params[:id])
+      authorize @artist
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

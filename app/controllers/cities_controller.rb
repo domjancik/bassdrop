@@ -4,7 +4,7 @@ class CitiesController < ApplicationController
   # GET /cities
   # GET /cities.json
   def index
-    @cities = City.all
+    @cities = policy_scope City.all
   end
 
   # GET /cities/1
@@ -65,6 +65,7 @@ class CitiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_city
       @city = City.find(params[:id])
+      authorize @city
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

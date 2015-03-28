@@ -4,7 +4,7 @@ class VenuesController < ApplicationController
   # GET /venues
   # GET /venues.json
   def index
-    @venues = Venue.all
+    @venues = policy_scope Venue.all
   end
 
   # GET /venues/1
@@ -65,6 +65,7 @@ class VenuesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_venue
       @venue = Venue.find(params[:id])
+      authorize @venue
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -4,7 +4,7 @@ class PerformancesController < ApplicationController
   # GET /performances
   # GET /performances.json
   def index
-    @performances = Performance.all
+    @performances = policy_scope Performance.all
   end
 
   # GET /performances/1
@@ -65,6 +65,7 @@ class PerformancesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_performance
       @performance = Performance.find(params[:id])
+      authorize @performance
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

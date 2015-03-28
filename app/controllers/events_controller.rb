@@ -5,8 +5,8 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @upcoming_events = Event.upcoming
-    @past_events = Event.past
+    @upcoming_events = policy_scope Event.upcoming
+    @past_events = policy_scope Event.past
   end
 
   # GET /events/1
@@ -67,6 +67,7 @@ class EventsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
+      authorize @event
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

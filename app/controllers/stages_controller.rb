@@ -4,7 +4,7 @@ class StagesController < ApplicationController
   # GET /stages
   # GET /stages.json
   def index
-    @stages = Stage.all
+    @stages = policy_scope Stage.all
   end
 
   # GET /stages/1
@@ -65,6 +65,7 @@ class StagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_stage
       @stage = Stage.find(params[:id])
+      authorize @stage
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

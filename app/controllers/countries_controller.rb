@@ -4,7 +4,7 @@ class CountriesController < ApplicationController
   # GET /countries
   # GET /countries.json
   def index
-    @countries = Country.all
+    @countries = policy_scope Country.all
   end
 
   # GET /countries/1
@@ -65,6 +65,7 @@ class CountriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_country
       @country = Country.find(params[:id])
+      authorize @country
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
