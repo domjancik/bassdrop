@@ -16,6 +16,7 @@ class Event < ActiveRecord::Base
            through: :performances, :source => :artist
 
   scope :upcoming, -> { where('date_start > ?', Time.now).reorder('date_start asc') }
+  scope :past, -> { where('date_start <= ?', Time.now) }
 
   def to_s
     title

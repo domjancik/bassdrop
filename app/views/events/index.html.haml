@@ -1,28 +1,9 @@
-%h1 Listing events
+%h1 Upcoming
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th Venue
-      %th Date start
-      %th Date end
-      %th Preorder url
-      %th
-      %th
-      %th
-      
-  %tbody
-    - @events.each do |event|
-      %tr
-        %td= event.title
-        %td= event.venue
-        %td= event.date_start
-        %td= event.date_end
-        %td= event.preorder_url
-        %td= link_to 'Show', event
-        %td= link_to 'Edit', edit_event_path(event)
-        %td= link_to 'Destroy', event, :method => :delete, :data => { :confirm => 'Are you sure?' }
+= render partial: 'events', object: @upcoming_events
+
+%h1 Past
+= render partial: 'events', object: @past_events
 
 %br
 

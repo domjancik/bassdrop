@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+  time:
+    formats:
+      event_date: '%-d.%-m. %Y'
+      event_date_from: '%-d.–'
+      event_date_to: '%-d.%-m. %Y'
