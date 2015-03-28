@@ -104,7 +104,7 @@ namespace :db do
         {title: 'Document One', country: 'UK', fb: 'DocumentOne', role: 'headliner'},
         {title: 'Trampa', country: 'UK', fb: 'trampadubstep', role: 'headliner'},
         {title: 'Axel Boy', country: 'UK', fb: 'AxelBoyUK', role: 'headliner'},
-        {title: 'Datsik', country: 'CA', fb: 'djdatsik', role: 'headliner'},
+        {title: 'Datsik', country: 'CA', fb: 'djdatsik', role: 'supported'},
         {title: 'Le Lion', country: 'NL', fb: 'leliondub', role: 'headliner'},
         {title: 'Hybris', country: 'US', fb: 'hybrisdnb', role: 'headliner'},
         {title: 'The Greys', country: 'UK', fb: 'thegreysuk', role: 'headliner'},
@@ -172,6 +172,13 @@ namespace :db do
         {title: 'Sponge Bandits', country: 'UK', city: 'Barrow in Furness', fb: 'Spongebandits', role: 'headliner'},
         {title: 'Droid', country: 'UK', city: 'Ashford', fb: 'droiddubstep', role: 'headliner'},
         {title: 'Hassassin', country: 'UK', city: 'Birmingham', fb: 'hassassinuk', role: 'headliner'},
+
+        # SUPPORTED
+        {title: 'I AM LEGION', country: 'UK', city: 'London', fb: 'iamlegionmusic', role: 'supported'},
+        {title: 'CYBERPUNKERS', country: 'IT', city: 'Milan', fb: 'CYBERPUNKERSOFFICIAL', role: 'supported'},
+        {title: 'BELZEBASS', country: 'IT', city: 'Bergamo', fb: 'belzebassofficial', role: 'supported'},
+        {title: 'The Boomzers', country: 'IT', city: 'Pordenone', fb: 'theboomzers', role: 'supported'},
+        {title: 'Borgore', country: 'IL', fb: 'Borgore', role: 'supported'},
     ]
 
     artists.each do |artist_source|
