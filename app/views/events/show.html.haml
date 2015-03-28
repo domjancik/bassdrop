@@ -1,5 +1,7 @@
 %p#notice= notice
 
+= image_tag(@event.image_url_cached, alt: @event)
+
 %h1
   = @event.title
 
