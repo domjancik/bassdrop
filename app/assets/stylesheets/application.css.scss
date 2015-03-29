@@ -71,13 +71,23 @@ div.top-bar-section {
 }
 
 a {
-  opacity: 1;
+//  opacity: 1;
   color: $text-color;
   @include simple-transition;
 
   &:hover {
-    opacity: 0.7;
     color: $text-color;
+    @include simple-transition;
+  }
+
+  div.hover {
+    opacity: 1;
+    @include simple-transition;
+  }
+
+  div.hover:hover {
+    opacity: 0.7;
+//    animation-name: none;
     @include simple-transition;
   }
 

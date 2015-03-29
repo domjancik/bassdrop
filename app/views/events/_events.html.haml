@@ -2,22 +2,25 @@
   - events.each do |event|
     %li
       = link_to event do
-        .row.collapse
-          %p.line-image{style: "background-image: url(#{event.image_url_cached})"}
-            -#= image_tag event.image_url_cached
-        .row.collapse
-          %p.text
-            = event
-        .row.collapse
-          .small-12.medium-4.columns
-            %p.text.important
-              = event_date event
-          .small-12.medium-8.columns
-            %p.text
-              headliners
-        - if user_signed_in?
-          %p.text
-            - if policy(event).edit?
-              = link_to 'Edit', edit_event_path(event)
-            - if policy(event).destroy?
-              = link_to 'Destroy', event, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        - delay = Random.rand(5).to_f / 10.0
+        %div.wow.fadeInUp{ 'data-wow-offset' => '20', 'data-wow-delay' => "#{delay}s" }
+          %div.hover
+            .row.collapse
+              %p.line-image{style: "background-image: url(#{event.image_url_cached})"}
+                -#= image_tag event.image_url_cached
+            .row.collapse
+              %p.text
+                = event
+            .row.collapse
+              .small-12.medium-4.columns
+                %p.text.important
+                  = event_date event
+              .small-12.medium-8.columns
+                %p.text
+                  headliners
+              - if user_signed_in?
+                %p.text
+                  - if policy(event).edit?
+                    = link_to 'Edit', edit_event_path(event)
+                  - if policy(event).destroy?
+                    = link_to 'Destroy', event, :method => :delete, :data => { :confirm => 'Are you sure?' }
