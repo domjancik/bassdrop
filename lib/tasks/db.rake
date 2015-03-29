@@ -62,7 +62,7 @@ namespace :db do
         {title: 'Tezet', country: 'CZ', city: 'Mladá Boleslav', fb: 'tezetmusic', role: 'bassdrop'},
         {title: 'Woostep', country: 'CZ', city: 'Prague', fb: 'woostepinfo', role: 'bassdrop'},
         {title: 'Target1', country: 'CZ', city: 'Ostrava', fb: 'targetone', role: 'bassdrop'},
-        {title: 'Meph', country: 'CZ', city: 'Ostrava', fb: 'mephofficial'},
+        {title: 'Meph', country: 'CZ', city: 'Ostrava', fb: 'mephofficial', role: 'bassdrop'},
         {title: 'Sufuski', country: 'CZ', city: 'Prague'},
         {title: 'Yendys', country: 'CZ', city: 'Slaný'},
 
@@ -107,6 +107,7 @@ namespace :db do
         {title: 'Datsik', country: 'CA', fb: 'djdatsik', role: 'supported'},
         {title: 'Le Lion', country: 'NL', fb: 'leliondub', role: 'headliner'},
         {title: 'Hybris', country: 'US', fb: 'hybrisdnb', role: 'headliner'},
+        {title: 'L33', country: 'BG', fb: 'L33music', role: 'headliner'},
         {title: 'The Greys', country: 'UK', fb: 'thegreysuk', role: 'headliner'},
         {title: '50 Carrot', country: 'UK', fb: '50CarrotDubstep', role: 'headliner'},
 
@@ -114,14 +115,14 @@ namespace :db do
         {title: 'Vladimir 518', country: 'CZ', city: 'Prague', fb: 'Vladimir518Praha', role: 'headliner'},
         {title: 'LA4', country: 'CZ', fb: 'lavor'},
         {title: 'Mike Trafik', country: 'CZ', fb: 'MIKETRAFIK'},
-        {title: 'Hugo Toxxx', country: 'CZ', fb: 'hugo.fanpage'},
+        {title: 'Hugo Toxxx', country: 'CZ', fb: 'hugo.fanpage', role: 'headliner'},
         {title: 'Philip TBC', country: 'CZ', fb: '55972720770'},
         {title: 'Rido', country: 'CZ', city: 'Prague', fb: 'ridocz'},
         {title: 'A-Cray', country: 'CZ', city: 'Slaný', fb: 'ACrayCZ'},
         {title: 'Hemoglobin', country: 'CZ', city: 'Slaný', fb: '167766016593070'},
         {title: 'Hanzall', country: 'CZ', city: 'Aš', fb: 'djhanzall'},
 
-        {title: 'Kahlil', country: 'UK', fb: 'Y.Dot.K', role: 'headliner'},
+        {title: 'Kahlil', country: 'UK', fb: 'KahlilDubz13', role: 'headliner'},
         {title: 'Allmostt', country: 'UK', fb: 'martinallmostt'},
         {title: 'Tuco', country: 'UK', fb: 'Tucodj'},
         {title: 'IM Cyber', country: 'CZ', fb: 'imcyberdj'},
@@ -164,7 +165,7 @@ namespace :db do
         {title: 'QO', country: 'CZ', city: 'Bušperk', fb: 'qosobu'},
         {title: 'MuK', country: 'UK', city: 'Birmingham', fb: 'Mukmusik', role: 'headliner'},
 
-        {title: 'Dirty Little Toaster', country: 'CZ', city: 'Prague', fb: 'Dirty.little.toaster.dubstep'},
+        {title: 'Dirty Little Toaster', country: 'CZ', city: 'Prague', fb: 'Dirty.little.toaster.dubstep', role: 'headliner'},
 
         {title: 'Mr. Boogie', country: 'DE', city: 'Potsdam', fb: 'MrBoogieDubstep', role: 'headliner'},
         {title: 'Skælp', country: 'BE', city: 'Ghent', fb: '155748314470514', role: 'headliner'},
