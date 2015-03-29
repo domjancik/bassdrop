@@ -22,6 +22,10 @@ class Event < ActiveRecord::Base
     title
   end
 
+  def to_str
+    title
+  end
+
   def stage_lineup(stage)
     lineup.where(stage: stage)
   end
