@@ -1,23 +1,23 @@
-%table
-  %thead
-    %tr
-      %th Title
-      -#%th Venue
-      %th Date
-      %th Preorder url
-      - if user_signed_in?
-        %th
-        %th
-
-  %tbody
-    - events.each do |event|
-      %tr
-        %td= link_to event.title, event
-        -#%td= event.venue
-        %td= event_date event
-        %td= event.preorder_url
-        - if user_signed_in?
-          - if policy(event).edit?
-            %td= link_to 'Edit', edit_event_path(event)
-          - if policy(event).destroy?
-            %td= link_to 'Destroy', event, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%ul.small-block-grid-1.medium-block-grid-2
+  - events.each do |event|
+    %li
+      = link_to event do
+        .row.collapse
+          %p.line-image{style: "background-image: url(#{event.image_url_cached}"}
+            -#= image_tag event.image_url_cached
+        .row.collapse
+          %p.text
+            = event
+        .row.collapse
+          .small-12.medium-4.columns
+            %p.text.important
+              = event_date event
+          .small-12.medium-8.columns
+            %p.text
+              headliners
+        -#- if user_signed_in?
+        -#  %p.text
+        -#    - if policy(event).edit?
+        -#      = link_to 'Edit', edit_event_path(event)
+        -#    - if policy(event).destroy?
+        -#      = link_to 'Destroy', event, :method => :delete, :data => { :confirm => 'Are you sure?' }

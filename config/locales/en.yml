@@ -29,7 +29,7 @@ en:
       artist: And also had these
   time:
     formats:
-      event_date: '%-d.%-m. %Y'
-      event_date_from: '%-d.–'
-      event_date_to: '%-d.%-m. %Y'
+      event_date: '%-d / %-m'
+      event_date_from: '%-d–'
+      event_date_to: '%-d / %-m'
 

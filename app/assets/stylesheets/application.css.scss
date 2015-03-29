@@ -18,9 +18,11 @@
 
 @import "compass/css3/animation";
 
+@import "settings";
+
 $primary-color: #3e44fe;
 $background-color: #EFEFEF;
-$text-color: #000;
+$text-color: $jet;
 
 @mixin simple-transition {
   @include transition(all, 0.5s, ease-in-out);
@@ -85,7 +87,7 @@ a {
 }
 
 .contents {
-  color: black;
+  color: $text-color;
   text-align: center;
   display: inline-block;
   width: 100%;
@@ -95,12 +97,16 @@ img {
   width: 100%;
 }
 
-h1,
-h2,
-h3,
 p {
   background: white;
-  margin: 0.5rem 0;
+  margin: 0.25rem 0;
+}
+
+h1,
+h2,
+h3 {
+  @extend p;
+  margin: 1rem 0 0.5rem 0;
 }
 
 .important {
@@ -135,4 +141,11 @@ ul.block-list {
     @extend p;
     list-style: none;
   }
+}
+
+.line-image {
+  height: 7rem;
+  overflow: hidden;
+  vertical-align: middle;
+  background: none no-repeat scroll 50% 50% / 100% $text-color;
 }
