@@ -112,7 +112,7 @@ $column-gutter: 1rem;//rem-calc(10);
 // $charcoal    : #555555;
 // $tuatara     : #444444;
 // $oil         : #333333;
-// $jet         : #222222;
+$jet         : #222222;
 $black       : #000000;
 
 // We use these as default colors throughout
@@ -1386,7 +1386,7 @@ $black       : #000000;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: $black;
+$topbar-bg-color: $jet;
 $topbar-bg: $topbar-bg-color;
 
 // Height and margin
