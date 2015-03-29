@@ -79,7 +79,7 @@ namespace :db do
         # Events
         {title: 'Eptic', country: 'UK', fb: 'eptic', role: 'headliner'},
         {title: 'Shiverz', country: 'UK', city: 'London', fb: 'ShiverzDubstepOfficial', role: 'headliner'},
-        {title: 'Cookie Monsta', country: 'UK', city: 'Nottingham', fb: 'Cookie-Monsta-Official', role: 'headliner'},
+        {title: 'Cookie Monsta', country: 'UK', city: 'Nottingham', fb: '175957405757449', role: 'headliner'},
         {title: 'Luke Hassan', country: 'UK', city: 'Bristol', fb: 'lukehassanmusic', role: 'headliner'},
         {title: 'Young D', country: 'UK', city: 'London', fb: 'DJ-Young-D-Selecta-Youngz', role: 'headliner'},
         {title: 'Efflex', country: 'UK', city: 'London', fb: 'EfflexUK', role: 'headliner'},

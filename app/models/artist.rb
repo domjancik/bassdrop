@@ -38,7 +38,10 @@ class Artist < ActiveRecord::Base
   def refresh_image_cache
     return if seconds_since_image_cache < 60 * 60 * 24 * 10
     return if link_fb.nil?
+    force_refresh_image_cache
+  end
 
+  def force_refresh_image_cache
     self.image_url_cached = fb_image_url
     self.image_url_cached_at = Time.now
     save
