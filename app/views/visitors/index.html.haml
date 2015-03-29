@@ -23,8 +23,9 @@
         .row
           .small-3.columns
           .small-9.columns
-            .small.button.width-fill
-              All events!
+            = link_to events_path do
+              .small.button.width-fill
+                All events!
 
     -#%p
     -#  = link_to 'Users:', users_path
