@@ -18,6 +18,10 @@
 
 @import "compass/css3/animation";
 
+$primary-color: #3e44fe;
+$background-color: #EFEFEF;
+$text-color: #000;
+
 @mixin simple-transition {
   @include transition(all, 0.5s, ease-in-out);
 }
@@ -34,42 +38,85 @@ h3 {
   @extend .title-look;
 }
 
-div {
-  &.grid_item {
-    text-align: center;
+body, main {
+  background: $background-color;
+}
 
-    .contents {
-      color: black;
-      opacity: 1;
-      text-align: center;
-      display: inline-block;
-      @include simple-transition;
-      width: 100%;
-    }
+nav.top-bar {
+  text-align:center;
+}
+div.top-bar-section {
+  display: inline-block;
+}
 
-    &:hover {
-      opacity: 0.7;
-      @include simple-transition;
-    }
+.width-fill {
+  width: 100%;
+}
 
-    img {
-      width: 100%;
-    }
+.button {
+  background-color: $primary-color;
+  font-weight: bold;
 
-    p {
-      background: white;
-      margin: 0.5em 0;
-    }
-
-    .text {
-      @extend .title-look;
-
-      font-size: 1.5rem;
-      line-height: 1.5rem;
-      padding: 0.5em 0.2em;
-      font-weight: bold;
-    }
+  &.small {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
   }
+
+  &:hover {
+    background-color: #000000;
+    color: white;
+  }
+}
+
+a {
+  opacity: 1;
+  color: $text-color;
+  @include simple-transition;
+
+  &:hover {
+    opacity: 0.7;
+    color: $text-color;
+    @include simple-transition;
+  }
+
+  &:visited {
+    color: $text-color;
+  }
+}
+
+.contents {
+  color: black;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+}
+
+img {
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  background: white;
+  margin: 0.5rem 0;
+}
+
+.important {
+  background: $primary-color;
+  color: #ffffff;
+}
+
+.text {
+  @extend .title-look;
+
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  padding: 0.5em 0.2em;
+  font-weight: bold;
+
+  text-align: center;
 }
 
 .border-top {
@@ -78,4 +125,14 @@ div {
 
 .border-bottom {
   border-bottom: solid black 0.5rem;
+}
+
+ul.block-list {
+  margin-left: 0;
+  @extend p;
+
+  li {
+    @extend p;
+    list-style: none;
+  }
 }

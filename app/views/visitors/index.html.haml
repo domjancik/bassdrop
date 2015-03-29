@@ -1,17 +1,32 @@
-%h2 Welcome
+.row
+  .small-12.medium-9.columns
+    %h2 Welcome
 
-- unless @next_event.nil?
-  %h3 Next Event
-  %p= image_tag @next_event.image_url_cached
-  %p= @next_event
+    - unless @next_event.nil?
+      = link_to @next_event do
+        %p.text.important Next Event
+        %p= image_tag @next_event.image_url_cached
+        %p.text= @next_event
 
-%h3
-  Upcoming events
-  %ul
-    - @upcoming_events.each do |event|
-      %li= event
+  .small-12.medium-3.columns
+    %h3
+      Upcoming
+    %ul.block-list
+      - @upcoming_events.each do |event|
+        %li
+          .row
+            .small-3.columns
+              DATE
+            .small-9.columns
+              = event
+      %li
+        .row
+          .small-3.columns
+          .small-9.columns
+            .small.button.width-fill
+              All events!
 
-%p
-  = link_to 'Users:', users_path
-  = User.count
-  registered
+    -#%p
+    -#  = link_to 'Users:', users_path
+    -#  = User.count
+    -#  registered
