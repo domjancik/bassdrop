@@ -13,3 +13,69 @@
  *= require_tree .
  *= require_self
  */
+
+@import "compass";
+
+@import "compass/css3/animation";
+
+@mixin simple-transition {
+  @include transition(all, 0.5s, ease-in-out);
+}
+
+.title-look {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+  @extend .title-look;
+}
+
+div {
+  &.grid_item {
+    text-align: center;
+
+    .contents {
+      color: black;
+      opacity: 1;
+      text-align: center;
+      display: inline-block;
+      @include simple-transition;
+      width: 100%;
+    }
+
+    &:hover {
+      opacity: 0.7;
+      @include simple-transition;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    p {
+      background: white;
+      margin: 0.5em 0;
+    }
+
+    .text {
+      @extend .title-look;
+
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+      padding: 0.5em 0.2em;
+      font-weight: bold;
+    }
+  }
+}
+
+.border-top {
+  border-top: solid black 0.5rem;
+}
+
+.border-bottom {
+  border-bottom: solid black 0.5rem;
+}

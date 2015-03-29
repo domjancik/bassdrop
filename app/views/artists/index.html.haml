@@ -1,5 +1,3 @@
-%h1 Artists
-
 - @artist_groups.each do |artist_group|
   %h1= t artist_group[:name], scope: 'artist.roles'
   %p= render partial: 'artist_grid', locals: {artists: artist_group[:artists]}

@@ -1,9 +1,12 @@
 %li
-  %p
-    - image_url = artist_grid_item.image_url
-    - if !image_url.nil?
-      = image_tag(artist_grid_item.image_url)
-    - else
-      = image_tag('default_avatar.jpg')
-  %p= link_to artist_grid_item, artist_grid_item
-  %p= artist_grid_item.role
+  = link_to artist_grid_item do
+    %div.grid_item
+      %div.contents
+        %p
+          - image_url = artist_grid_item.image_url
+          - if !image_url.nil?
+            = image_tag(artist_grid_item.image_url)
+          - else
+            = image_tag('default_avatar.jpg')
+        %p.text= artist_grid_item
+        -#%p= artist_grid_item.role
