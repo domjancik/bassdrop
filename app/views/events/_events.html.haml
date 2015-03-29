@@ -15,9 +15,9 @@
           .small-12.medium-8.columns
             %p.text
               headliners
-        -#- if user_signed_in?
-        -#  %p.text
-        -#    - if policy(event).edit?
-        -#      = link_to 'Edit', edit_event_path(event)
-        -#    - if policy(event).destroy?
-        -#      = link_to 'Destroy', event, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        - if user_signed_in?
+          %p.text
+            - if policy(event).edit?
+              = link_to 'Edit', edit_event_path(event)
+            - if policy(event).destroy?
+              = link_to 'Destroy', event, :method => :delete, :data => { :confirm => 'Are you sure?' }
