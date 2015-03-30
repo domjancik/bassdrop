@@ -150,15 +150,30 @@ h3 {
   margin: 1rem 0 0.5rem 0;
 }
 
-h1.hello {
+.white-on-transparent {
   color: $block-color;
   background: none;
+}
+
+h1.hello {
+  @extend .white-on-transparent;
   text-align: left;
+}
+
+.footer {
+  @extend .white-on-transparent;
+  text-align: right;
+  @extend .title-look;
 }
 
 .important {
   background: $primary-color;
-  color: #ffffff;
+  color: $block-color;
+}
+
+span.important {
+  background: none;
+  color: $primary-color;
 }
 
 .text {
