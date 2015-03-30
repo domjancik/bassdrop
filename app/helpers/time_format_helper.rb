@@ -17,4 +17,8 @@ module TimeFormatHelper
       + I18n.l(event.date_end, format: :event_date_to)
     end
   end
+
+  def event_time(event)
+    I18n.l event.date_start, format: :event_time
+  end
 end

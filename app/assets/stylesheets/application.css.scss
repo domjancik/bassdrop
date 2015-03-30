@@ -84,18 +84,23 @@ body, main {
 }
 
 .button {
-  background-color: $primary-color;
+//  background-color: $primary-color;
   font-weight: bold;
+  color: $block-color;
 
-  &.small {
-    padding-top: 0.2rem;
-    padding-bottom: 0.2rem;
+  a {
+    @extend .button;
   }
-
-  &:hover {
-    background-color: #000000;
-    color: $block-color;
-  }
+//
+//  &.small {
+//    padding-top: 0.2rem;
+//    padding-bottom: 0.2rem;
+//  }
+//
+//  &:hover {
+//    background-color: #000000;
+//    color: $block-color;
+//  }
 }
 
 a {
@@ -137,7 +142,7 @@ img {
 
 p {
   background: $block-color;
-  margin: 0.25rem 0;
+  margin: 0.5rem 0;
   font-family: $body-font-family;
 }
 

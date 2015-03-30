@@ -35,6 +35,7 @@ en:
       artist: And also had these
   time:
     formats:
+      event_time: '%-H:%M'
       event_date: '%-d / %-m'
       event_date_from: '%-d–'
       event_date_to: '%-d / %-m'

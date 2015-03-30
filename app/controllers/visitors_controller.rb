@@ -1,6 +1,7 @@
 class VisitorsController < ApplicationController
   helper SocialHelper
   helper WelcomeHelper
+  helper TimeFormatHelper
 
   def index
     @next_event = policy_scope(Event).next

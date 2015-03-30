@@ -7,7 +7,9 @@
       = link_to @next_event do
         .wow.fadeInUp
           .hover
-            %p.text.nospace.important Next Event
+            %p.text.nospace.important
+              Next Event -
+              = event_date @next_event
             %p.nospace= image_tag @next_event.image_url_cached
             %p.text.nospace= @next_event
 
@@ -16,21 +18,24 @@
     -#  Upcoming
     .row
       .small-12.columns
-        %ul.block-list.wow.fadeInUp.nospace
-          - @upcoming_events.each do |event|
-            %li
-              .row
-                .small-3.columns
-                  DATE
-                .small-9.columns
-                  = event
-          %li
-            .row
-              .small-3.columns
-              .small-9.columns
-                = link_to events_path do
-                  .small.button.width-fill
-                    All events!
+        %div#upcoming_events.wow.fadeInUp
+          %ul.block-list.nospace
+            - @upcoming_events.each do |event|
+              %li
+                = link_to event do
+                  .row.hover
+                    .small-3.columns
+                      = event_date event
+                    .small-9.columns.text-right
+                      %strong
+                        = event
+                      %br
+                      = event_time event
+          %p.nospace
+            %div
+              = link_to events_path do
+                .small.button.width-fill
+                  ALL EVENTS
         %p
           - delay = 1
           - delay_each = 0.3
