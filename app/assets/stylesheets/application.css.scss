@@ -155,10 +155,14 @@ h3 {
   background: none;
 }
 
-h1.hello {
+h1 {
   @extend .white-on-transparent;
   text-align: left;
 }
+
+//h1 {
+//  @extend h1.hello;
+//}
 
 .footer {
   @extend .white-on-transparent;
@@ -212,6 +216,17 @@ ul.block-list {
   vertical-align: middle;
   background: none no-repeat scroll 50% 50% / 100% $text-color;
 }
+
+// Events
+
+.event {
+  &.date {
+    position: absolute;
+    width: 100% !important;
+  }
+}
+
+// Fixes
 
 .js .wow {
   visibility: hidden;

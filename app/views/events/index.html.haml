@@ -3,8 +3,9 @@
 = render partial: 'events', object: @upcoming_events
 
 %h1.wow.fadeIn Past
-= render partial: 'events', object: @past_events
-
+- @past_years.each do |year|
+  %h1.wow.fadeIn.text-right= year[:year]
+  = render partial: 'events', object: year[:events]
 %br
 
 = link_to 'New Event', new_event_path

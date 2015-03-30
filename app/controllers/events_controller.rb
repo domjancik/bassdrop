@@ -2,11 +2,15 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   helper TimeFormatHelper
 
+  PAST_YEARS = [2015, 2014, 2013]
+
   # GET /events
   # GET /events.json
   def index
     @upcoming_events = policy_scope Event.upcoming
-    @past_events = policy_scope Event.past
+
+    @past_years = []
+    PAST_YEARS.each { |year| @past_years << { year: year, events: policy_scope(Event.past_year year) } }
   end
 
   # GET /events/1

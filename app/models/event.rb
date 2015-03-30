@@ -17,6 +17,7 @@ class Event < ActiveRecord::Base
 
   scope :upcoming, -> { where('date_start > ?', Time.now).reorder('date_start asc') }
   scope :past, -> { where('date_start <= ?', Time.now) }
+  scope :past_year, ->(year) { past.where('YEAR(date_start) = ?', year) }
 
   def to_s
     title
