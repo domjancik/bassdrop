@@ -95,7 +95,7 @@ $font-family-sans-serif: "Montserrat", "Helvetica Neue", Helvetica, Roboto, Aria
 // $font-weight-normal: normal;
 // $font-weight-bold: bold;
 
-// $white       : #FFFFFF;
+$white       : #FFFFFF;
 // $ghost       : #FAFAFA;
 // $snow        : #F9F9F9;
 // $vapor       : #F6F6F6;
@@ -116,7 +116,7 @@ $jet         : #222222;
 $black       : #000000;
 
 // We use these as default colors throughout
-// $primary-color: #008CBA;
+$primary-color: #3e44fe;
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
@@ -256,7 +256,7 @@ $body-font-family: $font-family-sans-serif;
 // We use these to style anchors
 // $anchor-text-decoration: none;
 // $anchor-text-decoration-hover: none;
-// $anchor-font-color: $primary-color;
+$anchor-font-color: $jet;
 // $anchor-font-color-hover: scale-color($anchor-font-color, $lightness: -14%);
 
 // We use these to style the <hr> element
@@ -706,8 +706,8 @@ $body-font-family: $font-family-sans-serif;
 // $icon-bar-icon-size: 1.875rem;
 // $icon-bar-image-width: 1.875rem;
 // $icon-bar-image-height: 1.875rem;
-// $icon-bar-active-color: $primary-color;
-// $icon-bar-item-padding: 1.25rem;
+//$icon-bar-active-color: $primary-color;
+$icon-bar-item-padding: 0.5rem;
 
 // We use this to set default opacity and cursor for disabled icons.
 // $icon-bar-disabled-opacity: .7;

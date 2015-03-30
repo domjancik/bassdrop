@@ -21,6 +21,12 @@
 
 en:
   hello: "Hello world"
+
+  facebook: "Facebook"
+  soundcloud: "Soundcloud"
+  instagram: "Instagram"
+  youtube: "YouTube"
+
   artist:
     roles:
       bassdrop: We are

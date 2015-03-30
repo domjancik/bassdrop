@@ -1,7 +1,8 @@
 .row
+  .small-12.columns
+    %h1.hello.wow.fadeIn= welcome_text
+.row
   .small-12.medium-9.columns
-    %h1.hello.wow.fadeIn Welcome
-
     - unless @next_event.nil?
       = link_to @next_event do
         .wow.fadeInUp
@@ -11,23 +12,34 @@
             %p.text.nospace= @next_event
 
   .small-12.medium-3.columns
-    %h3.wow.fadeIn
-      Upcoming
-    %ul.block-list.wow.fadeInUp
-      - @upcoming_events.each do |event|
-        %li
-          .row
-            .small-3.columns
-              DATE
-            .small-9.columns
-              = event
-      %li
-        .row
-          .small-3.columns
-          .small-9.columns
-            = link_to events_path do
-              .small.button.width-fill
-                All events!
+    -#%h3.wow.fadeIn
+    -#  Upcoming
+    .row
+      .small-12.columns
+        %ul.block-list.wow.fadeInUp.nospace
+          - @upcoming_events.each do |event|
+            %li
+              .row
+                .small-3.columns
+                  DATE
+                .small-9.columns
+                  = event
+          %li
+            .row
+              .small-3.columns
+              .small-9.columns
+                = link_to events_path do
+                  .small.button.width-fill
+                    All events!
+        %p
+          - delay = 1
+          - delay_each = 0.3
+          .icon-bar.five-up.wow.fadeIn{ 'data-wow-delay' => "#{delay}s" }
+            - social_links.each do |service|
+              - delay += delay_each
+              - title = t service[:name]
+              = link_to service[:url], title: title, class: ['wow', 'fadeIn', service[:name]], data: { 'wow-delay' => "#{delay}s" } do
+                = ' '
 
     -#%p
     -#  = link_to 'Users:', users_path
