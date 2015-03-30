@@ -1,0 +1,17 @@
+-# add navigation links to this file
+
+%li{ class: active('visitors') }= link_to 'BASS DROP', root_path
+%li{ class: active('events') }= link_to 'Events', events_path
+-#%li{ class: active('venues') }= link_to 'Venues', venues_path
+%li{ class: active('artists') }= link_to 'Artists', artists_path
+
+- if user_signed_in?
+  %li= link_to 'Edit account', edit_user_registration_path
+  %li= link_to 'Sign out', destroy_user_session_path, :method=>'delete'
+-#- else
+-#  %li= link_to 'Sign in', new_user_session_path
+-#  %li= link_to 'Sign up', new_user_registration_path
+- if user_signed_in?
+  - if current_user.admin?
+    %li= link_to 'Admin', '/admin'
+    %li= link_to 'Users', users_path
