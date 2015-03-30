@@ -1,25 +1,24 @@
 %ul.small-block-grid-1.medium-block-grid-2
-  - events.each do |event|
+  - events.each_with_index do |event, index|
     %li
       = link_to event do
         - delay = Random.rand(5).to_f / 10.0
-        %div.wow.fadeInUp{ 'data-wow-offset' => '20', 'data-wow-delay' => "#{delay}s" }
-          %div.hover
+        .wow.fadeInUp{ 'data-wow-offset' => '20', 'data-wow-delay' => "#{delay}s" }
+          .hover
             .row.collapse
-              %p.line-image{style: "background-image: url(#{event.image_url_cached})"}
-                -#= image_tag event.image_url_cached
+              %p.line-image.nospace{style: "background-image: url(#{event.image_url_cached})"}
             .row.collapse
-              %p.text
+              %p.text.nospace
                 = event
             .row.collapse
               .small-12.medium-4.columns
-                %p.text.important
+                %p.text.important.nospace
                   = event_date event
               .small-12.medium-8.columns
-                %p.text
+                %p.text.nospace
                   headliners
               - if user_signed_in?
-                %p.text
+                %p.text.nospace
                   - if policy(event).edit?
                     = link_to 'Edit', edit_event_path(event)
                   - if policy(event).destroy?

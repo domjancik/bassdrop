@@ -113,6 +113,10 @@ p {
   font-family: $body-font-family;
 }
 
+p.nospace {
+  margin: 0;
+}
+
 h1,
 h2,
 h3 {
@@ -159,4 +163,8 @@ ul.block-list {
   overflow: hidden;
   vertical-align: middle;
   background: none no-repeat scroll 50% 50% / 100% $text-color;
+}
+
+.js .wow {
+  visibility: hidden;
 }

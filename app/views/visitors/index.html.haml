@@ -1,17 +1,19 @@
 .row
   .small-12.medium-9.columns
-    %h2 Welcome
+    %h2.wow.fadeIn Welcome
 
     - unless @next_event.nil?
       = link_to @next_event do
-        %p.text.important Next Event
-        %p= image_tag @next_event.image_url_cached
-        %p.text= @next_event
+        .wow.fadeInUp
+          .hover
+            %p.text.nospace.important Next Event
+            %p.nospace= image_tag @next_event.image_url_cached
+            %p.text.nospace= @next_event
 
   .small-12.medium-3.columns
-    %h3
+    %h3.wow.fadeIn
       Upcoming
-    %ul.block-list
+    %ul.block-list.wow.fadeInUp
       - @upcoming_events.each do |event|
         %li
           .row
