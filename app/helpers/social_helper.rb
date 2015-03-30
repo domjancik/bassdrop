@@ -1,9 +1,9 @@
 module SocialHelper
   SOCIAL_LINKS = [
-    { name: 'facebook', url: 'http://facebook.com' },
-    { name: 'soundcloud', url: 'http://soundcloud.com' },
-    { name: 'youtube', url: 'http://' },
-    { name: 'instagram', url: 'http://' },
+    { name: 'facebook', url: 'https://www.facebook.com/bassdropcz' },
+    { name: 'soundcloud', url: 'https://www.soundcloud.com/bass-drop-records' },
+    { name: 'youtube', url: 'https://www.youtube.com/bassdropcz' },
+    { name: 'instagram', url: 'https://instagram.com/bassdropcz/' },
   ]
 
   def social_links
