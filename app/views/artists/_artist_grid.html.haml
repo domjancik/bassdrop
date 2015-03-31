@@ -1,7 +1,7 @@
-- unless defined? small
+- unless defined? xcount
   - classes = %w(small-block-grid-2 medium-block-grid-5)
 - else
-  - classes = %w(small-block-grid-2)
+  - classes = ["small-block-grid-#{xcount}"]
 %ul{class: classes}
   = render partial: 'artists/artist_grid_item', collection: artists
 %br

@@ -50,8 +50,12 @@ $soundcloud-letter: 'n';
 $instagram-color: #9c7c6e;
 $instagram-letter: 'x';
 
+@mixin simple-transition-dur($duration) {
+  @include transition(all, $duration, ease-in-out);
+}
+
 @mixin simple-transition {
-  @include transition(all, 200ms, ease-in-out);
+  @include simple-transition-dur(200ms);
 }
 
 .title-look {
@@ -83,6 +87,9 @@ body, main {
   width: 100%;
 }
 
+// OVERRIDES
+// Button
+
 .button {
 //  background-color: $primary-color;
   font-weight: bold;
@@ -91,17 +98,26 @@ body, main {
   a {
     @extend .button;
   }
-//
-//  &.small {
-//    padding-top: 0.2rem;
-//    padding-bottom: 0.2rem;
-//  }
-//
-//  &:hover {
-//    background-color: #000000;
-//    color: $block-color;
-//  }
 }
+
+// Tab (added transitions)
+// TODO, problems with width for absolute positioned content
+//.tabs-content {
+//  > .content {
+//    display: block;
+//    opacity: 0;
+//    position: absolute;
+//    @include simple-transition-dur(500ms)
+//
+//  }
+//  > .content.active {
+//    opacity: 1;
+//    position: relative;
+//    @include simple-transition-dur(500ms)
+//  }
+//}
+
+// REST
 
 a {
 //  opacity: 1;
@@ -209,7 +225,7 @@ span.important {
 .text {
   @extend .title-look;
 
-  font-size: 1.5rem;
+  font-size: 1rem;
   line-height: 1.5rem;
   padding: 0.5em 0.2em;
   font-weight: bold;
@@ -217,12 +233,24 @@ span.important {
   text-align: center;
 }
 
+.text-bigger {
+  font-size: 1.5rem;
+}
+
 .border-top {
   border-top: solid black 0.5rem;
 }
 
 .border-bottom {
-  border-bottom: solid black 0.5rem;
+  border-bottom: solid $primary-color 0.5rem;
+}
+
+.margin-top {
+  margin-top: 0.5rem;
+}
+
+.margin-bottom {
+  margin-bottom: 0.5rem;
 }
 
 ul.block-list {
@@ -251,7 +279,7 @@ ul.block-list {
     width: 100% !important;
   }
 
-  &.description {
+  &__description {
     background-color: $block-color;
 
     a {
@@ -261,6 +289,21 @@ ul.block-list {
     a:hover {
       color: $text-color;
     }
+  }
+
+  &__quickinfo {
+    @extend .text-bigger;
+  }
+
+  &__venue {
+    @extend .text-bigger;
+    text-align: right;
+  }
+
+  &__tab-title {
+    width: 50%;
+    text-align: center;
+    @extend .title-look
   }
 }
 

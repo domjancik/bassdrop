@@ -16,52 +16,33 @@
   = @event.title
 .row
   .small-12.medium-4.columns.wow.fadeIn{ 'data-wow-delay' => "0.7s" }
-    %p.text.important
+    %p.text.important.event__quickinfo
       = event_date @event
   .small-12.medium-4.columns.wow.fadeIn{ 'data-wow-delay' => "1.0s" }
-    %p.text.inverted
+    %p.text.inverted.event__quickinfo
       = event_time @event
   .small-12.medium-4.columns.wow.fadeIn{ 'data-wow-delay' => "1.3s" }
     = link_to fb_link(@event.link_fb), target: :blank do
       .hover
-        %p.text.facebook
+        %p.text.facebook.event__quickinfo
 
 .event.content.wow.fadeIn{ 'data-wow-delay' => "1.8s" }
-  - unless @event.venue.nil?
-    %p
-      = @event.venue
+
 
   - unless @event.preorder_url.nil? || @event.preorder_url.empty?
     %p
       %b Preorder:
       = link_to @event.preorder_url
 
-  -# Artists write out
   .row
     .small-12.medium-8.columns
-      .event.description.padded
-        -#=
+      - unless @event.venue.nil?
+        .event__description.padded.margin-bottom
+          %p.event__venue
+            At
+            = link_to(@event.venue)
+      .event__description.padded
         = auto_link simple_format(@event.description)
 
     .small-12.medium-4.columns
-      - unless @event.artists.empty?
-        %h2 Artists
-
-        = render partial: 'artists/artist_grid', locals: {artists: @event.headliners}
-        = render partial: 'artists/artist_grid', locals: {artists: @event.non_headliners, small: true}
-
-      -# Performances write out (Line up)
-      - unless @event.stages.empty?
-        %h2 Lineup
-
-        - @event.stages.each do |stage|
-          %h3= stage
-          %table
-            - @event.stage_lineup(stage).each do |performance|
-              %tr
-                %td= lineup_from_to(performance.date_start, performance.date_end)
-                %td
-                  - if(performance.is_headliner?)
-                    %b= performance.artist
-                  - else
-                    = performance.artist
+      = render 'artists_lineup'
