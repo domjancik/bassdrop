@@ -8,14 +8,3 @@
   - unless @event.stages.empty?
     %h2 Lineup
 
-    - @event.stages.each do |stage|
-      %h3= stage
-      %table
-        - @event.stage_lineup(stage).each do |performance|
-          %tr
-            %td= lineup_from_to(performance.date_start, performance.date_end)
-            %td
-              - if(performance.is_headliner?)
-                %b= performance.artist
-              - else
-                = performance.artist
