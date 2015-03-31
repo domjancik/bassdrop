@@ -4,29 +4,32 @@
 
 %h1
   = @event.title
+.row
+  .small-12.medium-4.columns
+    %p.text.important
+      = event_date @event
+  .small-12.medium-4.columns
+    %p.text.important
+      = event_time @event
+  .small-12.medium-4.columns
+    %p.text.important.facebook
 
 %p
   %b Venue:
   = @event.venue
 %p
-  %b Date start:
-  = @event.date_start
-%p
-  %b Date end:
-  = @event.date_end
-%p
   %b Preorder url:
   = @event.preorder_url
-%p
-  %b Description:
+.event.description.padded
   = simple_format(@event.description)
 
 -# Artists write out
 
-%h2 Artists
+- unless @event.artists.empty?
+  %h2 Artists
 
-= render partial: 'artists/artist_grid', locals: {artists: @event.headliners}
-= render partial: 'artists/artist_grid', locals: {artists: @event.non_headliners, small: true}
+  = render partial: 'artists/artist_grid', locals: {artists: @event.headliners}
+  = render partial: 'artists/artist_grid', locals: {artists: @event.non_headliners, small: true}
 
 -# Performances write out (Line up)
 - unless @event.stages.empty?
@@ -44,6 +47,7 @@
             - else
               = performance.artist
 
-= link_to 'Edit', edit_event_path(@event)
-\|
-= link_to 'Back', events_path
+- if user_signed_in?
+  = link_to 'Edit', edit_event_path(@event)
+  \|
+  = link_to 'Back', events_path

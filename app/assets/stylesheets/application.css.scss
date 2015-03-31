@@ -155,6 +155,10 @@ p {
   font-family: $body-font-family;
 }
 
+.padded {
+  padding: 1rem;
+}
+
 .nospace {
   margin: 0 !important;
 }
@@ -241,6 +245,10 @@ ul.block-list {
     position: absolute;
     width: 100% !important;
   }
+
+  &.description {
+    background-color: $block-color;
+  }
 }
 
 // Fixes
@@ -255,6 +263,7 @@ ul.block-list {
   background-color: $color;
   color: $block-color;
   font-family: 'socicon';
+  text-transform: none !important;
 
   &:before {
     content: $letter;
