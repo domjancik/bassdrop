@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :performances
+  resources :events do
+    resources :performances, shallow: true
+  end
 
   resources :stages
 
@@ -8,8 +10,6 @@ Rails.application.routes.draw do
   resources :cities
 
   resources :countries
-
-  resources :events
 
   resources :venues
 

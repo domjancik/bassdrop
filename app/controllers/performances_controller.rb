@@ -4,7 +4,14 @@ class PerformancesController < ApplicationController
   # GET /performances
   # GET /performances.json
   def index
-    @performances = policy_scope Performance.all
+    unless params.has_key? :event_id
+      @performances = policy_scope Performance.all
+    else
+      @event = policy_scope Event.find params[:event_id]
+      @performances = policy_scope @event.performances
+      # @performances = (Event.find params[:event_id]).performances
+      # @performances = policy_scope Performance.all
+    end
   end
 
   # GET /performances/1
@@ -16,6 +23,8 @@ class PerformancesController < ApplicationController
   def new
     @performance = Performance.new
     authorize @performance
+
+    @event = Event.find params[:event_id]
   end
 
   # GET /performances/1/edit
@@ -26,11 +35,14 @@ class PerformancesController < ApplicationController
   # POST /performances.json
   def create
     @performance = Performance.new(performance_params)
+    @event = Event.find params[:event_id]
+    @performance.event = @event
+
     authorize @performance
 
     respond_to do |format|
       if @performance.save
-        format.html { redirect_to @performance, notice: 'Performance was successfully created.' }
+        format.html { redirect_to event_performances_url(@event), notice: 'Performance was successfully created.' }
         format.json { render :show, status: :created, location: @performance }
       else
         format.html { render :new }
@@ -58,7 +70,7 @@ class PerformancesController < ApplicationController
   def destroy
     @performance.destroy
     respond_to do |format|
-      format.html { redirect_to performances_url, notice: 'Performance was successfully destroyed.' }
+      format.html { redirect_to event_performances_url(@performance.event), notice: 'Performance was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

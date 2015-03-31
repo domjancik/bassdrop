@@ -1,9 +1,9 @@
-%h1 Listing performances
+%h1= @event
+%h2 Performances
 
 %table
   %thead
     %tr
-      %th Event
       %th Artist
       %th Stage
       %th Date start
@@ -16,7 +16,6 @@
   %tbody
     - @performances.each do |performance|
       %tr
-        %td= performance.event
         %td= performance.artist
         %td= performance.stage
         %td= performance.date_start
@@ -28,4 +27,6 @@
 
 %br
 
-= link_to 'New Performance', new_performance_path
+= link_to 'New Performance', new_event_performance_path(@event)
+\|
+= link_to 'Back', @event

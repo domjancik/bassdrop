@@ -1,5 +1,14 @@
 %p#notice= notice
 
+- if user_signed_in?
+  = link_to 'Add performance', new_event_performance_path(@event)
+  \|
+  = link_to 'Show performances', event_performances_path(@event)
+  \|
+  = link_to 'Edit', edit_event_path(@event)
+  \|
+  = link_to 'Back', events_path
+
 .row.wow.fadeInUp{ 'data-wow-duration' => "0.8s" }
   = image_tag(@event.image_url_cached, alt: @event)
 
@@ -26,35 +35,33 @@
     %p
       %b Preorder:
       = link_to @event.preorder_url
-  .event.description.padded
-    -#=
-    = auto_link simple_format(@event.description)
 
   -# Artists write out
+  .row
+    .small-12.medium-8.columns
+      .event.description.padded
+        -#=
+        = auto_link simple_format(@event.description)
 
-  - unless @event.artists.empty?
-    %h2 Artists
+    .small-12.medium-4.columns
+      - unless @event.artists.empty?
+        %h2 Artists
 
-    = render partial: 'artists/artist_grid', locals: {artists: @event.headliners}
-    = render partial: 'artists/artist_grid', locals: {artists: @event.non_headliners, small: true}
+        = render partial: 'artists/artist_grid', locals: {artists: @event.headliners}
+        = render partial: 'artists/artist_grid', locals: {artists: @event.non_headliners, small: true}
 
-  -# Performances write out (Line up)
-  - unless @event.stages.empty?
-    %h2 Lineup
+      -# Performances write out (Line up)
+      - unless @event.stages.empty?
+        %h2 Lineup
 
-    - @event.stages.each do |stage|
-      %h3= stage
-      %table
-        - @event.stage_lineup(stage).each do |performance|
-          %tr
-            %td= lineup_from_to(performance.date_start, performance.date_end)
-            %td
-              - if(performance.is_headliner?)
-                %b= performance.artist
-              - else
-                = performance.artist
-
-  - if user_signed_in?
-    = link_to 'Edit', edit_event_path(@event)
-    \|
-    = link_to 'Back', events_path
+        - @event.stages.each do |stage|
+          %h3= stage
+          %table
+            - @event.stage_lineup(stage).each do |performance|
+              %tr
+                %td= lineup_from_to(performance.date_start, performance.date_end)
+                %td
+                  - if(performance.is_headliner?)
+                    %b= performance.artist
+                  - else
+                    = performance.artist

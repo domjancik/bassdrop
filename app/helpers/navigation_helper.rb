@@ -1,5 +1,9 @@
 module NavigationHelper
   def active(controller)
-    current_page?(controller: controller) ? 'active' : ''
+    begin
+      current_page?(controller: controller) ? 'active' : ''
+    rescue ActionController::UrlGenerationError
+      false
+    end
   end
 end

@@ -1,12 +1,9 @@
-= simple_form_for(@performance) do |f|
+= simple_form_for [@event, @performance] do |f|
   = f.error_notification
 
   .form-inputs
-    -#= f.association :event
     = f.association :artist
     = f.association :stage
-    = f.input :date_start, include_blank: true
-    = f.input :date_end, include_blank: true
     = f.input :is_headliner
 
   .form-actions
