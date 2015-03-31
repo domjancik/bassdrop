@@ -1,56 +1,60 @@
 %p#notice= notice
 
-= image_tag(@event.image_url_cached, alt: @event)
+.row.wow.fadeInUp{ 'data-wow-duration' => "0.8s" }
+  = image_tag(@event.image_url_cached, alt: @event)
 
-%h1
+%h1.row.wow.fadeInUp{ 'data-wow-delay' => "0.3s" }
   = @event.title
 .row
-  .small-12.medium-4.columns
+  .small-12.medium-4.columns.wow.fadeIn{ 'data-wow-delay' => "0.7s" }
     %p.text.important
       = event_date @event
-  .small-12.medium-4.columns
+  .small-12.medium-4.columns.wow.fadeIn{ 'data-wow-delay' => "1.0s" }
     %p.text.inverted
       = event_time @event
-  .small-12.medium-4.columns
-    = link_to @event.link_fb do
-      %p.text.facebook
+  .small-12.medium-4.columns.wow.fadeIn{ 'data-wow-delay' => "1.3s" }
+    = link_to fb_link(@event.link_fb), target: :blank do
+      .hover
+        %p.text.facebook
 
-- unless @event.venue.nil?
-  %p
-    = @event.venue
+.event.content.wow.fadeIn{ 'data-wow-delay' => "1.8s" }
+  - unless @event.venue.nil?
+    %p
+      = @event.venue
 
-- unless @event.preorder_url.nil?
-  %p
-    %b Preorder:
-    = link_to @event.preorder_url
-.event.description.padded
-  = simple_format(@event.description)
+  - unless @event.preorder_url.nil? || @event.preorder_url.empty?
+    %p
+      %b Preorder:
+      = link_to @event.preorder_url
+  .event.description.padded
+    -#=
+    = auto_link simple_format(@event.description)
 
--# Artists write out
+  -# Artists write out
 
-- unless @event.artists.empty?
-  %h2 Artists
+  - unless @event.artists.empty?
+    %h2 Artists
 
-  = render partial: 'artists/artist_grid', locals: {artists: @event.headliners}
-  = render partial: 'artists/artist_grid', locals: {artists: @event.non_headliners, small: true}
+    = render partial: 'artists/artist_grid', locals: {artists: @event.headliners}
+    = render partial: 'artists/artist_grid', locals: {artists: @event.non_headliners, small: true}
 
--# Performances write out (Line up)
-- unless @event.stages.empty?
-  %h2 Lineup
+  -# Performances write out (Line up)
+  - unless @event.stages.empty?
+    %h2 Lineup
 
-  - @event.stages.each do |stage|
-    %h3= stage
-    %table
-      - @event.stage_lineup(stage).each do |performance|
-        %tr
-          %td= lineup_from_to(performance.date_start, performance.date_end)
-          %td
-            - if(performance.is_headliner?)
-              %b= performance.artist
-            - else
-              = performance.artist
+    - @event.stages.each do |stage|
+      %h3= stage
+      %table
+        - @event.stage_lineup(stage).each do |performance|
+          %tr
+            %td= lineup_from_to(performance.date_start, performance.date_end)
+            %td
+              - if(performance.is_headliner?)
+                %b= performance.artist
+              - else
+                = performance.artist
 
-- if user_signed_in?
-  = link_to 'Edit', edit_event_path(@event)
-  \|
-  = link_to 'Back', events_path
+  - if user_signed_in?
+    = link_to 'Edit', edit_event_path(@event)
+    \|
+    = link_to 'Back', events_path

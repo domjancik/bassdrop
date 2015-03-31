@@ -1,4 +1,7 @@
 module FacebookHelper
+  GRAPH_URL = 'https://graph.facebook.com/v2.3'
+  HOME_URL = 'https://www.facebook.com'
+
   def self.access_token
     app_id = ENV['facebook_app_id']
     app_secret = ENV['facebook_secret']
@@ -6,6 +9,10 @@ module FacebookHelper
   end
 
   def self.graph_url
-    'https://graph.facebook.com/v2.3'
+    GRAPH_URL
+  end
+
+  def fb_link(fb_id)
+    HOME_URL + '/' + fb_id
   end
 end

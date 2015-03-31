@@ -26,6 +26,7 @@ gem 'upmin-admin'
 gem 'json'
 gem 'rest-client'
 gem 'figaro'
+gem 'rinku'
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'

@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   helper TimeFormatHelper
+  helper FacebookHelper
 
   PAST_YEARS = [2015, 2014, 2013]
 

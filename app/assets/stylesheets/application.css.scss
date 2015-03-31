@@ -253,6 +253,14 @@ ul.block-list {
 
   &.description {
     background-color: $block-color;
+
+    a {
+      color: $primary-color;
+    }
+
+    a:hover {
+      color: $text-color;
+    }
   }
 }
 
