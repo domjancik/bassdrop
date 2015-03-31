@@ -196,6 +196,11 @@ h1 {
   color: $block-color;
 }
 
+.inverted {
+  background: $text-color;
+  color: $block-color;
+}
+
 span.important {
   background: none;
   color: $primary-color;

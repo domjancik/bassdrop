@@ -9,17 +9,20 @@
     %p.text.important
       = event_date @event
   .small-12.medium-4.columns
-    %p.text.important
+    %p.text.inverted
       = event_time @event
   .small-12.medium-4.columns
-    %p.text.important.facebook
+    = link_to @event.link_fb do
+      %p.text.facebook
 
-%p
-  %b Venue:
-  = @event.venue
-%p
-  %b Preorder url:
-  = @event.preorder_url
+- unless @event.venue.nil?
+  %p
+    = @event.venue
+
+- unless @event.preorder_url.nil?
+  %p
+    %b Preorder:
+    = link_to @event.preorder_url
 .event.description.padded
   = simple_format(@event.description)
 
