@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150328215534) do
+ActiveRecord::Schema.define(version: 20150401114101) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",               limit: 255
@@ -77,9 +77,11 @@ ActiveRecord::Schema.define(version: 20150328215534) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.boolean  "is_headliner", limit: 1
+    t.integer  "b2b_id",       limit: 4
   end
 
   add_index "performances", ["artist_id"], name: "index_performances_on_artist_id", using: :btree
+  add_index "performances", ["b2b_id"], name: "index_performances_on_b2b_id", using: :btree
   add_index "performances", ["event_id"], name: "index_performances_on_event_id", using: :btree
   add_index "performances", ["stage_id"], name: "index_performances_on_stage_id", using: :btree
 
@@ -144,6 +146,7 @@ ActiveRecord::Schema.define(version: 20150328215534) do
   add_foreign_key "events", "venues"
   add_foreign_key "performances", "artists"
   add_foreign_key "performances", "events"
+  add_foreign_key "performances", "performances", column: "b2b_id", on_delete: :nullify
   add_foreign_key "performances", "stages"
   add_foreign_key "stages", "venues"
 end
