@@ -2,8 +2,14 @@
 
 - @event.stages.each do |stage|
   %h2= stage
-  - @event.stage_lineup(stage).each do |performance|
-    = performance.artist
+  %ul.block-list
+    - @event.stage_lineup(stage).each do |performance|
+      - if performance.is_headliner?
+        %li.event__lineup__item--headliner
+          = render partial: 'lineup_item', object: performance
+      - else
+        %li.event__lineup__item
+          = render partial: 'lineup_item', object: performance
 
 -#- @event.stages.each do |stage|
 -#  %h3= stage

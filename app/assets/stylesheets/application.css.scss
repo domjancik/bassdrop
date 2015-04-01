@@ -87,6 +87,13 @@ body, main {
   width: 100%;
 }
 
+// Forms
+select.datetime{
+  width: 10%;
+//  margin-right: 10px;
+//  float: left;
+}
+
 // OVERRIDES
 // Button
 
@@ -304,6 +311,24 @@ ul.block-list {
     width: 50%;
     text-align: center;
     @extend .title-look
+  }
+
+  &__lineup {
+    &__item {
+      &--headliner {
+        font-weight: bold;
+      }
+    }
+
+    &__time {
+      &__hour {
+      }
+
+      &__minute {
+        vertical-align: super;
+        font-size: 50%;
+      }
+    }
   }
 }
 

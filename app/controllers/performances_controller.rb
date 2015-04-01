@@ -29,6 +29,7 @@ class PerformancesController < ApplicationController
 
   # GET /performances/1/edit
   def edit
+    @performance.date_start = @performance.date_end = @performance.event.date_start if params.has_key? :set_date
   end
 
   # POST /performances

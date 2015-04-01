@@ -23,6 +23,7 @@
         %td= performance.is_headliner?
         %td= link_to 'Show', performance
         %td= link_to 'Edit', edit_performance_path(performance)
+        %td= link_to 'Edit w/ time', edit_performance_path(performance, { set_date: true })
         %td= link_to 'Destroy', performance, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br

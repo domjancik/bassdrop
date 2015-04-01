@@ -2,11 +2,12 @@ module TimeFormatHelper
 
   # @param [DateTime] date
   def lineup_time(date)
-    date.strftime '%H:%M'
+    I18n.l date, format: :lineup_time
   end
 
-  def lineup_from_to(date_from, date_to)
-    lineup_time(date_from) + '-' + lineup_time(date_to)
+  def lineup_from_to(performance)
+    return '' if performance.date_start.nil? || performance.date_end.nil?
+    lineup_time(performance.date_start) + '-' + lineup_time(performance.date_end)
   end
 
   def event_date(event)

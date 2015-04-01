@@ -39,4 +39,5 @@ en:
       event_date: '%-d / %-m'
       event_date_from: '%-d–'
       event_date_to: '%-d / %-m'
+      lineup_time: '<span class="event__lineup__time__hour">%H</span><span class="event__lineup__time__minute">%M</span>'
 
