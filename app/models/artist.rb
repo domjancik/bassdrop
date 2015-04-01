@@ -24,11 +24,6 @@ class Artist < ActiveRecord::Base
     image_url_cached
   end
 
-  def seconds_since_image_cache
-    return Float::INFINITY if image_url_cached_at.nil?
-    Time.now - image_url_cached_at
-  end
-
   def fb_image_url
     url = "http://graph.facebook.com/v2.3/#{link_fb}/picture?type=large"
     resp = Net::HTTP.get_response(URI.parse(url))
@@ -36,7 +31,7 @@ class Artist < ActiveRecord::Base
   end
 
   def refresh_image_cache
-    return if seconds_since_image_cache < 60 * 60 * 24 * 10
+    return unless TimeHelper.older_days image_url_cached_at, 10
     return if link_fb.nil?
     force_refresh_image_cache
   end

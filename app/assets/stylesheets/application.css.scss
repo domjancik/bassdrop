@@ -306,15 +306,29 @@ ul.block-list {
     a:hover {
       color: $text-color;
     }
+
+    &__venue {
+      @extend .text-bigger;
+      float: left;
+    }
+
+    &__attending {
+      @extend .text-bigger;
+      float: right;
+    }
+
+    &__top {
+      @extend .event__description;
+      overflow: hidden; // Dealing with floating content
+    }
+
+    &__bottom {
+      @extend .event__description;
+    }
   }
 
   &__quickinfo {
     @extend .text-bigger;
-  }
-
-  &__venue {
-    @extend .text-bigger;
-    text-align: right;
   }
 
   &__tab-title {

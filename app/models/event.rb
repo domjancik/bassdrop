@@ -35,6 +35,11 @@ class Event < ActiveRecord::Base
     performances.order :date_start
   end
 
+  def attending_count
+    self.update_stats # TODO move this to a background process so a getter method doesnt do any changes
+    self.read_attribute :attending_count
+  end
+
   # True if the event spans more than one day
   def spans_more_days?
     return false if self.date_end.nil?
@@ -43,17 +48,31 @@ class Event < ActiveRecord::Base
   end
 
   def update_from_fb
-    params = {access_token: FacebookHelper.access_token, fields: 'description,cover,place'}
-    response =  RestClient.get "#{FacebookHelper.graph_url}/#{link_fb}", {params: params}
-    json_response = JSON.parse response
+    fb_event = FacebookHelper.fetch_fb_event link_fb, 'description,cover,place'
 
-    self.venue = Venue.from_fb_json json_response['place'] if json_response.has_key? 'place'
+    self.venue = Venue.from_fb_json fb_event['place'] if fb_event.has_key? 'place'
 
-    self.description = json_response['description'] if json_response.has_key? 'description'
-    self.image_url_cached = json_response['cover']['source'] if json_response.has_key? 'cover'
+    self.description = fb_event['description'] if fb_event.has_key? 'description'
+    self.image_url_cached = fb_event['cover']['source'] if fb_event.has_key? 'cover'
 
     self.cached_at = Time.now
 
+    self.save
+  end
+
+  def seconds_since_stat_update
+    return Float::INFINITY if stats_updated_at.nil?
+    Time.now - stats_updated_at
+  end
+
+  # Update attending count and possibly more in the future
+  def update_stats
+    return unless TimeHelper.older_hours stats_updated_at, 12
+
+    fb_event = FacebookHelper.fetch_fb_event link_fb, 'attending_count'
+    self.attending_count = fb_event['attending_count']
+
+    self.stats_updated_at = Time.now
     self.save
   end
 

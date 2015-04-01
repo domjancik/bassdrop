@@ -15,4 +15,10 @@ module FacebookHelper
   def fb_link(fb_id)
     HOME_URL + '/' + fb_id
   end
+
+  def self.fetch_fb_event(event_id, fields)
+    params = {access_token: FacebookHelper.access_token, fields: fields}
+    response =  RestClient.get "#{FacebookHelper.graph_url}/#{event_id}", {params: params}
+    JSON.parse response
+  end
 end

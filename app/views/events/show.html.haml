@@ -37,11 +37,14 @@
   .row
     .small-12.medium-8.columns
       - unless @event.venue.nil?
-        .event__description.padded.margin-bottom
-          %p.event__venue
+        .event__description__top.padded.margin-bottom
+          %p.event__description__venue
             At
             = link_to(@event.venue)
-      .event__description.padded
+          %p.event__description__attending
+            = @event.attending_count
+            Going
+      .event__description__bottom.padded
         = auto_link simple_format(@event.description)
 
     .small-12.medium-4.columns

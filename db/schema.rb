@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401114101) do
+ActiveRecord::Schema.define(version: 20150401183523) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",               limit: 255
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 20150401114101) do
     t.string   "link_fb",          limit: 255
     t.datetime "cached_at"
     t.string   "image_url_cached", limit: 255
+    t.integer  "attending_count",  limit: 4
+    t.datetime "stats_updated_at"
   end
 
   add_index "events", ["link_fb"], name: "index_events_on_link_fb", unique: true, using: :btree
