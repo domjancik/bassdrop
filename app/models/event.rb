@@ -15,8 +15,8 @@ class Event < ActiveRecord::Base
   has_many :non_headliners, -> { where(:performances => {is_headliner: false}) },
            through: :performances, :source => :artist
 
-  scope :upcoming, -> { where('date_start > ?', Time.now).reorder('date_start asc') }
-  scope :past, -> { where('date_start <= ?', Time.now) }
+  scope :upcoming, -> { where('date_start > ?', 12.hours.ago).reorder('date_start asc') }
+  scope :past, -> { where('date_start <= ?', 12.hours.ago) }
   scope :past_year, ->(year) { past.where('YEAR(date_start) = ?', year) }
 
   def to_s
@@ -43,7 +43,7 @@ class Event < ActiveRecord::Base
   # True if the event spans more than one day
   def spans_more_days?
     return false if self.date_end.nil?
-    return false if self.date_end - self.date_start < 60 * 60 * 12
+    return false if self.date_end - self.date_start < 12.hours
     true
   end
 
