@@ -1,5 +1,6 @@
 class Venue < ActiveRecord::Base
   has_many :events
+  has_many :stages
   validates :title, presence: true
 
   def to_s

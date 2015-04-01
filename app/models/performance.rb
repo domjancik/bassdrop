@@ -9,4 +9,16 @@ class Performance < ActiveRecord::Base
 
   has_many :b2bs, class_name: 'Performance', foreign_key: 'b2b_id'
   belongs_to :b2b, class_name: 'Performance'
+
+  def to_s
+    string = ''
+    string << stage.title + ' | ' unless stage.nil?
+    string << artist.title
+
+    string
+  end
+
+  def is_b2b?
+    not b2b.nil?
+  end
 end

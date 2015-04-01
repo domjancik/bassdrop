@@ -30,6 +30,12 @@ class PerformancesController < ApplicationController
   # GET /performances/1/edit
   def edit
     @performance.date_start = @performance.date_end = @performance.event.date_start if params.has_key? :set_date
+    event = @performance.event
+
+    @other_performances = event.performances
+    @stages = nil
+    venue = event.venue
+    @stages = @performance.event.venue.stages unless venue.nil?
   end
 
   # POST /performances
@@ -85,6 +91,6 @@ class PerformancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def performance_params
-      params.require(:performance).permit(:event_id, :artist_id, :stage_id, :date_start, :date_end, :is_headliner)
+      params.require(:performance).permit(:event_id, :artist_id, :stage_id, :date_start, :date_end, :is_headliner, :b2b_id)
     end
 end

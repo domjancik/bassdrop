@@ -5,22 +5,28 @@
   %thead
     %tr
       %th Artist
+      %th B2B
       %th Stage
       %th Date start
       %th Date end
-      %th Headliner flag
       %th
       %th
       %th
-      
+      %th
+
   %tbody
     - @performances.each do |performance|
       %tr
-        %td= performance.artist
+        %td
+          - if performance.is_headliner?
+            %strong
+              = performance.artist
+          - else
+            = performance.artist
+        %td= performance.b2b
         %td= performance.stage
         %td= performance.date_start
         %td= performance.date_end
-        %td= performance.is_headliner?
         %td= link_to 'Show', performance
         %td= link_to 'Edit', edit_performance_path(performance)
         %td= link_to 'Edit w/ time', edit_performance_path(performance, { set_date: true })

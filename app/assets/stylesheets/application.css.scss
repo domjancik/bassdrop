@@ -260,6 +260,11 @@ span.important {
   margin-bottom: 0.5rem;
 }
 
+.note-mid {
+  font-size: 50%;
+  vertical-align: middle;
+}
+
 ul.block-list {
   margin-left: 0;
   padding: 1rem;
@@ -318,6 +323,11 @@ ul.block-list {
       &--headliner {
         font-weight: bold;
       }
+
+      &__b2b:before {
+        content: 'b2b';
+        @extend .note-mid;
+      }
     }
 
     &__time {
@@ -326,6 +336,7 @@ ul.block-list {
 
       &__minute {
         vertical-align: super;
+        line-height: 50%;
         font-size: 50%;
       }
     }

@@ -4,7 +4,8 @@
   .form-inputs
     -#= f.association :event
     = f.association :artist
-    = f.association :stage
+    = f.association :stage, collection: @stages
+    = f.association :b2b, collection: @other_performances
     = f.input :date_start, include_blank: true
     = f.input :date_end, include_blank: true
     = f.input :is_headliner

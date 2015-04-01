@@ -1,5 +1,6 @@
-.row.text-bigger
-  .small-3.columns
-    = raw lineup_from_to lineup_item
-  .small-9.columns.text-right
-    = link_to lineup_item.artist
+- if lineup_item.is_headliner?
+  %li.event__lineup__item--headliner
+    = render partial: 'lineup_item_content', object: lineup_item
+- else
+  %li.event__lineup__item
+    = render partial: 'lineup_item_content', object: lineup_item
