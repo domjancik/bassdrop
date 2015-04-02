@@ -362,6 +362,24 @@ ul.block-list {
   }
 }
 
+.upcoming-events {
+  &__event {
+    &__artist-list {
+      font-size: 75%;
+      margin: 0;
+
+      &:before {
+        content: 'w/';
+      }
+
+      li {
+        display: inline-block;
+        margin: 0;
+      }
+    }
+  }
+}
+
 // Fixes
 
 .js .wow {

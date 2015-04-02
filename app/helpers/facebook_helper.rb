@@ -3,8 +3,8 @@ module FacebookHelper
   HOME_URL = 'https://www.facebook.com'
 
   def self.access_token
-    app_id = ENV['facebook_app_id']
-    app_secret = ENV['facebook_secret']
+    app_id = Rails.application.secrets.facebook_app_id
+    app_secret = Rails.application.secrets.facebook_secret
     "#{app_id}|#{app_secret}"
   end
 

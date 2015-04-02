@@ -1,0 +1,24 @@
+%div#upcoming_events.wow.fadeInUp
+  %ul.block-list.nospace
+    - upcoming_events.each do |event|
+      %li
+        = link_to event do
+          .row.hover
+            .small-3.columns
+              = event_date event
+            .small-9.columns.text-right
+              %strong
+                = event
+              %ul.upcoming-events__event__artist-list
+                - event.headliners.each do |headliner|
+                  %li
+                    = link_to headliner do
+                      = headliner
+                      %span.note-mid= headliner.country.abbreviation
+              %br
+              = event_time event
+  %p.nospace
+    %div
+      = link_to events_path do
+        .small.button.width-fill
+          ALL EVENTS

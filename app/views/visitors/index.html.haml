@@ -14,28 +14,9 @@
             %p.text.nospace= @next_event
 
   .small-12.medium-3.columns
-    -#%h3.wow.fadeIn
-    -#  Upcoming
     .row
       .small-12.columns
-        %div#upcoming_events.wow.fadeInUp
-          %ul.block-list.nospace
-            - @upcoming_events.each do |event|
-              %li
-                = link_to event do
-                  .row.hover
-                    .small-3.columns
-                      = event_date event
-                    .small-9.columns.text-right
-                      %strong
-                        = event
-                      %br
-                      = event_time event
-          %p.nospace
-            %div
-              = link_to events_path do
-                .small.button.width-fill
-                  ALL EVENTS
+        = render partial: 'upcoming_events', object: @upcoming_events
         %p
           - delay = 1
           - delay_each = 0.3

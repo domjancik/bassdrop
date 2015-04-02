@@ -25,7 +25,6 @@ gem 'therubyracer', :platform=>:ruby
 gem 'upmin-admin'
 gem 'json'
 gem 'rest-client'
-gem 'figaro'
 gem 'rinku'
 gem 'rails_12factor'
 group :development do
