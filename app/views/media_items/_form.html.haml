@@ -1,0 +1,9 @@
+= simple_form_for(@media_item) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :url
+
+  .form-actions
+    = f.button :submit

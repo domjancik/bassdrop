@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Release:
+  = @release_medium.release
+%p
+  %b Medium:
+  = @release_medium.medium
+%p
+  %b List order:
+  = @release_medium.list_order
+
+= link_to 'Edit', edit_release_medium_path(@release_medium)
+\|
+= link_to 'Back', release_media_path

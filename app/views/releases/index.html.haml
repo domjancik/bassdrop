@@ -1,0 +1,31 @@
+%h1 Listing releases
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Rel code
+      %th Get url
+      %th Get text
+      %th Release date
+      %th Type
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @releases.each do |release|
+      %tr
+        %td= release.title
+        %td= release.rel_code
+        %td= release.get_url
+        %td= release.get_text
+        %td= release.release_date
+        %td= release.type
+        %td= link_to 'Show', release
+        %td= link_to 'Edit', edit_release_path(release)
+        %td= link_to 'Destroy', release, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Release', new_release_path

@@ -1,0 +1,13 @@
+= simple_form_for(@release) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :rel_code
+    = f.input :get_url
+    = f.input :get_text
+    = f.input :release_date
+    = f.input :type
+
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,10 @@
+= simple_form_for(@release_medium) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :release
+    = f.association :medium
+    = f.input :list_order
+
+  .form-actions
+    = f.button :submit

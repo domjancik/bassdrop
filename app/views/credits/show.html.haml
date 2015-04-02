@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @credit.title
+%p
+  %b Release:
+  = @credit.release
+%p
+  %b Artist:
+  = @credit.artist
+%p
+  %b List order:
+  = @credit.list_order
+
+= link_to 'Edit', edit_credit_path(@credit)
+\|
+= link_to 'Back', credits_path

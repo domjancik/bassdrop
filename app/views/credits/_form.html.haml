@@ -1,0 +1,11 @@
+= simple_form_for(@credit) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.association :release
+    = f.association :artist
+    = f.input :list_order
+
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @release.title
+%p
+  %b Rel code:
+  = @release.rel_code
+%p
+  %b Get url:
+  = @release.get_url
+%p
+  %b Get text:
+  = @release.get_text
+%p
+  %b Release date:
+  = @release.release_date
+%p
+  %b Type:
+  = @release.type
+
+= link_to 'Edit', edit_release_path(@release)
+\|
+= link_to 'Back', releases_path

@@ -1,0 +1,23 @@
+%h1 Listing media_items
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Url
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @media_items.each do |media_item|
+      %tr
+        %td= media_item.title
+        %td= media_item.url
+        %td= link_to 'Show', media_item
+        %td= link_to 'Edit', edit_media_item_path(media_item)
+        %td= link_to 'Destroy', media_item, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Media item', new_media_item_path

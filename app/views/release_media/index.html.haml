@@ -1,0 +1,25 @@
+%h1 Listing release_media
+
+%table
+  %thead
+    %tr
+      %th Release
+      %th Medium
+      %th List order
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @release_media.each do |release_medium|
+      %tr
+        %td= release_medium.release
+        %td= release_medium.medium
+        %td= release_medium.list_order
+        %td= link_to 'Show', release_medium
+        %td= link_to 'Edit', edit_release_medium_path(release_medium)
+        %td= link_to 'Destroy', release_medium, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Release medium', new_release_medium_path

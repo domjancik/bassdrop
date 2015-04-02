@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @media_item.title
+%p
+  %b Url:
+  = @media_item.url
+
+= link_to 'Edit', edit_media_item_path(@media_item)
+\|
+= link_to 'Back', media_items_path
