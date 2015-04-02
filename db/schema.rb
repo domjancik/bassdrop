@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401183523) do
+ActiveRecord::Schema.define(version: 20150402210854) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",               limit: 255
@@ -51,6 +51,18 @@ ActiveRecord::Schema.define(version: 20150401183523) do
   add_index "countries", ["abbreviation"], name: "index_countries_on_abbreviation", unique: true, using: :btree
   add_index "countries", ["title"], name: "index_countries_on_title", unique: true, using: :btree
 
+  create_table "credits", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.integer  "release_id", limit: 4
+    t.integer  "artist_id",  limit: 4
+    t.integer  "list_order", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "credits", ["artist_id"], name: "index_credits_on_artist_id", using: :btree
+  add_index "credits", ["release_id"], name: "index_credits_on_release_id", using: :btree
+
   create_table "events", force: :cascade do |t|
     t.string   "title",            limit: 255
     t.datetime "date_start"
@@ -70,6 +82,14 @@ ActiveRecord::Schema.define(version: 20150401183523) do
   add_index "events", ["link_fb"], name: "index_events_on_link_fb", unique: true, using: :btree
   add_index "events", ["venue_id"], name: "index_events_on_venue_id", using: :btree
 
+  create_table "media", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.string   "url",         limit: 255
+    t.string   "description", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "performances", force: :cascade do |t|
     t.integer  "event_id",     limit: 4
     t.integer  "artist_id",    limit: 4
@@ -86,6 +106,28 @@ ActiveRecord::Schema.define(version: 20150401183523) do
   add_index "performances", ["b2b_id"], name: "index_performances_on_b2b_id", using: :btree
   add_index "performances", ["event_id"], name: "index_performances_on_event_id", using: :btree
   add_index "performances", ["stage_id"], name: "index_performances_on_stage_id", using: :btree
+
+  create_table "release_media", force: :cascade do |t|
+    t.integer  "release_id", limit: 4
+    t.integer  "medium_id",  limit: 4
+    t.integer  "list_order", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "release_media", ["medium_id"], name: "index_release_media_on_medium_id", using: :btree
+  add_index "release_media", ["release_id"], name: "index_release_media_on_release_id", using: :btree
+
+  create_table "releases", force: :cascade do |t|
+    t.string   "title",        limit: 255
+    t.string   "rel_code",     limit: 255
+    t.string   "get_url",      limit: 255
+    t.string   "get_text",     limit: 255
+    t.date     "release_date"
+    t.integer  "type",         limit: 8
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "stages", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -145,10 +187,14 @@ ActiveRecord::Schema.define(version: 20150401183523) do
   add_foreign_key "artists", "cities"
   add_foreign_key "artists", "countries"
   add_foreign_key "cities", "countries"
+  add_foreign_key "credits", "artists"
+  add_foreign_key "credits", "releases"
   add_foreign_key "events", "venues"
   add_foreign_key "performances", "artists"
   add_foreign_key "performances", "events"
   add_foreign_key "performances", "performances", column: "b2b_id", on_delete: :nullify
   add_foreign_key "performances", "stages"
+  add_foreign_key "release_media", "media"
+  add_foreign_key "release_media", "releases"
   add_foreign_key "stages", "venues"
 end

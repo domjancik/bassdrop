@@ -10,6 +10,7 @@ class Artist < ActiveRecord::Base
 
   has_many :performances
   has_many :events, -> { uniq }, through: :performances
+  has_many :releases
 
   validates :country, presence: true
   validates :title, presence: true

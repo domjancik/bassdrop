@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :media
+
+  resources :release_media
+
+  resources :credits
+
+  resources :releases
+
   resources :events do
     resources :performances, shallow: true
   end
