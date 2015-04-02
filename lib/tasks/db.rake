@@ -186,6 +186,8 @@ namespace :db do
       begin
         country = Country.find_by_abbreviation artist_source[:country]
 
+        raise "Country #{artist_source[:country]} missing" if country.nil?
+
         artist_title = artist_source[:title]
 
         artist = Artist.find_by_title artist_title
