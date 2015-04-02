@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150402210854) do
+ActiveRecord::Schema.define(version: 20150402221812) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",               limit: 255
@@ -85,9 +85,9 @@ ActiveRecord::Schema.define(version: 20150402210854) do
   create_table "media", force: :cascade do |t|
     t.string   "title",       limit: 255
     t.string   "url",         limit: 255
-    t.string   "description", limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.text     "description", limit: 16777215
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "performances", force: :cascade do |t|
@@ -125,8 +125,9 @@ ActiveRecord::Schema.define(version: 20150402210854) do
     t.string   "get_text",     limit: 255
     t.date     "release_date"
     t.integer  "type",         limit: 8
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.text     "description",  limit: 16777215
   end
 
   create_table "stages", force: :cascade do |t|
