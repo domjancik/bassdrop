@@ -27,6 +27,7 @@ gem 'json'
 gem 'rest-client'
 gem 'figaro'
 gem 'rinku'
+gem 'rails_12factor'
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'
