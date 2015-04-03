@@ -326,19 +326,22 @@ ul.block-list {
       color: $text-color;
     }
 
-    &__venue {
-      @extend .text-bigger;
-      float: left;
-    }
-
-    &__attending {
-      @extend .text-bigger;
-      float: right;
-    }
-
     &__top {
       @extend .event__description;
       overflow: hidden; // Dealing with floating content
+      @extend .margin-bottom;
+
+      &__venue {
+        font-size: rem-calc(16);
+        float: left;
+        margin: 0;
+        @extend .title-look;
+      }
+
+      &__attending {
+        @extend .event__description__top__venue;
+        float: right;
+      }
     }
 
     &__bottom {
@@ -428,7 +431,7 @@ ul.block-list {
   margin: 0;
 
     &__item {
-      margin: 0.25rem 0;
+      margin: 0.25rem 0 0 0;
       padding: 0.25rem 1rem;
       background: $block-color;
       @include simple-transition;

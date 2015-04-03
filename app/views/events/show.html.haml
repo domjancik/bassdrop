@@ -39,10 +39,10 @@
     .small-12.medium-8.columns
       - unless @event.venue.nil?
         .event__description__top.padded.margin-bottom
-          %p.event__description__venue
+          %p.event__description__top__venue
             At
             = link_to(@event.venue)
-          %p.event__description__attending
+          %p.event__description__top__attending
             = @event.attending_count
             Going
       = render partial: 'playlists/playlist_embed', object: @event.playlist
