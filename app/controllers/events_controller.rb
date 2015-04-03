@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  include Playlistable
+
+  before_action :set_event, except: [:index, :create]
   helper TimeFormatHelper
   helper FacebookHelper
 

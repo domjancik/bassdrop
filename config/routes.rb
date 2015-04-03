@@ -1,16 +1,27 @@
 Rails.application.routes.draw do
   resources :playlist_items
 
-  resources :playlists
+  resources :playlists do
+    member do
+      post 'create_playlist'
+    end
+  end
 
   resources :media
 
   resources :credits
 
-  resources :releases
+  resources :releases do
+    member do
+      post 'create_playlist'
+    end
+  end
 
   resources :events do
     resources :performances, shallow: true
+    member do
+      post 'create_playlist'
+    end
   end
 
   resources :stages

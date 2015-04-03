@@ -1,5 +1,7 @@
 class ArtistsController < ApplicationController
-  before_action :set_artist, only: [:show, :edit, :update, :destroy]
+  include Playlistable
+
+  before_action :set_artist, except: [:index, :create]
 
   # GET /artists
   # GET /artists.json

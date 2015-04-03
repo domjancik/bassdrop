@@ -1,5 +1,7 @@
 class ReleasesController < ApplicationController
-  before_action :set_release, only: [:show, :edit, :update, :destroy]
+  include Playlistable
+
+  before_action :set_release, except: [:index, :create]
 
   # GET /releases
   # GET /releases.json

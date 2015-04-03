@@ -18,6 +18,10 @@ class ApplicationPolicy
     is_admin?
   end
 
+  def create_playlist?
+    is_admin?
+  end
+
   def new?
     create?
   end

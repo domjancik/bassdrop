@@ -6,6 +6,9 @@
   = link_to 'Show performances', event_performances_path(@event)
   \|
   = link_to 'Edit', edit_event_path(@event)
+  - if @event.playlist.nil?
+    \|
+    = link_to 'Generate playlist', create_playlist_event_path(@event), method: :post
   \|
   = link_to 'Back', events_path
 
