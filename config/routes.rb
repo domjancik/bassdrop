@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   resources :media
 
-  resources :release_media
-
   resources :credits
 
   resources :releases
