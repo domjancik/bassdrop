@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150403165600) do
+ActiveRecord::Schema.define(version: 20150403172728) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",               limit: 255
@@ -113,12 +113,13 @@ ActiveRecord::Schema.define(version: 20150403165600) do
 
   create_table "playlist_items", force: :cascade do |t|
     t.integer  "playlist_id", limit: 4
-    t.string   "url",         limit: 255
     t.integer  "list_order",  limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "medium_id",   limit: 4
   end
 
+  add_index "playlist_items", ["medium_id"], name: "index_playlist_items_on_medium_id", using: :btree
   add_index "playlist_items", ["playlist_id"], name: "index_playlist_items_on_playlist_id", using: :btree
 
   create_table "playlists", force: :cascade do |t|
@@ -209,6 +210,7 @@ ActiveRecord::Schema.define(version: 20150403165600) do
   add_foreign_key "performances", "events"
   add_foreign_key "performances", "performances", column: "b2b_id", on_delete: :nullify
   add_foreign_key "performances", "stages"
+  add_foreign_key "playlist_items", "media"
   add_foreign_key "playlist_items", "playlists"
   add_foreign_key "releases", "playlists"
   add_foreign_key "stages", "venues"
