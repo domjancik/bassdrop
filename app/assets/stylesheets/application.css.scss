@@ -402,12 +402,47 @@ ul.block-list {
 // Playlists
 
 .playlist {
+  &__controls {
+    margin: 0.25rem 0;
+
+    &__control {
+      background-color: $block-color;
+      @include simple-transition;
+      @extend .text;
+
+      &--disabled {
+        @extend .playlist__controls__control;
+        opacity: 0.5;
+        background: none;
+      }
+    }
+
+    a > div:hover {
+      @extend .inverted;
+      @include simple-transition;
+    }
+  }
+
   &__list {
+  list-style: none;
+  margin: 0;
+
     &__item {
-      margin: 0 0.25rem;
+      margin: 0.25rem 0;
+      padding: 0.25rem 1rem;
       background: $block-color;
+      @include simple-transition;
+
       &--active {
+        @extend .playlist__list__item;
         font-weight: bold;
+        color: $block-color;
+        background-color: $text-color;
+      }
+
+      &:hover {
+        @extend .inverted;
+        @include simple-transition;
       }
     }
   }
