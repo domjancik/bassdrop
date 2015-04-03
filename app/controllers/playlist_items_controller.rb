@@ -4,7 +4,7 @@ class PlaylistItemsController < ApplicationController
   # GET /playlist_items
   # GET /playlist_items.json
   def index
-    @playlist_items = PlaylistItem.all
+    @playlist_items = policy_scope PlaylistItem.all
   end
 
   # GET /playlist_items/1
@@ -15,6 +15,7 @@ class PlaylistItemsController < ApplicationController
   # GET /playlist_items/new
   def new
     @playlist_item = PlaylistItem.new
+    authorize @playlist_item
   end
 
   # GET /playlist_items/1/edit
@@ -25,6 +26,7 @@ class PlaylistItemsController < ApplicationController
   # POST /playlist_items.json
   def create
     @playlist_item = PlaylistItem.new(playlist_item_params)
+    authorize @playlist_item
 
     respond_to do |format|
       if @playlist_item.save
@@ -65,6 +67,7 @@ class PlaylistItemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_playlist_item
       @playlist_item = PlaylistItem.find(params[:id])
+      authorize @playlist_item
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

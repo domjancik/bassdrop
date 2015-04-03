@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Playlist:
+  = @playlist_item.playlist
+%p
+  %b Url:
+  = @playlist_item.url
+%p
+  %b List order:
+  = @playlist_item.list_order
+
+= link_to 'Edit', edit_playlist_item_path(@playlist_item)
+\|
+= link_to 'Back', playlist_items_path

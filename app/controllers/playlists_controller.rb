@@ -4,7 +4,7 @@ class PlaylistsController < ApplicationController
   # GET /playlists
   # GET /playlists.json
   def index
-    @playlists = Playlist.all
+    @playlists = policy_scope Playlist.all
   end
 
   # GET /playlists/1
@@ -15,6 +15,7 @@ class PlaylistsController < ApplicationController
   # GET /playlists/new
   def new
     @playlist = Playlist.new
+    authorize @playlist
   end
 
   # GET /playlists/1/edit
@@ -25,6 +26,7 @@ class PlaylistsController < ApplicationController
   # POST /playlists.json
   def create
     @playlist = Playlist.new(playlist_params)
+    authorize @playlist
 
     respond_to do |format|
       if @playlist.save
@@ -65,6 +67,7 @@ class PlaylistsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_playlist
       @playlist = Playlist.find(params[:id])
+      authorize @playlist
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
