@@ -1,14 +1,13 @@
 module EmbedHelper
   YOUTUBE_REGEX = /(?:https?:\/\/(?:www.)?)?(?:youtube.com|youtu.be)\/(?:watch\?v=)?([a-zA-Z0-9-]*).*/
-  NOEMBED_URL = 'http://noembed.com/embed'
 
-  def embed(url)
-    service = which_service url
+  def embed(medium)
+    service = which_service medium.url
 
-    return embed_universal url if service == :unknown
+    return embed_universal medium if service == :unknown
 
     service_name = service.to_s
-    id = self.send('id_' + service_name, url)
+    id = self.send('id_' + service_name, medium.url)
     self.send('embed_' + service_name, id)
   end
 
@@ -35,10 +34,8 @@ module EmbedHelper
 
   # (N)OEMBED FALLBACK
 
-  def embed_universal(url)
-    params = { url: url, nowrap: 'on', maxheight: '200' }
-    response = RestClient.get NOEMBED_URL, {params: params}
-    json_response = JSON.parse response
-    raw json_response['html']
+  def embed_universal(medium)
+    params = { nowrap: 'on', maxheight: '200' }
+    raw (medium.oembed_info params)['html']
   end
 end
