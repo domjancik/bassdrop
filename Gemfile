@@ -24,9 +24,10 @@ gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'upmin-admin'
 gem 'json'
-gem 'rest-client'
 gem 'rinku'
 gem 'rails_12factor'
+# Social
+gem 'rest-client'
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'

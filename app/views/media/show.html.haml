@@ -7,8 +7,10 @@
   %b Url:
   = @medium.url
 %p
+  = embed @medium.url
+%p
   %b Description:
-  = @medium.description
+  = simple_format @medium.description
 
 = link_to 'Edit', edit_medium_path(@medium)
 \|
