@@ -1,7 +1,8 @@
 class Playlist < ActiveRecord::Base
   validates :title, presence: true
 
-  has_many :playlist_items
+  has_many :items, class_name: 'PlaylistItem'
+  has_many :media, through: :items
 
   has_many :artists
   has_many :events

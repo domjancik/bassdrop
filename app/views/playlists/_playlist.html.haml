@@ -1,0 +1,17 @@
+.playlist
+  .row
+    .small-12.columns
+      = render partial: 'playlist_item', object: active_item
+  .row.playlist__controls
+    .small-6.columns
+      - unless active_item.prev.blank?
+        = link_to '< prev', open_playlist_path(playlist, active_item.prev), remote: true
+    .small-6.columns
+      - unless active_item.next.blank?
+        = link_to 'next >', open_playlist_path(playlist, active_item.next), remote: true
+  .row
+    %ul.playlist__list
+      - playlist.items.each do |item|
+        - classes = (item.eql? active_item) ? 'playlist__list__item--active' : ''
+        %li{ class: classes }= item.medium.title
+

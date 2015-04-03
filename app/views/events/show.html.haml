@@ -30,8 +30,6 @@
         %p.text.facebook.event__quickinfo
 
 .event.content.wow.fadeIn{ 'data-wow-delay' => "1.8s" }
-
-
   - unless @event.preorder_url.nil? || @event.preorder_url.empty?
     %p
       %b Preorder:
@@ -47,6 +45,7 @@
           %p.event__description__attending
             = @event.attending_count
             Going
+      = render partial: 'playlists/playlist_embed', object: @event.playlist
       .event__description__bottom.padded
         = auto_link simple_format(@event.description)
 

@@ -36,6 +36,6 @@ module EmbedHelper
 
   def embed_universal(medium)
     params = { nowrap: 'on', maxheight: '200' }
-    raw (medium.oembed_info params)['html']
+    wrap_video (raw (medium.oembed_info params)['html'])
   end
 end

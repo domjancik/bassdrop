@@ -1,0 +1,3 @@
+- unless playlist_embed.blank?
+  #playlist
+    = link_to 'Open playlist', open_playlist_path(playlist_embed), remote: true, class: 'playlist__open-link', id: 'playlist_link'

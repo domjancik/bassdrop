@@ -1,10 +1,17 @@
 class PlaylistsController < ApplicationController
-  before_action :set_playlist, only: [:show, :edit, :update, :destroy]
+  before_action :set_playlist, only: [:show, :edit, :update, :destroy, :open]
 
   # GET /playlists
   # GET /playlists.json
   def index
     @playlists = policy_scope Playlist.all
+  end
+
+  # GET /playlists/:playlist_id/open(:item_id)
+  # GET /playlists/:playlist_id/open(:item_id).js
+  def open
+    @active_item = (params.has_key? :item_id) ? (@playlist.items.find params[:item_id]) : @playlist.items.first
+    authorize @active_item
   end
 
   # GET /playlists/1

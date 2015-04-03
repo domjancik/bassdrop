@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :playlist_items, shallow: true, path: 'items'
     member do
       post 'create_playlist'
+      get 'open(/:item_id)', action: 'open', as: 'open'
     end
   end
 
