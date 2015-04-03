@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :playlist_items
-
   resources :playlists do
+    resources :playlist_items, shallow: true, path: 'items'
     member do
       post 'create_playlist'
     end

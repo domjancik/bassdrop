@@ -1,7 +1,8 @@
 %h1 Editing playlist_item
 
+= @playlist = @playlist_item.playlist
 = render 'form'
 
 = link_to 'Show', @playlist_item
 \|
-= link_to 'Back', playlist_items_path
+= link_to 'Back', playlist_playlist_items_path(@playlist)

@@ -1,8 +1,13 @@
-= simple_form_for(@playlist_item) do |f|
+For
+%b
+  = @playlist
+
+- for_attrs = @playlist_item.playlist.blank? ? [@playlist, @playlist_item] : @playlist_item
+
+= simple_form_for for_attrs do |f|
   = f.error_notification
 
   .form-inputs
-    = f.association :playlist
     = f.association :medium
     = f.input :list_order
 

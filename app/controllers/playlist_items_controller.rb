@@ -1,5 +1,6 @@
 class PlaylistItemsController < ApplicationController
   before_action :set_playlist_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_playlist, only: [:index, :new, :create]
 
   # GET /playlist_items
   # GET /playlist_items.json
@@ -27,6 +28,8 @@ class PlaylistItemsController < ApplicationController
   def create
     @playlist_item = PlaylistItem.new(playlist_item_params)
     authorize @playlist_item
+
+    @playlist_item.playlist = @playlist
 
     respond_to do |format|
       if @playlist_item.save
@@ -68,6 +71,10 @@ class PlaylistItemsController < ApplicationController
     def set_playlist_item
       @playlist_item = PlaylistItem.find(params[:id])
       authorize @playlist_item
+    end
+
+    def set_playlist
+      @playlist = policy_scope Playlist.find params[:playlist_id]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

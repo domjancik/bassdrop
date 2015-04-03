@@ -1,17 +1,11 @@
 class PerformancesController < ApplicationController
   before_action :set_performance, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:index, :new, :create]
 
   # GET /performances
   # GET /performances.json
   def index
-    unless params.has_key? :event_id
-      @performances = policy_scope Performance.all
-    else
-      @event = policy_scope Event.find params[:event_id]
-      @performances = policy_scope @event.performances
-      # @performances = (Event.find params[:event_id]).performances
-      # @performances = policy_scope Performance.all
-    end
+    @performances = policy_scope @event.performances
   end
 
   # GET /performances/1
@@ -23,8 +17,6 @@ class PerformancesController < ApplicationController
   def new
     @performance = Performance.new
     authorize @performance
-
-    @event = Event.find params[:event_id]
   end
 
   # GET /performances/1/edit
@@ -42,7 +34,6 @@ class PerformancesController < ApplicationController
   # POST /performances.json
   def create
     @performance = Performance.new(performance_params)
-    @event = Event.find params[:event_id]
     @performance.event = @event
 
     authorize @performance
@@ -87,6 +78,10 @@ class PerformancesController < ApplicationController
     def set_performance
       @performance = Performance.find(params[:id])
       authorize @performance
+    end
+
+    def set_event
+      @event = policy_scope Event.find params[:event_id]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
