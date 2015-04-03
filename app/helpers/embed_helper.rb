@@ -1,5 +1,5 @@
 module EmbedHelper
-  YOUTUBE_REGEX = /(?:https?:\/\/(?:www.)?)?(?:youtube.com|youtu.be)\/(?:watch\?v=)?([a-zA-Z0-9-]*).*/
+  YOUTUBE_REGEX = /(?:https?:\/\/(?:www.)?)?(?:youtube.com|youtu.be)\/(?:watch\?v=)?([a-zA-Z0-9-_]*).*/
 
   def embed(medium)
     service = which_service medium.url

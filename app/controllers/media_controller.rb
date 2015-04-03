@@ -46,6 +46,8 @@ class MediaController < ApplicationController
   # PATCH/PUT /media/1
   # PATCH/PUT /media/1.json
   def update
+    fill_blanks if @medium.title.blank? || @medium.description.blank?
+
     respond_to do |format|
       if @medium.update(medium_params)
         format.html { redirect_to @medium, notice: 'Medium was successfully updated.' }
