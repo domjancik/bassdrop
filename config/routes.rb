@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :playlist_items
+
+  resources :playlists
+
   resources :media
 
   resources :credits
