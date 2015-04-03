@@ -5,7 +5,7 @@ class PlaylistItemsController < ApplicationController
   # GET /playlist_items
   # GET /playlist_items.json
   def index
-    @playlist_items = policy_scope PlaylistItem.all
+    @playlist_items = policy_scope @playlist.items
   end
 
   # GET /playlist_items/1

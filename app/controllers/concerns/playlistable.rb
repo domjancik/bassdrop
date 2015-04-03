@@ -7,7 +7,8 @@ module Playlistable extend ActiveSupport::Concern
 
   # POST /<models>/:id/create_playlist
   def create_playlist
-    Playlist.create_for model
+    playlist = Playlist.create_for model
+    redirect_to playlist, notice: 'Playlist was successfully created.'
   end
 
   private
