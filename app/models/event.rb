@@ -4,6 +4,7 @@ class Event < ActiveRecord::Base
   default_scope { order('date_start desc') }
 
   belongs_to :venue
+  belongs_to :playlist
 
   has_many :performances, -> { order(:stage_id) }, dependent: :destroy
 

@@ -7,6 +7,7 @@ class Artist < ActiveRecord::Base
 
   belongs_to :city
   belongs_to :country
+  belongs_to :playlist
 
   has_many :performances
   has_many :events, -> { uniq }, through: :performances
