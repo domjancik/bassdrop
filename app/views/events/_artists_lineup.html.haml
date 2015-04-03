@@ -1,13 +1,13 @@
 -# Event artists and lineup overview grouped in tabs
 
 %ul.tabs{ 'data-tab' => true }
-  %li.event__tab-title.tab-title
-    = link_to 'Artists', '#artists'
   %li.event__tab-title.tab-title.active
+    = link_to 'Artists', '#artists'
+  %li.event__tab-title.tab-title
     = link_to 'Lineup', '#lineup'
 
 .tabs-content
-  .content#artists
+  .content.active#artists
     = render 'artists'
-  .content.active#lineup
+  .content#lineup
     = render 'lineup'
