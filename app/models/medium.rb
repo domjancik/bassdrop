@@ -7,4 +7,8 @@ class Medium < ActiveRecord::Base
     response = RestClient.get NOEMBED_URL, {params: params}
     JSON.parse response
   end
+
+  def to_s
+    self.title
+  end
 end

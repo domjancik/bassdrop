@@ -4,7 +4,7 @@
   %thead
     %tr
       %th Playlist
-      %th Url
+      %th Medium
       %th List order
       %th
       %th
@@ -14,7 +14,7 @@
     - @playlist_items.each do |playlist_item|
       %tr
         %td= playlist_item.playlist
-        %td= playlist_item.url
+        %td= playlist_item.medium
         %td= playlist_item.list_order
         %td= link_to 'Show', playlist_item
         %td= link_to 'Edit', edit_playlist_item_path(playlist_item)

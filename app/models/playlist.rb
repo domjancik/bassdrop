@@ -14,4 +14,8 @@ class Playlist < ActiveRecord::Base
     model.save
     new_playlist
   end
+
+  def to_s
+    self.title
+  end
 end
