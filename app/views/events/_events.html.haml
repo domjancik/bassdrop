@@ -10,7 +10,8 @@
                 %p.text.nospace.important
                   = event_date event
             .row.collapse
-              %p.line-image.nospace{style: "background-image: url(#{event.image_url_cached})"}
+              %p.nospace
+                = image_tag event.image_url_cached, title: event
             .row.collapse
               %p.text.nospace
                 = event
