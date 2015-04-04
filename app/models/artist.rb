@@ -27,9 +27,7 @@ class Artist < ActiveRecord::Base
   end
 
   def fb_image_url
-    url = "http://graph.facebook.com/v2.3/#{link_fb}/picture?type=large"
-    resp = Net::HTTP.get_response(URI.parse(url))
-    resp['location']
+    FacebookHelper.fb_profile_picture_url link_fb
   end
 
   def refresh_image_cache

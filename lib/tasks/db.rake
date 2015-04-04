@@ -237,5 +237,14 @@ namespace :db do
 
       puts 'LOADED ARTISTS'
     end
+
+    task reload_images: :environment do
+      Artist.all.each do |artist|
+        artist.refresh_image_cache
+        artist.force_refresh_image_cache if artist.image_url_cached.nil?
+
+        puts "Couldn't load image for #{artist}" if artist.image_url_cached.nil?
+      end
+    end
   end
 end

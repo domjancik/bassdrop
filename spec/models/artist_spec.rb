@@ -1,5 +1,11 @@
 require 'rails_helper'
 
+RSpec.configure do |config|
+  config.before(:each) do |example|
+    FactoryGirl.lint
+  end
+end
+
 RSpec.describe Artist, type: :model do
   before(:each) { @artist = Artist.find_by(title: 'TestArtist') }
 
