@@ -10,7 +10,9 @@ class PlaylistsController < ApplicationController
   # GET /playlists/:playlist_id/open(:item_id)
   # GET /playlists/:playlist_id/open(:item_id).js
   def open
-    @active_item = (params.has_key? :item_id) ? (@playlist.items.find params[:item_id]) : @playlist.items.first
+    item_specified = params.has_key? :item_id
+    @active_item = item_specified ? (@playlist.items.find params[:item_id]) : @playlist.items.first
+    @autoplay = item_specified
     authorize @active_item
   end
 

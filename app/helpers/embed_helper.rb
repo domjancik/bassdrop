@@ -1,10 +1,10 @@
 module EmbedHelper
   YOUTUBE_REGEX = /(?:https?:\/\/(?:www.)?)?(?:youtube.com|youtu.be)\/(?:watch\?v=)?([a-zA-Z0-9\-_]*).*/
 
-  def embed(medium)
+  def embed(medium, autoplay = false)
     service = which_service medium.url
 
-    return embed_universal medium if service == :unknown
+    return embed_universal medium, autoplay if service == :unknown
 
     service_name = service.to_s
     id = self.send('id_' + service_name, medium.url)
@@ -13,7 +13,7 @@ module EmbedHelper
 
   private
   def which_service(url)
-    return :youtube unless (YOUTUBE_REGEX.match url).nil?
+    # return :youtube unless (YOUTUBE_REGEX.match url).nil?
     :unknown
   end
 
@@ -34,8 +34,8 @@ module EmbedHelper
 
   # (N)OEMBED FALLBACK
 
-  def embed_universal(medium)
-    params = { nowrap: 'on', maxheight: '200' }
+  def embed_universal(medium, autoplay = false)
+    params = { nowrap: 'on', maxheight: '200', autoplay: autoplay ? 1 : 0 }
     wrap_video (raw (medium.oembed_info params)['html'])
   end
 end
