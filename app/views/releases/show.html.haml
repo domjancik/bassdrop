@@ -1,3 +1,6 @@
+- content_for :title do
+  =@release.title
+
 %p#notice= notice
 
 - if user_signed_in?

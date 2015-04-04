@@ -1,3 +1,6 @@
+- content_for :title do
+  Events
+
 %h1.wow.fadeIn Upcoming
 
 = render partial: 'events', object: @upcoming_events, locals: { xcount: 1 }

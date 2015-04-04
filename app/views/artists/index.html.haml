@@ -1,3 +1,6 @@
+- content_for :title do
+  Artists
+
 - @artist_groups.each do |artist_group|
   %h1= t artist_group[:name], scope: 'artist.roles'
   %p= render partial: 'artist_grid', object: artist_group[:artists]

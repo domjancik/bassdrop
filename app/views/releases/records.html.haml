@@ -1,2 +1,5 @@
+- content_for :title do
+  Records
+
 %h1= t 'records', scope: 'release.titles'
 %p= render partial: 'release_grid', object: @releases
