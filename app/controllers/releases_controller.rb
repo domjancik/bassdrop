@@ -3,7 +3,7 @@ class ReleasesController < ApplicationController
 
   helper TimeHelper
 
-  before_action :set_release, except: [:index, :create, :new, :records]
+  before_action :set_release, except: [:index, :create, :new, :records, :sets]
 
   # GET /releases
   # GET /releases.json

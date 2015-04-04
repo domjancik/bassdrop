@@ -40,11 +40,13 @@
           - xcount = @release.artists.size > 1 ? 2 : 1
           = render partial: 'artists/artist_grid', object: @release.artists, locals: { xcount: xcount }
     .small-12.medium-9.columns
-      .wow.fadeInUp
+      .wow.fadeInUp.margin-bottom
+        = render partial: 'playlists/playlist_embed', object: @release.playlist
+      .wow.fadeIn{ 'data-wow-delay' => "1s" }
         - unless @release.description.blank?
           .release__description.padded.margin-bottom
             %p
-              = @release.description
+              = auto_link simple_format @release.description
         - if no_content
           .release__description.padded.margin-bottom
             %p
@@ -52,8 +54,6 @@
             %p
               In the meantime,
               %strong check out these upcoming events!
-      .wow.fadeIn{ 'data-wow-delay' => "1s" }
-        = render partial: 'playlists/playlist_embed', object: @release.playlist
       - if no_content
         = render partial: 'events/events', object: @upcoming_events
 

@@ -2,22 +2,23 @@
   .row
     .small-12.columns
       = render partial: 'playlist_item', object: active_item
-  .row
-    .small-12.columns
-      .playlist__controls
-        = render partial: 'playlist_control', locals: { playlist: playlist, item: active_item.prev, text: 'Previous' }
-        = render partial: 'playlist_control', locals: { playlist: playlist, item: active_item.next, text: 'Next' }
-  .row
-    .small-12.columns
-      %ul.playlist__list
-        - playlist.items.each do |item|
-          - in_active = item.eql? active_item
-          - classes = in_active ? 'playlist__list__item--active' : 'playlist__list__item'
-          = link_to open_playlist_path(playlist, item), remote: true do
-            %li{ class: classes }
-              .row.collapse
-                .small-2.columns
-                  = in_active ? 'PLAYING' : 'PLAY'
-                .small-10.columns.text-right
-                  = item.medium.title
+  - unless @playlist.items.size <= 1
+    .row
+      .small-12.columns
+        .playlist__controls
+          = render partial: 'playlist_control', locals: { playlist: playlist, item: active_item.prev, text: 'Previous' }
+          = render partial: 'playlist_control', locals: { playlist: playlist, item: active_item.next, text: 'Next' }
+    .row
+      .small-12.columns
+        %ul.playlist__list
+          - playlist.items.each do |item|
+            - in_active = item.eql? active_item
+            - classes = in_active ? 'playlist__list__item--active' : 'playlist__list__item'
+            = link_to open_playlist_path(playlist, item), remote: true do
+              %li{ class: classes }
+                .row.collapse
+                  .small-2.columns
+                    = in_active ? 'PLAYING' : 'PLAY'
+                  .small-10.columns.text-right
+                    = item.medium.title
 

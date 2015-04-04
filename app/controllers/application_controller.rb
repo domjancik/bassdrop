@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 # https://github.com/RailsApps/rails-devise-pundit/issues/10
     include Pundit
 # https://github.com/elabs/pundit#ensuring-policies-are-used
-    SCOPE_ACTIONS = [:index, :records]
+    SCOPE_ACTIONS = [:index, :records, :sets]
     after_action :verify_authorized, except: SCOPE_ACTIONS, unless: lambda { |controller| controller.devise_controller? }
     after_action :verify_policy_scoped, only: SCOPE_ACTIONS, unless: lambda { |controller| controller.devise_controller? }
 

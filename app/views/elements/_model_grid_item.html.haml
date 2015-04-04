@@ -2,9 +2,9 @@
   = link_to model_grid_item do
     - delay = Random.rand(5).to_f / 10.0
     %div.wow.fadeInUp{ 'data-wow-offset' => '20', 'data-wow-delay' => "#{delay}s" }
-      %div.hover
+      %div.hover.with-stick
         %p.nospace
           - image_url = model_grid_item.image_url
           - if !image_url.nil?
             = image_tag(model_grid_item.image_url)
-        %p.text.nospace= model_grid_item
+        %p.text.stick-to-bottom.nospace= model_grid_item

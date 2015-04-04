@@ -1,6 +1,6 @@
 %h1.wow.fadeIn Upcoming
 
-= render partial: 'events', object: @upcoming_events
+= render partial: 'events', object: @upcoming_events, locals: { xcount: 1 }
 
 %h1.wow.fadeIn Past
 - @past_years.each do |year|

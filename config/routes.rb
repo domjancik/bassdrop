@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
 
   get 'records', controller: :releases
+  get 'sets', controller: :releases
 
   resources :events do
     resources :performances, shallow: true

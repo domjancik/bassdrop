@@ -38,6 +38,10 @@ en:
   release:
     titles:
       records: Records
+      sets: Records
+      sets:
+        video: Video sets
+        audio: Mixes
   time:
     formats:
       event_time: '%-H:%M'

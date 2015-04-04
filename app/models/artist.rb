@@ -3,7 +3,7 @@ require 'json'
 
 class Artist < ActiveRecord::Base
   enum role: [:artist, :supported, :headliner, :bassdrop, :records]
-  default_scope { order('role desc') }
+  # default_scope { order('role desc') }
 
   belongs_to :city
   belongs_to :country
