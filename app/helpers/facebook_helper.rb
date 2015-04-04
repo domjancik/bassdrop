@@ -48,22 +48,32 @@ module FacebookHelper
     params = { type: 'large', redirect: 'false' }
 
     response = request id + '/picture', params
-    response = fb_user_profile_picture(id) if is_error? response, 803
 
     return nil if response.nil?
+    return fb_user_profile_picture_url(id) if is_error? response, 803
 
     response['data']['url']
   end
 
   private
     # @return [Hash] Parsed jason response to a user profile pic request
-    def self.fb_user_profile_picture(id)
+    def self.fb_user_profile_picture_url(id)
       response = request id, { fields: 'id' }, nil # Unversioned request to catch user ID
       user_id = response['id']
 
       return nil if user_id.nil?
 
-      request_authorized user_id + '/picture', params = { type: 'large', redirect: 'false' }
+      response = request_authorized user_id + '/picture', params = { type: 'large', redirect: 'false' }
+      image_url = response['data']['url']
+      return image_url if is_square? image_url
+
+      response = request_authorized user_id + '/picture', params = { type: 'square', redirect: 'false' }
+      response['data']['url']
+    end
+
+    def self.is_square?(image_url)
+      size = FastImage.size(image_url)
+      size[0] == size[1]
     end
 
     def self.is_error?(response, err_code)
