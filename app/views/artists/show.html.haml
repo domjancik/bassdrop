@@ -16,9 +16,9 @@
   .row
     .small-12.medium-3.columns.wow.fadeInUp{ 'data-wow-duration' => "0.8s" }
       = image_tag(@artist.image_url_cached, alt: @artist)
-      .artist__title
       %div
         = render partial: 'elements/social_links', object: @artist.social_links
+      .artist__title.margin-bottom
         %h1.artist__title__headline= @artist.title
         .artist__title__location
           - unless @artist.city.blank?
