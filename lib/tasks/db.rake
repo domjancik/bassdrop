@@ -64,7 +64,7 @@ namespace :db do
           {title: 'Low Tact', country: 'CZ', city: 'Prague', fb: 'LowTact', role: 'bassdrop'},
           {title: 'Hlava', country: 'CZ', city: 'Prague', fb: 'DjHlavaCZ', role: 'bassdrop'},
           {title: 'Ollie Torr', country: 'CZ', city: 'Prague', fb: 'OllieTorrMusic', role: 'bassdrop'},
-          {title: 'Novinski', country: 'CZ', city: 'Prague', role: 'bassdrop'},
+          {title: 'Novinski', country: 'CZ', city: 'Prague', role: 'bassdrop', fb: 'tomas.novotny.739'},
           {title: 'Furious Freaks', country: 'CZ', city: 'Prague', fb: 'FuriousFreaks', role: 'bassdrop'},
           {title: 'No Cure', country: 'CZ', city: 'Prague', fb: 'NoCureOfficial', role: 'bassdrop'},
           {title: 'S-BisH', country: 'FR', fb: 'SBisHfr', role: 'bassdrop'},
@@ -72,8 +72,8 @@ namespace :db do
           {title: 'Woostep', country: 'CZ', city: 'Prague', fb: 'woostepinfo', role: 'bassdrop'},
           {title: 'Target1', country: 'CZ', city: 'Ostrava', fb: 'targetone', role: 'bassdrop'},
           {title: 'Meph', country: 'CZ', city: 'Nový Jičín', fb: 'mephofficial', role: 'bassdrop'},
-          {title: 'Sufuski', country: 'CZ', city: 'Prague'},
-          {title: 'Yendys', country: 'CZ', city: 'Slaný'},
+          {title: 'Sufuski', country: 'CZ', city: 'Prague', fb: 'zdenda.mahdal'},
+          {title: 'Yendys', country: 'CZ', city: 'Slaný', fb: 'jan.studeny'},
           {title: 'Prag:Matics Crew', country: 'CZ', city: 'Prague', fb: 'prg.matics'},
 
           # Live projects
@@ -98,7 +98,7 @@ namespace :db do
           {title: 'Shiverz', country: 'UK', city: 'London', fb: 'ShiverzDubstepOfficial', role: 'headliner'},
           {title: 'Cookie Monsta', country: 'UK', city: 'Nottingham', fb: '175957405757449', role: 'headliner'},
           {title: 'Luke Hassan', country: 'UK', city: 'Bristol', fb: 'lukehassanmusic', role: 'headliner'},
-          {title: 'Young D', country: 'UK', city: 'London', fb: 'DJ-Young-D-Selecta-Youngz', role: 'headliner'},
+          {title: 'Young D', country: 'UK', city: 'London', fb: '129693933739932', role: 'headliner'},
           {title: 'Efflex', country: 'UK', city: 'London', fb: 'EfflexUK', role: 'headliner'},
           {title: 'Skelecta', country: 'UK', city: 'London', fb: 'SkelectaUK', role: 'headliner'},
 
@@ -148,10 +148,10 @@ namespace :db do
           {title: 'Genetix', country: 'UK', city: 'Bournemouth', fb: 'GenetixDubstep', role: 'headliner'},
 
           {title: 'Dubschoock', country: 'SK'},
-          {title: 'Simon Ekhan', country: 'SK'},
-          {title: 'Peter Pan Complex', country: 'CZ'},
-          {title: 'Beats.PM', country: 'CZ'},
-          {title: 'Ugly', country: 'CZ', city: 'Prague'},
+          {title: 'Simon Ekhan', country: 'SK', fb: '283591461699678'},
+          {title: 'Peter Pan Complex', country: 'CZ', fb: 'peterpancpx'},
+          {title: 'Beats.PM', country: 'CZ', fb: 'thebeatspm'},
+          {title: 'Ugly', country: 'CZ', city: 'Prague', fb: 'filip.krasny' },
 
           {title: 'Roksonix', country: 'UK', fb: 'roksonix', role: 'headliner'},
           {title: 'Gh0sh', country: 'UK', fb: 'Gh0sh', role: 'headliner'},
