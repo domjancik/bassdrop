@@ -1,17 +1,33 @@
 class ReleasesController < ApplicationController
   include Playlistable
 
-  before_action :set_release, except: [:index, :create]
+  helper TimeHelper
+
+  before_action :set_release, except: [:index, :create, :new, :records]
 
   # GET /releases
   # GET /releases.json
   def index
-    @releases = policy_scope Release.all
+    if params.has_key? :type
+
+    else
+      @releases = policy_scope Release.all
+    end
+  end
+
+  def records
+    @releases = policy_scope Release.record
+  end
+
+  def sets
+    @sets_video = policy_scope Release.set_video
+    @sets_audio = policy_scope Release.set_audio
   end
 
   # GET /releases/1
   # GET /releases/1.json
   def show
+    @upcoming_events = policy_scope Event.upcoming
   end
 
   # GET /releases/new
@@ -27,12 +43,13 @@ class ReleasesController < ApplicationController
   # POST /releases
   # POST /releases.json
   def create
-    @release = Release.new(release_params)
+    @release = Release.new(type_params(release_params))
     authorize @release
 
     respond_to do |format|
       if @release.save
         format.html { redirect_to @release, notice: 'Release was successfully created.' }
+        format.json { render :show, status: :created, location: @release }
         format.json { render :show, status: :created, location: @release }
       else
         format.html { render :new }
@@ -45,7 +62,7 @@ class ReleasesController < ApplicationController
   # PATCH/PUT /releases/1.json
   def update
     respond_to do |format|
-      if @release.update(release_params)
+      if @release.update(type_params(release_params))
         format.html { redirect_to @release, notice: 'Release was successfully updated.' }
         format.json { render :show, status: :ok, location: @release }
       else
@@ -74,6 +91,14 @@ class ReleasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def release_params
-      params.require(:release).permit(:title, :rel_code, :get_url, :get_text, :release_date, :type, :description, :playlist_id)
+      params.require(:release).permit(:title, :rel_code, :get_url, :get_text, :release_date, :release_type, :description, :playlist_id)
+    end
+
+    def type_params(params)
+      # edited_params = {}.merge params
+      # edited_params['release_type'] = edited_params['release_type'].to_i
+      #
+      # edited_params
+      params
     end
 end

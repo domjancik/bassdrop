@@ -49,6 +49,8 @@ $soundcloud-color: #fe3801;
 $soundcloud-letter: 'n';
 $instagram-color: #9c7c6e;
 $instagram-letter: 'x';
+$get-color: $primary-color;
+$get-letter: '';
 
 @mixin simple-transition-dur($duration) {
   @include transition(all, $duration, ease-in-out);
@@ -88,10 +90,10 @@ body, main {
 }
 
 // Forms
-select.datetime{
-  width: 10%;
-//  margin-right: 10px;
-//  float: left;
+select {
+  &.datetime, &.date {
+    width: 10%;
+  }
 }
 
 // OVERRIDES
@@ -472,11 +474,28 @@ ul.block-list {
       @extend .text-floating;
       @extend .title-look;
     }
-
   }
 
   &__description {
     background: $block-color;
+  }
+}
+
+// Releases
+
+.release {
+  &__title {
+    &__headline {
+      @extend .artist__title__headline
+    }
+
+    &__code, &__date {
+      @extend .artist__title__location
+    }
+  }
+
+  &__description {
+    @extend .artist__description
   }
 }
 
@@ -504,6 +523,12 @@ ul.block-list {
 .twitter { @include social-button($twitter-color, $twitter-letter); }
 .instagram { @include social-button($instagram-color, $instagram-letter); }
 .soundcloud { @include social-button($soundcloud-color, $soundcloud-letter); }
+.get-link {
+  @include social-button($get-color, $get-letter);
+  @extend .title-look;
+  font-family: $body-font-family;
+  text-transform: uppercase !important;
+}
 
 @mixin icon-bar-sizer($num_elements) {
   > * {

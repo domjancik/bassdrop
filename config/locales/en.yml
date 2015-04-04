@@ -33,7 +33,11 @@ en:
       bassdrop: We are
       headliner: We've booked
       supported: We've played with
-      artist: And also had these
+      artist: And also hosted
+      records: Released tracks by
+  release:
+    titles:
+      records: Records
   time:
     formats:
       event_time: '%-H:%M'
@@ -41,4 +45,7 @@ en:
       event_date_from: '%-d–'
       event_date_to: '%-d / %-m'
       lineup_time: '<span class="event__lineup__time__hour">%H</span><span class="event__lineup__time__minute">%M</span>'
+  date:
+    formats:
+      release_date: '%-d / %-m'
 

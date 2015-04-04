@@ -86,6 +86,9 @@ namespace :db do
           {title: 'AzAwAkk', country: 'CZ', city: 'Prague', fb: 'Azawakk'},
           {title: 'Gory Ruffian', country: 'CZ', city: 'Karlovy Vary', fb: 'goryruffian'},
 
+          # Records
+          {title: 'Kutlo', country: 'SK', city: 'Prievidza', fb: 'kutlo.official', role: 'records'},
+
           # Events
           {title: '2TAKT', country: 'CZ', fb: '2TAKTdjs'},
           {title: 'Murte Kostka', country: 'CZ', city: 'Prague', fb: 'MURTE.CZ', yt: 'd2n3b'},

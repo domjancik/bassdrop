@@ -1,5 +1,5 @@
 -# Artist overview for event
 
 - unless @event.artists.empty?
-  = render partial: 'artists/artist_grid', locals: {artists: @event.headliners, xcount: 1}
-  = render partial: 'artists/artist_grid', locals: {artists: @event.non_headliners, xcount: 2}
+  = render partial: 'artists/artist_grid', object: @event.headliners, locals: {xcount: 1}
+  = render partial: 'artists/artist_grid', object: @event.non_headliners, locals: {xcount: 2}

@@ -1,10 +1,11 @@
 class CreditsController < ApplicationController
   before_action :set_credit, only: [:show, :edit, :update, :destroy]
+  before_action :set_release, only: [:index, :new, :create]
 
   # GET /credits
   # GET /credits.json
   def index
-    @credits = policy_scope Credit.all
+    @credits = policy_scope @release.credits
   end
 
   # GET /credits/1
@@ -20,12 +21,14 @@ class CreditsController < ApplicationController
 
   # GET /credits/1/edit
   def edit
+    @release = @credit.release
   end
 
   # POST /credits
   # POST /credits.json
   def create
     @credit = Credit.new(credit_params)
+    @credit.release = @release
     authorize @credit
 
     respond_to do |format|
@@ -68,6 +71,10 @@ class CreditsController < ApplicationController
     def set_credit
       @credit = Credit.find(params[:id])
       authorize @credit
+    end
+
+    def set_release
+      @release = policy_scope Release.find params[:release_id]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

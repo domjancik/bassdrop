@@ -9,13 +9,14 @@ Rails.application.routes.draw do
 
   resources :media
 
-  resources :credits
-
   resources :releases do
+    resources :credits, shallow: true
     member do
       post 'create_playlist'
     end
   end
+
+  get 'records', controller: :releases
 
   resources :events do
     resources :performances, shallow: true

@@ -1,12 +1,14 @@
 class ArtistsController < ApplicationController
   include Playlistable
 
-  before_action :set_artist, except: [:index, :create]
+  before_action :set_artist, except: [:index, :create, :new]
+
+  ARTIST_GROUPS = %w(bassdrop headliner records supported artist)
 
   # GET /artists
   # GET /artists.json
   def index
-    artist_roles = Artist.roles.keys.reverse
+    artist_roles = ARTIST_GROUPS
     @artist_groups = []
     artist_roles.each do |role|
       @artist_groups << {name: role, artists: policy_scope(Artist.send(role))}

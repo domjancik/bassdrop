@@ -1,9 +1,14 @@
-= simple_form_for(@credit) do |f|
+For
+%b
+  = @release
+
+- for_attrs = @credit.release.blank? ? [@release, @credit] : @credit
+
+= simple_form_for for_attrs do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :title
-    = f.association :release
     = f.association :artist
     = f.input :list_order
 

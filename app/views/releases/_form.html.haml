@@ -7,7 +7,7 @@
     = f.input :get_url
     = f.input :get_text
     = f.input :release_date
-    = f.input :type
+    = f.input :release_type, collection: Release.release_types.keys.map {|rel_type| [rel_type.titleize,rel_type]}
     = f.association :playlist
     = f.input :description
 

@@ -1,27 +1,59 @@
 %p#notice= notice
 
-%p
-  %b Title:
-  = @release.title
-%p
-  %b Rel code:
-  = @release.rel_code
-%p
-  %b Get url:
-  = @release.get_url
-%p
-  %b Get text:
-  = @release.get_text
-%p
-  %b Release date:
-  = @release.release_date
-%p
-  %b Type:
-  = @release.type
-%p
-  %b Description:
-  = @release.description
+- if user_signed_in?
+  = link_to 'Add credit', new_release_credit_path(@release)
+  \|
+  = link_to 'Show credits', release_credits_path(@release)
+  \|
+  = link_to 'Edit', edit_release_path(@release)
+  \|
+  = link_to 'Back', releases_path
+  \|
+  - if @release.playlist.nil?
+    = link_to 'Generate playlist', create_playlist_release_path(@release), method: :post
+  - else
+    = link_to 'Playlist', @release.playlist
 
-= link_to 'Edit', edit_release_path(@release)
-\|
-= link_to 'Back', releases_path
+- no_content = @release.description.blank? && @release.playlist.blank?
+
+.release
+  .row
+    .small-12.medium-3.columns.wow.fadeInUp{ 'data-wow-duration' => "0.8s" }
+      = image_tag(@release.image_url, alt: @release)
+      %div
+        - unless @release.get_url.blank?
+          .icon-bar.wow.fadeIn.one-up{ 'data-wow-delay' => "1s" }
+            - title = @release.get_text.blank? ? 'Download' : @release.get_text
+            = link_to title, @release.get_url, title: title, class: 'get-link', target: :blank
+      .release__title.margin-bottom
+        %h1.release__title__headline= @release.title
+        .release__title__code
+          = @release.rel_code
+        .release__title__date
+          - if in_future? @release.release_date
+            Coming on
+          - else
+            Released on
+          = l @release.release_date, format: :release_date
+      - unless @release.credits.empty?
+        .release__credits
+          - xcount = @release.artists.size > 1 ? 2 : 1
+          = render partial: 'artists/artist_grid', object: @release.artists, locals: { xcount: xcount }
+    .small-12.medium-9.columns
+      .wow.fadeInUp
+        - unless @release.description.blank?
+          .release__description.padded.margin-bottom
+            %p
+              = @release.description
+        - if no_content
+          .release__description.padded.margin-bottom
+            %p
+              There is nothing more about this release yet.
+            %p
+              In the meantime,
+              %strong check out these upcoming events!
+      .wow.fadeIn{ 'data-wow-delay' => "1s" }
+        = render partial: 'playlists/playlist_embed', object: @release.playlist
+      - if no_content
+        = render partial: 'events/events', object: @upcoming_events
+

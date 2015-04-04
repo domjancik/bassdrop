@@ -21,7 +21,7 @@
         %td= release.get_url
         %td= release.get_text
         %td= release.release_date
-        %td= release.type
+        %td= release.release_type
         %td= link_to 'Show', release
         %td= link_to 'Edit', edit_release_path(release)
         %td= link_to 'Destroy', release, :method => :delete, :data => { :confirm => 'Are you sure?' }

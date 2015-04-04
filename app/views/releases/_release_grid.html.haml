@@ -1,0 +1,3 @@
+- locals = {}
+- locals[:xcount] = xcount if defined? xcount
+= render partial: 'elements/model_grid', object: release_grid, locals: locals

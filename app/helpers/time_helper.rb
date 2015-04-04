@@ -3,6 +3,10 @@ module TimeHelper
   SECONDS_IN_HOUR = SECONDS_IN_MINUTE * 60
   SECONDS_IN_DAY = SECONDS_IN_HOUR * 24
 
+  def in_future?(date)
+    date > ::Time.now
+  end
+
   def self.days_to_seconds(days)
     days * SECONDS_IN_DAY
   end

@@ -2,7 +2,7 @@ require 'net/http'
 require 'json'
 
 class Artist < ActiveRecord::Base
-  enum role: [:artist, :supported, :headliner, :bassdrop]
+  enum role: [:artist, :supported, :headliner, :bassdrop, :records]
   default_scope { order('role desc') }
 
   belongs_to :city
@@ -11,7 +11,8 @@ class Artist < ActiveRecord::Base
 
   has_many :performances
   has_many :events, -> { uniq }, through: :performances
-  has_many :releases
+  has_many :credits
+  has_many :releases, through: :credits
 
   validates :country, presence: true
   validates :title, presence: true
@@ -23,7 +24,7 @@ class Artist < ActiveRecord::Base
 
   def image_url
     refresh_image_cache # TODO move call to background
-    image_url_cached
+    image_url_cached ? image_url_cached : 'default_image.jpg'
   end
 
   def fb_image_url

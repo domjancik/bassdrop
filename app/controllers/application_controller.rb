@@ -9,8 +9,9 @@ class ApplicationController < ActionController::Base
 # https://github.com/RailsApps/rails-devise-pundit/issues/10
     include Pundit
 # https://github.com/elabs/pundit#ensuring-policies-are-used
-    after_action :verify_authorized, except: :index, unless: lambda { |controller| controller.devise_controller? }
-    after_action :verify_policy_scoped, only: :index, unless: lambda { |controller| controller.devise_controller? }
+    SCOPE_ACTIONS = [:index, :records]
+    after_action :verify_authorized, except: SCOPE_ACTIONS, unless: lambda { |controller| controller.devise_controller? }
+    after_action :verify_policy_scoped, only: SCOPE_ACTIONS, unless: lambda { |controller| controller.devise_controller? }
 
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
