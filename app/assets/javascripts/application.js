@@ -19,10 +19,8 @@ $(function() {
     $(document).foundation();
 
     // Autoload playlists
-    $(document).ready( function() {
-        var plist_link = $('#playlist_link')
-        if (plist_link.length > 0) {
-            jQuery.getScript(plist_link.attr('href'))
-        }
-    })
+    var plist_link = $('#playlist_link')
+    if (plist_link.length > 0) {
+        $.getScript(plist_link.attr('href'))
+    }
 });

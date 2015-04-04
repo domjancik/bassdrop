@@ -3,8 +3,3 @@
 - unless @event.artists.empty?
   = render partial: 'artists/artist_grid', locals: {artists: @event.headliners, xcount: 1}
   = render partial: 'artists/artist_grid', locals: {artists: @event.non_headliners, xcount: 2}
-
-  -# Performances write out (Line up)
-  - unless @event.stages.empty?
-    %h2 Lineup
-

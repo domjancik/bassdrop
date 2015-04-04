@@ -22,3 +22,12 @@
           = yield
     :javascript
       new WOW().init();
+
+      // Put stuff here because application.js wasn't always called :(
+      $(document).foundation();
+
+      // Autoload playlists
+      var plist_link = $('#playlist_link')
+      if (plist_link.length > 0) {
+        $.getScript(plist_link.attr('href'))
+      }
