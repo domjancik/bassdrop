@@ -71,9 +71,10 @@ namespace :db do
           {title: 'Tezet', country: 'CZ', city: 'Mladá Boleslav', fb: 'tezetmusic', role: 'bassdrop'},
           {title: 'Woostep', country: 'CZ', city: 'Prague', fb: 'woostepinfo', role: 'bassdrop'},
           {title: 'Target1', country: 'CZ', city: 'Ostrava', fb: 'targetone', role: 'bassdrop'},
-          {title: 'Meph', country: 'CZ', city: 'Ostrava', fb: 'mephofficial', role: 'bassdrop'},
+          {title: 'Meph', country: 'CZ', city: 'Nový Jičín', fb: 'mephofficial', role: 'bassdrop'},
           {title: 'Sufuski', country: 'CZ', city: 'Prague'},
           {title: 'Yendys', country: 'CZ', city: 'Slaný'},
+          {title: 'Prag:Matics Crew', country: 'CZ', city: 'Prague', fb: 'prg.matics'},
 
           # Live projects
           {title: 'Acid Lobster', country: 'CZ', city: 'Prague'},
@@ -86,7 +87,14 @@ namespace :db do
           {title: 'Gory Ruffian', country: 'CZ', city: 'Karlovy Vary', fb: 'goryruffian'},
 
           # Events
-          {title: 'Eptic', country: 'UK', fb: 'eptic', role: 'headliner'},
+          {title: '2TAKT', country: 'CZ', fb: '2TAKTdjs'},
+          {title: 'Murte Kostka', country: 'CZ', city: 'Prague', fb: 'MURTE.CZ', yt: 'd2n3b'},
+          {title: 'Funspeed', country: 'CZ', city: 'Prague', fb: '120717838089943'},
+          {title: 'Hugorieri', country: 'CZ', fb: 'radim.hugorieri', yt: 'channel/UCtXw5FXrNprbkX61jzDP5pg' },
+          {title: 'Dr. One', country: 'CZ', fb: 'Majinee' },
+          {title: 'The Thrillest', country: 'CZ', city: 'Prague', fb: 'TheThrillestPRG' },
+
+          {title: 'Eptic', country: 'BE', fb: 'eptic', city: 'Waasmunster', role: 'headliner'},
           {title: 'Shiverz', country: 'UK', city: 'London', fb: 'ShiverzDubstepOfficial', role: 'headliner'},
           {title: 'Cookie Monsta', country: 'UK', city: 'Nottingham', fb: '175957405757449', role: 'headliner'},
           {title: 'Luke Hassan', country: 'UK', city: 'Bristol', fb: 'lukehassanmusic', role: 'headliner'},
