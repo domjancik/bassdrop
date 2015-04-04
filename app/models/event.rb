@@ -37,7 +37,6 @@ class Event < ActiveRecord::Base
   end
 
   def attending_count
-    self.update_stats # TODO move this to a background process so a getter method doesnt do any changes
     self.read_attribute :attending_count
   end
 
