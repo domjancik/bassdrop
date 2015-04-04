@@ -25,7 +25,7 @@
             = "#{@artist.city.title},"
           = @artist.country.title
     .small-12.medium-9.columns
-      = render partial: 'events/events', object: @artist.events.upcoming, locals: { xcount: 1 }
+      = render partial: 'events/events', object: @artist.events.upcoming.limit(1), locals: { xcount: 1 }
       .wow.fadeInUp
         - unless @artist.description.blank?
           .artist__description.padded.margin-bottom
