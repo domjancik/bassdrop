@@ -2,7 +2,7 @@
   .small-12.columns
     %h1.hello.wow.fadeIn= welcome_text
 .row
-  .small-12.medium-9.columns
+  .small-12.medium-9.columns.margin-bottom
     - unless @next_event.nil?
       = link_to @next_event do
         .wow.fadeInUp
@@ -17,7 +17,7 @@
     .row
       .small-12.columns
         = render partial: 'upcoming_events', object: @upcoming_events
-        %p
+        %p.margin-top
           = render partial: 'elements/social_links', object: page_social_links
 .row
   .small-12.medium-3.columns.right
