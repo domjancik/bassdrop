@@ -26,7 +26,11 @@ Rails.application.routes.draw do
 
   resources :stages
 
-  resources :artists
+  resources :artists do
+    member do
+      post 'create_playlist'
+    end
+  end
 
   resources :cities
 

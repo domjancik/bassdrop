@@ -1,4 +1,8 @@
-%ul.small-block-grid-1.medium-block-grid-2
+- unless defined? xcount
+  - xcount = 2
+- classes = ['small-block-grid-1', "medium-block-grid-#{xcount}"]
+
+%ul{ class: classes }
   - events.each do |event|
     %li
       = link_to event do

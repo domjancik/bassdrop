@@ -1,7 +1,7 @@
 require 'json'
 
 class Event < ActiveRecord::Base
-  default_scope { order('date_start desc') }
+  default_scope { order('events.date_start desc') }
 
   belongs_to :venue
   belongs_to :playlist
@@ -16,9 +16,9 @@ class Event < ActiveRecord::Base
   has_many :non_headliners, -> { where(:performances => {is_headliner: false}) },
            through: :performances, :source => :artist
 
-  scope :upcoming, -> { where('date_start > ?', 12.hours.ago).reorder('date_start asc') }
-  scope :past, -> { where('date_start <= ?', 12.hours.ago) }
-  scope :past_year, ->(year) { past.where('YEAR(date_start) = ?', year) }
+  scope :upcoming, -> { where('events.date_start > ?', 12.hours.ago).reorder('events.date_start asc') }
+  scope :past, -> { where('events.date_start <= ?', 12.hours.ago) }
+  scope :past_year, ->(year) { past.where('YEAR(events.date_start) = ?', year) }
 
   def to_s
     title

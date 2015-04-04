@@ -17,6 +17,8 @@ class PlaylistItemsController < ApplicationController
   def new
     @playlist_item = PlaylistItem.new
     authorize @playlist_item
+
+    @playlist_item.list_order = @playlist.items.size + 1
   end
 
   # GET /playlist_items/1/edit

@@ -1,12 +1,27 @@
 %p#notice= notice
 
-%p
-  %b Title:
-  = @artist.title
-%p
-  %b City:
-  = @artist.city
+- if user_signed_in?
+  = link_to 'Edit', edit_artist_path(@artist)
+  \|
+  = link_to 'Back', artists_path
+  \|
+  - if @artist.playlist.nil?
+    = link_to 'Generate playlist', create_playlist_artist_path(@artist), method: :post
+  - else
+    = link_to 'Playlist', @artist.playlist
 
-= link_to 'Edit', edit_artist_path(@artist)
-\|
-= link_to 'Back', artists_path
+.artist
+  .row
+    .small-12.medium-3.columns.wow.fadeIn{ 'data-wow-duration' => "0.8s" }
+      = image_tag(@artist.image_url_cached, alt: @artist)
+      .artist__title
+        %h1.artist__title__headline= @artist.title
+        .artist__title__location
+          - unless @artist.city.blank?
+            = "#{@artist.city.title},"
+          = @artist.country.title
+    .small-12.medium-9.columns
+      = render partial: 'events/events', object: @artist.events.upcoming, locals: { xcount: 1 }
+      .artist__description
+        %p= @artist.description
+      = render partial: 'playlists/playlist_embed', object: @artist.playlist
