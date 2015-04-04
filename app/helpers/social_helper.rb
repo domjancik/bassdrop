@@ -6,7 +6,7 @@ module SocialHelper
     { name: 'instagram', url: 'https://instagram.com/bassdropcz/' },
   ]
 
-  def social_links
+  def page_social_links
     SocialHelper::SOCIAL_LINKS
   end
 end

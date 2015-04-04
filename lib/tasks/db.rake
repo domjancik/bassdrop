@@ -60,8 +60,8 @@ namespace :db do
       # ARTISTS
       artists = [
           # Core
-          {title: 'MagNet', country: 'CZ', city: 'Prague', fb: 'MagNetSounds', role: 'bassdrop'},
-          {title: 'Low Tact', country: 'CZ', city: 'Prague', fb: 'LowTact', role: 'bassdrop'},
+          {title: 'MagNet', country: 'CZ', city: 'Prague', fb: 'MagNetSounds', sc: 'magnetcz', tw: 'magnetcz', role: 'bassdrop'},
+          {title: 'Low Tact', country: 'CZ', city: 'Prague', fb: 'LowTact', sc: 'lowtact', role: 'bassdrop'},
           {title: 'Hlava', country: 'CZ', city: 'Prague', fb: 'DjHlavaCZ', role: 'bassdrop'},
           {title: 'Ollie Torr', country: 'CZ', city: 'Prague', fb: 'OllieTorrMusic', role: 'bassdrop'},
           {title: 'Novinski', country: 'CZ', city: 'Prague', role: 'bassdrop', fb: 'tomas.novotny.739'},
@@ -224,6 +224,11 @@ namespace :db do
           end
 
           artist.link_fb = artist_source[:fb] if artist_source.has_key? :fb
+          artist.link_soundcloud = artist_source[:sc] if artist_source.has_key? :sc
+          artist.link_youtube = artist_source[:yt] if artist_source.has_key? :yt
+          artist.link_twitter = artist_source[:tw] if artist_source.has_key? :tw
+          artist.link_instagram = artist_source[:ig] if artist_source.has_key? :ig
+
           artist.role = artist_source[:role] if artist_source.has_key? :role
 
           puts 'Artist loaded - ' + artist_title if artist.new_record?

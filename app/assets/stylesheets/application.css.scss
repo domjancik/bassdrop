@@ -179,8 +179,12 @@ img {
 
 p {
   background: $block-color;
-  margin: 0.5rem 0;
+  margin: 0;
   font-family: $body-font-family;
+}
+
+p + p {
+  margin: 0.5rem 0 0 0;
 }
 
 .padded {
@@ -468,6 +472,11 @@ ul.block-list {
       @extend .text-floating;
       @extend .title-look;
     }
+
+  }
+
+  &__description {
+    background: $block-color;
   }
 }
 
@@ -496,9 +505,22 @@ ul.block-list {
 .instagram { @include social-button($instagram-color, $instagram-letter); }
 .soundcloud { @include social-button($soundcloud-color, $soundcloud-letter); }
 
+@mixin icon-bar-sizer($num_elements) {
+  > * {
+    width: 100% / $num_elements;
+  }
+}
+
 .icon-bar {
   a {
     color: $block-color;
     &:hover,&:focus,&:active { color: $block-color };
   }
+
+  &.one-up { @include icon-bar-sizer(1); }
+  &.two-up { @include icon-bar-sizer(2); }
+  &.three-up { @include icon-bar-sizer(3); }
+  &.four-up { @include icon-bar-sizer(4); }
+  &.five-up { @include icon-bar-sizer(5); }
+  &.six-up { @include icon-bar-sizer(6); }
 }

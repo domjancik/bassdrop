@@ -10,11 +10,15 @@
   - else
     = link_to 'Playlist', @artist.playlist
 
+- no_content = @artist.events.empty? && @artist.description.blank? && @artist.playlist.blank?
+
 .artist
   .row
     .small-12.medium-3.columns.wow.fadeIn{ 'data-wow-duration' => "0.8s" }
       = image_tag(@artist.image_url_cached, alt: @artist)
       .artist__title
+      %div
+        = render partial: 'elements/social_links', object: @artist.social_links
         %h1.artist__title__headline= @artist.title
         .artist__title__location
           - unless @artist.city.blank?
@@ -22,6 +26,18 @@
           = @artist.country.title
     .small-12.medium-9.columns
       = render partial: 'events/events', object: @artist.events.upcoming, locals: { xcount: 1 }
-      .artist__description
-        %p= @artist.description
+      - unless @artist.description.blank?
+        .artist__description.padded.margin-bottom
+          %p
+            = @artist.description
+      - if no_content
+        .artist__description.padded.margin-bottom
+          %p
+            There is nothing more about this artist yet.
+          %p
+            In the meantime,
+            %strong check out these upcoming events!
       = render partial: 'playlists/playlist_embed', object: @artist.playlist
+      - if no_content
+        = render partial: 'events/events', object: @upcoming_events
+

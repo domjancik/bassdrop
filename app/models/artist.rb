@@ -41,4 +41,20 @@ class Artist < ActiveRecord::Base
     self.image_url_cached_at = Time.now
     save
   end
+
+  def social_links
+    links = []
+
+    add_link = lambda do |link, name|
+      links << { name: name, url: link } unless link.blank?
+    end
+
+    add_link.call link_fb, 'facebook'
+    add_link.call link_soundcloud, 'soundcloud'
+    add_link.call link_youtube, 'youtube'
+    add_link.call link_instagram, 'instagram'
+    add_link.call link_twitter, 'twitter'
+
+    links
+  end
 end

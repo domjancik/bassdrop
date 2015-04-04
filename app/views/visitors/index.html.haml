@@ -18,14 +18,7 @@
       .small-12.columns
         = render partial: 'upcoming_events', object: @upcoming_events
         %p
-          - delay = 1
-          - delay_each = 0.3
-          .icon-bar.five-up.wow.fadeIn{ 'data-wow-delay' => "#{delay}s" }
-            - social_links.each do |service|
-              - delay += delay_each
-              - title = t service[:name]
-              = link_to service[:url], title: title, class: ['wow', 'fadeIn', service[:name]], data: { 'wow-delay' => "#{delay}s" }, target: :blank do
-                = ' '
+          = render partial: 'elements/social_links', object: page_social_links
 .row
   .small-12.medium-3.columns.right
     %p.footer
