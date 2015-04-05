@@ -95,14 +95,10 @@ namespace :db do
           # Records
           {title: 'Kutlo', country: 'SK', city: 'Prievidza', fb: 'kutlo.official', sc: 'dubtrax', role: 'records'},
           {title: 'Dubtrax', country: 'CZ', city: 'Olomouc', fb: '339940515051', sc: 'dubtrax', role: 'records'},
-          # {title: '', country: 'CZ', city: 'Olomouc', fb: '339940515051', sc: 'dubtrax', role: 'records'},
-
-
-      # Recalibrate
-      # Monk
-      # L3MMY DUBZ
-      # Envenom
-
+          {title: 'Recalibrate', country: 'UK', role: 'records'},
+          {title: 'Monk', country: 'UK', fb: '238529199643264', role: 'records'},
+          {title: 'L3MMY DUBZ', country: 'UK', fb: 'Liam.Gamer.Laverick.2910', sc: 'l3mmy-dubz', role: 'records'},
+          {title: 'Envenom', country: 'UK', fb: 'envenomdnb', sc: 'envenommusic', role: 'records'},
 
           # Events
           {title: '2TAKT', country: 'CZ', fb: '2TAKTdjs'},
@@ -266,7 +262,7 @@ namespace :db do
         artist.refresh_image_cache
         artist.force_refresh_image_cache if artist.image_url_cached.nil?
 
-        puts "Couldn't load image for #{artist}" if artist.image_url_cached.nil?
+        puts "Couldn't load@event.stages image for #{artist}" if artist.image_url_cached.nil?
       end
     end
   end
