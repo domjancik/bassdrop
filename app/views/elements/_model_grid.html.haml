@@ -1,6 +1,13 @@
+- get_title = lambda { |model| model.title } if local_assigns[:get_title].nil?
+- get_image = lambda { |model| model.image_url } if local_assigns[:get_image].nil?
+- link_target = lambda { |model| model } if local_assigns[:link_target].nil?
+- get_subtitle = nil if local_assigns[:get_subtitle].nil?
 - unless defined? xcount
   - classes = %w(small-block-grid-2 medium-block-grid-5)
 - else
   - classes = ["small-block-grid-#{xcount}"]
+  - if xcount == 2
+    - classes << 'grid__item__small'
 %ul{class: classes}
-  = render partial: 'elements/model_grid_item', collection: model_grid
+  - locals = { get_title: get_title, get_subtitle: get_subtitle, get_image: get_image, link_target: link_target }
+  = render partial: 'elements/model_grid_item', collection: model_grid, locals: locals

@@ -208,6 +208,17 @@ p + p {
   width: 100%;
 }
 
+.stick-to-top {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.smaller {
+  font-size: 80% !important;
+  line-height: 80% !important;;
+}
+
 .with-stick {
   padding-bottom: 2.5rem;
 //  margin-bottom: 0;
@@ -268,6 +279,8 @@ span.important {
   font-weight: bold;
 
   text-align: center;
+
+  word-wrap: break-word;
 }
 
 .text-bigger {
@@ -479,7 +492,16 @@ ul.block-list {
 // Artists
 
 .artist {
-  &__title {
+  &__profile {
+    &__title {
+      @extend .nospace;
+      @extend .text;
+      line-height: 1;
+      background-color: $block-color;
+    }
+  }
+
+  &__extra {
     &__headline {
       line-height: 1em;
       margin-bottom: 0;
@@ -502,13 +524,19 @@ ul.block-list {
 // Releases
 
 .release {
-  &__title {
+  &__profile {
+    &__title {
+      @extend .artist__profile__title;
+    }
+  }
+
+  &__extra {
     &__headline {
-      @extend .artist__title__headline;
+      @extend .artist__extra__headline;
     }
 
     &__code, &__date {
-      @extend .artist__title__location;
+      @extend .artist__extra__location;
       float: left;
     }
 
@@ -526,6 +554,16 @@ ul.block-list {
 
     a { color: $primary-color; }
     a:hover { color: $text-color; }
+  }
+}
+
+.grid__item__small {
+  .text {
+    line-height: 1;
+  }
+
+  .with-stick {
+    padding-bottom: 2rem;
   }
 }
 

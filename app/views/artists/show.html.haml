@@ -18,20 +18,22 @@
 .artist
   .row
     .small-12.medium-3.columns.wow.fadeInUp{ 'data-wow-duration' => "0.8s" }
-      = image_tag(@artist.image_url_cached, alt: @artist)
+      .release__profile
+        = image_tag(@artist.image_url_cached, alt: @artist)
+        .artist__profile__title= @artist.title
       %div
         = render partial: 'elements/social_links', object: @artist.social_links
-      .artist__title.margin-bottom
-        %h1.artist__title__headline= @artist.title
-        .artist__title__location
+      .artist__extra.margin-bottom.wow.fadeIn{ 'data-wow-delay' => "1.5s" }
+        -#%h1.artist__extra__headline= @artist.title
+        .artist__extra__location
           - unless @artist.city.blank?
             = "#{@artist.city.title},"
           = @artist.country.title
       - unless @artist.releases.empty?
         .artist__releases
-          %h2 Works
+          -#%h2 Works
           - xcount = @artist.releases.size > 1 ? 2 : 1
-          = render partial: 'releases/release_grid', object: @artist.releases, locals: { xcount: xcount }
+          = render partial: 'credit_grid', object: @artist.credits, locals: { xcount: xcount }
     .small-12.medium-9.columns
       = render partial: 'events/events', object: @artist.events.upcoming.limit(1), locals: { xcount: 1 }
       .wow.fadeInUp
