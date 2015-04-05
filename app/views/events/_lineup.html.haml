@@ -1,6 +1,8 @@
 -# Time lineup overview for event detail
 
-- @event.stages.each do |stage|
+- stages = @event.stages.to_a
+- stages << nil
+- stages.each do |stage|
   %h2= stage
   %ul.block-list
     - @event.stage_lineup(stage).each do |performance|
