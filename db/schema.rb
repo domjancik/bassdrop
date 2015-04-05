@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404182757) do
+ActiveRecord::Schema.define(version: 20150405084543) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",               limit: 255
@@ -93,11 +93,13 @@ ActiveRecord::Schema.define(version: 20150404182757) do
 
   create_table "media", force: :cascade do |t|
     t.string   "title",       limit: 255
-    t.string   "url",         limit: 255
+    t.string   "url",         limit: 255,      null: false
     t.text     "description", limit: 16777215
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
+
+  add_index "media", ["url"], name: "index_media_on_url", unique: true, using: :btree
 
   create_table "performances", force: :cascade do |t|
     t.integer  "event_id",     limit: 4
@@ -135,7 +137,7 @@ ActiveRecord::Schema.define(version: 20150404182757) do
 
   create_table "releases", force: :cascade do |t|
     t.string   "title",        limit: 255
-    t.string   "rel_code",     limit: 255
+    t.string   "rel_code",     limit: 255,                  null: false
     t.string   "get_url",      limit: 255
     t.string   "get_text",     limit: 255
     t.date     "release_date"
@@ -147,6 +149,7 @@ ActiveRecord::Schema.define(version: 20150404182757) do
   end
 
   add_index "releases", ["playlist_id"], name: "index_releases_on_playlist_id", using: :btree
+  add_index "releases", ["rel_code"], name: "index_releases_on_rel_code", unique: true, using: :btree
 
   create_table "stages", force: :cascade do |t|
     t.string   "title",      limit: 255
