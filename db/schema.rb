@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150405084543) do
+ActiveRecord::Schema.define(version: 20150405111154) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",               limit: 255
@@ -22,13 +22,14 @@ ActiveRecord::Schema.define(version: 20150405084543) do
     t.string   "link_fb",             limit: 255
     t.datetime "image_url_cached_at"
     t.string   "image_url_cached",    limit: 255
-    t.integer  "role",                limit: 4,        default: 0
+    t.integer  "role",                limit: 8,        default: 0
     t.integer  "playlist_id",         limit: 4
     t.string   "link_twitter",        limit: 255
     t.string   "link_youtube",        limit: 255
     t.string   "link_instagram",      limit: 255
     t.text     "description",         limit: 16777215
     t.string   "link_soundcloud",     limit: 255
+    t.string   "creator_title",       limit: 255
   end
 
   add_index "artists", ["city_id"], name: "index_artists_on_city_id", using: :btree
