@@ -137,6 +137,9 @@ namespace :db do
           {title: 'Axel Boy', country: 'UK', fb: 'AxelBoyUK', role: 'headliner'},
           {title: 'Datsik', country: 'CA', fb: 'djdatsik', role: 'supported'},
           {title: 'Le Lion', country: 'NL', fb: 'leliondub', role: 'headliner'},
+          {title: 'Bundat', country: 'UK', city: 'London', fb: 'BundatDubs', sc: 'bundat', role: 'headliner'},
+          {title: 'Subset', country: 'US', city: 'New York', fb: 'djsubset', sc: 'subsetgetsit', role: 'headliner'},
+
           {title: 'Hybris', country: 'US', fb: 'hybrisdnb', role: 'headliner'},
           {title: 'L33', country: 'BG', fb: 'L33music', role: 'headliner'},
           {title: 'The Greys', country: 'UK', fb: 'thegreysuk', role: 'headliner'},
@@ -263,6 +266,107 @@ namespace :db do
         artist.force_refresh_image_cache if artist.image_url_cached.nil?
 
         puts "Couldn't load@event.stages image for #{artist}" if artist.image_url_cached.nil?
+      end
+    end
+  end
+
+  namespace :releases do
+    desc 'Load records'
+    task load_records: :environment do
+      load_file 'db/seeds/records.yml', 'record'
+    end
+
+    def load_file(filename, type)
+      ActiveRecord::Base.transaction do
+        rel_file = YAML.load_file filename
+        releases = rel_file['releases']
+
+        releases.each_pair do |code, release_src|
+          puts 'Loading ' + code
+
+          release = Release.find_by(rel_code: code)
+          release = Release.create(rel_code: code) if release.nil?
+
+          release.release_type = type
+
+          release.title = release_src['title']
+          release.description = release_src['description']
+          release.release_date = release_src['date']
+          release.get_url = release_src['url']
+
+          artists = release_src['artists']
+          raise 'Artists are missing' if artists.nil?
+          credits = release_src['credits']
+          load_credits release, artists, credits
+
+          tracks = release_src['tracks']
+          raise 'Tracks are missing' if tracks.nil?
+          load_playlist release, tracks
+
+          release.save
+        end
+      end
+    end
+
+    def load_playlist(release, tracks)
+      if release.playlist.blank?
+        playlist = Playlist.create_for release
+      else
+        playlist = release.playlist
+
+        # Check if playlist was changed
+        playlist.items.each_with_index do |item, index|
+          unless item.medium.url.eql?(tracks[index])
+            playlist.items.destroy
+            break
+          end
+        end
+      end
+
+      if playlist.items.empty?
+        tracks.each_with_index do |track_url, index|
+          track = Medium.find_by url: track_url
+          if track.nil?
+            track = Medium.create url: track_url
+            track.fill_blanks!
+          end
+          playlist.items.create(medium: track, list_order: index)
+        end
+      end
+    end
+    def load_credits(release, artists, extra_credits)
+      # Join artists and extra credits into credits
+      credits = artists.inject([]) do |arr, artist_title|
+        artist = Artist.find_by! title: artist_title
+        arr << {artist: artist, title: ''}
+      end
+
+      credits = extra_credits.to_a.inject(credits) do |arr, credit|
+        credit_title = credit[0]
+        artist_title = credit[1]
+        artist = Artist.find_by! title: artist_title
+        arr << {artist: artist, title: credit_title}
+      end
+
+      unless release.credits.empty?
+        # Check if credits were changed
+        release.credits.each_with_index do |credit, index|
+          same = credit.artist.eql?(credits[index][:artist])
+          same &&= credit.title.eql?(credits[index][:title])
+          same &&= credit.list_order == index
+
+          unless same
+            release.credits.destroy
+            break
+          end
+        end
+      end
+
+      release.save
+      if release.credits.empty?
+        credits.each_with_index do |credit, index|
+          release.credits.create(title: credit[:title], artist: credit[:artist], list_order: index)
+        end
       end
     end
   end

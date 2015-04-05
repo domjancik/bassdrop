@@ -30,7 +30,7 @@ class MediaController < ApplicationController
     @medium = Medium.new(medium_params)
     authorize @medium
 
-    fill_blanks if @medium.title.blank? || @medium.description.blank?
+    @medium.fill_blanks! if @medium.title.blank? || @medium.description.blank?
 
     respond_to do |format|
       if @medium.save
@@ -46,7 +46,7 @@ class MediaController < ApplicationController
   # PATCH/PUT /media/1
   # PATCH/PUT /media/1.json
   def update
-    fill_blanks if @medium.title.blank? || @medium.description.blank?
+    @medium.fill_blanks! if @medium.title.blank? || @medium.description.blank?
 
     respond_to do |format|
       if @medium.update(medium_params)
@@ -79,11 +79,5 @@ class MediaController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def medium_params
       params.require(:medium).permit(:title, :url, :description)
-    end
-
-    def fill_blanks
-      oembed_info = @medium.oembed_info
-      @medium.title = oembed_info['title'] if @medium.title.blank?
-      @medium.description = oembed_info['description'] if @medium.description.blank?
     end
 end

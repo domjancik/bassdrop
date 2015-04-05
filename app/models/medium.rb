@@ -11,4 +11,11 @@ class Medium < ActiveRecord::Base
   def to_s
     self.title
   end
+
+  def fill_blanks!
+    info = oembed_info
+    self.title = info['title'] if self.title.blank?
+    self.description = info['description'] if self.description.blank?
+    save
+  end
 end
