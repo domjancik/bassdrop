@@ -71,7 +71,13 @@ namespace :db do
           {title: 'Tezet', country: 'CZ', city: 'Mladá Boleslav', fb: 'tezetmusic', role: 'bassdrop'},
           {title: 'Woostep', country: 'CZ', city: 'Prague', fb: 'woostepinfo', role: 'bassdrop'},
           {title: 'Target1', country: 'CZ', city: 'Ostrava', fb: 'targetone', role: 'bassdrop'},
-          {title: 'Meph', country: 'CZ', city: 'Nový Jičín', fb: 'mephofficial', role: 'bassdrop'},
+          {title: 'Meph', country: 'CZ', city: 'Nový Jičín', fb: 'mephofficial', sc: 'mephofficial', role: 'bassdrop'},
+
+          {title: 'Marek Šilpoch', country: 'CZ', city: 'Prague', fb: 'mark.silpoch', role: 'creator'},
+          {title: 'Ondřej Jelínek', country: 'CZ', city: 'Prague', fb: '252554171461710', role: 'creator'},
+          {title: 'Hayppa', country: 'CZ', city: 'Prague', fb: 'Hayppa', role: 'creator'},
+          {title: 'Tomáš Teglý', country: 'CZ', city: 'Prague', fb: '252554171461710', role: 'creator'},
+
           {title: 'Sufuski', country: 'CZ', city: 'Prague', fb: 'zdenda.mahdal'},
           {title: 'Yendys', country: 'CZ', city: 'Slaný', fb: 'jan.studeny'},
           {title: 'Prag:Matics Crew', country: 'CZ', city: 'Prague', fb: 'prg.matics'},
@@ -87,7 +93,16 @@ namespace :db do
           {title: 'Gory Ruffian', country: 'CZ', city: 'Karlovy Vary', fb: 'goryruffian'},
 
           # Records
-          {title: 'Kutlo', country: 'SK', city: 'Prievidza', fb: 'kutlo.official', role: 'records'},
+          {title: 'Kutlo', country: 'SK', city: 'Prievidza', fb: 'kutlo.official', sc: 'dubtrax', role: 'records'},
+          {title: 'Dubtrax', country: 'CZ', city: 'Olomouc', fb: '339940515051', sc: 'dubtrax', role: 'records'},
+          # {title: '', country: 'CZ', city: 'Olomouc', fb: '339940515051', sc: 'dubtrax', role: 'records'},
+
+
+      # Recalibrate
+      # Monk
+      # L3MMY DUBZ
+      # Envenom
+
 
           # Events
           {title: '2TAKT', country: 'CZ', fb: '2TAKTdjs'},

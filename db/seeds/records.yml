@@ -1,0 +1,224 @@
+#  bdr01X:
+#    title: TITLE
+#    description: |-
+#                 DESC
+#    date: 2014-MM-DD
+#    url: http://on.fb.me/1h2Ej7I
+#    artists:
+#      - ARTIST
+#    credits:
+#      Graphics: Marek Šilpoch
+#    tracks:
+#      - URL
+
+releases:
+  BDR003:
+    title: Ancient EP
+    description: |-
+                 Hailing from Czech Republic, we bring you our next compilation full of young and upcoming producers.
+                 This compilation contains 5 tracks mostly about 175 BPM, "Way of the Underground" by Dubtrax will take you on a deep space journey and then "8Bit Heart" by Kutlo will smash you with its neuro bass and heavy kicks. "Greed" by Meph brings you the best of hard and punchy neuro basslines and you can expect the same from "The Reason" by Psychical Research. Last but not least, "It's Not Real" shows you how deep can sound even go, albeit with a genre twist.
+
+                 Released on the 1st Bass Drop Anniversary.
+    date: 2014-03-21
+    url: http://on.fb.me/1h2Ej7I
+    artists:
+      - Dubtrax
+      - Kutlo
+      - Meph
+      - Psychical Research
+      - Ollie Torr
+      - Furious Freaks
+    credits:
+      Graphics: Hayppa
+      Animation: MagNet
+      Mastering: Target1
+    tracks:
+      - https://www.youtube.com/watch?v=p-02WFHpAbU
+      - https://www.youtube.com/watch?v=baDOaM1CVSI
+      - https://www.youtube.com/watch?v=cEAuwfLAxkA
+      - https://www.youtube.com/watch?v=FTTKlyl56QY
+      - https://www.youtube.com/watch?v=--BWYNHZndc
+      - https://www.youtube.com/watch?v=xRrYh0fVgk4
+  BDR004:
+    title: Invited EP
+    description: |-
+                 Invited EP is full of massive dubstep beats by some of the most innovative producers out there.
+                 Just listen, download, play!
+    date: 2014-04-18
+    url: http://on.fb.me/1h2Ej7I
+    artists:
+      - Genetix
+      - Young D
+      - Woostep
+      - Target1
+      - Gh0sh
+      - Villain
+      - Efflex
+      - Martz
+      - The Greys
+      - Recalibrate
+      - MuK
+    credits:
+      Graphics: Marek Šilpoch
+      Animation: MagNet
+      Mastering: Target1
+    tracks:
+      - https://www.youtube.com/watch?v=PtvTTDpeVpg
+      - https://soundcloud.com/bass-drop-records/genetix-ft-padman-aristocracy-free-download
+      - https://soundcloud.com/bass-drop-records/young-d-the-baddiez-free-download
+      - https://soundcloud.com/bass-drop-records/elephant-man-crazy-hype-woostep-remixfree-download
+      - https://soundcloud.com/bass-drop-records/target1-the-game-free-download
+      - https://soundcloud.com/bass-drop-records/gh0sh-boy-get-killed-free-download
+      - https://soundcloud.com/bass-drop-records/villain-corners-free-download
+      - https://soundcloud.com/bass-drop-records/efflex-submission-free-download
+      - https://soundcloud.com/bass-drop-records/martz-turn-it-up-free-download
+      - https://soundcloud.com/bass-drop-records/the-greys-recalibrate-zeta-free-download
+      - https://soundcloud.com/bass-drop-records/muk-magnemite-free-download
+  BDR005:
+    title: Mad Dogs EP
+    description: |-
+                 Jordan Richards-Holmes Aka Monk is one of the young talents who is attacking our label with some serious riddim dubstep.
+                 Together with Liam Laverick Aka L3MMY DUBZ - A 16 Years old blood from Middlesbroug - are making their first steps on BASS DROP RECORDS with this joint release.
+
+                 Starting off with the solid opening of the gangster synth heavy track "Animal" and keeping pace with "Hazard Suit", "Impress me" and "Mad Dogs" - this EP is chock full of ethereal yet ripping sounds which make Monk & L3MMY two names you should keep your eye on.
+    date: 2014-05-23
+    url: http://on.fb.me/1h2Ej7I
+    artists:
+      - Monk
+      - L3MMY DUBZ
+    credits:
+      Graphics: Marek Šilpoch
+    tracks:
+      - https://soundcloud.com/bass-drop-records/monk-lemmy-dubz-mad-dogs-ep-out-235
+  BDR006:
+    title: Who shot ya? EP
+    description: |-
+                 Kahlil from Bristol invades BASS DROP RECORDS with some fresh dubstep vibes, 3 killer tracks all free to dowload via our facebook page.
+    date: 2014-06-20
+    url: http://on.fb.me/1h2Ej7I
+    artists:
+      - Kahlil
+    credits:
+      Graphics: Marek Šilpoch
+    tracks:
+      - https://soundcloud.com/bass-drop-records/kahlil-who-shot-ya-ep-out-now
+  BDR007:
+    title: Crux EP
+    description: |-
+                 This multigenre gem goes from dubstep to midtempo trap in the blink of an eye. Big ups to Bundat!
+    date: 2014-07-21
+    url: http://on.fb.me/1h2Ej7I
+    artists:
+      - Bundat
+    credits:
+      Graphics: Marek Šilpoch
+    tracks:
+      - https://soundcloud.com/bass-drop-records/bundat-crux-ep-free-download
+  BDR008:
+    title: Timewarp EP
+    description: |-
+                 On top of playing with us at BASS DROP, Le Lion has gifted us with this brilliant EP. 3 dubstep bangers with sound so special you'll have a hard time finding anything similar soon!
+
+                 So get your hands on these little gems absolutely free of charge.
+    date: 2014-08-22
+    url: http://on.fb.me/1h2Ej7I
+    artists:
+      - Le Lion
+    credits:
+      Graphics: Marek Šilpoch
+    tracks:
+      - https://soundcloud.com/bass-drop-records/le-lion-timewarp-ep-free-download
+  BDR009:
+    title: A Fire
+    description: |-
+                 Heavy on bass. Heavy on melodies. All playing well together. A feat not many producers are able to pull off. Axel Boy, however, is definitely one of those producers as he's able to seamlessly blend all sorts of musical elements into one epic track. The exclusive BASS DROP RECORDS release A Fire shows just that. So turn the volume up and let the party begin.
+
+                 A don't forget, we offer you this sick tune completely free of charge in DJ friendly 320kbps quality!
+    date: 2014-09-19
+    url: http://on.fb.me/1h2Ej7I
+    artists:
+      - Axel Boy
+    credits:
+      Graphics: Marek Šilpoch
+    tracks:
+      - https://soundcloud.com/bass-drop-records/axel-boy-a-fire
+  BDR010:
+    title: The Lost Dubs EP
+    description: |-
+                 After a while we're releasing some juicy drum n bass once again! This one comes from the mighty talented guys at Envenom.﻿ You might know one of their members by his older dubstep alter ego Sponge Bandits﻿.
+
+                 The EP is packed with 3 absolutely sick jump up tunes and one proper deep drum n bass banger.
+
+                 So what are you waiting for, get downloading and play these everywhere!
+    date: 2014-11-11
+    url: http://on.fb.me/1h2Ej7I
+    artists:
+      - Envenom
+    credits:
+      Graphics: Marek Šilpoch
+    tracks:
+      - https://soundcloud.com/bass-drop-records/envenom-the-lost-dubs-ep-free-download
+  BDR011:
+    title: Unexpected
+    description: |-
+                 This time we've asked the talented German duo London Nebel to treat us with this early christmas gift for all of our listeners.
+
+                 Enjoy this heavy dubstep tune full of raw energy that will make your eardrums scream and completely annihilate the dancefloor.
+    date: 2014-12-12
+    url: http://on.fb.me/1h2Ej7I
+    artists:
+      - London Nebel
+    credits:
+      Graphics: Marek Šilpoch
+    tracks:
+      - https://soundcloud.com/bass-drop-records/london-nebel-unexpected
+  BDR012:
+    title: I Can See You
+    description: |-
+                 A Christmas gift for everyone by Kutlo and Furious Freaks.
+
+                 Enjoy!
+    date: 2014-12-24
+    url: http://on.fb.me/1h2Ej7I
+    artists:
+      - Furious Freaks
+      - Kutlo
+    credits:
+      Graphics: Hayppa
+      Animation: MagNet
+      Mastering: Target1
+    tracks:
+      - https://www.youtube.com/watch?v=0YxXeDO93YY
+  BDR013:
+    title: Lizards / Unleash the Hounds
+    description: |-
+                 Lizards and Unleash the Hounds are the newest releases on BDR, this time from the mighty talented swiss/german duo QBIG & Zenith B
+
+                 Each of the tracks speaks for itself. While Lizards is right there along with the sick deep neuro dnb bangers, Unleash the Hounds with its Drumstep elements and broken rhythm explores the more experimental side of QBIG's and Zenith B's production yet remains heavy hitting on the dance floor.
+
+                 Enjoy both of these tracks absolutely free of charge in lovely 320kbps.
+    date: 2014-01-25
+    url: http://on.fb.me/1h2Ej7I
+    artists:
+      - QBIG & Zenith B
+    credits:
+      Graphics: Marek Šilpoch
+    tracks:
+      - https://soundcloud.com/bass-drop-records/qbig-zenith-b-lizards-free
+      - https://soundcloud.com/bass-drop-records/qbig-zenith-b-unleash-the-hounds-free-download
+  BDR014:
+    title: Reincarnation
+    description: |-
+                 Three in-house tunes for y'all by the mighty guys of Woostep.
+    date: 2014-03-21
+    url: http://on.fb.me/1h2Ej7I
+    artists:
+      - Woostep
+    credits:
+      Graphics: Marek Šilpoch
+    tracks:
+      - https://soundcloud.com/bass-drop-records/woostep-reincarnation-free-download
+      - https://soundcloud.com/bass-drop-records/woostep-purple-haze-free-download
+      - https://soundcloud.com/bass-drop-records/woostep-dea
+
+
