@@ -1,0 +1,36 @@
+#  bdr01X:
+#    title: TITLE
+#    description: |-
+#                 DESC
+#    date: 2014-MM-DD
+#    url: http://on.fb.me/1h2Ej7I
+#    artists:
+#      - ARTIST
+#    credits:
+#      Graphics: Marek Šilpoch
+#    tracks:
+#      - URL
+
+releases:
+  BDherokR003:
+    title: Ancient EP
+    description: |-
+                 Hailing from Czech Republic, we bring you our next compilation full of young and upcoming producers.
+                 This compilation contains 5 tracks mostly about 175 BPM, "Way of the Underground" by Dubtrax will take you on a deep space journey and then "8Bit Heart" by Kutlo will smash you with its neuro bass and heavy kicks. "Greed" by Meph brings you the best of hard and punchy neuro basslines and you can expect the same from "The Reason" by Psychical Research. Last but not least, "It's Not Real" shows you how deep can sound even go, albeit with a genre twist.
+
+                 Released on the 1st Bass Drop Anniversary.
+    date: 2014-03-21
+    url: http://on.fb.me/1h2Ej7I
+    artists:
+      - Dubtrax
+      - Kutlo
+      - Meph
+      - Target1
+      - Ollie Torr
+      - Furious Freaks
+    credits:
+      Graphics: Hayppa
+      Animation: MagNet
+      Mastering: Target1
+    tracks:
+      - https://www.youtube.com/watch?v=p-02WFHpAbU
