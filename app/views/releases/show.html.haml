@@ -22,28 +22,34 @@
 .release
   .row
     .small-12.medium-3.columns.wow.fadeInUp{ 'data-wow-duration' => "0.8s" }
-      .release__profile
-        = image_tag(@release.image_url, alt: @release)
-        .release__profile__title= @release.title
-      %div
-        - unless @release.get_url.blank?
-          .icon-bar.wow.fadeIn.one-up{ 'data-wow-delay' => "1s" }
-            - title = @release.get_text.blank? ? 'Download' : @release.get_text
-            = link_to title, @release.get_url, title: title, class: 'get-link', target: :blank
-      .release__extra.margin-bottom.wow.fadeIn{ 'data-wow-delay' => "1.5s" }
-        -#%h1.release__title__headline= @release.title
-        .release__extra__code
-          = @release.rel_code
-        .release__extra__date
-          - if in_future? @release.release_date
-            Coming on
-          - else
-            Released on
-          = l @release.release_date, format: :release_date
+      .row
+        .release__profile
+          = image_tag(@release.image_url, alt: @release)
+          .release__profile__title= @release.title
+        %div
+          - unless @release.get_url.blank?
+            .icon-bar.wow.fadeIn.one-up{ 'data-wow-delay' => "1s" }
+              - title = @release.get_text.blank? ? 'Download' : @release.get_text
+              = link_to title, @release.get_url, title: title, class: 'get-link', target: :blank
+      .row
+        .release__extra.margin-bottom.wow.fadeIn{ 'data-wow-delay' => "1.5s" }
+          -#%h1.release__title__headline= @release.title
+          .release__extra__code
+            = @release.rel_code
+          .release__extra__date
+            - if in_future? @release.release_date
+              Coming on
+            - else
+              Released on
+            = l @release.release_date, format: :release_date
       - unless @release.credits.empty?
-        .release__credits
-          - xcount = @release.artists.size > 1 ? 2 : 1
-          = render partial: 'credit_grid', object: @release.credits, locals: { xcount: xcount }
+        .row
+          .release__credits#grid-carousel
+            - xcount = @release.credits.size > 1 ? 2 : 1
+            - @release.credits.each_slice(6) do |slice|
+              %div
+                = render partial: 'credit_grid', object: slice, locals: { xcount: xcount }
+
     .small-12.medium-9.columns
       .wow.fadeInUp.margin-bottom
         = render partial: 'playlists/playlist_embed', object: @release.playlist
@@ -52,13 +58,15 @@
           .release__description.padded.margin-bottom
             %p
               = auto_link simple_format @release.description
-        - if no_content
-          .release__description.padded.margin-bottom
+        .release__description.padded.margin-bottom
+          - if no_content
             %p
               There is nothing more about this release yet.
             %p
               In the meantime,
               %strong check out these upcoming events!
-      - if no_content
-        = render partial: 'events/events', object: @upcoming_events
+          - else
+            %p
+              Looking for more? Have you seen what events we're preparing for you?
+      = render partial: 'events/events', object: @upcoming_events
 

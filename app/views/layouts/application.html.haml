@@ -25,6 +25,13 @@
     :javascript
       new WOW().init();
 
+      $('#grid-carousel').slick({
+        autoplay: true,
+        arrows: false,
+        dots: true,
+        autoplaySpeed: 2000
+      });
+
       // Put stuff here because application.js wasn't always called :(
       $(document).foundation();
 

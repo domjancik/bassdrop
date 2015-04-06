@@ -14,13 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require foundation
+//= require jquery.slick
 //= require_tree .
-$(function() {
-    $(document).foundation();
-
-    // Autoload playlists
-    var plist_link = $('#playlist_link')
-    if (plist_link.length > 0) {
-        $.getScript(plist_link.attr('href'))
-    }
-});
+//$(function() {
+//    $(document).foundation();
+//
+//  // Autoload playlists
+    //var plist_link = $('#playlist_link')
+    //if (plist_link.length > 0) {
+    //    $.getScript(plist_link.attr('href'))
+    //}
+//});

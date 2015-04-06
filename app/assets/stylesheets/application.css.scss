@@ -18,6 +18,9 @@
 
 @import "compass/css3/animation";
 
+@import 'slick';
+@import 'slick-theme';
+
 @import "settings";
 
 @font-face {
@@ -108,6 +111,12 @@ select {
     @extend .button;
   }
 }
+
+// Carousel
+ul.slick-dots {
+  margin-left: 0;
+}
+
 
 // Tab (added transitions)
 // TODO, problems with width for absolute positioned content

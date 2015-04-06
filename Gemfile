@@ -29,6 +29,9 @@ gem 'rails_12factor'
 # Social
 gem 'rest-client'
 gem 'fastimage'
+# Niceties
+gem 'owlcarousel-rails'
+gem 'jquery-slick-rails'
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'
