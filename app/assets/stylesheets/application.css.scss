@@ -530,6 +530,17 @@ ul.block-list {
   }
 }
 
+// Content common
+
+.content {
+  &__description {
+    background: $block-color;
+
+    a { color: $primary-color; }
+    a:hover { color: $text-color; }
+  }
+}
+
 // Releases
 
 .release {

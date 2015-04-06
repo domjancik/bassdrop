@@ -1,0 +1,8 @@
+.release__profile
+  = image_tag(@release.image_url, alt: @release)
+  .release__profile__title= @release.title
+  %div
+    - unless @release.get_url.blank?
+      .icon-bar.wow.fadeIn.one-up{ 'data-wow-delay' => "1s" }
+        - title = @release.get_text.blank? ? 'Download' : @release.get_text
+        = link_to title, @release.get_url, title: title, class: 'get-link', target: :blank

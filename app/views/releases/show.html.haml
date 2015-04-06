@@ -3,19 +3,7 @@
 
 %p#notice= notice
 
-- if user_signed_in?
-  = link_to 'Add credit', new_release_credit_path(@release)
-  \|
-  = link_to 'Show credits', release_credits_path(@release)
-  \|
-  = link_to 'Edit', edit_release_path(@release)
-  \|
-  = link_to 'Back', releases_path
-  \|
-  - if @release.playlist.nil?
-    = link_to 'Generate playlist', create_playlist_release_path(@release), method: :post
-  - else
-    = link_to 'Playlist', @release.playlist
+= render 'show_menu'
 
 - no_content = @release.description.blank? && @release.playlist.blank?
 
@@ -23,33 +11,13 @@
   .row
     .small-12.medium-3.columns.wow.fadeInUp{ 'data-wow-duration' => "0.8s" }
       .row
-        .release__profile
-          = image_tag(@release.image_url, alt: @release)
-          .release__profile__title= @release.title
-        %div
-          - unless @release.get_url.blank?
-            .icon-bar.wow.fadeIn.one-up{ 'data-wow-delay' => "1s" }
-              - title = @release.get_text.blank? ? 'Download' : @release.get_text
-              = link_to title, @release.get_url, title: title, class: 'get-link', target: :blank
+        = render 'profile'
       .row
-        .release__extra.margin-bottom.wow.fadeIn{ 'data-wow-delay' => "1.5s" }
-          -#%h1.release__title__headline= @release.title
-          .release__extra__code
-            = @release.rel_code
-          .release__extra__date
-            - if in_future? @release.release_date
-              Coming on
-            - else
-              Released on
-            = l @release.release_date, format: :release_date
+        = render 'extra_info'
       - unless @release.credits.empty?
         .row
-          .release__credits#grid-carousel
-            - xcount = @release.credits.size > 1 ? 2 : 1
-            - @release.credits.each_slice(6) do |slice|
-              %div
-                = render partial: 'credit_grid', object: slice, locals: { xcount: xcount }
-
+          .release__credits
+            = render partial: 'elements/grid_carousel', object: @release.credits, locals: { partial: 'credit_grid' }
     .small-12.medium-9.columns
       .wow.fadeInUp.margin-bottom
         = render partial: 'playlists/playlist_embed', object: @release.playlist
@@ -58,15 +26,4 @@
           .release__description.padded.margin-bottom
             %p
               = auto_link simple_format @release.description
-        .release__description.padded.margin-bottom
-          - if no_content
-            %p
-              There is nothing more about this release yet.
-            %p
-              In the meantime,
-              %strong check out these upcoming events!
-          - else
-            %p
-              Looking for more? Have you seen what events we're preparing for you?
-      = render partial: 'events/events', object: @upcoming_events
-
+        = render partial: 'elements/more_content', object: no_content

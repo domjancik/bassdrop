@@ -1,0 +1,9 @@
+.release__extra.margin-bottom.wow.fadeIn{ 'data-wow-delay' => "1.5s" }
+  .release__extra__code
+    = @release.rel_code
+  .release__extra__date
+    - if in_future? @release.release_date
+      Coming on
+    - else
+      Released on
+    = l @release.release_date, format: :release_date

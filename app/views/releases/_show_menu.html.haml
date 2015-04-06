@@ -1,0 +1,13 @@
+- if user_signed_in?
+  = link_to 'Add credit', new_release_credit_path(@release)
+  \|
+  = link_to 'Show credits', release_credits_path(@release)
+  \|
+  = link_to 'Edit', edit_release_path(@release)
+  \|
+  = link_to 'Back', releases_path
+  \|
+  - if @release.playlist.nil?
+    = link_to 'Generate playlist', create_playlist_release_path(@release), method: :post
+  - else
+    = link_to 'Playlist', @release.playlist
