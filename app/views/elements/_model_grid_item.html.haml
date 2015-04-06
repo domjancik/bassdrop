@@ -1,15 +1,9 @@
 %li
   = link_to link_target.call model_grid_item do
-    - delay = Random.rand(5).to_f / 10.0
-    %div.wow.fadeInUp{ 'data-wow-offset' => '20', 'data-wow-delay' => "#{delay}s" }
-      %div.hover.with-stick
-        - unless get_subtitle.nil?
-          - subtitle = get_subtitle.call model_grid_item
-          - unless subtitle.blank?
-            %p.text.stick-to-top.inverted.smaller= subtitle
-        %p.nospace
-          - image_url = get_image.call model_grid_item
-          - if !image_url.nil?
-            = image_tag(image_url)
-        %p.text.stick-to-bottom.nospace
-          = get_title.call model_grid_item
+    - if animate
+      - delay = Random.rand(5).to_f / 10.0
+      .wow.fadeInUp{ 'data-wow-offset' => '20', 'data-wow-delay' => "#{delay}s" }
+        = render partial: 'elements/model_grid_item_content', locals: local_assigns
+    - else
+      .wow.fadeInUp{ 'data-wow-offset' => '20', 'data-wow-duration' => "1ms" }
+        = render partial: 'elements/model_grid_item_content', locals: local_assigns

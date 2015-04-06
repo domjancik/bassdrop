@@ -13,28 +13,18 @@
   - else
     = link_to 'Playlist', @artist.playlist
 
-- no_content = @artist.events.empty? && @artist.description.blank? && @artist.playlist.blank?
+- no_content = @artist.events.empty? && @artist.description.blank? && (@artist.playlist.blank? || @artist.playlist.items.empty?)
 
 .artist
   .row
-    .small-12.medium-3.columns.wow.fadeInUp{ 'data-wow-duration' => "0.8s" }
-      .release__profile
-        = image_tag(@artist.image_url_cached, alt: @artist)
-        .artist__profile__title= @artist.title
-      %div
-        = render partial: 'elements/social_links', object: @artist.social_links
-      .artist__extra.margin-bottom.wow.fadeIn{ 'data-wow-delay' => "1.5s" }
-        -#%h1.artist__extra__headline= @artist.title
-        .artist__extra__location
-          - unless @artist.city.blank?
-            = "#{@artist.city.title},"
-          = @artist.country.title
-      - unless @artist.releases.empty?
-        - xcount = @artist.releases.size > 1 ? 2 : 1
-        .artist__releases.owl-carousel#grid-carousel
-          - @artist.credits.each_slice do |slice|
-            .item
-              = render partial: 'credit_grid', object: slice, locals: { xcount: xcount }
+    .small-12.medium-3.columns
+      .row.wow.fadeInUp{ 'data-wow-duration' => "0.8s" }
+        = render 'profile'
+      .row.wow.fadeInUp{ 'data-wow-delay' => "0.6s" }
+        = render 'extra_info'
+      .row.wow.fadeInUpBig{ 'data-wow-delay' => "0.6s", 'data-wow-duration' => "1.5s" }
+        .artist__releases
+          = render partial: 'elements/grid_carousel', object: @artist.credits, locals: { partial: 'credit_grid' }
     .small-12.medium-9.columns
       = render partial: 'events/events', object: @artist.events.upcoming.limit(1), locals: { xcount: 1 }
       .wow.fadeInUp
@@ -42,15 +32,6 @@
           .artist__description.padded.margin-bottom
             %p
               = @artist.description
-        - if no_content
-          .artist__description.padded.margin-bottom
-            %p
-              There is nothing more about this artist yet.
-            %p
-              In the meantime,
-              %strong check out these upcoming events!
-      .wow.fadeIn{ 'data-wow-delay' => "1s" }
         = render partial: 'playlists/playlist_embed', object: @artist.playlist
-      - if no_content
-        = render partial: 'events/events', object: @upcoming_events
+      = render partial: 'elements/more_content', object: no_content
 

@@ -1,0 +1,11 @@
+%div.hover.with-stick
+  - unless get_subtitle.nil?
+    - subtitle = get_subtitle.call model_grid_item
+    - unless subtitle.blank?
+      %p.text.stick-to-top.inverted.smaller= subtitle
+  %p.nospace
+    - image_url = get_image.call model_grid_item
+    - if !image_url.nil?
+      = image_tag(image_url)
+  %p.text.stick-to-bottom.nospace
+    = get_title.call model_grid_item

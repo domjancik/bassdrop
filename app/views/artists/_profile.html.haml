@@ -1,0 +1,5 @@
+.artist__profile
+  = image_tag(@artist.image_url_cached, alt: @artist)
+  .artist__profile__title= @artist.title
+%div
+  = render partial: 'elements/social_links', object: @artist.social_links

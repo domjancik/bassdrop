@@ -9,13 +9,13 @@
 
 .release
   .row
-    .small-12.medium-3.columns.wow.fadeInUp{ 'data-wow-duration' => "0.8s" }
-      .row
+    .small-12.medium-3.columns
+      .row.wow.fadeInUp{ 'data-wow-duration' => "0.8s" }
         = render 'profile'
-      .row
+      .row.wow.fadeInUp{ 'data-wow-delay' => "0.6s" }
         = render 'extra_info'
       - unless @release.credits.empty?
-        .row
+        .row.wow.fadeInUpBig{ 'data-wow-delay' => "0.6s", 'data-wow-duration' => "1.5s" }
           .release__credits
             = render partial: 'elements/grid_carousel', object: @release.credits, locals: { partial: 'credit_grid' }
     .small-12.medium-9.columns

@@ -1,0 +1,5 @@
+.artist__extra.margin-bottom.wow.fadeIn{ 'data-wow-delay' => "1.5s" }
+  .artist__extra__location
+    - unless @artist.city.blank?
+      = "#{@artist.city.title},"
+    = @artist.country.title
