@@ -45,7 +45,6 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
-  gem 'aws-sdk', '~> 1.5.7'
 end
 group :development, :test do
   gem 'factory_girl_rails'
@@ -61,6 +60,7 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
-group :production do
-  gem 'aws-sdk', '~> 1.5.7'
+group :production, :development do
+  # gem 'aws-sdk', '~> 1.5.7'
+  gem 'aws-sdk-v1'
 end
