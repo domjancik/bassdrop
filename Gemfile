@@ -61,5 +61,5 @@ group :test do
   gem 'selenium-webdriver'
 end
 group :production do
-  gem 'aws-sdk'
+  gem 'aws-sdk-v1'
 end
