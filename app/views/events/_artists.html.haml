@@ -1,5 +1,6 @@
 -# Artist overview for event
 
-- unless @event.artists.empty?
-  = render partial: 'artists/artist_grid', object: @event.headliners, locals: {xcount: 1}
-  = render partial: 'artists/artist_grid', object: @event.non_headliners, locals: {xcount: 2}
+- unless @event.headliners.empty?
+  = render partial: 'elements/grid_carousel', object: @event.headliners, locals: {xcount: 1, slice_by: 1, partial: 'artists/artist_grid'}
+- unless @event.non_headliners.empty?
+  = render partial: 'elements/grid_carousel', object: @event.non_headliners, locals: {xcount: 2, slice_by: 4, partial: 'artists/artist_grid'}

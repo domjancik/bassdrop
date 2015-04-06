@@ -1,8 +1,10 @@
 -# Splits the given objects into even slices and wraps them into a carousel
 -# @param partial - name of the grid partial to render the slices with
 
-#grid-carousel
-  - xcount = grid_carousel.size > 1 ? 2 : 1
-  - grid_carousel.each_slice(6) do |slice|
+- slice_by = 6 if local_assigns[:slice_by].nil?
+- xcount = grid_carousel.size > 1 ? 2 : 1 if local_assigns[:xcount].nil?
+
+.grid-carousel
+  - grid_carousel.each_slice(slice_by) do |slice|
     %div
       = render partial: partial, object: slice, locals: { xcount: xcount }
