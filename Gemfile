@@ -26,6 +26,7 @@ gem 'upmin-admin'
 gem 'json'
 gem 'rinku'
 gem 'rails_12factor'
+gem 'paperclip', '~> 4.2'
 # Social
 gem 'rest-client'
 gem 'fastimage'
@@ -58,4 +59,7 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+end
+group :production do
+  gem 'aws-sdk'
 end
