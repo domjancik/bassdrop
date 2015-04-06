@@ -1,4 +1,4 @@
-= simple_form_for(@release) do |f|
+= simple_form_for(@release, multipart: true) do |f|
   = f.error_notification
 
   .form-inputs
@@ -10,6 +10,7 @@
     = f.input :release_type, collection: Release.release_types.keys.map {|rel_type| [rel_type.titleize,rel_type]}
     = f.association :playlist
     = f.input :description
+    = f.input :avatar, as: :file
 
   .form-actions
     = f.button :submit

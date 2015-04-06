@@ -2,6 +2,8 @@ require 'net/http'
 require 'json'
 
 class Artist < ActiveRecord::Base
+  include Avatarable
+  
   enum role: [:artist, :supported, :headliner, :bassdrop, :records, :creator]
   # default_scope { order('role desc') }
 
@@ -20,11 +22,6 @@ class Artist < ActiveRecord::Base
 
   def to_s
     title
-  end
-
-  def image_url
-    refresh_image_cache # TODO move call to background
-    image_url_cached ? image_url_cached : 'default_image.jpg'
   end
 
   def fb_image_url
@@ -58,4 +55,10 @@ class Artist < ActiveRecord::Base
 
     links
   end
+
+  private
+    def image_missing_url
+      refresh_image_cache # TODO move call to background
+      image_url_cached ? image_url_cached : 'default_image.jpg'
+    end
 end

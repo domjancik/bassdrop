@@ -1,5 +1,5 @@
 - get_title = lambda { |model| model.title } if local_assigns[:get_title].nil?
-- get_image = lambda { |model| model.image_url } if local_assigns[:get_image].nil?
+- get_image = lambda { |model| model.image_url(:small) } if local_assigns[:get_image].nil?
 - link_target = lambda { |model| model } if local_assigns[:link_target].nil?
 - get_subtitle = nil if local_assigns[:get_subtitle].nil?
 - animate = false if local_assigns[:animate].nil?

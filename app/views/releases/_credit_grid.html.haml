@@ -1,7 +1,8 @@
 - locals = {}
 - locals[:xcount] = xcount if defined? xcount
 - locals[:get_title] = lambda { |credit| credit.artist.title }
-- locals[:get_image] = lambda { |credit| credit.artist.image_url }
+- image_style = locals[:xcount] == 2 ? :thumb : :medium
+- locals[:get_image] = lambda { |credit| credit.artist.image_url(image_style) }
 - locals[:get_subtitle] = lambda { |credit| credit.title }
 - locals[:link_target] = lambda { |credit| credit.artist }
 = render partial: 'elements/model_grid', object: credit_grid, locals: locals
