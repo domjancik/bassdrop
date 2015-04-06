@@ -1,6 +1,6 @@
 module Avatarable extend ActiveSupport::Concern
   included do
-    has_attached_file :avatar, url: '/system/:class/:attachment/:id_partition/avatar_:style.:extension', styles: {
+    has_attached_file :avatar, path: '/:class/:attachment/:id_partition/avatar_:style.:extension', styles: {
                                  thumb: '120x120#',
                                  small: '200x200#',
                                  medium: '250x250#',
