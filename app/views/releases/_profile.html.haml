@@ -1,5 +1,5 @@
 .release__profile
-  = image_tag(@release.image_url, alt: @release)
+  = image_tag(@release.image_url(:medium), alt: @release)
   .release__profile__title= @release.title
   %div
     - unless @release.get_url.blank?
