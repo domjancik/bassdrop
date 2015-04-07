@@ -85,6 +85,7 @@ namespace :db do
           {title: 'Ondřej Jelínek', country: 'CZ', city: 'Prague', fb: '252554171461710', role: 'creator'},
           {title: 'Hayppa', country: 'CZ', city: 'Prague', fb: 'Hayppa', role: 'creator'},
           {title: 'Tomáš Teglý', country: 'CZ', city: 'Prague', fb: '252554171461710', role: 'creator'},
+          {title: 'Jakub Chudý', country: 'CZ', city: 'Prague', fb: 'chudy.jakub', role: 'creator'},
 
           {title: 'Sufuski', country: 'CZ', city: 'Prague', fb: 'zdenda.mahdal'},
           {title: 'Yendys', country: 'CZ', city: 'Slaný', fb: 'jan.studeny'},
@@ -140,6 +141,7 @@ namespace :db do
           {title: 'QBIG & Zenith B', country: 'CH', city: 'Basel', fb: 'QbigZenithB', role: 'headliner'},
           {title: 'London Nebel', country: 'DE', fb: 'londonnebel', role: 'headliner'},
           {title: 'Kygo', country: 'NO', fb: 'kygoofficial', role: 'headliner'},
+          {title: 'Thomas Jack', country: 'US', fb: 'thomasjackmusic', role: 'headliner'},
           {title: 'Document One', country: 'UK', fb: 'DocumentOne', role: 'headliner'},
           {title: 'Trampa', country: 'UK', fb: 'trampadubstep', role: 'headliner'},
           {title: 'Axel Boy', country: 'UK', fb: 'AxelBoyUK', role: 'headliner'},
@@ -170,6 +172,7 @@ namespace :db do
           {title: 'IM Cyber', country: 'CZ', fb: 'imcyberdj'},
           {title: 'Anakin', country: 'CZ'},
           {title: 'Lost', country: 'UK', fb: 'losthench', role: 'headliner'},
+          {title: 'Fade', country: 'UA', fb: 'Fademusica', role: 'headliner'},
           {title: 'Genetix', country: 'UK', city: 'Bournemouth', fb: 'GenetixDubstep', role: 'headliner'},
 
           {title: 'Dubschoock', country: 'SK'},
