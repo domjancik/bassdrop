@@ -87,7 +87,7 @@ namespace :db do
           {title: 'Tomáš Teglý', country: 'CZ', city: 'Prague', fb: '252554171461710', role: 'creator'},
           {title: 'Jakub Chudý', country: 'CZ', city: 'Prague', fb: 'chudy.jakub', role: 'creator'},
           {title: 'Sláva Pecháček', country: 'CZ', city: 'Prague', fb: 'slava.pechacek', role: 'creator'},
-          {title: 'Filip Kettner', country: 'CZ', city: 'Prague', fb: 'slava.pechacek', role: 'creator'},
+          {title: 'Filip Kettner', country: 'CZ', city: 'Prague', fb: 'kazisvjed', role: 'creator'},
           {title: 'Francis Svěrák', country: 'CZ', city: 'Prague', fb: 'fsxaico', role: 'creator'},
           {title: 'Jan Schwarcz', country: 'CZ', city: 'Prague', fb: 'jan.schwarcz.3', role: 'creator'},
           {title: 'Filip Hodas', country: 'CZ', city: 'Prague', fb: 'hoodass', role: 'creator'},
@@ -297,6 +297,11 @@ namespace :db do
     desc 'Load trailers (video invitations)'
     task load_trailers: :environment do
       load_file 'db/seeds/video_invitations.yml', 'trailer'
+    end
+
+    desc 'Load aftermovies'
+    task load_aftermovies: :environment do
+      load_file 'db/seeds/video_aftermovies.yml', 'aftermovie'
     end
 
     def load_file(filename, type)
