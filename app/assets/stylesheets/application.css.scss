@@ -482,6 +482,15 @@ ul.block-list {
   }
 
   &__event {
+    .hover:hover {
+      color: $primary-color;
+      @include simple-transition;
+    }
+
+    .hover {
+      @include simple-transition;
+    }
+
     &__artist-list {
       font-size: 75%;
       margin: 0;
