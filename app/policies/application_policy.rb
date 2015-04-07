@@ -55,6 +55,11 @@ class ApplicationPolicy
       @scope = scope
     end
 
+    def is_admin?
+      return false if @user.nil?
+      @user.admin?
+    end
+
     def resolve
       scope
     end

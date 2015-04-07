@@ -48,6 +48,16 @@ class EventsController < ApplicationController
     end
   end
 
+  # POST /events/1/publish
+  def publish
+    set_published true
+  end
+
+  # POST /events/1/publish
+  def unpublish
+    set_published false
+  end
+
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
@@ -82,5 +92,11 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:title, :venue_id, :date_start, :date_end, :preorder_url, :playlist_id)
+    end
+
+    def set_published(value)
+      @event.published = value
+      @event.save
+      redirect_to events_url
     end
 end

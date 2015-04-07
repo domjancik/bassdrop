@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     resources :performances, shallow: true
     member do
       post 'create_playlist'
+      post 'publish'
+      post 'hide'
     end
   end
 

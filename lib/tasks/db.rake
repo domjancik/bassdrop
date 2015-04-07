@@ -44,12 +44,14 @@ namespace :db do
 
     desc 'Download additional data for events from facebook'
     task fill: :environment do
-      Event.all.each { |event| event.update_from_fb }
+      Event.where(automatic_updates: true).each { |event| event.update_from_fb }
     end
 
     desc 'Update stats for upcoming events'
-    task update_stats: :environment do
-      Event.upcoming.each { |event| event.update_stats }
+    task :update_stats, [ :scope ] => :environment do |t, args|
+      args.with_defaults(scope: 'upcoming')
+      events = Event.send args[:scope]
+      events.each { |event| event.update_stats }
     end
   end
 

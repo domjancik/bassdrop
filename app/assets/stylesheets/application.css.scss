@@ -108,6 +108,10 @@ body.night, main.night {
   margin-right: -0.5rem;
 }
 
+.hidden {
+  opacity: 0.5;
+}
+
 // Forms
 select {
   &.datetime, &.date {
