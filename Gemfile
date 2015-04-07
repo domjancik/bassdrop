@@ -33,6 +33,7 @@ gem 'fastimage'
 # Niceties
 gem 'owlcarousel-rails'
 gem 'jquery-slick-rails'
+gem 'redcarpet'
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'

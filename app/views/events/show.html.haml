@@ -49,7 +49,7 @@
               = (in_future? @event.date_start + 12.hours) ? 'Going' : 'Went'
         = render partial: 'playlists/playlist_embed', object: @event.playlist
         .event__description__bottom.padded
-          = desc_format(@event.description)
+          = desc_format(@event.description, @event.markdown_enabled)
 
       .small-12.medium-4.columns
         = render 'artists_lineup'

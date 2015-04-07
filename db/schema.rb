@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407122529) do
+ActiveRecord::Schema.define(version: 20150407215604) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",               limit: 255
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20150407122529) do
     t.string   "cover_content_type", limit: 255
     t.integer  "cover_file_size",    limit: 4
     t.datetime "cover_updated_at"
+    t.boolean  "markdown_enabled",   limit: 1,        default: false, null: false
   end
 
   add_index "events", ["link_fb"], name: "index_events_on_link_fb", unique: true, using: :btree

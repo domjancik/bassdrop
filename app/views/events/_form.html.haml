@@ -12,6 +12,8 @@
     = f.input :published
     = f.input :automatic_updates
     = f.input :description
+    = f.input :markdown_enabled, label: 'Tick this to enable markdown styling'
+    %p= link_to 'Markdown Syntax', 'http://daringfireball.net/projects/markdown/dingus', target: :blank, class: 'padded'
 
   .form-actions
     = f.button :submit
