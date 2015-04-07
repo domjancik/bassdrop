@@ -1,3 +1,5 @@
+- title = get_title.call model_grid_item
+
 %div.hover.with-stick
   - unless get_subtitle.nil?
     - subtitle = get_subtitle.call model_grid_item
@@ -6,6 +8,6 @@
   %p.nospace
     - image_url = get_image.call model_grid_item
     - if !image_url.nil?
-      = image_tag(image_url)
+      = image_tag(image_url, alt: title, title: title)
   %p.text.stick-to-bottom.nospace
-    = get_title.call model_grid_item
+    = title
