@@ -28,6 +28,11 @@ class Event < ActiveRecord::Base
     title
   end
 
+  def publish!
+    self.published = true
+    save
+  end
+
   def stage_lineup(stage)
     lineup.where(stage: stage)
   end

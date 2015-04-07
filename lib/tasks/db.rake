@@ -53,6 +53,12 @@ namespace :db do
       events = Event.send args[:scope]
       events.each { |event| event.update_stats }
     end
+
+    desc 'Publish given scope'
+    task :publish, [ :scope ] => :environment do |t, args|
+      events = Event.send args[:scope]
+      events.each { |event| event.publish! }
+    end
   end
 
 
