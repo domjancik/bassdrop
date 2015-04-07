@@ -53,8 +53,8 @@ class EventsController < ApplicationController
     set_published true
   end
 
-  # POST /events/1/publish
-  def unpublish
+  # POST /events/1/hide
+  def hide
     set_published false
   end
 

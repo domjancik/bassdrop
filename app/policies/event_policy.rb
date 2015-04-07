@@ -3,7 +3,7 @@ class EventPolicy < ApplicationPolicy
     is_admin?
   end
 
-  def unpublish?
+  def hide?
     is_admin?
   end
 
