@@ -1,3 +1,7 @@
+- hour = Time.now.hour
+- is_night = hour < 7 || hour >= 19
+- body_classes = is_night ? ['night'] : []
+
 !!!
 %html
   %head
@@ -14,10 +18,10 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = javascript_include_tag 'wow'
     = csrf_meta_tags
-  %body
+  %body{ class: body_classes }
     %header
       = render 'layouts/navigation'
-    %main{:role => "main"}
+    %main{role: 'main', class: body_classes}
       = render 'layouts/messages'
       .row
         .small-12.small-centered.columns.content-margin

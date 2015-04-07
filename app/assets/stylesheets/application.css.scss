@@ -38,6 +38,7 @@
 
 //$primary-color: #3e44fe;
 $background-color: #EFEFEF;
+$background-night-color: $jet;
 $text-color: $jet;
 $block-color: white;
 
@@ -77,6 +78,10 @@ h3 {
 
 body, main {
   background: $background-color;
+}
+
+body.night, main.night {
+  background: $background-night-color;
 }
 
 @media #{$medium-up} {
