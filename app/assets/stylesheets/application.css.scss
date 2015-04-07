@@ -352,6 +352,15 @@ span.important {
   vertical-align: middle;
 }
 
+.underline {
+  border-bottom: $text-color 1px solid;
+}
+
+.overline {
+  border-top: $text-color 1px solid;
+}
+
+
 ul.block-list {
   margin-left: 0;
   padding: 1rem;
@@ -467,6 +476,11 @@ ul.block-list {
 }
 
 .upcoming-events {
+  &__event + &__event {
+    @extend .overline;
+    padding-top: 0.5rem;
+  }
+
   &__event {
     &__artist-list {
       font-size: 75%;

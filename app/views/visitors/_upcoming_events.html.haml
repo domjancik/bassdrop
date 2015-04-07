@@ -1,12 +1,12 @@
 %div#upcoming_events.wow.fadeInUp
   %ul.block-list.nospace
     - upcoming_events.each do |event|
-      %li
+      %li.upcoming-events__event
         = link_to event do
           .row.hover
-            .small-3.columns
+            .small-4.columns
               = event_date event
-            .small-9.columns.text-right
+            .small-8.columns
               .row
                 %strong= event
               - unless event.headliners.empty?
