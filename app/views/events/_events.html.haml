@@ -1,6 +1,7 @@
 - unless defined? xcount
   - xcount = 2
 - classes = ['small-block-grid-1', "medium-block-grid-#{xcount}"]
+- image_style = xcount > 1 ? :small : :large
 
 %ul{ class: classes }
   - events.each do |event|
@@ -21,7 +22,7 @@
                   = event_date event
             .row.collapse
               %p.nospace
-                = image_tag event.image_url_cached, title: event
+                = image_tag event.cover_url(image_style), title: event
             .row.collapse
               %p.text.nospace.stick-to-bottom
                 = event

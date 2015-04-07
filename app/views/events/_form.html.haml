@@ -1,4 +1,4 @@
-= simple_form_for(@event) do |f|
+= simple_form_for(@event, multipart: true) do |f|
   = f.error_notification
 
   .form-inputs
@@ -8,6 +8,7 @@
     = f.input :date_start
     = f.input :date_end
     = f.input :preorder_url
+    = f.input :cover, as: :file
     = f.input :published
     = f.input :automatic_updates
 

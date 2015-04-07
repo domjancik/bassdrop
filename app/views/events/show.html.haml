@@ -18,7 +18,7 @@
   = link_to 'Back', events_path
 
 .row.wow.fadeInUp{ 'data-wow-duration' => "0.8s" }
-  = image_tag(@event.image_url_cached, alt: @event)
+  = image_tag(@event.cover_url(:large), alt: @event)
 
 %h1.row.wow.fadeInUp{ 'data-wow-delay' => "0.3s" }
   = @event.title

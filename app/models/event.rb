@@ -1,6 +1,8 @@
 require 'json'
 
 class Event < ActiveRecord::Base
+  include Coverable
+
   default_scope { order('events.date_start desc') }
 
   belongs_to :venue
@@ -41,15 +43,15 @@ class Event < ActiveRecord::Base
     performances.order :date_start
   end
 
-  def attending_count
-    self.read_attribute :attending_count
-  end
-
   # True if the event spans more than one day
   def spans_more_days?
     return false if self.date_end.nil?
     return false if self.date_end - self.date_start < 12.hours
     true
+  end
+
+  def cover_missing_url
+    image_url_cached
   end
 
   def update_from_fb

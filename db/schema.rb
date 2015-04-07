@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407114345) do
+ActiveRecord::Schema.define(version: 20150407122529) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",               limit: 255
@@ -76,22 +76,26 @@ ActiveRecord::Schema.define(version: 20150407114345) do
   add_index "credits", ["release_id"], name: "index_credits_on_release_id", using: :btree
 
   create_table "events", force: :cascade do |t|
-    t.string   "title",             limit: 255
+    t.string   "title",              limit: 255
     t.datetime "date_start"
     t.datetime "date_end"
-    t.string   "preorder_url",      limit: 255
-    t.datetime "created_at",                                         null: false
-    t.datetime "updated_at",                                         null: false
-    t.integer  "venue_id",          limit: 4
-    t.text     "description",       limit: 16777215
-    t.string   "link_fb",           limit: 255
+    t.string   "preorder_url",       limit: 255
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+    t.integer  "venue_id",           limit: 4
+    t.text     "description",        limit: 16777215
+    t.string   "link_fb",            limit: 255
     t.datetime "cached_at"
-    t.string   "image_url_cached",  limit: 255
-    t.integer  "attending_count",   limit: 4
+    t.string   "image_url_cached",   limit: 255
+    t.integer  "attending_count",    limit: 4
     t.datetime "stats_updated_at"
-    t.integer  "playlist_id",       limit: 4
-    t.boolean  "published",         limit: 1,        default: false, null: false
-    t.boolean  "automatic_updates", limit: 1,        default: true,  null: false
+    t.integer  "playlist_id",        limit: 4
+    t.boolean  "published",          limit: 1,        default: false, null: false
+    t.boolean  "automatic_updates",  limit: 1,        default: true,  null: false
+    t.string   "cover_file_name",    limit: 255
+    t.string   "cover_content_type", limit: 255
+    t.integer  "cover_file_size",    limit: 4
+    t.datetime "cover_updated_at"
   end
 
   add_index "events", ["link_fb"], name: "index_events_on_link_fb", unique: true, using: :btree
