@@ -1,5 +1,6 @@
 class StagesController < ApplicationController
   before_action :set_stage, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!
 
   # GET /stages
   # GET /stages.json

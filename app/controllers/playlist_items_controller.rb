@@ -1,6 +1,7 @@
 class PlaylistItemsController < ApplicationController
   before_action :set_playlist_item, only: [:show, :edit, :update, :destroy]
   before_action :set_playlist, only: [:index, :new, :create]
+  before_action :authenticate_admin!
 
   # GET /playlist_items
   # GET /playlist_items.json

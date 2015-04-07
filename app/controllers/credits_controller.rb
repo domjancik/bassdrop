@@ -1,6 +1,7 @@
 class CreditsController < ApplicationController
   before_action :set_credit, only: [:show, :edit, :update, :destroy]
   before_action :set_release, only: [:index, :new, :create]
+  before_action :authenticate_admin!
 
   # GET /credits
   # GET /credits.json

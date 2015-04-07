@@ -1,5 +1,6 @@
 class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :edit, :update, :destroy, :open]
+  before_action :authenticate_admin!, except: [:open]
 
   # GET /playlists
   # GET /playlists.json

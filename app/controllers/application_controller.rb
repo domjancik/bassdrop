@@ -22,5 +22,10 @@ class ApplicationController < ActionController::Base
       flash[:alert] = "Access denied." # TODO: make sure this isn't hard coded English.
       redirect_to (request.referrer || root_path) # Send them back to them page they came from, or to the root page.
     end
+
+    def authenticate_admin!
+      authenticate_user!
+      fail!('Only admins are allowed here') unless current_user.admin?
+    end
   end
 end

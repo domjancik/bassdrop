@@ -1,6 +1,7 @@
 class PerformancesController < ApplicationController
   before_action :set_performance, only: [:show, :edit, :update, :destroy]
   before_action :set_event, only: [:index, :new, :create]
+  before_action :authenticate_admin!
 
   # GET /performances
   # GET /performances.json
