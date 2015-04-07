@@ -86,6 +86,9 @@ namespace :db do
           {title: 'Hayppa', country: 'CZ', city: 'Prague', fb: 'Hayppa', role: 'creator'},
           {title: 'Tomáš Teglý', country: 'CZ', city: 'Prague', fb: '252554171461710', role: 'creator'},
           {title: 'Jakub Chudý', country: 'CZ', city: 'Prague', fb: 'chudy.jakub', role: 'creator'},
+          {title: 'Francis Svěrák', country: 'CZ', city: 'Prague', fb: 'fsxaico', role: 'creator'},
+          {title: 'Jan Schwarcz', country: 'CZ', city: 'Prague', fb: 'jan.schwarcz.3', role: 'creator'},
+          {title: 'Filip Hodas', country: 'CZ', city: 'Prague', fb: 'hoodass', role: 'creator'},
 
           {title: 'Sufuski', country: 'CZ', city: 'Prague', fb: 'zdenda.mahdal'},
           {title: 'Yendys', country: 'CZ', city: 'Slaný', fb: 'jan.studeny'},
@@ -182,7 +185,6 @@ namespace :db do
           {title: 'Ugly', country: 'CZ', city: 'Prague', fb: 'filip.krasny' },
 
           {title: 'Roksonix', country: 'UK', fb: 'roksonix', role: 'headliner'},
-          {title: 'Gh0sh', country: 'UK', fb: 'Gh0sh', role: 'headliner'},
           {title: 'Villain', country: 'UK', fb: 'villaindub', role: 'headliner'},
           {title: 'Emphasis', country: 'AT', fb: '516698048369462'},
           {title: 'Phlage', country: 'AT', city: 'Vienna', fb: 'Phlage'},
