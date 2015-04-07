@@ -102,6 +102,11 @@ body.night, main.night {
   width: 100%;
 }
 
+.no-side-padding {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
 // Forms
 select {
   &.datetime, &.date {

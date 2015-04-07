@@ -22,37 +22,38 @@
 
 %h1.row.wow.fadeInUp{ 'data-wow-delay' => "0.3s" }
   = @event.title
-.row
-  .small-12.medium-4.columns.wow.fadeIn{ 'data-wow-delay' => "0.7s" }
-    %p.text.important.event__quickinfo
-      = event_date @event
-  .small-12.medium-4.columns.wow.fadeIn{ 'data-wow-delay' => "1.0s" }
-    %p.text.inverted.event__quickinfo
-      = event_time @event
-  .small-12.medium-4.columns.margin-bottom.wow.fadeIn{ 'data-wow-delay' => "1.3s" }
-    = link_to fb_link(@event.link_fb), target: :blank do
-      .hover
-        %p.text.facebook.event__quickinfo
-
-.event.content.wow.fadeIn{ 'data-wow-delay' => "1.8s" }
-  - unless @event.preorder_url.nil? || @event.preorder_url.empty?
-    %p
-      %b Preorder:
-      = link_to @event.preorder_url
-
+.no-side-padding
   .row
-    .small-12.medium-8.columns
-      - unless @event.venue.nil?
-        .event__description__top.padded.margin-bottom
-          %p.event__description__top__venue
-            At
-            = link_to(@event.venue)
-          %p.event__description__top__attending
-            = @event.attending_count
-            Going
-      = render partial: 'playlists/playlist_embed', object: @event.playlist
-      .event__description__bottom.padded
-        = auto_link simple_format(@event.description)
+    .small-12.medium-4.columns.wow.fadeIn{ 'data-wow-delay' => "0.7s" }
+      %p.text.important.event__quickinfo
+        = event_date @event
+    .small-12.medium-4.columns.wow.fadeIn{ 'data-wow-delay' => "1.0s" }
+      %p.text.inverted.event__quickinfo
+        = event_time @event
+    .small-12.medium-4.columns.margin-bottom.wow.fadeIn{ 'data-wow-delay' => "1.3s" }
+      = link_to fb_link(@event.link_fb), target: :blank do
+        .hover
+          %p.text.facebook.event__quickinfo
 
-    .small-12.medium-4.columns
-      = render 'artists_lineup'
+  .event.content.wow.fadeIn{ 'data-wow-delay' => "1.8s" }
+    - unless @event.preorder_url.nil? || @event.preorder_url.empty?
+      %p
+        %b Preorder:
+        = link_to @event.preorder_url
+
+    .row
+      .small-12.medium-8.columns
+        - unless @event.venue.nil?
+          .event__description__top.padded.margin-bottom
+            %p.event__description__top__venue
+              At
+              = link_to(@event.venue)
+            %p.event__description__top__attending
+              = @event.attending_count
+              Going
+        = render partial: 'playlists/playlist_embed', object: @event.playlist
+        .event__description__bottom.padded
+          = auto_link simple_format(@event.description)
+
+      .small-12.medium-4.columns
+        = render 'artists_lineup'
