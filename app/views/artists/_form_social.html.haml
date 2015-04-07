@@ -1,0 +1,12 @@
+= simple_form_for(@artist) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :link_fb
+    = f.input :link_soundcloud
+    = f.input :link_youtube
+    = f.input :link_instagram
+    = f.input :link_twitter
+
+  .form-actions
+    = f.button :submit

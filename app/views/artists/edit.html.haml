@@ -1,6 +1,9 @@
 %h1 Editing artist
 
-= render 'form'
+- unless @social
+  = render 'form'
+- else
+  = render 'form_social'
 
 = link_to 'Show', @artist
 \|
