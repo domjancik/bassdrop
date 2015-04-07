@@ -335,7 +335,7 @@ namespace :db do
         # Check if playlist was changed
         playlist.items.each_with_index do |item, index|
           unless item.medium.url.eql?(tracks[index])
-            playlist.items.destroy
+            playlist.items.each { |item| item.destroy }
             break
           end
         end
@@ -366,9 +366,17 @@ namespace :db do
       unless extra_credits.nil?
         credits = extra_credits.to_a.inject(credits) do |arr, credit|
           credit_title = credit[0]
-          artist_title = credit[1]
-          artist = Artist.find_by! title: artist_title
-          arr << {artist: artist, title: credit_title}
+          credit_artists = credit[1]
+
+          artist_list = credit_artists.kind_of?(Array) ? credit_artists : [ credit_artists ]
+
+          artist_list.each do |artist_title|
+            artist = Artist.find_by! title: artist_title
+            credit_hash = {artist: artist, title: credit_title}
+            arr << credit_hash
+          end
+
+          arr
         end
       end
 
@@ -380,13 +388,14 @@ namespace :db do
           same &&= credit.list_order == index
 
           unless same
-            release.credits.destroy
+            release.credits.each { |credit| credit.destroy }
             break
           end
         end
       end
 
       release.save
+      release.reload
       if release.credits.empty?
         credits.each_with_index do |credit, index|
           release.credits.create(title: credit[:title], artist: credit[:artist], list_order: index)

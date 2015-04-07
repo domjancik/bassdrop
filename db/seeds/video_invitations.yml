@@ -12,25 +12,209 @@
 #      - URL
 
 releases:
-  BDherokR003:
-    title: Ancient EP
+  BDVI001:
+    title: BASS DROP Arena vol.2
     description: |-
-                 Hailing from Czech Republic, we bring you our next compilation full of young and upcoming producers.
-                 This compilation contains 5 tracks mostly about 175 BPM, "Way of the Underground" by Dubtrax will take you on a deep space journey and then "8Bit Heart" by Kutlo will smash you with its neuro bass and heavy kicks. "Greed" by Meph brings you the best of hard and punchy neuro basslines and you can expect the same from "The Reason" by Psychical Research. Last but not least, "It's Not Real" shows you how deep can sound even go, albeit with a genre twist.
+                 BASS DROP Arena vol.2 was an all-day happening in Prague with BMX, Skate and art exhibitions and a three-floor afterparty in Chapeau Rouge.
 
-                 Released on the 1st Bass Drop Anniversary.
-    date: 2014-03-21
-    url: http://on.fb.me/1h2Ej7I
-    artists:
-      - Dubtrax
-      - Kutlo
-      - Meph
-      - Target1
-      - Ollie Torr
-      - Furious Freaks
+                 Music:
+                 Ollie Torr x Les Fils x Novinski: Ghost
+                 Attic & Young D - Sirens
+    date: 2013-09-15
     credits:
-      Graphics: Hayppa
-      Animation: MagNet
-      Mastering: Target1
+      Video: Jan Schwarcz
+      Music:
+        - Ollie Torr
+        - Young D
     tracks:
-      - https://www.youtube.com/watch?v=p-02WFHpAbU
+      - https://youtu.be/qr6OsDBAJfM
+
+  BDVI002:
+    title: THIS IS ITALY
+    description: |-
+                 A seizure-inducing mashup of everything that was coming to the THIS IS ITALY event.
+
+                 With footage from the following music videos:
+                 Cyberpunkers - Whatta Mask
+                 Cyberpunkers - I Needed To Go
+                 Cyberpunkers - Epic
+                 Belzebass - Du Auch
+                 The Boomzers - Digital Drug
+
+                 Music:
+                 Cyberpunkers - Epic
+                 Cyberpunkers - Are You Ready
+                 Produkkt - Ciampino Airforce (Cyberpunkers Remix)
+                 Belzebass - Du Auch
+                 Far East Movement - Animal (Cyberpunkers Remix)
+                 Cyberpunkers - Whatta Mask
+                 Cyberpunkers - Fuck The System
+                 The Boomzers - Bad People
+    date: 2013-10-14
+    credits:
+      Edit: MagNet
+      Music:
+        - CYBERPUNKERS
+        - The Boomzers
+        - BELZEBASS
+    tracks:
+      - https://youtu.be/SO4roEUs0HU
+
+  BDVI003:
+    title: REZONATOR vol.1
+    description: |-
+                 Fully 3D animated to one of the sickest dubstep tunes. This is one hell of an invitation to one hell of a party.
+
+                 Visual style based on Marek Šilpoch's poster design.
+
+                 Music:
+                 Kevin McLeod - J.S.Bach Sheep May Safely Graze
+                 BadKlaat - Get Twisted
+    date: 2013-11-10
+    credits:
+      Video: MagNet
+      Music: BadKlaat
+    tracks:
+      - https://youtu.be/7ZqrRgYPSgQ
+
+  BDVI004:
+    title: A.M.C invites to WINTER ARENA
+    description: |-
+                 Here's one guy well excited about what was about to go down.
+
+                 A.M.C inviting to the, at that time new, Winter Arena festival.
+
+                 Music:
+                 TC - Tap Ho (Hamilton Remix), excerpt from A.M.C's set
+    date: 2014-01-26
+    artists:
+      - A.M.C
+    credits:
+      Edit: MagNet
+      Camera: Tomáš Teglý
+    tracks:
+      - https://youtu.be/FC2AzhtNAoc
+
+  BDVI005:
+    title: WINTER ARENA
+    description: |-
+                 Indian themed invitation for the first ever Winter Arena.
+    date: 2014-02-05
+    credits:
+      Edit: Francis Svěrák
+      Camera:
+        - Tomáš Teglý
+        - Marek Šilpoch
+      Music: Ollie Torr
+      Animation: MagNet
+    tracks:
+      - https://youtu.be/njdt4jOnTC8
+
+    BDVI006:
+      title: Spring Break
+      description: |-
+                   Seems like this was recorded in the Czech Republic, then broadcasted in France and then back in Czech again?
+
+                   What's going on?
+
+                   Music:
+                   Es-K - Coolin' In July
+      date: 2014-03-04
+      credits:
+        Video: MagNet
+      tracks:
+        - https://youtu.be/suPcbXAOspU
+
+  BDVI007:
+    title: "BASS DROP Anniversary: Cake Battle"
+    description: |-
+                 The first BASS DROP anniversary seemed like to right time to get dirty...
+    date: 2014-03-16
+    credits:
+      Edit:
+        - MagNet
+        - Marek Šilpoch
+      Camera: Jakub Chudý
+      Music: Ollie Torr
+    tracks:
+      - https://youtu.be/JF7l7ryOyb8
+
+  BDVI008:
+    title: SUMMER WARM UP 2014
+    description: |-
+                 Dark and steamy, just like the old powerplant hosting the SWU festival.
+    date: 2014-06-15
+    credits:
+      Graphics: Filip Hodas
+      Animation: MagNet
+      Music: Ollie Torr
+    tracks:
+      - https://youtu.be/MXYMymyE-lw
+
+  BDVI009:
+    title: Wake Arena
+    description: |-
+                 Sun and water, let's have fun!
+
+                 Edit:
+                 Dominik Jančík
+
+                 Camera:
+                 Dominik Jančík
+                 Jakub Chudý
+                 113kw
+
+                 Music:
+                 Ollie Torr
+    date: 2014-08-26
+    credits:
+      Edit: MagNet
+      Camera:
+        - MagNet
+        - Jakub Chudý
+      Music: Ollie Torr
+    tracks:
+      - https://youtu.be/m0w2laNLMls
+
+
+  BDVI010:
+    title: Winter Arena 2015
+    description: |-
+                 The first video teaser for Winter Arena 2015.
+
+                 Music:
+                 Foreign Beggars - Apex (Dirtyphonics Remix)
+    date: 2015-01-20
+    credits:
+      Video: MagNet
+      Music: Foreign Beggars
+    tracks:
+      - https://youtu.be/eyIBynUHi0s
+
+  BDVI011:
+    title: "Winter Arena 2015: Dream"
+    description: |-
+                 Maty Vránek remembers...
+    date: 2015-02-11
+    credits:
+      Edit: MagNet
+      Camera: Tomáš Teglý
+      Music: Ollie Torr
+    tracks:
+      - https://youtu.be/nXg5xXl9yCY
+
+  BDVI012:
+    title: BASS DROP B-day madness #2
+    description: |-
+                 Join us for a romantic night with the Cookie Monster.
+    date: 2014-02-05
+    credits:
+      Video: MagNet
+      Poster: Ondřej Jelínek
+      Music:
+        - Cookie Monsta
+        - Tezet
+        - Target1
+    tracks:
+      - https://youtu.be/KOPJ1WjwHmo
+
