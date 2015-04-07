@@ -52,4 +52,5 @@ en:
   date:
     formats:
       release_date: '%-d / %-m'
+      release_date_full: '%-d / %-m %Y'
 

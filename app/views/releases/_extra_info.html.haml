@@ -7,4 +7,5 @@
       Coming on
     - else
       Released on
-    = l @release.release_date, format: :release_date
+    - format = @release.release_date.year == Time.now.year ? :release_date : :release_date_full
+    = l @release.release_date, format: format

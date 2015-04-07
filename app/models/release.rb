@@ -5,6 +5,8 @@ class Release < ActiveRecord::Base
 
   validates :title, presence: true
 
+  default_scope { order('release_date desc') }
+
   has_many :credits
   has_many :artists, through: :credits
   belongs_to :playlist
