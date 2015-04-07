@@ -50,7 +50,7 @@
               = link_to(@event.venue)
             %p.event__description__top__attending
               = @event.attending_count
-              Going
+              = (in_future? @event.date_start) ? 'Going' : 'Went'
         = render partial: 'playlists/playlist_embed', object: @event.playlist
         .event__description__bottom.padded
           = desc_format(@event.description)
