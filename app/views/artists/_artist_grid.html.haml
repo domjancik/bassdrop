@@ -1,5 +1,6 @@
 - locals = {}
 - locals[:xcount] = xcount if defined? xcount
+- locals[:get_image] = get_image unless local_assigns[:get_image].nil?
 - animate = true if local_assigns[:animate].nil?
 - locals[:animate] = animate
 = render partial: 'elements/model_grid', object: artist_grid, locals: locals

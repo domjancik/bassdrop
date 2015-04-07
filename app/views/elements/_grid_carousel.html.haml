@@ -3,8 +3,11 @@
 
 - slice_by = 6 if local_assigns[:slice_by].nil?
 - xcount = grid_carousel.size > 1 ? 2 : 1 if local_assigns[:xcount].nil?
+- locals = {}
+- locals[:xcount] = xcount
+- locals[:get_image] = local_assigns[:get_image]
 
 .grid-carousel
   - grid_carousel.each_slice(slice_by) do |slice|
     %div
-      = render partial: partial, object: slice, locals: { xcount: xcount }
+      = render partial: partial, object: slice, locals: locals

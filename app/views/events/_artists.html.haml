@@ -1,6 +1,7 @@
 -# Artist overview for event
 
 - unless @event.headliners.empty?
-  = render partial: 'elements/grid_carousel', object: @event.headliners, locals: {xcount: 1, slice_by: 1, partial: 'artists/artist_grid'}
+  - get_big_image = lambda { |model| model.image_url(:big) }
+  = render partial: 'elements/grid_carousel', object: @event.headliners, locals: {xcount: 1, slice_by: 1, partial: 'artists/artist_grid', get_image: get_big_image }
 - unless @event.non_headliners.empty?
   = render partial: 'elements/grid_carousel', object: @event.non_headliners, locals: {xcount: 2, slice_by: 4, partial: 'artists/artist_grid'}
