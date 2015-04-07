@@ -31,7 +31,7 @@
         - unless @artist.description.blank?
           .artist__description.padded.margin-bottom
             %p
-              = @artist.description
+              = desc_format @artist.description
         = render partial: 'playlists/playlist_embed', object: @artist.playlist
       = render partial: 'elements/more_content', object: no_content
 

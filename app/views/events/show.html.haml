@@ -53,7 +53,7 @@
               Going
         = render partial: 'playlists/playlist_embed', object: @event.playlist
         .event__description__bottom.padded
-          = auto_link simple_format(@event.description)
+          = desc_format(@event.description)
 
       .small-12.medium-4.columns
         = render 'artists_lineup'

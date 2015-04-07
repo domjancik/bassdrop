@@ -25,5 +25,5 @@
         - unless @release.description.blank?
           .release__description.padded.margin-bottom
             %p
-              = auto_link simple_format @release.description
+              = desc_format @release.description
         = render partial: 'elements/more_content', object: no_content
