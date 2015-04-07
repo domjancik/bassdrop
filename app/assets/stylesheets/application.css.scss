@@ -91,6 +91,11 @@ body.night, main.night {
   div.top-bar-section {
     display: inline-block;
   }
+
+  .top-bar-section li:not(.has-form) a:not(.button):not(.submit):not(.button-xs):hover {
+    background: $jet;
+    color: $block-color;
+  }
 }
 
 .width-fill {
