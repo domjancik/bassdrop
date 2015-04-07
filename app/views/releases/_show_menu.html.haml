@@ -1,13 +1,9 @@
-- if user_signed_in?
-  = link_to 'Add credit', new_release_credit_path(@release)
-  \|
-  = link_to 'Show credits', release_credits_path(@release)
-  \|
-  = link_to 'Edit', edit_release_path(@release)
-  \|
-  = link_to 'Back', releases_path
-  \|
+- if user_admin?
+  = link_to 'Add credit', new_release_credit_path(@release), class: 'button'
+  = link_to 'Show credits', release_credits_path(@release), class: 'button'
+  = link_to 'Edit', edit_release_path(@release), class: 'button'
+  = link_to 'Back', releases_path, class: 'button'
   - if @release.playlist.nil?
-    = link_to 'Generate playlist', create_playlist_release_path(@release), method: :post
+    = link_to 'Generate playlist', create_playlist_release_path(@release), method: :post, class: 'button'
   - else
-    = link_to 'Playlist', @release.playlist
+    = link_to 'Playlist', @release.playlist, class: 'button'

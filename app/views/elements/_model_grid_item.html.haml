@@ -7,5 +7,5 @@
     - else
       .wow.fadeInUp{ 'data-wow-offset' => '20', 'data-wow-duration' => "1ms" }
         = render partial: 'elements/model_grid_item_content', locals: local_assigns
-  - if user_signed_in?
+  - if user_admin?
     = link_to 'Edit', "#{model_grid_item.class.to_s.downcase.pluralize}/#{model_grid_item.id}/edit"

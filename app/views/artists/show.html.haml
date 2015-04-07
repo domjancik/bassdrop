@@ -3,15 +3,7 @@
 
 %p#notice= notice
 
-- if user_signed_in?
-  = link_to 'Edit', edit_artist_path(@artist)
-  \|
-  = link_to 'Back', artists_path
-  \|
-  - if @artist.playlist.nil?
-    = link_to 'Generate playlist', create_playlist_artist_path(@artist), method: :post
-  - else
-    = link_to 'Playlist', @artist.playlist
+= render 'show_menu'
 
 - no_content = @artist.events.empty? && @artist.description.blank? && (@artist.playlist.blank? || @artist.playlist.items.empty?)
 

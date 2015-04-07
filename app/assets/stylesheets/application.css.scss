@@ -122,12 +122,12 @@ select {
 // OVERRIDES
 // Button
 
-.button {
+.button, a:visited.button {
 //  background-color: $primary-color;
   font-weight: bold;
   color: $block-color;
 
-  a {
+  a, a:visited, a:active, a:focus {
     @extend .button;
   }
 }
