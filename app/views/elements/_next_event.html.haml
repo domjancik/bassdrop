@@ -1,0 +1,9 @@
+- unless @next_event.nil?
+  = link_to @next_event do
+    .wow.fadeInUp.margin-bottom
+      .hover
+        %p.titular-text.nospace.important
+          Next Event -
+          = event_date @next_event
+        %p.nospace= image_tag @next_event.cover_url(:medium)
+        %p.titular-text.nospace= @next_event

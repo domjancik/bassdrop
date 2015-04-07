@@ -19,6 +19,7 @@ class ArtistsController < ApplicationController
   # GET /artists/1.json
   def show
     @upcoming_events = policy_scope Event.upcoming
+    @next_event = @artist.events.upcoming.take
   end
 
   # GET /artists/new
@@ -81,6 +82,6 @@ class ArtistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params.require(:artist).permit(:title, :city_id, :playlist_id, :avatar)
+      params.require(:artist).permit(:title, :city_id, :playlist_id, :avatar, :description)
     end
 end
