@@ -1,7 +1,7 @@
 - content_for :title do
-  Sets
+  = t 'title', scope: 'release.sets'
 
-%h1= t 'video', scope: 'release.titles.sets'
+%h1= t 'video', scope: 'release.sets'
 %p= render partial: 'release_grid', object: @sets_video
-%h1= t 'audio', scope: 'release.titles.sets'
+%h1= t 'audio', scope: 'release.sets'
 %p= render partial: 'release_grid', object: @sets_audio

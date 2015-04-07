@@ -1,0 +1,7 @@
+- content_for :title do
+  = t 'title', scope: 'release.videos'
+
+%h1= t 'aftermovies', scope: 'release.videos'
+%p= render partial: 'release_grid', object: @aftermovies
+%h1= t 'trailers', scope: 'release.videos'
+%p= render partial: 'release_grid', object: @trailers

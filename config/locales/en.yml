@@ -36,12 +36,17 @@ en:
       artist: And also hosted
       records: Released tracks by
   release:
-    titles:
-      records: Records
-      sets: Records
-      sets:
-        video: Video sets
-        audio: Mixes
+    records:
+      title: Records
+      title-full: BASS DROP Records
+    sets:
+      title: Sets
+      video: Video sets
+      audio: Mixes
+    videos:
+      title: Videos
+      trailers: Trailers
+      aftermovies: Aftermovies
   time:
     formats:
       event_time: '%-H:%M'

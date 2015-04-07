@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get 'records', controller: :releases
   get 'sets', controller: :releases
+  get 'videos', controller: :releases
 
   resources :events do
     resources :performances, shallow: true

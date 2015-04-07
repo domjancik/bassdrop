@@ -3,7 +3,7 @@ class ReleasesController < ApplicationController
 
   helper TimeHelper
 
-  before_action :set_release, except: [:index, :create, :new, :records, :sets]
+  before_action :set_release, except: [:index, :create, :new, :records, :sets, :videos]
 
   # GET /releases
   # GET /releases.json
@@ -22,6 +22,11 @@ class ReleasesController < ApplicationController
   def sets
     @sets_video = policy_scope Release.set_video
     @sets_audio = policy_scope Release.set_audio
+  end
+
+  def videos
+    @aftermovies = policy_scope Release.aftermovie
+    @trailers = policy_scope Release.trailer
   end
 
   # GET /releases/1
