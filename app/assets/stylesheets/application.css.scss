@@ -75,6 +75,17 @@ h2,
 h3 {
   text-align: center;
   @extend .title-look;
+  @extend .text-floating;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.white-on-transparent {
+  color: $block-color;
+  background: none;
+}
+
+h1 {
+  text-align: left;
 }
 
 body, main {
@@ -272,27 +283,6 @@ p + p {
   margin-top: 1rem;
 }
 
-h1,
-h2,
-h3 {
-  @extend p;
-  @extend .text-floating;
-  margin: 1rem 0 0.5rem 0;
-}
-
-.white-on-transparent {
-  color: $block-color;
-  background: none;
-}
-
-h1 {
-  text-align: left;
-}
-
-//h1 {
-//  @extend h1.hello;
-//}
-
 .footer {
   @extend .white-on-transparent;
   text-align: right;
@@ -404,40 +394,6 @@ ul.block-list {
   &.date {
     position: absolute;
     width: 100% !important;
-  }
-
-  &__description {
-    background-color: $block-color;
-
-    a {
-      color: $primary-color;
-    }
-
-    a:hover {
-      color: $text-color;
-    }
-
-    &__top {
-      @extend .event__description;
-      overflow: hidden; // Dealing with floating content
-      @extend .margin-bottom;
-
-      &__venue {
-        font-size: rem-calc(16);
-        float: left;
-        margin: 0;
-        @extend .title-look;
-      }
-
-      &__attending {
-        @extend .event__description__top__venue;
-        float: right;
-      }
-    }
-
-    &__bottom {
-      @extend .event__description;
-    }
   }
 
   &__quickinfo {
@@ -596,6 +552,30 @@ ul.block-list {
 
     a { color: $primary-color; }
     a:hover { color: $text-color; }
+
+    h1, h2, h3 { color: $text-color }
+
+    &__top {
+      @extend .content__description;
+      overflow: hidden; // Dealing with floating content
+      @extend .margin-bottom;
+
+      &__venue {
+        font-size: rem-calc(16);
+        float: left;
+        margin: 0;
+        @extend .title-look;
+      }
+
+      &__attending {
+        @extend .content__description__top__venue;
+        float: right;
+      }
+    }
+
+    &__bottom {
+      @extend .content__description;
+    }
   }
 }
 

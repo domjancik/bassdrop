@@ -40,15 +40,15 @@
     .row
       .small-12.medium-8.columns
         - unless @event.venue.nil?
-          .event__description__top.padded.margin-bottom
-            %p.event__description__top__venue
+          .content__description__top.padded.margin-bottom
+            %p.content__description__top__venue
               At
               = link_to(@event.venue)
-            %p.event__description__top__attending
+            %p.content__description__top__attending
               = @event.attending_count
               = (in_future? @event.date_start + 12.hours) ? 'Going' : 'Went'
         = render partial: 'playlists/playlist_embed', object: @event.playlist
-        .event__description__bottom.padded
+        .content__description__bottom.padded
           = desc_format(@event.description, @event.markdown_enabled)
 
       .small-12.medium-4.columns
