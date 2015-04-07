@@ -82,7 +82,7 @@ namespace :db do
           {title: 'Meph', country: 'CZ', city: 'Nový Jičín', fb: 'mephofficial', sc: 'mephofficial', role: 'bassdrop'},
 
           {title: 'Marek Šilpoch', country: 'CZ', city: 'Prague', fb: 'mark.silpoch', role: 'creator'},
-          {title: 'Ondřej Jelínek', country: 'CZ', city: 'Prague', fb: '252554171461710', role: 'creator'},
+          {title: 'Ondřej Jelínek', country: 'CZ', city: 'Prague', fb: 'ondrej.jelinek.9', role: 'creator'},
           {title: 'Hayppa', country: 'CZ', city: 'Prague', fb: 'Hayppa', role: 'creator'},
           {title: 'Tomáš Teglý', country: 'CZ', city: 'Prague', fb: '252554171461710', role: 'creator'},
           {title: 'Jakub Chudý', country: 'CZ', city: 'Prague', fb: 'chudy.jakub', role: 'creator'},
@@ -289,6 +289,11 @@ namespace :db do
       load_file 'db/seeds/records.yml', 'record'
     end
 
+    desc 'Load trailers (video invitations)'
+    task load_trailers: :environment do
+      load_file 'db/seeds/video_invitations.yml', 'trailer'
+    end
+
     def load_file(filename, type)
       ActiveRecord::Base.transaction do
         rel_file = YAML.load_file filename
@@ -308,7 +313,7 @@ namespace :db do
           release.get_url = release_src['url']
 
           artists = release_src['artists']
-          raise 'Artists are missing' if artists.nil?
+          # raise 'Artists are missing' if artists.nil?
           credits = release_src['credits']
           load_credits release, artists, credits
 
@@ -349,16 +354,22 @@ namespace :db do
     end
     def load_credits(release, artists, extra_credits)
       # Join artists and extra credits into credits
-      credits = artists.inject([]) do |arr, artist_title|
-        artist = Artist.find_by! title: artist_title
-        arr << {artist: artist, title: ''}
+      credits = []
+
+      unless artists.nil?
+        credits = artists.inject(credits) do |arr, artist_title|
+          artist = Artist.find_by! title: artist_title
+          arr << {artist: artist, title: ''}
+        end
       end
 
-      credits = extra_credits.to_a.inject(credits) do |arr, credit|
-        credit_title = credit[0]
-        artist_title = credit[1]
-        artist = Artist.find_by! title: artist_title
-        arr << {artist: artist, title: credit_title}
+      unless extra_credits.nil?
+        credits = extra_credits.to_a.inject(credits) do |arr, credit|
+          credit_title = credit[0]
+          artist_title = credit[1]
+          artist = Artist.find_by! title: artist_title
+          arr << {artist: artist, title: credit_title}
+        end
       end
 
       unless release.credits.empty?
