@@ -164,7 +164,13 @@ ul.slick-dots {
 //  }
 //}
 
-// REST
+// Inputs
+
+textarea {
+  height: 20em;
+}
+
+// Rest
 
 a {
 //  opacity: 1;
@@ -308,7 +314,7 @@ span.important {
   color: $primary-color;
 }
 
-.text {
+.titular-text {
   @extend .title-look;
 
   font-size: 1rem;
@@ -487,7 +493,7 @@ ul.block-list {
     &__control {
       background-color: $block-color;
       @include simple-transition;
-      @extend .text;
+      @extend .titular-text;
 
       &--disabled {
         @extend .playlist__controls__control;
@@ -533,7 +539,7 @@ ul.block-list {
   &__profile {
     &__title {
       @extend .nospace;
-      @extend .text;
+      @extend .titular-text;
       line-height: 1;
       background-color: $block-color;
     }
@@ -607,7 +613,7 @@ ul.block-list {
 }
 
 .grid__item__small {
-  .text {
+  .titular-text {
     line-height: 1;
   }
 

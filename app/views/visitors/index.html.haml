@@ -5,11 +5,11 @@
       = link_to @next_event do
         .wow.fadeInUp
           .hover
-            %p.text.nospace.important
+            %p.titular-text.nospace.important
               Next Event -
               = event_date @next_event
             %p.nospace= image_tag @next_event.image_url_cached
-            %p.text.nospace= @next_event
+            %p.titular-text.nospace= @next_event
 
   .small-12.medium-3.columns
     .row

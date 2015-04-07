@@ -25,15 +25,15 @@
 .no-side-padding
   .row
     .small-12.medium-4.columns.wow.fadeIn{ 'data-wow-delay' => "0.7s" }
-      %p.text.important.event__quickinfo
+      %p.titular-text.important.event__quickinfo
         = event_date @event
     .small-12.medium-4.columns.wow.fadeIn{ 'data-wow-delay' => "1.0s" }
-      %p.text.inverted.event__quickinfo
+      %p.titular-text.inverted.event__quickinfo
         = event_time @event
     .small-12.medium-4.columns.margin-bottom.wow.fadeIn{ 'data-wow-delay' => "1.3s" }
       = link_to fb_link(@event.link_fb), target: :blank do
         .hover
-          %p.text.facebook.event__quickinfo
+          %p.titular-text.facebook.event__quickinfo
 
   .event.content.wow.fadeIn{ 'data-wow-delay' => "1.8s" }
     - unless @event.preorder_url.nil? || @event.preorder_url.empty?

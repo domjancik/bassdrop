@@ -18,13 +18,13 @@
           .hover.with-stick
             .row.collapse.event.date
               .small-6.medium-4.columns.end
-                %p.text.nospace.important
+                %p.titular-text.nospace.important
                   = event_date event
             .row.collapse
               %p.nospace
                 = image_tag event.cover_url(image_style), title: event
             .row.collapse
-              %p.text.nospace.stick-to-bottom
+              %p.titular-text.nospace.stick-to-bottom
                 = event
             -#.row.collapse
             -#  .small-12.medium-4.columns
