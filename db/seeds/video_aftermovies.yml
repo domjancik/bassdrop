@@ -1,0 +1,388 @@
+#  bdr01X:
+#    title: TITLE
+#    description: |-
+#                 DESC
+#    date: 2014-MM-DD
+#    url: http://on.fb.me/1h2Ej7I
+#    artists:
+#      - ARTIST
+#    credits:
+#      Graphics: Marek Šilpoch
+#    tracks:
+#      - URL
+
+releases:
+  BDVA001:
+    title: BASS DROP vol.1
+    description: |-
+                 The first ever BASS DROP. With Luke Hassan in his dubstep incarnation, HASASSIN!
+                 Nostalgia ;)
+
+                 ## Music
+                 * Skit & Hassassin - Lose It
+                 * Hassassin - Direction VIP
+    date: 2013-03-18
+    artists:
+      - Hassassin
+    credits:
+      Video: Bjørn Mong
+      Animation: MagNet
+    tracks:
+      - https://youtu.be/-0cX8OGsdAU
+
+  BDVA002:
+    title: BASS DROP vol.2
+    description: |-
+                 Sponge Bandits and Droid went in hard, keeping up with the BASS DROP spirit.
+
+                 ## Music
+                 * Droid & Sponge Bandits - Power Up VIP
+                 * Bukez Finezt - Duck Trumpet
+                 * The Guy with No Name - Two Minds
+                 * Skrewluce Ft. Faizee - Out Of Your Mind (Droid & Sponge Bandits Remix)
+                 * Sponge Bandits & Droid - Whip It
+                 / Mixed by Droid & Sponge Bandits
+    date: 2013-05-07
+    artists:
+      - Sponge Bandints
+      - Droid
+    credits:
+      Video: Bjørn Mong
+      Animation: MagNet
+    tracks:
+      - https://youtu.be/gwoX0wbl86Y
+
+  BDVA003:
+    title: BASS DROP Arena vol.1
+    description: |-
+                 A big reunion of not only of our past guests plus a lot of sports and bass drops.
+
+                 ## Music
+                 * Triphazard - Ribcage (Hassassin Remix)
+                 * Droid & Sponge Bandits - Whip It
+                 * Nerva & Mathco - Frostbite (Wonkap Remix)
+                 * Sponge Bandits -
+                 / Mixed by Wonkap, Hassassin, Droid & Sponge Bandits
+    date: 2013-07-06
+    artists:
+      - Wonkap
+      - Sponge Bandits
+      - Droid
+      - Hassassin
+    credits:
+      Video: Bjørn Mong
+      Animation: MagNet
+    tracks:
+      - https://youtu.be/XFNoRrBwvP8
+
+  BDVA004:
+    title: BASS DROP Arena vol.2 Afterparty
+    description: |-
+                 Video just as insane as the party itself.
+    date: 2013-09-29
+    artists:
+      - Young D
+      - Efflex
+    credits:
+      Video: Marek Šilpoch
+    tracks:
+      - https://youtu.be/zvoX5mw0QZc
+
+  BDVA005:
+    title: BASS DROP vol.3 & 4
+    description: |-
+
+                 ## Music
+                 * Skælp - Damascus
+                 * Mr.Boogie - Lurker
+                 * Scælp - Juice Fruit
+                 * En Fisk - Want You Back
+                 / Mixed by MagNet
+    date: 2013-10-13
+    artists:
+      - Skælp
+      - Mr. Boogie
+    credits:
+      Edit: Bjørn Mong
+      Camera:
+        - Tomáš Teglý
+        - Marek Šilpoch
+      Animation: MagNet
+    tracks:
+      - https://youtu.be/8dwDagTSB4A
+
+  BDVA006:
+    title: REZONATOR vol.1
+    description: |-
+                 What happens when BadKlaat, Cooh, Balkansky and Smack all come to the confined spaces of Lávka?
+
+                 ## Music
+                 * Balkansky - 12
+                 * BadKlaat - Get Twisted
+                 * Smack - Oheň
+                 * Balkansky - Hippie Filth
+                 * Merak - 140?
+                 * Current Value & Cooh - REKET
+                 * Bong-Ra - Monolith (Cooh Remix)
+                 / Mixed by MagNet
+    date: 2013-12-21
+    artists:
+      - BadKlaat
+      - Cooh / Balkansky
+      - Smack
+    credits:
+      Edit:
+        - Bjørn Mong
+        - MagNet
+      Camera:
+        - Bjørn Mong
+        - Marek Šilpoch
+      Animation: MagNet
+    tracks:
+      - https://youtu.be/xHEtyVbbUe0
+
+  BDVA007:
+    title: BASS DROP Mountain Edition
+    description:  |-
+                  BASS DROP crew heating it up in the cold Great Mountains.
+
+                  ## Music
+                  * MagNet - Take Me Home
+                  * Low Tact (live set) ft. Ollie Torr samples ft. MagNet effects ft. MC Paparasty
+    date: 2014-01-05
+    artists:
+      - MagNet
+      - Ollie Torr
+      - Novinski
+      - Tesy
+      - Low Tact
+    credits:
+      Video: Jakub Chudý
+    tracks:
+      - https://youtu.be/998W0dVJyms
+
+  BDVA008:
+    title: Basic Stimulation
+    description: |-
+                 Don't watch this. *It's a trap!*
+    date: 2014-01-05
+    credits:
+      Video: Jakub Chudý
+    tracks:
+      - https://youtu.be/n8wrMbT6wqw
+
+  BDVA009:
+    title: Winter Arena
+    description: |-
+                 We were so very exhausted after this. But it was all worth it.
+
+                 Beautiful mountains and tricks during the day and even more beautiful pumping bass in the night!
+
+                 ## Music
+                 * Jose Gonzales - Step Out
+                 * Getter & Protohype - The Peak (VIP)
+                 * Kill The Noise - Rockers (Bro Safari Remix)
+                 * Dub Phizix - Marka (Ollie Torr Bootleg)
+                 * Inside Info & Mefjus - Mythos
+                 * Phace and Misanthrop - Desert Orgy
+                 * Mat Zo - Little Damage
+                 / Mixed by MagNet
+    date: 2014-03-02
+    artists:
+      - X
+    credits:
+      Edit: Jakub Chudý
+      Edit: MagNet
+      Camera: Jakub Chudý
+      Camera: Sláva Pecháček
+      Add Camera: Marek Šilpoch
+      Add Camera: Hayppa
+      Mix:
+        - MagNet
+      Music:
+        - Ollie Torr
+    tracks:
+      - https://youtu.be/irks7yoJqNM
+
+  BDVA010:
+    title: BASS DROP vol.9
+    description: |-
+                 ## Music
+                 * Kill The Noise - Rockers
+                 * Gh0sh - Flexting
+    date: 2014-03-17
+    artists:
+      - Gh0sh
+    credits:
+      Video: Jakub Chudý
+    tracks:
+      - https://youtu.be/6MR-iMeDIGo
+
+  BDVA011:
+    title: BASS DROP 1st Anniversary
+    description: |-
+                 The first anniversary was wild!
+
+                 Live Acts, the whole BASS DROP crew, Genetix, Champagne and CAKES!
+
+                 ## Music
+                 * Drumsound & Bassline Smith ft. Hadouken - Daylight (Genetix Remix)
+    date: 2014-04-06
+    artists:
+      - Genetix
+    credits:
+      Edit: Jakub Chudý
+      Camera: Marek Šilpoch
+      Camera: Hayppa
+      Camera: Filip Kettner
+    tracks:
+      - https://youtu.be/Xn8OvtrV954
+
+  # TODO Missing BDVA012 BD vol.11 aftermovie with The Greys, reupload
+
+  BDVA013:
+    title: BASS DROP vol.12
+    description: |-
+                 I just can't remember anything from last night. Or maybe I just don't want to...
+
+                 ## Music
+                 * Young D - The Baddiez (BASS DROP RECORDS)
+    date: 2014-06-09
+    artists:
+      - Lost
+      - Fade
+    credits:
+      Edit: Jakub Chudý
+      Camera: Jakub Chudý
+      Camera: Hayppa
+      Animation: MagNet
+      Music:
+        - Young D
+    tracks:
+      - https://youtu.be/JJTHsJeaOnI
+
+  BDVA014:
+    title: BASS DROP vol.13
+    description: |-
+                 Warming up for the holidays, shit's gone crazy.
+
+                 ## Music
+                 * Kahlil & Axel Boy - Who shot ya? (BASS DROP RECORDS)
+                 * Envenom - Perplex
+    date: 2014-07-21
+    artists:
+      - Kahlil
+      - Tuco
+      - Allmostt
+    credits:
+      Video: Hayppa
+      Animation: MagNet
+      Music:
+        - Axel Boy
+        - Envenom
+    tracks:
+      - https://youtu.be/4w3u_N9Mf3M
+
+  BDVA015:
+    title: BASS DROP vol.14
+    description: |-
+                 ## Music
+                 * Vodex & Eddie K - Cosmic
+                 * Silent Code - Listen
+    date: 2014-08-09
+    artists:
+      - Bundat
+      - Subset
+      - Touch the Jungle
+    credits:
+      Video: Hayppa
+      Animation: MagNet
+    tracks:
+      - https://youtu.be/ba0RdB3rs50
+
+  BDVA016:
+    title: SUMMER WARM UP 2014
+    description: |-
+                 Is it summer now? We say YES!
+
+                 Taking over the abandoned powerplant near Kladno with bass!
+
+                 ## Music
+                 * Original music produced by Ollie Torr
+                 * Haywyre & Manic Focus - Premeditation
+    date: 2014-08-14
+    artists:
+      - Teddy Killerz
+      - Vladimir 518
+      - Hugo Toxxx
+      - Rido
+      - Philip TBC
+    credits:
+      Edit: Jakub Chudý
+      Camera: Jakub Chudý
+      Add Edit: MagNet
+      Animation: MagNet
+      Music:
+        - Ollie Torr
+    tracks:
+      - https://youtu.be/LCF-y3WAD6k
+
+  BDVA017:
+    title: BASS DROP vol.15 & 16
+    description: |-
+                 If we put Le Lion and Axel Boy both in one night, we probably wouldn't be here anymore. The raw energy of these guys combined wold just destroy everything.
+
+                 So many drops, so much craziness.
+
+                 ## Music
+                 * Axel Boy - A Fire (BASS DROP RECORDS)
+    date: 2014-08-11
+    artists:
+      - Le Lion
+      - Axel Boy
+    credits:
+      Edit: Hayppa
+      Camera: Jakub chudý
+      Camera: Hayppa
+      Animation: MagNet
+    tracks:
+      - https://youtu.be/-d4Tqk_tK3k
+
+  BDVA018:
+    title: BASS DROP vol.17
+    description: |-
+                 Who's Trampa you say? GET OUT OF HERE!
+
+                 ## Music
+                 * Ollie Torr - White Key
+                 * Trampa - Gas Tank
+    date: 2014-09-11
+    artists:
+      - Trampa
+    credits:
+      Edit: Hayppa
+      Camera: Bjørn Mong
+      Animation: MagNet
+      Music:
+        - Ollie Torr
+    tracks:
+      - https://youtu.be/6ZAC3lJbZgI
+
+  BDVA018:
+    title: BASS DROP vol.18 & 19
+    description: |-
+                 Filling up all of Chapeau Rouge with diverse genres of music.
+
+                 ## Music
+                 * London Nebel - Unexpected (BASS DROP RECORDS)
+                 * Document One - Kindness For Weakness
+                 * Document One - Revolution
+                 * AlunaGeorge - You Know You Like It (Tchami Remix)
+    date: 2014-12-26
+    artists:
+      - London Nebel
+      - Document One
+    credits:
+      Video: MagNet
+    tracks:
+      - https://youtu.be/rF6Cv8FhKes

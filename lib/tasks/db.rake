@@ -86,12 +86,16 @@ namespace :db do
           {title: 'Hayppa', country: 'CZ', city: 'Prague', fb: 'Hayppa', role: 'creator'},
           {title: 'Tomáš Teglý', country: 'CZ', city: 'Prague', fb: '252554171461710', role: 'creator'},
           {title: 'Jakub Chudý', country: 'CZ', city: 'Prague', fb: 'chudy.jakub', role: 'creator'},
+          {title: 'Sláva Pecháček', country: 'CZ', city: 'Prague', fb: 'slava.pechacek', role: 'creator'},
+          {title: 'Filip Kettner', country: 'CZ', city: 'Prague', fb: 'slava.pechacek', role: 'creator'},
           {title: 'Francis Svěrák', country: 'CZ', city: 'Prague', fb: 'fsxaico', role: 'creator'},
           {title: 'Jan Schwarcz', country: 'CZ', city: 'Prague', fb: 'jan.schwarcz.3', role: 'creator'},
           {title: 'Filip Hodas', country: 'CZ', city: 'Prague', fb: 'hoodass', role: 'creator'},
+          {title: 'Bjørn Mong', country: 'NO', fb: 'bjornmong', role: 'creator'},
 
           {title: 'Sufuski', country: 'CZ', city: 'Prague', fb: 'zdenda.mahdal'},
           {title: 'Yendys', country: 'CZ', city: 'Slaný', fb: 'jan.studeny'},
+          {title: 'Touch the Jungle', country: 'CZ', fb: 'touchthejungle'},
           {title: 'Prag:Matics Crew', country: 'CZ', city: 'Prague', fb: 'prg.matics'},
 
           # Live projects
@@ -103,6 +107,7 @@ namespace :db do
           {title: 'Blofeld', country: 'CZ', city: 'Prague', fb: '135831453183518'},
           {title: 'AzAwAkk', country: 'CZ', city: 'Prague', fb: 'Azawakk'},
           {title: 'Gory Ruffian', country: 'CZ', city: 'Karlovy Vary', fb: 'goryruffian'},
+          {title: 'Tesy', country: 'CZ', city: 'Kladno', fb: 'TESYcz'},
 
           # Records
           {title: 'Kutlo', country: 'SK', city: 'Prievidza', fb: 'kutlo.official', sc: 'dubtrax', role: 'records'},
