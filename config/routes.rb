@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :stories, path: :news, concerns: [:playlistable, :publishable]
+  resources :stories, concerns: [:playlistable, :publishable]
 
   resources :playlists, concerns: :playlistable do
     resources :playlist_items, shallow: true, path: 'items'

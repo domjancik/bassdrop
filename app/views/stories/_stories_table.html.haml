@@ -1,0 +1,37 @@
+%h1 Listing stories
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th Release
+      %th Artist
+      %th Event
+      %th Playlist
+      %th Author
+      %th Published at
+      %th Published
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @stories.each do |story|
+      %tr
+        %td= story.title
+        %td= story.description
+        %td= story.release
+        %td= story.artist
+        %td= story.event
+        %td= story.playlist
+        %td= story.author
+        %td= story.published_at
+        %td= story.published
+        %td= link_to 'Show', story
+        %td= link_to 'Edit', edit_story_path(story)
+        %td= link_to 'Destroy', story, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Story', new_story_path

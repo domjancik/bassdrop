@@ -10,6 +10,7 @@ class Release < ActiveRecord::Base
   has_many :credits
   has_many :artists, through: :credits
   belongs_to :playlist
+  has_many :stories
 
   def to_s
     title

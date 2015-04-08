@@ -20,6 +20,4 @@
                 = event_time event
   %p.nospace
     %div
-      = link_to events_path do
-        .small.button.width-fill
-          ALL EVENTS
+      = link_to 'All events', events_path, class: %w(button small width-fill)

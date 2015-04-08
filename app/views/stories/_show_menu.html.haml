@@ -6,6 +6,7 @@
   - else
     = link_to 'Playlist', @story.playlist, class: 'button'
   - unless @story.published?
-    = link_to 'Publish', publish_story_path(@story), class: 'button', method: :post
+    = link_to 'Publish', publish_story_path(@story), class: %w(button success), method: :post
   - else
-    = link_to 'Hide', hide_story_path(@story), class: 'button', method: :post
+    = link_to 'Hide', hide_story_path(@story), class: %w(button alert), method: :post
+  = link_to 'Delete', @story, class: %w(button alert), :method => :delete, :data => { :confirm => 'Are you sure?' }

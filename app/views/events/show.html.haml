@@ -50,6 +50,7 @@
         = render partial: 'playlists/playlist_embed', object: @event.playlist
         .content__description__bottom.padded
           = desc_format(@event.description, @event.markdown_enabled)
+        = render partial: 'stories/stories', object: @event.stories
 
       .small-12.medium-4.columns
         = render 'artists_lineup'

@@ -5,7 +5,7 @@
 
 = render 'show_menu'
 
-- no_content = @artist.events.empty? && @artist.description.blank? && (@artist.playlist.blank? || @artist.playlist.items.empty?)
+- no_content = @artist.events.empty? && @artist.description.blank? && (@artist.playlist.blank? || @artist.playlist.items.empty?) && @artist.stories.empty? && @artist.authored_stories.empty?
 
 .artist
   .row
@@ -26,5 +26,6 @@
           .artist__description.padded.margin-bottom
             %p
               = desc_format @artist.description
+      = render partial: 'stories/stories', object: @artist.stories
       = render partial: 'elements/more_content', object: no_content
 

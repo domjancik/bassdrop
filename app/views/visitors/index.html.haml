@@ -2,6 +2,8 @@
 .row
   .small-12.medium-9.columns.margin-bottom
     = render partial: 'elements/next_event', object: @next_event
+    = render partial: 'stories/stories', object: @stories
+    = link_to 'All stories', stories_path, class: %w(button small width-fill)
 
   .small-12.medium-3.columns
     .row

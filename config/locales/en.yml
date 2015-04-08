@@ -47,6 +47,8 @@ en:
       title: Videos
       trailers: Trailers
       aftermovies: Aftermovies
+  story:
+    title: Stories
   time:
     formats:
       event_time: '%-H:%M'

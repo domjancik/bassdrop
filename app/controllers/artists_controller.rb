@@ -19,7 +19,7 @@ class ArtistsController < ApplicationController
   # GET /artists/1.json
   def show
     @upcoming_events = policy_scope Event.upcoming
-    @next_event = @artist.events.upcoming.take
+    @next_event = (policy_scope @artist.events.upcoming).take
   end
 
   # GET /artists/new
