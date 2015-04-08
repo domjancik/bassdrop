@@ -11,7 +11,10 @@ class ArtistsController < ApplicationController
     @page = params.has_key?(:page) ? params[:page].to_i - 1 : 0
     role = params.has_key?(:filter) ? params[:filter] : ARTIST_GROUPS[@page]
     @last_page = params.has_key?(:filter) ? true : @page == ARTIST_GROUPS.size - 1
-    @artist_group = {name: role, artists: policy_scope(Artist.send(role))}
+
+    artists = role == 'records' ? Artist.released_record : Artist.send(role)
+
+    @artist_group = {name: role, artists: policy_scope(artists)}
   end
 
   # GET /team

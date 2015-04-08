@@ -289,12 +289,25 @@ namespace :db do
       puts 'LOADED ARTISTS'
     end
 
+    desc 'Reload images from social networks'
     task reload_images: :environment do
       Artist.all.each do |artist|
         artist.refresh_image_cache
         artist.force_refresh_image_cache if artist.image_url_cached.nil?
 
-        puts "Couldn't load@event.stages image for #{artist}" if artist.image_url_cached.nil?
+        puts "Couldn't load image for #{artist}" if artist.image_url_cached.nil?
+      end
+    end
+
+    desc 'Set released_record flags for artists'
+    task update_released: :environment do
+      Release.record.each do |release|
+        release.credits.each do |credit|
+          if credit.title.blank?
+            credit.artist.released_record!
+            puts credit.artist
+          end
+        end
       end
     end
   end

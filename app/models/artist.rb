@@ -26,6 +26,15 @@ class Artist < ActiveRecord::Base
     title
   end
 
+  def released_record!
+    self.released_record = true
+    save
+  end
+
+  def self.released_record
+    Artist.where(released_record: true)
+  end
+
   def fb_image_url
     FacebookHelper.fb_profile_picture_url link_fb
   end
