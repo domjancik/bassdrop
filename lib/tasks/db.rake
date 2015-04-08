@@ -232,6 +232,9 @@ namespace :db do
           {title: 'BELZEBASS', country: 'IT', city: 'Bergamo', fb: 'belzebassofficial', role: 'supported'},
           {title: 'The Boomzers', country: 'IT', city: 'Pordenone', fb: 'theboomzers', role: 'supported'},
           {title: 'Borgore', country: 'IL', fb: 'Borgore', role: 'supported'},
+          {title: 'Dope D.O.D.', country: 'NL', fb: 'dopedoddopedod', role: 'supported'},
+          {title: 'Bassnectar', country: 'US', fb: 'Bassnectar', role: 'supported'},
+          {title: 'N.O.H.A.', country: 'CZ', fb: 'NohaCircus', role: 'supported'},
       ]
 
       artists.each do |artist_source|
