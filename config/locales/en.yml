@@ -28,9 +28,15 @@ en:
   youtube: "YouTube"
   twitter: "Twitter"
 
+  menu:
+    footer:
+      about: What is BASS DROP?
+      team: The Team
+      contact: Contact Us
+
   artist:
     roles:
-      bassdrop: We are
+      bassdrop: Our roster
       headliner: We've booked
       supported: We've played with
       artist: And also hosted

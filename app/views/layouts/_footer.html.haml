@@ -1,0 +1,13 @@
+.footer
+  .row
+    .small-12.medium-8.columns.footer__text
+      .row
+        = render 'layouts/navigation_footer'
+      .row.footer__text__copyright
+        ©2015 BASS DROP /
+        = link_to 'URBAN EVENTS', 'http://www.urbanevents.cz', target: :blank
+        %br
+        %span.important
+          Website in beta
+    .small-12.medium-4.columns.footer__credit
+      = image_tag 'logo-bass-drop.png'

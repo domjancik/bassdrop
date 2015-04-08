@@ -25,6 +25,8 @@
       .row
         .small-12.small-centered.columns.content-margin
           = yield
+      = render 'layouts/footer'
+
     :javascript
       new WOW().init();
 
