@@ -13,9 +13,8 @@
                 %ul.upcoming-events__event__artist-list
                   - event.headliners.each do |headliner|
                     %li
-                      = link_to headliner do
-                        = headliner
-                        %span.note-mid= headliner.country.abbreviation
+                      = headliner
+                      %span.note-mid= headliner.country.abbreviation
               .row
                 = event_time event
   %p.nospace
