@@ -9,6 +9,6 @@
     = render partial: 'stories', object: @stories, locals: { xcount: 4 }
 
 - unless @last_page
-  = render partial: 'elements/more_link', object: stories_path + "/#{@page + 1}"
+  = render partial: 'elements/more_link', object: page_stories_path(page: @page + 1)
 
 

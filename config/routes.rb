@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   concern :pagable do
     collection do
-      get '(/:page)', defaults: { page: '0' }, action: :index
+      get 'page(/:page)', defaults: { page: '0' }, action: :index, as: :page
     end
   end
 
