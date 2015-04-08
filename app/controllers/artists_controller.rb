@@ -16,7 +16,7 @@ class ArtistsController < ApplicationController
 
   # GET /team
   def team
-    @artists = policy_scope Artist.where('team_title IS NOT NULL')
+    @artists = policy_scope Artist.where('team_title IS NOT NULL').reorder('RAND()')
   end
 
   # GET /artists/1
