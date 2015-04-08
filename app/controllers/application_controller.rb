@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
 
     def authenticate_admin!
       authenticate_user!
-      fail!('Only admins are allowed here') unless current_user.admin?
+      user_not_authorized unless current_user.admin?
     end
 
     private
