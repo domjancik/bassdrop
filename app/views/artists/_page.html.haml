@@ -8,4 +8,4 @@
 -#  %p= render partial: 'artist_grid', object: artist_group[:artists]
 
 - unless @last_page
-  = link_to 'More', artists_path(page: @page + 2), class: %w(button width-fill infinite-more-link)
+  = render partial: 'elements/more_link', object: artists_path(page: @page + 2)

@@ -8,4 +8,4 @@
   .infinite-item
     %h1.wow.fadeIn Upcoming
     = render partial: 'events', object: @upcoming_events, locals: { xcount: 1 }
-= link_to 'More', 'events/year', class: %w(button width-fill infinite-more-link)
+= render partial: 'elements/more_link', object: year_events_path
