@@ -15,11 +15,13 @@
 //= require turbolinks
 //= require foundation
 //= require jquery.slick
+//= require jquery.waypoints.min
+//= require shortcuts/infinite.min
 //= require_tree .
 //$(function() {
 //    $(document).foundation();
 //
-//  // Autoload playlists
+//    // Autoload playlists
     //var plist_link = $('#playlist_link')
     //if (plist_link.length > 0) {
     //    $.getScript(plist_link.attr('href'))

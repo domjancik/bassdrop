@@ -16,7 +16,6 @@
     -# Modernizr is required for Zurb Foundation
     = javascript_include_tag 'vendor/modernizr'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = javascript_include_tag 'wow'
     = csrf_meta_tags
   %body{ class: body_classes }
     %header
@@ -44,3 +43,19 @@
       if (plist_link.length > 0) {
         $.getScript(plist_link.attr('href'))
       }
+      //
+      //var waypoint = $('.infinite-more-link').waypoint(function(direction) {
+      //  alert("hello")
+      //}, {
+      //  offset: 'bottom-in-view'
+      //});
+
+      console.log("Loading waypoints");
+      var infinite = new Waypoint.Infinite({
+        element: $('.infinite-container')[0],
+        offset: '110%'
+      });
+
+
+
+      console.log(infinite);

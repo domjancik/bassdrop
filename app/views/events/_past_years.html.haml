@@ -1,3 +1,2 @@
 - past_years.each do |year|
-  %h1.wow.fadeIn.text-right= year[:year]
-  = render partial: 'events', object: year[:events]
+  = render partial: 'year', object: year

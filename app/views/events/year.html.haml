@@ -1,0 +1,6 @@
+.infinite-container
+  .infinite-item
+    = render partial: 'year', object: @year
+
+- if @more_years
+  = link_to 'More', year_events_path(@year[:year] - 1), class: %w(button width-fill infinite-more-link)

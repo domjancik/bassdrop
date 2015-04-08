@@ -1,0 +1,11 @@
+.infinite-container
+  .infinite-item
+    %h1= t @artist_group[:name], scope: 'artist.roles'
+    %p= render partial: 'artist_grid', object: @artist_group[:artists]
+
+-#- @artist_groups.each do |artist_group|
+-#  %h1= t artist_group[:name], scope: 'artist.roles'
+-#  %p= render partial: 'artist_grid', object: artist_group[:artists]
+
+- unless @last_page
+  = link_to 'More', artists_path(page: @page + 2), class: %w(button width-fill infinite-more-link)

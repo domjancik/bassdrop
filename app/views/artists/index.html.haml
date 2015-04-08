@@ -1,8 +1,7 @@
 - content_for :title do
   Artists
 
-- @artist_groups.each do |artist_group|
-  %h1= t artist_group[:name], scope: 'artist.roles'
-  %p= render partial: 'artist_grid', object: artist_group[:artists]
+- if user_admin?
+  = link_to 'New', new_artist_path, class: %w(button width-fill)
 
--#= link_to 'New Artist', new_artist_path
+= render 'page'

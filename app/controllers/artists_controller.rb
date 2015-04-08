@@ -8,11 +8,10 @@ class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.json
   def index
-    artist_roles = ARTIST_GROUPS
-    @artist_groups = []
-    artist_roles.each do |role|
-      @artist_groups << {name: role, artists: policy_scope(Artist.send(role))}
-    end
+    @page = params.has_key?(:page) ? params[:page].to_i - 1 : 0
+    role = ARTIST_GROUPS[@page]
+    @last_page = @page == ARTIST_GROUPS.size - 1
+    @artist_group = {name: role, artists: policy_scope(Artist.send(role))}
   end
 
   # GET /artists/1
