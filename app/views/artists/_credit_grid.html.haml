@@ -1,6 +1,6 @@
 - locals = {}
 - locals[:xcount] = xcount if defined? xcount
-- locals[:get_title] = lambda { |credit| credit.release.title }
+- locals[:get_title] = lambda { |credit| credit.release.title.truncate 20 }
 - image_style = locals[:xcount] == 2 ? :small : :big
 - locals[:get_image] = lambda { |credit| credit.release.image_url(image_style) }
 - locals[:get_subtitle] = lambda { |credit| credit.title }
