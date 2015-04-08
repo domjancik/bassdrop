@@ -22,4 +22,9 @@ module TimeFormatHelper
   def event_time(event)
     I18n.l event.date_start, format: :event_time
   end
+
+  def release_date(date)
+    format = date.year == Time.now.year ? :release_date : :release_date_full
+    l date, format: format
+  end
 end

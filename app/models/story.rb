@@ -14,6 +14,15 @@ class Story < ActiveRecord::Base
 
   def perex
     match = PEREX_REGEXP.match(description)
-    match.nil? ? description : match.to_s
+    text = match.nil? ? description : match.to_s
+    text.truncate_words 30
+  end
+
+  def image_url
+    return event.cover_url(:square_medium) unless event.blank?
+    return release.image_url(:medium) unless release.blank?
+    return artist.image_url(:medium) unless artist.blank?
+
+    'default_image.jpg'
   end
 end

@@ -1,6 +1,9 @@
 - content_for :title do
   = t 'title', scope: 'release.sets'
 
+- if user_admin?
+  = link_to 'New', new_release_path, class: %w(button width-fill)
+
 %h1= t 'video', scope: 'release.sets'
 %p= render partial: 'release_grid', object: @sets_video
 %h1= t 'audio', scope: 'release.sets'

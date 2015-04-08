@@ -4,7 +4,9 @@ module Coverable extend ActiveSupport::Concern
                                  thumb: '100x37#',
                                  small: '500x185#',
                                  medium: '734x272#',
-                                 large: '1000x370#'
+                                 large: '1000x370#',
+                                 square_medium: '250x250#',
+                                 square_big: '500x500#'
                              }
 
     validates_attachment_content_type :cover, :content_type => /\Aimage\/.*\Z/

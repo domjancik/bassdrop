@@ -2,12 +2,17 @@ class StoriesController < ApplicationController
   include Playlistable
   include Publishable
 
+  PAGE_SIZE = 8;
+
   before_action :set_story, only: [:show, :edit, :update, :destroy, :publish, :hide]
 
   # GET /stories
   # GET /stories.json
   def index
-    @stories = policy_scope Story.all
+    @page = params[:page].to_i
+    offset = @page * PAGE_SIZE
+    @stories = policy_scope Story.all.limit(PAGE_SIZE).offset(offset)
+    @last_page = offset + PAGE_SIZE >= (policy_scope Story.all).size
   end
 
   # GET /stories/1

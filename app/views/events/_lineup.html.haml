@@ -3,22 +3,12 @@
 - stages = @event.stages.to_a
 - stages << nil
 - stages.each do |stage|
-  %h2= stage
-  %ul.block-list
-    - @event.stage_lineup(stage).each do |performance|
-      - unless performance.is_b2b?
-        = render partial: 'lineup_item', object: performance
-        - performance.b2bs.each do |b2b_performance|
-          = render partial: 'lineup_item', object: b2b_performance
-
--#- @event.stages.each do |stage|
--#  %h3= stage
--#  %table
--#    - @event.stage_lineup(stage).each do |performance|
--#      %tr
--#        %td= lineup_from_to(performance.date_start, performance.date_end)
--#        %td
--#          - if(performance.is_headliner?)
--#            %b= performance.artist
--#          - else
--#            = performance.artist
+  - stage_lineup = @event.stage_lineup(stage)
+  - unless stage_lineup.empty?
+    %h2= stage
+    %ul.block-list
+      - @event.stage_lineup(stage).each do |performance|
+        - unless performance.is_b2b?
+          = render partial: 'lineup_item', object: performance
+          - performance.b2bs.each do |b2b_performance|
+            = render partial: 'lineup_item', object: b2b_performance

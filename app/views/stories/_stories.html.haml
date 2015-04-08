@@ -1,2 +1,6 @@
-- stories.each do |story|
-  = render partial: 'stories/story', object: story
+- xcount = 2 if local_assigns[:xcount].nil?
+- show_image = true if local_assigns[:show_image].nil?
+- classes = "medium-block-grid-#{xcount}"
+%ul.small-block-grid-1{ class: classes }
+  - stories.each do |story|
+    = render partial: 'stories/story', object: story, locals: { show_image: show_image }

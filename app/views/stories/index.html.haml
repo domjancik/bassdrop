@@ -4,5 +4,11 @@
 - if user_admin?
   = link_to 'New', new_story_path, class: %w(button width-fill)
 
-= render partial: 'stories', object: @stories
+.infinite-container
+  .infinite-item
+    = render partial: 'stories', object: @stories, locals: { xcount: 4 }
+
+- unless @last_page
+  = render partial: 'elements/more_link', object: stories_path + "/#{@page + 1}"
+
 

@@ -48,9 +48,9 @@
               = @event.attending_count
               = (in_future? @event.date_start + 12.hours) ? 'Going' : 'Went'
         = render partial: 'playlists/playlist_embed', object: @event.playlist
-        .content__description__bottom.padded
+        .content__description__bottom.padded.margin-bottom
           = desc_format(@event.description, @event.markdown_enabled)
-        = render partial: 'stories/stories', object: @event.stories
+        = render partial: 'stories/stories', object: @event.stories, locals: { show_image: false }
 
       .small-12.medium-4.columns
         = render 'artists_lineup'

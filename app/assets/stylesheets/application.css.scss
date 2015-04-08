@@ -657,6 +657,33 @@ ul.block-list {
   }
 }
 
+// Stories
+// Story overview
+.story-overview {
+  &__item {
+    padding-bottom: 0 !important;
+
+    &__title {
+      @extend .titular-text;
+      @include simple-transition;
+      background-color: $block-color;
+    }
+    &__date {
+      @extend .titular-text;
+      @extend .inverted;
+    }
+
+    &:hover {
+      .story-overview__item {
+        &__title {
+          @include simple-transition;
+          @extend .inverted;
+        }
+      }
+    }
+  }
+}
+
 // Fixes
 
 .js .wow {

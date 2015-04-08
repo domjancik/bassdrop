@@ -12,7 +12,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :stories, concerns: [:playlistable, :publishable]
+  concern :pagable do
+    collection do
+      get '(/:page)', defaults: { page: '0' }, action: :index
+    end
+  end
+
+  resources :stories, concerns: [:playlistable, :publishable, :pagable]
 
   resources :playlists, concerns: :playlistable do
     resources :playlist_items, shallow: true, path: 'items'

@@ -26,5 +26,5 @@
           .content__description.padded.margin-bottom
             %p
               = desc_format @release.description
-        = render partial: 'stories/stories', object: @release.stories
+        = render partial: 'stories/stories', object: @release.stories, locals: { show_image: false }
         = render partial: 'elements/more_content', object: no_content

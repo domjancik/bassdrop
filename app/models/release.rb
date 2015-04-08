@@ -4,6 +4,7 @@ class Release < ActiveRecord::Base
   enum release_type: [:other, :set_audio, :set_video, :record, :trailer, :aftermovie]
 
   validates :title, presence: true
+  validates :rel_code, presence: true
 
   default_scope { order('release_date desc') }
 
@@ -14,6 +15,11 @@ class Release < ActiveRecord::Base
 
   def to_s
     title
+  end
+
+  def in_future?
+    return true if release_date.blank?
+    Time.now < release_date
   end
 
   private
