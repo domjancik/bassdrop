@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   get 'sets', controller: :releases
   get 'videos', controller: :releases
 
-  get 'events/year(/:year)', controller: :events, action: :year, defaults: { year: '2015' }, as: :year
+  get 'next', action: :next, controller: :events
 
   resources :events, concerns: [:playlistable, :publishable] do
     resources :performances, shallow: true

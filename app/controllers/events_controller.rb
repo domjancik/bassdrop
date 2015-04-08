@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   include Playlistable
   include Publishable
 
-  before_action :set_event, except: [:index, :create, :new, :year]
+  before_action :set_event, except: [:index, :create, :new, :year, :next]
   helper TimeFormatHelper
   helper FacebookHelper
 
@@ -18,6 +18,15 @@ class EventsController < ApplicationController
     year = params[:year].to_i
     @year = { year: year, events: policy_scope(Event.past_year year) }
     @more_years = PAST_YEARS.include? year - 1
+  end
+
+  def lineup
+
+  end
+
+  # GET /events/next
+  def next
+    redirect_to (policy_scope Event.upcoming).take
   end
 
   # GET /events/1
