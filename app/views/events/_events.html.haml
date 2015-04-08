@@ -23,6 +23,6 @@
                 = event
       - if user_admin?
         - if event.published?
-          = link_to 'Hide', hide_event_path(event), method: :post, class: %w(button width-fill infinite-more-link)
+          = link_to 'Hide', hide_event_path(event), method: :post, class: %w(button width-fill)
         - else
-          = link_to 'Publish', publish_event_path(event), method: :post, class: %w(button width-fill infinite-more-link)
+          = link_to 'Publish', publish_event_path(event), method: :post, class: %w(button width-fill)
