@@ -16,5 +16,6 @@
   .story__profile.hover.margin-bottom
     .story__profile__by
       Written by
-    = image_tag(@story.author.image_url(:big), alt: @story.author)
-    .story__profile__title= @story.author.title
+    = link_to @story.author do
+      = image_tag(@story.author.image_url(:big), alt: @story.author)
+      .story__profile__title= @story.author.title

@@ -7,12 +7,6 @@
   - events.each do |event|
   - classes = event.published? ? '' : 'hidden'
     %li{ class: classes }
-      - if user_admin?
-        - if event.published?
-          = link_to 'Hide', hide_event_path(event), method: :post
-        - else
-          = link_to 'Publish', publish_event_path(event), method: :post
-
       = link_to event do
         - delay = Random.rand(5).to_f / 10.0
         .wow.fadeInUp{ 'data-wow-offset' => '20', 'data-wow-delay' => "#{delay}s" }
@@ -27,16 +21,8 @@
             .row.collapse
               %p.titular-text.nospace.stick-to-bottom
                 = event
-            -#.row.collapse
-            -#  .small-12.medium-4.columns
-            -#    %p.text.important.nospace
-            -#      = event_date event
-            -#  .small-12.medium-8.columns
-            -#    %p.text.nospace
-            -#      headliners
-            -#  - if user_signed_in?
-            -#    %p.text.nospace
-            -#      - if policy(event).edit?
-            -#        = link_to 'Edit', edit_event_path(event)
-            -#      - if policy(event).destroy?
-            -#        = link_to 'Destroy', event, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      - if user_admin?
+        - if event.published?
+          = link_to 'Hide', hide_event_path(event), method: :post, class: %w(button width-fill infinite-more-link)
+        - else
+          = link_to 'Publish', publish_event_path(event), method: :post, class: %w(button width-fill infinite-more-link)
