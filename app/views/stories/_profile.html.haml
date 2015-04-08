@@ -1,0 +1,20 @@
+- unless @story.artist.blank?
+  - artist = @story.artist
+  .story__profile.margin-bottom
+    = link_to artist do
+      = image_tag(@story.artist.image_url(:big), alt: @story.artist)
+      .story__profile__title= @story.artist.title
+
+- unless @story.release.blank?
+  - release = @story.release
+  .story__profile.margin-bottom
+    = link_to release do
+      = image_tag(@story.release.image_url(:big), alt: @story.release)
+      .story__profile__title= @story.release.title
+
+- unless @story.author.blank?
+  .story__profile.hover.margin-bottom
+    .story__profile__by
+      Written by
+    = image_tag(@story.author.image_url(:big), alt: @story.author)
+    .story__profile__title= @story.author.title

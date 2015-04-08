@@ -1,0 +1,6 @@
+-#.release__extra.margin-bottom.wow.fadeIn{ 'data-wow-delay' => "1.5s" }
+- if @story.published
+  .story__extra.margin-bottom
+    .story__extra__date
+      - format = @story.published_at.year == Time.now.year ? :release_date : :release_date_full
+      = l @story.published_at, format: format

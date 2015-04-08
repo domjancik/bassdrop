@@ -1,0 +1,29 @@
+- content_for :title do
+  = @story.title
+
+%p#notice= notice
+
+= render 'show_menu'
+- unless @story.published?
+  %p NOT PUBLISHED
+
+.release
+  .row
+    %h1= @story.title
+    .small-12.medium-3.columns
+      .row.wow.fadeInUp{ 'data-wow-duration' => "0.8s" }
+        = render 'profile'
+      .row.wow.fadeInUp{ 'data-wow-delay' => "0.6s" }
+        = render 'extra_info'
+    .small-12.medium-9.columns
+      .wow.fadeInUp.margin-bottom
+        = render partial: 'playlists/playlist_embed', object: @story.playlist
+      .wow.fadeIn{ 'data-wow-delay' => "0.8s" }
+        - unless @story.event.blank?
+          = render partial: 'events/events', object: [ @story.event ], locals: { xcount: 1 }
+      .wow.fadeIn{ 'data-wow-delay' => "1s" }
+        - unless @story.description.blank?
+          .content__description.padded.margin-bottom
+            %p
+              = desc_format @story.description
+        = render partial: 'elements/more_content', object: false

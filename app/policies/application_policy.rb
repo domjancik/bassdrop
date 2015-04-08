@@ -30,6 +30,14 @@ class ApplicationPolicy
     is_admin?
   end
 
+  def publish?
+    is_admin?
+  end
+
+  def hide?
+    is_admin?
+  end
+
   def edit?
     update?
   end

@@ -4,7 +4,8 @@ module Avatarable extend ActiveSupport::Concern
                                  thumb: '120x120#',
                                  small: '200x200#',
                                  medium: '250x250#',
-                                 big: '500x500>'
+                                 big: '500x500#',
+                                 large: '500x500>'
                              }
 
     validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/

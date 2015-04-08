@@ -1,41 +1,43 @@
 Rails.application.routes.draw do
-  resources :playlists do
-    resources :playlist_items, shallow: true, path: 'items'
+  concern :playlistable do
     member do
       post 'create_playlist'
+    end
+  end
+
+  concern :publishable do
+    member do
+      post 'publish'
+      post 'hide'
+    end
+  end
+
+  resources :stories, path: :news, concerns: [:playlistable, :publishable]
+
+  resources :playlists, concerns: :playlistable do
+    resources :playlist_items, shallow: true, path: 'items'
+    member do
       get 'open(/:item_id)', action: 'open', as: 'open'
     end
   end
 
   resources :media
 
-  resources :releases do
+  resources :releases, concerns: :playlistable do
     resources :credits, shallow: true
-    member do
-      post 'create_playlist'
-    end
   end
 
   get 'records', controller: :releases
   get 'sets', controller: :releases
   get 'videos', controller: :releases
 
-  resources :events do
+  resources :events, concerns: [:playlistable, :publishable] do
     resources :performances, shallow: true
-    member do
-      post 'create_playlist'
-      post 'publish'
-      post 'hide'
-    end
   end
 
   resources :stages
 
-  resources :artists do
-    member do
-      post 'create_playlist'
-    end
-  end
+  resources :artists, concerns: :playlistable
 
   resources :cities
 

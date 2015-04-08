@@ -1,0 +1,16 @@
+= simple_form_for(@story) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :description
+    = f.association :release
+    = f.association :artist
+    = f.association :event
+    = f.association :playlist
+    = f.association :author
+    = f.input :published_at, include_blank: true
+    = f.input :published
+
+  .form-actions
+    = f.button :submit

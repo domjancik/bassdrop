@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   include Playlistable
+  include Publishable
 
   before_action :set_event, except: [:index, :create, :new]
   helper TimeFormatHelper
@@ -48,16 +49,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # POST /events/1/publish
-  def publish
-    set_published true
-  end
-
-  # POST /events/1/hide
-  def hide
-    set_published false
-  end
-
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
@@ -92,11 +83,5 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:title, :venue_id, :date_start, :date_end, :preorder_url, :playlist_id, :cover, :description, :published, :automatic_updates, :markdown_enabled)
-    end
-
-    def set_published(value)
-      @event.published = value
-      @event.save
-      redirect_to events_url
     end
 end

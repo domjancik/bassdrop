@@ -615,6 +615,37 @@ ul.block-list {
   }
 }
 
+// Stories
+
+.story {
+  &__profile {
+    &__title {
+      @extend .artist__profile__title;
+    }
+
+    a .story__profile__title { @include simple-transition; }
+
+    a:hover .story__profile__title {
+      @include simple-transition;
+      color: $block-color;
+      background-color: $text-color;
+    }
+
+    &__by {
+      @extend .artist__profile__title;
+      color: $block-color;
+      background-color: $text-color;
+    }
+  }
+
+  &__extra {
+    &__date {
+      @extend .artist__extra__location;
+      @extend .margin-bottom;
+    }
+  }
+}
+
 .grid__item__small {
   .titular-text {
     line-height: 1;

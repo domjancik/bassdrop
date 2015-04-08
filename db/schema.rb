@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407215604) do
+ActiveRecord::Schema.define(version: 20150407230903) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",               limit: 255
@@ -176,6 +176,26 @@ ActiveRecord::Schema.define(version: 20150407215604) do
 
   add_index "stages", ["venue_id"], name: "index_stages_on_venue_id", using: :btree
 
+  create_table "stories", force: :cascade do |t|
+    t.string   "title",        limit: 255,                   null: false
+    t.text     "description",  limit: 65535
+    t.integer  "release_id",   limit: 4
+    t.integer  "artist_id",    limit: 4
+    t.integer  "event_id",     limit: 4
+    t.integer  "playlist_id",  limit: 4
+    t.integer  "author_id",    limit: 4,                     null: false
+    t.datetime "published_at"
+    t.boolean  "published",    limit: 1,     default: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
+
+  add_index "stories", ["artist_id"], name: "index_stories_on_artist_id", using: :btree
+  add_index "stories", ["author_id"], name: "index_stories_on_author_id", using: :btree
+  add_index "stories", ["event_id"], name: "index_stories_on_event_id", using: :btree
+  add_index "stories", ["playlist_id"], name: "index_stories_on_playlist_id", using: :btree
+  add_index "stories", ["release_id"], name: "index_stories_on_release_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: ""
@@ -238,4 +258,9 @@ ActiveRecord::Schema.define(version: 20150407215604) do
   add_foreign_key "playlist_items", "playlists"
   add_foreign_key "releases", "playlists"
   add_foreign_key "stages", "venues"
+  add_foreign_key "stories", "artists"
+  add_foreign_key "stories", "artists"
+  add_foreign_key "stories", "events"
+  add_foreign_key "stories", "playlists"
+  add_foreign_key "stories", "releases"
 end
