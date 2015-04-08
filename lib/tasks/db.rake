@@ -32,6 +32,7 @@ namespace :db do
         begin
           date_start = fb_event['start_time']
           link_fb = fb_event['id']
+          Time.zone = fb_event['timezone']
           event = Event.new({title: title, date_start: date_start, link_fb: link_fb})
           event.date_end = fb_event['end_time'] if fb_event.has_key? 'end_time'
           event.save
@@ -49,7 +50,7 @@ namespace :db do
 
     desc 'Download date data for events from facebook'
     task reload_dates: :environment do
-      Event.where(automatic_updates: true).each { |event| event.update_date }
+      Event.all.each { |event| event.update_date }
     end
 
     desc 'Update stats for upcoming events'

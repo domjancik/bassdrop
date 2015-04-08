@@ -69,9 +69,10 @@ class Event < ActiveRecord::Base
   end
 
   def update_date
-    fb_event = FacebookHelper.fetch_fb_event link_fb, 'start_time,end_time'
+    fb_event = FacebookHelper.fetch_fb_event link_fb, 'start_time,end_time,timezone'
 
-    self.date_end = fb_event['start_time'] if fb_event.has_key? 'start_time'
+    Time.zone = fb_event['timezone']
+    self.date_start = fb_event['start_time'] if fb_event.has_key? 'start_time'
     self.date_end = fb_event['end_time'] if fb_event.has_key? 'end_time'
 
     self.save
