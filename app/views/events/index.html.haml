@@ -1,14 +1,13 @@
 - content_for :title do
   Events
 
+- if user_admin?
+  = link_to 'New', new_event_path, class: %w(button width-fill)
+
 %h1.wow.fadeIn Upcoming
 
 = render partial: 'events', object: @upcoming_events, locals: { xcount: 1 }
 
 %h1.wow.fadeIn Past
-- @past_years.each do |year|
-  %h1.wow.fadeIn.text-right= year[:year]
-  = render partial: 'events', object: year[:events]
-%br
-
--#= link_to 'New Event', new_event_path
+#past.load-auto
+  = link_to 'Load', events_path, remote: true, class: 'open-link', id: 'link', class: %w(button width-fill)
