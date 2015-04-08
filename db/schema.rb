@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407230903) do
+ActiveRecord::Schema.define(version: 20150408225648) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",               limit: 255
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150407230903) do
     t.string   "link_instagram",      limit: 255
     t.text     "description",         limit: 16777215
     t.string   "link_soundcloud",     limit: 255
-    t.string   "creator_title",       limit: 255
+    t.string   "team_title",          limit: 255
     t.string   "avatar_file_name",    limit: 255
     t.string   "avatar_content_type", limit: 255
     t.integer  "avatar_file_size",    limit: 4

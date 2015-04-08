@@ -1,7 +1,7 @@
 class ArtistsController < ApplicationController
   include Playlistable
 
-  before_action :set_artist, except: [:index, :create, :new]
+  before_action :set_artist, except: [:index, :create, :new, :team]
 
   ARTIST_GROUPS = %w(bassdrop headliner records supported artist)
 
@@ -12,6 +12,11 @@ class ArtistsController < ApplicationController
     role = params.has_key?(:filter) ? params[:filter] : ARTIST_GROUPS[@page]
     @last_page = params.has_key?(:filter) ? true : @page == ARTIST_GROUPS.size - 1
     @artist_group = {name: role, artists: policy_scope(Artist.send(role))}
+  end
+
+  # GET /team
+  def team
+    @artists = policy_scope Artist.where('team_title IS NOT NULL')
   end
 
   # GET /artists/1

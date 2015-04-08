@@ -74,23 +74,23 @@ namespace :db do
       # ARTISTS
       artists = [
           # Core
-          {title: 'MagNet', country: 'CZ', city: 'Prague', fb: 'MagNetSounds', sc: 'magnetcz', tw: 'magnetcz', role: 'bassdrop'},
-          {title: 'Low Tact', country: 'CZ', city: 'Prague', fb: 'LowTact', sc: 'lowtact', role: 'bassdrop'},
-          {title: 'Hlava', country: 'CZ', city: 'Prague', fb: 'DjHlavaCZ', role: 'bassdrop'},
-          {title: 'Ollie Torr', country: 'CZ', city: 'Prague', fb: 'OllieTorrMusic', role: 'bassdrop'},
+          {title: 'MagNet', country: 'CZ', city: 'Prague', fb: 'MagNetSounds', sc: 'magnetcz', tw: 'magnetcz', role: 'bassdrop', team_title: 'Co-Founder, Tech Guru'},
+          {title: 'Low Tact', country: 'CZ', city: 'Prague', fb: 'LowTact', sc: 'lowtact', role: 'bassdrop', team_title: 'Co-Founder'},
+          {title: 'Hlava', country: 'CZ', city: 'Prague', fb: 'DjHlavaCZ', role: 'bassdrop', team_title: 'Co-Founder'},
+          {title: 'Ollie Torr', country: 'CZ', city: 'Prague', fb: 'OllieTorrMusic', role: 'bassdrop', team_title: 'Music Artist'},
           {title: 'Novinski', country: 'CZ', city: 'Prague', role: 'bassdrop', fb: 'tomas.novotny.739'},
           {title: 'Furious Freaks', country: 'CZ', city: 'Prague', fb: 'FuriousFreaks', role: 'bassdrop'},
           {title: 'No Cure', country: 'CZ', city: 'Prague', fb: 'NoCureOfficial', role: 'bassdrop'},
           {title: 'S-BisH', country: 'FR', fb: 'SBisHfr', role: 'bassdrop'},
-          {title: 'Tezet', country: 'CZ', city: 'Mladá Boleslav', fb: 'tezetmusic', role: 'bassdrop'},
+          {title: 'Tezet', country: 'CZ', city: 'Mladá Boleslav', fb: 'tezetmusic', role: 'bassdrop', team_title: 'Music Artist'},
           {title: 'Woostep', country: 'CZ', city: 'Prague', fb: 'woostepinfo', role: 'bassdrop'},
-          {title: 'Target1', country: 'CZ', city: 'Ostrava', fb: 'targetone', role: 'bassdrop'},
+          {title: 'Target1', country: 'CZ', city: 'Ostrava', fb: 'targetone', role: 'bassdrop', team_title: 'Music Artist'},
           {title: 'Meph', country: 'CZ', city: 'Nový Jičín', fb: 'mephofficial', sc: 'mephofficial', role: 'bassdrop'},
 
-          {title: 'Marek Šilpoch', country: 'CZ', city: 'Prague', fb: 'mark.silpoch', role: 'creator'},
-          {title: 'Ondřej Jelínek', country: 'CZ', city: 'Prague', fb: 'ondrej.jelinek.9', role: 'creator'},
+          {title: 'Marek Šilpoch', country: 'CZ', city: 'Prague', fb: 'mark.silpoch', role: 'creator', team_title: 'Graphics Lead'},
+          {title: 'Ondřej Jelínek', country: 'CZ', city: 'Prague', fb: 'ondrej.jelinek.9', role: 'creator', team_title: 'Graphic Artist'},
           {title: 'Hayppa', country: 'CZ', city: 'Prague', fb: 'Hayppa', role: 'creator'},
-          {title: 'Tomáš Teglý', country: 'CZ', city: 'Prague', fb: '252554171461710', role: 'creator'},
+          {title: 'Tomáš Teglý', country: 'CZ', city: 'Prague', fb: '252554171461710', role: 'creator', team_title: 'Photographer'},
           {title: 'Jakub Chudý', country: 'CZ', city: 'Prague', fb: 'chudy.jakub', role: 'creator'},
           {title: 'Sláva Pecháček', country: 'CZ', city: 'Prague', fb: 'slava.pechacek', role: 'creator'},
           {title: 'Filip Kettner', country: 'CZ', city: 'Prague', fb: 'kazisvjed', role: 'creator'},
@@ -272,6 +272,8 @@ namespace :db do
           artist.link_youtube = artist_source[:yt] if artist_source.has_key? :yt
           artist.link_twitter = artist_source[:tw] if artist_source.has_key? :tw
           artist.link_instagram = artist_source[:ig] if artist_source.has_key? :ig
+
+          artist.team_title = artist_source[:team_title] if artist_source.has_key? :team_title
 
           artist.role = artist_source[:role] if artist_source.has_key? :role
 

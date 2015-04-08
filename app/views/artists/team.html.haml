@@ -1,0 +1,8 @@
+%h1 The Team
+- get_subtitle = lambda { |artist| artist.team_title }
+= render partial: 'artist_grid', object: @artists, locals: { get_subtitle: get_subtitle }
+
+.content__description.padded
+  %p
+    This is the core BASS DROP team.
+    = link_to "Here's the BASS DROP Crew DJ roster", artists_path(filter: 'bassdrop')

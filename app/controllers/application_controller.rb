@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 # https://github.com/RailsApps/rails-devise-pundit/issues/10
     include Pundit
 # https://github.com/elabs/pundit#ensuring-policies-are-used
-    SCOPE_ACTIONS = [:index, :records, :sets, :videos, :year, :next]
+    SCOPE_ACTIONS = [:index, :records, :sets, :videos, :year, :next, :team]
     DO_NOT_AUTHORIZE = lambda do |controller|
       controller.devise_controller? || controller.controller_name == 'pages'
     end
