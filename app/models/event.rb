@@ -68,6 +68,15 @@ class Event < ActiveRecord::Base
     self.save
   end
 
+  def update_date
+    fb_event = FacebookHelper.fetch_fb_event link_fb, 'start_time,end_time'
+
+    self.date_end = fb_event['start_time'] if fb_event.has_key? 'start_time'
+    self.date_end = fb_event['end_time'] if fb_event.has_key? 'end_time'
+
+    self.save
+  end
+
   def seconds_since_stat_update
     return Float::INFINITY if stats_updated_at.nil?
     Time.now - stats_updated_at

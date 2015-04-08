@@ -20,7 +20,7 @@ namespace :db do
         add_events json_response
       end
 
-      puts 'Loaded FB Events (Basic info), call db:fillevents to load the rest'
+      puts 'Loaded FB Events (Basic info), call db:events:fill to load the rest'
     end
 
     private
@@ -45,6 +45,11 @@ namespace :db do
     desc 'Download additional data for events from facebook'
     task fill: :environment do
       Event.where(automatic_updates: true).each { |event| event.update_from_fb }
+    end
+
+    desc 'Download date data for events from facebook'
+    task reload_dates: :environment do
+      Event.where(automatic_updates: true).each { |event| event.update_date }
     end
 
     desc 'Update stats for upcoming events'

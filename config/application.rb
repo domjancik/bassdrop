@@ -1,7 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-require 'rails_rinku'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -9,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Bassdrop
   class Application < Rails::Application
+
+    config.time_zone = 'Prague'
+    config.active_record.default_timezone = :local
 
     config.generators do |g|
       g.test_framework :rspec,
