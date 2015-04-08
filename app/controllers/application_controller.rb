@@ -12,8 +12,12 @@ class ApplicationController < ActionController::Base
     include Pundit
 # https://github.com/elabs/pundit#ensuring-policies-are-used
     SCOPE_ACTIONS = [:index, :records, :sets, :videos, :year, :next]
-    after_action :verify_authorized, except: SCOPE_ACTIONS, unless: lambda { |controller| controller.devise_controller? }
-    after_action :verify_policy_scoped, only: SCOPE_ACTIONS, unless: lambda { |controller| controller.devise_controller? }
+    DO_NOT_AUTHORIZE = lambda do |controller|
+      controller.devise_controller? || controller.controller_name == 'pages'
+    end
+
+    after_action :verify_authorized, except: SCOPE_ACTIONS, unless: DO_NOT_AUTHORIZE
+    after_action :verify_policy_scoped, only: SCOPE_ACTIONS, unless: DO_NOT_AUTHORIZE
 
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 

@@ -9,8 +9,8 @@ class ArtistsController < ApplicationController
   # GET /artists.json
   def index
     @page = params.has_key?(:page) ? params[:page].to_i - 1 : 0
-    role = ARTIST_GROUPS[@page]
-    @last_page = @page == ARTIST_GROUPS.size - 1
+    role = params.has_key?(:filter) ? params[:filter] : ARTIST_GROUPS[@page]
+    @last_page = params.has_key?(:filter) ? true : @page == ARTIST_GROUPS.size - 1
     @artist_group = {name: role, artists: policy_scope(Artist.send(role))}
   end
 

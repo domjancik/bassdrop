@@ -94,6 +94,7 @@ body {
 
 main {
   background: $background-color;
+  padding: 0;
 }
 
 body.night, main.night {
@@ -407,6 +408,7 @@ ul.block-list {
     
     &__copyright {
       margin-top: 2rem !important;
+      text-transform: uppercase;
 
       a, a:visited, a:focus { color: $block-color; }
       a:hover { color: $primary-color; }

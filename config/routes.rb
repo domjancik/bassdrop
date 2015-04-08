@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/fb', to: redirect('https://www.facebook.com/bassdropcz'), as: :fb
+
   resources :stories, concerns: [:playlistable, :publishable, :pagable]
 
   resources :playlists, concerns: :playlistable do
@@ -47,6 +49,8 @@ Rails.application.routes.draw do
   end
 
   resources :stages
+
+  get 'team', controller: :artists, as: :team
 
   resources :artists, concerns: :playlistable
 
