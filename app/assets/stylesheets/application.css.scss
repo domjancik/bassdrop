@@ -403,12 +403,16 @@ ul.block-list {
 
     @media #{$small-only} {
       text-align: center;
-      margin-bottom: 0.5rem;
     }
-    
+
+    @media #{$medium-only} {
+      padding-left: 2rem;
+    }
+
     &__copyright {
       margin-top: 2rem !important;
       text-transform: uppercase;
+      margin-bottom: 2rem !important;
 
       a, a:visited, a:focus { color: $block-color; }
       a:hover { color: $primary-color; }
@@ -422,6 +426,10 @@ ul.block-list {
 
     @media #{$small-only} {
       text-align: center;
+    }
+
+    @media #{$medium-only} {
+      padding-right: 2rem;
     }
   }
 }
