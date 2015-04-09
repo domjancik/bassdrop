@@ -6,8 +6,6 @@
     - unless subtitle.blank?
       %p.titular-text.stick-to-top.inverted.smaller= subtitle
   %p.nospace
-    - image_url = get_image.call model_grid_item
-    - if !image_url.nil?
-      = image_tag(image_url, alt: title, title: title)
+    = render partial: avatar_partial, locals: local_assigns
   %p.titular-text.stick-to-bottom.nospace
     = title

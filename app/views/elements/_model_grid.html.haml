@@ -3,6 +3,9 @@
 - link_target = lambda { |model| model } if local_assigns[:link_target].nil?
 - get_subtitle = nil if local_assigns[:get_subtitle].nil?
 - animate = false if local_assigns[:animate].nil?
+- content_partial = 'elements/model_grid_item_content' if local_assigns[:content_partial].nil?
+- avatar_partial = 'elements/model_grid_item_content_avatar' if local_assigns[:avatar_partial].nil?
+
 - unless defined? xcount
   - classes = %w(small-block-grid-2 medium-block-grid-5)
 - else
@@ -10,5 +13,5 @@
   - if xcount == 2
     - classes << 'grid__item__small'
 %ul{class: classes}
-  - locals = { get_title: get_title, get_subtitle: get_subtitle, get_image: get_image, link_target: link_target, animate: animate }
+  - locals = { get_title: get_title, get_subtitle: get_subtitle, get_image: get_image, link_target: link_target, animate: animate, content_partial: content_partial, avatar_partial: avatar_partial }
   = render partial: 'elements/model_grid_item', collection: model_grid, locals: locals

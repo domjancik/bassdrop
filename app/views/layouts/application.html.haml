@@ -13,8 +13,10 @@
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : t('bassdrop.description')}"}
     = render 'layouts/meta_fb'
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Montserrat:400,700'
-    = stylesheet_link_tag '//cloud.typography.com/7158712/649626/css/fonts.css'
+    - if Rails.env.development? || Rails.env.test?
+      = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Montserrat:400,700'
+    - else
+      = stylesheet_link_tag '//cloud.typography.com/7158712/649626/css/fonts.css'
     = stylesheet_link_tag 'animate.css'
     -# Modernizr is required for Zurb Foundation
     = javascript_include_tag 'vendor/modernizr'
@@ -38,6 +40,14 @@
         arrows: false,
         dots: true,
         autoplaySpeed: 4000
+      });
+
+      $('.avatar-carousel').slick({
+        autoplay: true,
+        arrows: false,
+        dots: false,
+        autoplaySpeed: Math.random() * 9000 + 2000,
+        fade: true
       });
 
       // Put stuff here because application.js wasn't always called :(

@@ -1,0 +1,6 @@
+- title = get_title.call model_grid_item
+
+- image_urls = model_grid_item.image_urls(:small)
+.avatar-carousel
+  - image_urls.each do |image_url|
+    = image_tag(image_url, alt: title, title: title)
