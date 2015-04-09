@@ -16,17 +16,17 @@ class ReleasesController < ApplicationController
   end
 
   def records
-    @releases = policy_scope Release.record
+    @releases = policy_scope Release.record.includes(:artists)
   end
 
   def sets
-    @sets_video = policy_scope Release.set_video
-    @sets_audio = policy_scope Release.set_audio
+    @sets_video = policy_scope Release.set_video.includes(:artists)
+    @sets_audio = policy_scope Release.set_audio.includes(:artists)
   end
 
   def videos
-    @aftermovies = policy_scope Release.aftermovie
-    @trailers = policy_scope Release.trailer
+    @aftermovies = policy_scope Release.aftermovie.includes(:artists)
+    @trailers = policy_scope Release.trailer.includes(:artists)
   end
 
   # GET /releases/1
