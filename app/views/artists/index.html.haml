@@ -1,5 +1,4 @@
-- content_for :title do
-  Artists
+= render partial: 'elements/index_yields', object: 'artist'
 
 - if user_admin?
   = link_to 'New', new_artist_path, class: %w(button width-fill)

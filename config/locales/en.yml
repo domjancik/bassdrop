@@ -20,6 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  bassdrop:
+    description: |-
+                 BASS DROP is a fresh event brand under the wings of URBAN EVENTS production.
+                 Focusing on event promotion in the Czech republic and Middle Europe since 2013.
+                 It is an organization consisting of promoters, graphic designers, Djs and producers focusing on electronic music.
   hello: "Hello world"
 
   facebook: "Facebook"
@@ -39,6 +44,8 @@ en:
       contact: Contact Us
 
   artist:
+    title: Artists
+    description: The BASS DROP Crew, artists we've booked, played with or released records for. All of them right here at one place.
     roles:
       bassdrop: BASS DROP Crew
       headliner: We've booked
@@ -47,24 +54,34 @@ en:
       records: Released tracks by
     show:
       past_events: Past events
+    team:
+      title: The Team
+      description: Learn more about the core team behind BASS DROP.
   release:
     records:
       title: Records
+      description: See all the tracks released and soon to be released under BASS DROP RECORDS.
       title-full: BASS DROP Records
     sets:
       title: Sets
+      description: Regular podcasts and video sets by the BASS DROP Crew and friends.
       video: Video sets
       audio: Mixes
     videos:
       title: Videos
+      description: Looking for aftermovies or invitations to our parties? Right here.
       trailers: Trailers
       aftermovies: Aftermovies
   story:
     title: Stories
+    description: Find out the latest news about our events and other activities.
     previous: Previous Story
     next: Next Story
     overview:
       read_more: Read more
+  event:
+    title: Events
+    description: See the upcoming BASS DROP events as well as what we've done in the past.
   time:
     formats:
       event_time: '%-H:%M'

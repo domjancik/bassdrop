@@ -51,6 +51,10 @@ class Event < ActiveRecord::Base
     true
   end
 
+  def image_url(style = :large)
+    cover_url(style)
+  end
+
   def cover_missing_url
     image_url_cached
   end

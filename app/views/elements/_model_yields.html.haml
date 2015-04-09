@@ -1,0 +1,9 @@
+- content_for :title do
+  = model_yields.title
+
+- unless model_yields.description.blank?
+  - content_for :description do
+    = model_yields.description
+
+- content_for :image do
+  = model_yields.image_url

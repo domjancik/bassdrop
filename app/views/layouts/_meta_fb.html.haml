@@ -1,0 +1,16 @@
+%meta{ property: 'og:url', content: request.original_url }
+- title = 'BASS DROP'
+- title += " - #{yield(:title)}" if content_for?(:title)
+%meta{ property: 'og:title', content: title }
+%meta{ property: 'og:description', content: "#{content_for?(:description) ? yield(:description) : 'BASS DROP'}" }
+%meta{ property: 'og:site_name', content: 'BASS DROP' }
+- if content_for?(:image)
+  - image = yield(:image)
+- else
+  - image = "#{request.protocol}#{request.host_with_port}#{asset_path('og-bass-drop.jpg')}"
+%meta{ property: 'og:image', content: image }
+%meta{ property: 'og:app_id', content: Rails.application.secrets.facebook_app_id }
+- if content_for?(:author)
+  %meta{ property: 'og:type', content: 'article' }
+  %meta{ property: 'article:author', content: "https://www.facebook.com/#{yield(:author)}" }
+  %meta{ property: 'article:publisher', content: 'https://www.facebook.com/bassdropcz' }

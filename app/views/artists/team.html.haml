@@ -1,4 +1,6 @@
-%h1 The Team
+= render partial: 'elements/index_yields', object: 'artist.team'
+
+%h1= t 'artist.team.title'
 - get_subtitle = lambda { |artist| artist.team_title }
 = render partial: 'artist_grid', object: @artists, locals: { get_subtitle: get_subtitle }
 

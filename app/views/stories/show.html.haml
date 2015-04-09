@@ -1,5 +1,7 @@
-- content_for :title do
-  = @story.title
+= render partial: 'elements/model_yields', object: @story
+- unless @story.author.blank?
+  - content_for :author do
+    = @story.author.link_fb
 
 %p#notice= notice
 

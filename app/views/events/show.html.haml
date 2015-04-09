@@ -1,5 +1,4 @@
-- content_for :title do
-  = @event.title
+= render partial: 'elements/model_yields', object: @event
 
 %p#notice= notice
 

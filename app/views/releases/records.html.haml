@@ -1,5 +1,4 @@
-- content_for :title do
-  = t 'title', scope: 'release.records'
+= render partial: 'elements/index_yields', object: 'release.records'
 
 - if user_admin?
   = link_to 'New', new_release_path, class: %w(button width-fill)

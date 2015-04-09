@@ -1,5 +1,4 @@
-- content_for :title do
-  =@release.title
+= render partial: 'elements/model_yields', object: @release
 
 %p#notice= notice
 

@@ -1,5 +1,4 @@
-- content_for :title do
-  Events
+= render partial: 'elements/index_yields', object: 'event'
 
 - if user_admin?
   = link_to 'New', new_event_path, class: %w(button width-fill)
