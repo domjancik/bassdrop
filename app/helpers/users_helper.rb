@@ -4,6 +4,6 @@ module UsersHelper
   end
 
   def user_vip?
-    user_signed_in? && current_user.vip?
+    user_signed_in? && (current_user.vip? || current_user.admin?)
   end
 end
