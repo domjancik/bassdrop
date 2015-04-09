@@ -64,4 +64,5 @@ end
 group :production, :development do
   # gem 'aws-sdk', '~> 1.5.7'
   gem 'aws-sdk-v1'
+  gem 'thin'
 end
