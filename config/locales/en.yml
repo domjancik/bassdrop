@@ -45,6 +45,8 @@ en:
       supported: We've played with
       artist: And also hosted
       records: Released tracks by
+    show:
+      past_events: Past events
   release:
     records:
       title: Records

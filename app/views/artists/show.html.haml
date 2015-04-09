@@ -27,5 +27,8 @@
             %p
               = desc_format @artist.description
       = render partial: 'stories/stories', object: @artist.stories
+      - unless @past_events.empty?
+        %h1= t 'artist.show.past_events'
+        = render partial: 'events/events', object: @past_events
       = render partial: 'elements/more_content', object: no_content
 
