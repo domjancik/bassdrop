@@ -42,7 +42,10 @@
           .content__description__top.padded.margin-bottom
             %p.content__description__top__venue
               At
-              = @event.venue
+              - unless @event.venue.url.blank?
+                = link_to @event.venue, @event.venue.url, target: :blank
+              - else
+                = @event.venue
             %p.content__description__top__attending
               = @event.attending_count
               = (in_future? @event.date_start + 12.hours) ? 'Going' : 'Went'
