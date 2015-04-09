@@ -446,14 +446,24 @@ ul.block-list {
 
 // Events
 
+.event-item {
+  &__cover {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+
+  &__date {
+    position: absolute;
+    z-index: 2;
+    width: 100% !important;
+  }
+}
+
 .event {
   #playlist {
     @extend .margin-bottom;
-  }
-
-  &.date {
-    position: absolute;
-    width: 100% !important;
   }
 
   &__quickinfo {
@@ -711,6 +721,8 @@ ul.block-list {
     position: absolute;
     z-index: 10;
     opacity: 1;
+    top: 0;
+    left: 0;
     @include simple-transition-dur(4s);
   }
 
@@ -724,7 +736,9 @@ ul.block-list {
     z-index: 9;
   }
 
-  .hide-bottom {
+  .avatar {
+    top: 0;
+    left: 0;
     position: absolute;
     z-index: 8;
   }

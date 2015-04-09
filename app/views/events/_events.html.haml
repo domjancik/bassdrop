@@ -7,17 +7,19 @@
   - events.each do |event|
   - classes = event.published? ? '' : 'hidden'
     %li{ class: classes }
-      = link_to event do\
+      = link_to event do
         - delay = Random.rand(5).to_f / 10.0
         .wow.fadeInUp{ 'data-wow-offset' => '20', 'data-wow-delay' => "#{delay}s" }
-          .hover.with-stick
-            .row.collapse.event.date
+          .hover.with-stick.event-item
+            .row.collapse.event-item__date
               .small-6.medium-4.columns.end
                 %p.titular-text.nospace.important
                   = event_date event
             .row.collapse
               %p.nospace
-                = image_tag event.cover_url(image_style), title: event
+                - title = event.title
+                = image_tag 'default_cover.png', alt: title, title: title, class: 'cover-sizer'
+                = image_tag event.cover_url(image_style), title: title, alt: title, class: 'event-item__cover'
             .row.collapse
               %p.titular-text.nospace.stick-to-bottom
                 = event
