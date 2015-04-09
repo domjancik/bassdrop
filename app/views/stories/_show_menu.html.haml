@@ -1,12 +1,12 @@
-- if user_admin?
-  = link_to 'Edit', edit_story_path(@story), class: 'button'
-  = link_to 'Back', releases_path, class: 'button'
+- if user_vip?
+  = link_to 'Back', stories_path, class: 'button'
+  = link_to 'Edit', edit_story_path(@story), class: 'button' if policy(@story).edit?
   - if @story.playlist.nil?
-    = link_to 'Generate playlist', create_playlist_release_path(@story), method: :post, class: 'button'
+    = link_to 'Generate playlist', create_playlist_release_path(@story), method: :post, class: 'button' if policy(@story).create_playlist?
   - else
-    = link_to 'Playlist', @story.playlist, class: 'button'
+    = link_to 'Playlist', @story.playlist, class: 'button' if policy(@playlist).show?
   - unless @story.published?
-    = link_to 'Publish', publish_story_path(@story), class: %w(button success), method: :post
+    = link_to 'Publish', publish_story_path(@story), class: %w(button success), method: :post if policy(@story).publish?
   - else
-    = link_to 'Hide', hide_story_path(@story), class: %w(button alert), method: :post
-  = link_to 'Delete', @story, class: %w(button alert), :method => :delete, :data => { :confirm => 'Are you sure?' }
+    = link_to 'Hide', hide_story_path(@story), class: %w(button alert), method: :post if policy(@story).hide?
+  = link_to 'Delete', @story, class: %w(button alert), :method => :delete, :data => { :confirm => 'Are you sure?' } if policy(@story).destroy?

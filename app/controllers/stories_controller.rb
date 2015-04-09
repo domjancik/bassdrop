@@ -11,7 +11,8 @@ class StoriesController < ApplicationController
   def index
     @page = params[:page].to_i
     offset = @page * PAGE_SIZE
-    @stories = policy_scope Story.all.limit(PAGE_SIZE).offset(offset)
+    @stories = policy_scope Story.published.limit(PAGE_SIZE).offset(offset)
+    @hidden = policy_scope Story.hidden
     @last_page = offset + PAGE_SIZE >= (policy_scope Story.all).size
   end
 

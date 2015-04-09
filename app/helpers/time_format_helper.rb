@@ -24,6 +24,7 @@ module TimeFormatHelper
   end
 
   def release_date(date)
+    return nil if date.nil?
     format = date.year == Time.now.year ? :release_date : :release_date_full
     l date, format: format
   end

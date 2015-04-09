@@ -73,6 +73,11 @@ class ApplicationPolicy
       @user.admin?
     end
 
+    def is_vip?
+      return false if @user.nil?
+      @user.vip?
+    end
+
     def resolve
       scope
     end

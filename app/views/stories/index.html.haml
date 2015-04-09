@@ -1,7 +1,13 @@
 = render partial: 'elements/index_yields', object: 'story'
 
-- if user_admin?
+- if policy(@stories).new?
   = link_to 'New', new_story_path, class: %w(button width-fill)
+
+- unless @hidden.empty?
+  %h1 Not published
+  .underline
+    = render partial: 'stories', object: @hidden, locals: { xcount: 4 }
+  %h1 Published
 
 .infinite-container
   .infinite-item
