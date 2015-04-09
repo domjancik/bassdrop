@@ -154,6 +154,19 @@ select {
 }
 
 // Carousel
+
+.hide-on-hover {
+  position: absolute;
+  z-index: 10;
+  opacity: 1;
+  @include simple-transition-dur(4s);
+
+  &:hover {
+    opacity: 0;
+    @include simple-transition
+  }
+}
+
 ul.slick-dots {
   margin-left: 0;
 }

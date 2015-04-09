@@ -33,11 +33,15 @@ class Release < ActiveRecord::Base
     Release.where('release_date < ? AND release_type = ?', release_date, Release.release_types[release_type]).first
   end
 
-  def image_urls(style)
+  def image_urls(style, include_own = false)
     avatars = []
-    avatars << avatar.url(style) unless avatar_file_name.nil?
-    main_artists.reorder('RAND()').each { |artist| avatars << artist.image_url }
+    avatars << avatar.url(style) if include_own && !avatar_file_name.nil?
+    main_artists.reorder('RAND()').each { |artist| avatars << artist.image_url(style) }
     avatars
+  end
+
+  def has_avatar?
+    not avatar_file_name.nil?
   end
 
   private
