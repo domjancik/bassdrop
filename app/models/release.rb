@@ -10,6 +10,7 @@ class Release < ActiveRecord::Base
 
   has_many :credits
   has_many :artists, through: :credits
+  has_many :main_artists, -> { where('credits.title IS NULL OR CHAR_LENGTH(credits.title) = 0').uniq }, through: :credits, source: :artist
   belongs_to :playlist
   has_many :stories
 
@@ -28,16 +29,17 @@ class Release < ActiveRecord::Base
         when 'record'
           return 'default_image_records.jpg'
         when 'set_audio', 'set_video'
-          return image_url_mix
+          return image_url_artist || 'default_image_records.jpg'
+        when 'trailer', 'aftermovie'
+          return image_url_artist || 'default_image.jpg'
       end
 
       'default_image.jpg'
     end
 
     # Default image for a mix is it's main artist's avatar
-    def image_url_mix
-      return artists.take.image_url unless artists.empty?
-
-      'default_image_records.jpg'
+    def image_url_artist
+      return main_artists.take.image_url unless main_artists.empty?
+      nil
     end
 end

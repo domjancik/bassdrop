@@ -10,11 +10,6 @@
 .release
   .row
     %h1= @story.title
-    .small-12.medium-3.columns
-      .row.wow.fadeInUp{ 'data-wow-duration' => "0.8s" }
-        = render 'profile'
-      .row.wow.fadeInUp{ 'data-wow-delay' => "0.6s" }
-        = render 'extra_info'
     .small-12.medium-9.columns
       - unless @story.playlist.blank?
         .wow.fadeInUp.margin-bottom
@@ -28,3 +23,8 @@
             %p
               = desc_format @story.description
         = render partial: 'elements/more_content', object: false
+    .small-12.medium-3.columns
+      .row.wow.fadeInUp{ 'data-wow-duration' => "0.8s" }
+        = render 'profile'
+      .row.wow.fadeInUp{ 'data-wow-delay' => "0.6s" }
+        = render 'extra_info'
