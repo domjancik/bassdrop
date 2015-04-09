@@ -155,28 +155,6 @@ select {
 
 // Carousel
 
-.hide-on-hover {
-  position: absolute;
-  z-index: 10;
-  opacity: 1;
-  @include simple-transition-dur(4s);
-
-  &:hover {
-    opacity: 0;
-    @include simple-transition
-  }
-}
-
-.avatar-carousel {
-  position: relative;
-  z-index: 9;
-}
-
-.hide-bottom {
-  position: absolute;
-  z-index: 8;
-}
-
 ul.slick-dots {
   margin-left: 0;
 }
@@ -728,13 +706,37 @@ ul.block-list {
   }
 }
 
-.grid__item__small {
-  .titular-text {
-    line-height: 1;
+.grid__item {
+  .hide-on-hover {
+    position: absolute;
+    z-index: 10;
+    opacity: 1;
+    @include simple-transition-dur(4s);
   }
 
-  .with-stick {
-    padding-bottom: 2rem;
+  &:hover .hide-on-hover {
+    opacity: 0;
+    @include simple-transition
+  }
+
+  .avatar-carousel {
+    position: relative;
+    z-index: 9;
+  }
+
+  .hide-bottom {
+    position: absolute;
+    z-index: 8;
+  }
+
+  &__small {
+    .titular-text {
+      line-height: 1;
+    }
+
+    .with-stick {
+      padding-bottom: 2rem;
+    }
   }
 }
 
