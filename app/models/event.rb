@@ -17,7 +17,7 @@ class Event < ActiveRecord::Base
            through: :performances, :source => :artist
   has_many :non_headliners, -> { where(:performances => {is_headliner: false}) },
            through: :performances, :source => :artist
-  has_many :stories
+  has_many :stories, -> { published }
 
   scope :upcoming, -> { where('events.date_start > ?', 12.hours.ago).reorder('events.date_start asc') }
   scope :past, -> { where('events.date_start <= ?', 12.hours.ago) }

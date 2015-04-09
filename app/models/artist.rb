@@ -15,7 +15,7 @@ class Artist < ActiveRecord::Base
   has_many :events, -> { uniq }, through: :performances
   has_many :credits
   has_many :releases, through: :credits
-  has_many :stories
+  has_many :stories, -> { published }
   has_many :authored_stories, class_name: 'Story', foreign_key: 'author_id'
 
   validates :country, presence: true

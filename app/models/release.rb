@@ -12,7 +12,7 @@ class Release < ActiveRecord::Base
   has_many :artists, through: :credits
   has_many :main_artists, -> { where('credits.title IS NULL OR CHAR_LENGTH(credits.title) = 0').uniq }, through: :credits, source: :artist
   belongs_to :playlist
-  has_many :stories
+  has_many :stories, -> { published }
 
   def to_s
     title
