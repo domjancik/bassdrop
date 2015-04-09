@@ -18,8 +18,9 @@
           = render partial: 'elements/grid_carousel', object: @artist.credits, locals: { partial: 'credit_grid' }
     .small-12.medium-9.columns
       = render partial: 'elements/next_event', object: @next_event
-      .wow.fadeInUp.margin-bottom
-        = render partial: 'playlists/playlist_embed', object: @artist.playlist
+      - unless @artist.playlist.blank?
+        .wow.fadeInUp.margin-bottom
+          = render partial: 'playlists/playlist_embed', object: @artist.playlist
       .wow.fadeInUp
         - unless @artist.description.blank?
           .artist__description.padded.margin-bottom
