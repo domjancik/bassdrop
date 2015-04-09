@@ -72,6 +72,24 @@ en:
       description: Looking for aftermovies or invitations to our parties? Right here.
       trailers: Trailers
       aftermovies: Aftermovies
+    set_video:
+      previous: Previous Videoset
+      next: Next Videoset
+    set_audio:
+      previous: Previous mix
+      next: Next mix
+    other:
+      previous: Previous
+      next: Next
+    record:
+      previous: Previous Record
+      next: Next Record
+    trailer:
+      previous: Previous Trailer
+      next: Next Trailer
+    aftermovie:
+      previous: Previous Aftermovie
+      next: Next Aftermovie
   story:
     title: Stories
     description: Find out the latest news about our events and other activities.

@@ -763,6 +763,21 @@ ul.block-list {
 
 // Social buttons
 
+.social-links {
+  &__title {
+    @extend .inverted;
+    text-align: center;
+    padding: 0.4rem 0.5rem;
+    font-weight: bold;
+    line-height: 75%;
+    font-size: 75%;
+  }
+
+  .icon-bar {
+    margin-bottom: -0.3rem;
+  }
+}
+
 @mixin social-button($color, $letter) {
   background-color: $color;
   color: $block-color;

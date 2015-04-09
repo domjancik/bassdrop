@@ -23,6 +23,16 @@ class Release < ActiveRecord::Base
     Time.now < release_date
   end
 
+  # Next release in category
+  def next
+    Release.where('release_date > ? AND release_type = ?', release_date, Release.release_types[release_type]).last
+  end
+
+  # Previous release in category
+  def prev
+    Release.where('release_date < ? AND release_type = ?', release_date, Release.release_types[release_type]).first
+  end
+
   private
     def image_missing_url
       case release_type

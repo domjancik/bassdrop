@@ -25,11 +25,13 @@
               = desc_format @story.description
         .row.wow.fadeIn
           .small-6.columns.halfpadding-right
-            .story-overview__item__nav= t 'story.previous'
-            = render partial: 'story', object: @story.prev
+            - unless @story.prev.blank?
+              .story-overview__item__nav= t 'story.previous'
+              = render partial: 'story', object: @story.prev
           .small-6.columns.halfpadding-left
-            .story-overview__item__nav= t 'story.next'
-            = render partial: 'story', object: @story.next
+            - unless @story.next.blank?
+              .story-overview__item__nav= t 'story.next'
+              = render partial: 'story', object: @story.next
         = render partial: 'elements/more_content', object: false
 
     .small-12.medium-3.columns
