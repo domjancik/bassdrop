@@ -85,6 +85,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default_options = { from: 'no-reply@bassdrop.com' }
 
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
