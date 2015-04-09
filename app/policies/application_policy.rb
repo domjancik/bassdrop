@@ -57,7 +57,7 @@ class ApplicationPolicy
 
   def is_vip?
     return false if @user.nil?
-    @user.vip?
+    @user.vip? || @user.admin?
   end
 
   class Scope
@@ -75,7 +75,7 @@ class ApplicationPolicy
 
     def is_vip?
       return false if @user.nil?
-      @user.vip?
+      @user.vip? || @user.admin?
     end
 
     def resolve

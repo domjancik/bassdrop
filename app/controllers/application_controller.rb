@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  def authenticate_admin!
+    authenticate_user!
+    user_not_authorized unless current_user.admin?
+  end
+
   if Rails.env.development? || Rails.env.test?
 # https://github.com/RailsApps/rails-devise-pundit/issues/10
     include Pundit
@@ -20,16 +25,11 @@ class ApplicationController < ActionController::Base
     after_action :verify_policy_scoped, only: SCOPE_ACTIONS, unless: DO_NOT_AUTHORIZE
 
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  end
 
-    def authenticate_admin!
-      authenticate_user!
-      user_not_authorized unless current_user.admin?
-    end
-
-    private
-    def user_not_authorized
-      flash[:alert] = "Access denied." # TODO: make sure this isn't hard coded English.
-      redirect_to (request.referrer || root_path) # Send them back to them page they came from, or to the root page.
-    end
+  private
+  def user_not_authorized
+    flash[:alert] = "Access denied." # TODO: make sure this isn't hard coded English.
+    redirect_to (request.referrer || root_path) # Send them back to them page they came from, or to the root page.
   end
 end
