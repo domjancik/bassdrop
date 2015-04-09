@@ -9,6 +9,8 @@ class Story < ActiveRecord::Base
   belongs_to :playlist
   belongs_to :author, class_name: 'Artist'
 
+  scope :published, -> { where(published: true) }
+
   validates :author, presence: true
   validates :published_at, presence: true, if: 'published == true'
 
@@ -16,6 +18,14 @@ class Story < ActiveRecord::Base
     match = PEREX_REGEXP.match(description)
     text = match.nil? ? description : match.to_s
     text.truncate_words 30
+  end
+
+  def next
+    Story.published.where('published_at > ?', published_at).last
+  end
+
+  def prev
+    Story.published.where('published_at < ?', published_at).first
   end
 
   def image_url

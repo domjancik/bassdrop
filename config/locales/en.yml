@@ -28,6 +28,10 @@ en:
   youtube: "YouTube"
   twitter: "Twitter"
 
+  common:
+    previous: Previous
+    next: Next
+
   menu:
     footer:
       about: What is BASS DROP?
@@ -55,6 +59,10 @@ en:
       aftermovies: Aftermovies
   story:
     title: Stories
+    previous: Previous Story
+    next: Next Story
+    overview:
+      read_more: Read more
   time:
     formats:
       event_time: '%-H:%M'

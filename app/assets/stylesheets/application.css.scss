@@ -70,6 +70,9 @@ $get-letter: '';
   font-weight: bold;
 }
 
+.halfpadding-left { padding-left: 0.25rem }
+.halfpadding-right { padding-right: 0.25rem }
+
 h1,
 h2,
 h3 {
@@ -718,9 +721,22 @@ ul.block-list {
       @include simple-transition;
       background-color: $block-color;
     }
+
+    &__nav {
+      @extend .titular-text;
+      @extend .important;
+    }
+
     &__date {
       @extend .titular-text;
       @extend .inverted;
+    }
+
+    &__readmore {
+      @extend .overline;
+      @include simple-transition;
+      text-align: right;
+      color: $primary-color;
     }
 
     &:hover {
@@ -728,6 +744,11 @@ ul.block-list {
         &__title {
           @include simple-transition;
           @extend .inverted;
+        }
+
+        &__readmore {
+          @include simple-transition;
+          color: $text-color;
         }
       }
     }

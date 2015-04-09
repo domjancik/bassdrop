@@ -14,13 +14,20 @@
       - unless @story.playlist.blank?
         .wow.fadeInUp.margin-bottom
           = render partial: 'playlists/playlist_embed', object: @story.playlist
-      .wow.fadeIn{ 'data-wow-delay' => "0,8s" }
+      - unless @story.event.blank?
+        = render partial: 'events/events', object: [ @story.event ], locals: { xcount: 1 }
+      .wow.fadeIn{ 'data-wow-delay' => '0.8s' }
         - unless @story.description.blank?
           .content__description.padded.margin-bottom
             %p
               = desc_format @story.description
-        - unless @story.event.blank?
-          = render partial: 'events/events', object: [ @story.event ], locals: { xcount: 1 }
+        .row.wow.fadeIn
+          .small-6.columns.halfpadding-right
+            .story-overview__item__nav= t 'story.previous'
+            = render partial: 'story', object: @story.prev
+          .small-6.columns.halfpadding-left
+            .story-overview__item__nav= t 'story.next'
+            = render partial: 'story', object: @story.next
         = render partial: 'elements/more_content', object: false
 
     .small-12.medium-3.columns

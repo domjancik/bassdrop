@@ -1,10 +1,14 @@
-- delay = Random.rand(5).to_f / 10.0
-%li.story-overview__item.wow.fadeInUp{ 'data-wow-offset' => '20', 'data-wow-delay' => "#{delay}s" }
-  = link_to story do
-    .story-overview__item__title= story.title
-    - if show_image && (not story.image_url.nil?)
-      .story-overview__image= image_tag story.image_url, alt: story.title
-    .story-overview__item__date= release_date story.published_at
-    .content__description.margin-bottom
-      .padded.text-justify
-        = desc_format story.perex
+- unless story.nil?
+  - show_image = true if local_assigns[:show_image].nil?
+  .story-overview__item
+    = link_to story do
+      .story-overview__item__title= story.title
+      - if show_image && (not story.image_url.nil?)
+        .story-overview__image= image_tag story.image_url, alt: story.title
+      .story-overview__item__date= release_date story.published_at
+      .content__description.margin-bottom
+        .padded.text-justify
+          %p
+            = desc_format story.perex
+          %p.story-overview__item__readmore
+            = t 'story.overview.read_more'
