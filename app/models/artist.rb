@@ -54,15 +54,15 @@ class Artist < ActiveRecord::Base
   def social_links
     links = []
 
-    add_link = lambda do |link, name|
-      links << { name: name, url: link } unless link.blank?
+    add_link = lambda do |service_url, link, name|
+      links << { name: name, url: "#{service_url}/#{link}" } unless link.blank?
     end
 
-    add_link.call link_fb, 'facebook'
-    add_link.call link_soundcloud, 'soundcloud'
-    add_link.call link_youtube, 'youtube'
-    add_link.call link_instagram, 'instagram'
-    add_link.call link_twitter, 'twitter'
+    add_link.call 'https://www.facebook.com', link_fb, 'facebook'
+    add_link.call 'https://www.soundcloud.com', link_soundcloud, 'soundcloud'
+    add_link.call 'https://www.youtube.com', link_youtube, 'youtube'
+    add_link.call 'https://www.instagram.com', link_instagram, 'instagram'
+    add_link.call 'https://www.twitter.com', link_twitter, 'twitter'
 
     links
   end
