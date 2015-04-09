@@ -27,3 +27,14 @@
     //    $.getScript(plist_link.attr('href'))
     //}
 //});
+
+var init_avatar_carousel = function(carousel) {
+    console.log('initializing');
+    carousel.slick({
+        autoplay: true,
+        arrows: false,
+        dots: false,
+        autoplaySpeed: Math.random() * 3000 + 1000,
+        fade: true
+    });
+}

@@ -16,17 +16,22 @@ class ReleasesController < ApplicationController
   end
 
   def records
-    @releases = policy_scope Release.record.includes(:artists)
+    @releases = policy_scope Release.record
   end
 
   def sets
-    @sets_video = policy_scope Release.set_video.includes(:artists)
-    @sets_audio = policy_scope Release.set_audio.includes(:artists)
+    @sets_video = policy_scope Release.set_video
+    @sets_audio = policy_scope Release.set_audio
   end
 
   def videos
-    @aftermovies = policy_scope Release.aftermovie.includes(:artists)
-    @trailers = policy_scope Release.trailer.includes(:artists)
+    @aftermovies = policy_scope Release.aftermovie
+    @trailers = policy_scope Release.trailer
+  end
+
+  # Loads all artist avatars for the given release
+  # GET /releases/1/avatars.js
+  def avatars
   end
 
   # GET /releases/1

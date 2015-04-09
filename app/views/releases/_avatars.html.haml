@@ -1,0 +1,3 @@
+- title = @release.title
+- @release.image_urls(:small).each do |image_url|
+  = image_tag(image_url, alt: title, title: title)

@@ -32,6 +32,9 @@ Rails.application.routes.draw do
   resources :media
 
   resources :releases, concerns: :playlistable do
+    member do
+      get 'avatars', action: :avatars, as: 'avatars'
+    end
     resources :credits, shallow: true
   end
 

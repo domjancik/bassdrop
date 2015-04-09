@@ -167,6 +167,16 @@ select {
   }
 }
 
+.avatar-carousel {
+  position: relative;
+  z-index: 9;
+}
+
+.hide-bottom {
+  position: absolute;
+  z-index: 8;
+}
+
 ul.slick-dots {
   margin-left: 0;
 }
@@ -288,6 +298,7 @@ p + p {
   position: absolute;
   bottom: 0;
   width: 100%;
+  z-index: 11;
 }
 
 .stick-to-top {
