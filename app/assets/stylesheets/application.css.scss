@@ -218,6 +218,7 @@ textarea {
 
 a {
 //  opacity: 1;
+  position: relative;
   color: $text-color;
   @include simple-transition;
 
@@ -465,7 +466,7 @@ ul.block-list {
 // Events
 
 .event-item {
-  position: relative;
+//  position: relative;
 
   &__cover {
     position: absolute;
@@ -737,7 +738,7 @@ ul.block-list {
 }
 
 .grid__item {
-  position: relative;
+//  position: relative;
 
   .hide-on-hover {
     position: absolute;
