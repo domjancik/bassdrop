@@ -1,7 +1,7 @@
 - available = !item.blank?
 
 - if available
-  = link_to open_playlist_path(playlist, item), remote: true do
+  = link_to open_playlist_path(playlist, item, show_release: @show_release), remote: true do
     .small-6.columns.playlist__controls__control
       = text
 - else

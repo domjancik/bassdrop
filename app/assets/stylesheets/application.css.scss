@@ -107,11 +107,12 @@ main {
   text-align: center;
   padding-top: 5rem;
   opacity: 0;
-  position: absolute;
+  position: fixed;
+  @include simple-transition;
 
   &.visible {
     opacity: 1;
-    @include simple-transition-dur(3s)
+    @include simple-transition-dur(3s);
   }
 
   img {

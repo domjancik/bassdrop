@@ -14,7 +14,7 @@
           - playlist.items.each do |item|
             - in_active = item.eql? active_item
             - classes = in_active ? 'playlist__list__item--active' : 'playlist__list__item'
-            = link_to open_playlist_path(playlist, item), remote: true do
+            = link_to open_playlist_path(playlist, item, show_release: @show_release), remote: true do
               %li{ class: classes }
                 .row.collapse
                   .small-2.columns

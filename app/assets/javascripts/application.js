@@ -40,15 +40,36 @@ var init_avatar_carousel = function(carousel) {
 }
 
 var start_loading = function() {
+    console.log("start loading");
     $('#content').addClass('fadeOut animated');
     $('#loading').addClass('visible');
 }
 
+var stop_loading = function() {
+    console.log("stop loading");
+    $('#content').removeClass('fadeOut');
+    $('#loading').removeClass('visible');
+}
+
+var init_loading_animation = function() {
+    console.log("init loading");
+    $(window).load(stop_loading);
+    //start_loading();
+    //$(document).on('beforeunload', start_loading);
+    $(document).on('pageshow', stop_loading);
+}
+
 var init_loading_links = function() {
-    $("a[target!=blank]").each( function() {
-        var e = $(this);
-        if (e.attr('href')[0] != '#')
-            e.click(start_loading);
+    //$("a[target!=blank]").each( function() {
+    //    var e = $(this);
+    //    if (e.attr('href')[0] != '#')
+    //        e.click(start_loading);
+    //});
+
+    $(document).click(function(e){
+        if($(e.target).closest('a[target!=blank]').length) {
+            start_loading();
+        }
     });
 }
 
