@@ -15,6 +15,7 @@ class PlaylistsController < ApplicationController
     @active_item = item_specified ? (@playlist.items.find params[:item_id]) : @playlist.items.first
     @autoplay = item_specified
     authorize @active_item
+    @show_release = params[:show_release] == 'true'
   end
 
   # GET /playlists/1

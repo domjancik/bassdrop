@@ -1,7 +1,7 @@
 .playlist
   .row
     .small-12.columns
-      = render partial: 'playlist_item', object: active_item
+      = render partial: 'playlist_item', object: active_item, locals: { show_release: @show_release }
   - unless @playlist.items.size <= 1
     .row
       .small-12.columns

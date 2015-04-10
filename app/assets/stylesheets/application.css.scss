@@ -557,6 +557,22 @@ ul.block-list {
 // Playlists
 
 .playlist {
+  &__credit {
+    padding: 0.25rem 1rem;
+    background-color: $text-color;
+    color: $block-color;
+    text-align: right;
+    font-weight: bold;
+
+    a {
+      color: $block-color;
+    }
+
+    a:hover {
+      color: $primary-color;
+    }
+  }
+
   &__controls {
     margin: 0.25rem 0;
 

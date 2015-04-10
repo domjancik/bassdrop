@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408232957) do
+ActiveRecord::Schema.define(version: 20150410154641) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",               limit: 255
@@ -110,8 +110,10 @@ ActiveRecord::Schema.define(version: 20150408232957) do
     t.text     "description", limit: 16777215
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.integer  "release_id",  limit: 4
   end
 
+  add_index "media", ["release_id"], name: "index_media_on_release_id", using: :btree
   add_index "media", ["url"], name: "index_media_on_url", unique: true, using: :btree
 
   create_table "performances", force: :cascade do |t|
@@ -251,6 +253,7 @@ ActiveRecord::Schema.define(version: 20150408232957) do
   add_foreign_key "credits", "releases"
   add_foreign_key "events", "playlists"
   add_foreign_key "events", "venues"
+  add_foreign_key "media", "releases"
   add_foreign_key "performances", "artists"
   add_foreign_key "performances", "events"
   add_foreign_key "performances", "performances", column: "b2b_id", on_delete: :nullify

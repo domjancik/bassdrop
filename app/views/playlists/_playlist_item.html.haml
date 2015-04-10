@@ -1,1 +1,9 @@
 = embed playlist_item.medium, @autoplay
+- if show_release
+  - release = playlist_item.medium.release
+  - unless release.blank?
+    .playlist__credit
+      = link_to release do
+        From
+        = "#{release.title}."
+        Find out more!

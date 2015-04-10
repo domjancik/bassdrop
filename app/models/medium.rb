@@ -1,6 +1,8 @@
 class Medium < ActiveRecord::Base
   NOEMBED_URL = 'http://noembed.com/embed'
 
+  belongs_to :release
+
   def oembed_info(extra_params = {})
     params = { url: self.url }
     params.merge! extra_params

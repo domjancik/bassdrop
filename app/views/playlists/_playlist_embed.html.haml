@@ -1,3 +1,4 @@
 - unless playlist_embed.blank? || playlist_embed.items.empty?
+  - show_release = false if local_assigns[:show_release].nil?
   #playlist
-    = link_to 'Open playlist', open_playlist_path(playlist_embed), remote: true, class: 'playlist__open-link', id: 'playlist_link'
+    = link_to 'Open playlist', open_playlist_path(playlist_embed, show_release: show_release), remote: true, class: 'playlist__open-link', id: 'playlist_link'

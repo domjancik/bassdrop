@@ -20,7 +20,7 @@
       = render partial: 'elements/next_event', object: @next_event
       - unless @artist.playlist.blank?
         .wow.fadeInUp.margin-bottom
-          = render partial: 'playlists/playlist_embed', object: @artist.playlist
+          = render partial: 'playlists/playlist_embed', object: @artist.playlist, locals: { show_release: true }
       .wow.fadeInUp
         - unless @artist.description.blank?
           .artist__description.padded.margin-bottom
