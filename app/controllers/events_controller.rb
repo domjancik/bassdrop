@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @upcoming_events = policy_scope Event.upcoming
+    @upcoming_events = policy_scope Event.upcoming.includes(:headliners)
   end
 
   def year
