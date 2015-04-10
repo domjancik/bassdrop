@@ -23,16 +23,13 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body{ class: body_classes }
-    %header
-      = render 'layouts/navigation'
     #loading.pulse.animated.infinite
       = image_tag 'logo-bass-drop-loading.png'
+    %header
+      = render 'layouts/navigation'
     %main{role: 'main', class: body_classes}
       = render 'layouts/messages'
       .row#content
         .small-12.small-centered.columns.content-margin
           = yield
       = render 'layouts/footer'
-
-    :javascript
-
