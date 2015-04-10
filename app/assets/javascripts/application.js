@@ -40,13 +40,11 @@ var init_avatar_carousel = function(carousel) {
 }
 
 var start_loading = function() {
-    console.log("start loading");
     $('#content').addClass('fadeOut animated');
     $('#loading').addClass('visible');
 }
 
 var stop_loading = function() {
-    console.log("stop loading");
     $('#content').removeClass('fadeOut');
     $('#loading').removeClass('visible');
 }
