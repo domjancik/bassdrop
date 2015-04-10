@@ -52,37 +52,11 @@ var stop_loading = function() {
 }
 
 var init_loading_animation = function() {
-    console.log("init loading");
-    $(window).load(stop_loading);
-    //start_loading();
-    //$(document).on('beforeunload', start_loading);
-    $(document).on('pageshow', stop_loading);
+    $(window).on('page:before-change', start_loading);
+    $(document).on('page:before-unload', stop_loading);
 }
-
-var init_loading_links = function() {
-    //$("a[target!=blank]").each( function() {
-    //    var e = $(this);
-    //    if (e.attr('href')[0] != '#')
-    //        e.click(start_loading);
-    //});
-
-    $(document).click(function(e){
-        if($(e.target).closest('a[target!=blank]').length) {
-            start_loading();
-        }
-    });
-}
-
-//var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
-//var is_explorer = navigator.userAgent.indexOf('MSIE') > -1;
-//var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
-//var is_safari = navigator.userAgent.indexOf("Safari") > -1;
-//var is_opera = navigator.userAgent.toLowerCase().indexOf("op") > -1;
-//if ((is_chrome)&&(is_safari)) {is_safari=false;}
-//if ((is_chrome)&&(is_opera)) {is_chrome=false;}
 
 var init_avatar_carousels = function() {
-    //if (is_safari) return;
     var avatar_links = $('.avatar-carousel');
     if (avatar_links.length > 0) {
         avatar_links.each(function(index) {
@@ -90,3 +64,49 @@ var init_avatar_carousels = function() {
         })
     }
 }
+
+var initialized = false;
+var init = function() {
+    //if (!initialized) return;
+    initialized = true;
+
+    new WOW().init();
+
+    $('.grid-carousel').slick({
+        autoplay: true,
+        arrows: false,
+        dots: true,
+        autoplaySpeed: 4000
+    });
+
+    // Put stuff here because application.js wasn't always called :(
+    $(document).foundation();
+
+    // Autoload playlists
+    var plist_link = $('#playlist_link')
+    if (plist_link.length > 0) {
+        $.getScript(plist_link.attr('href'))
+    }
+
+
+
+    var infinite = new Waypoint.Infinite({
+        element: $('.infinite-container')[0],
+        offset: '110%'
+    });
+
+    init_loading_animation();
+    init_avatar_carousels();
+}
+
+var deinit = function() {
+    initialized = false;
+}
+
+$(document).on('page:load', init);
+$(document).on('load', init);
+$(document).on('ready', init);
+$(document).on('page:before-load', init);
+
+$(window).on('page:before-change', deinit);
+$(document).on('page:before-unload', deinit);

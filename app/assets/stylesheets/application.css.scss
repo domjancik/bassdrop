@@ -105,9 +105,12 @@ main {
 #loading {
   width: 100%;
   text-align: center;
-  padding-top: 5rem;
+//  padding-top: 5rem;
   opacity: 0;
   position: fixed;
+  top: 50%;
+  margin-top: -5rem;
+  z-index: 20;
   @include simple-transition;
 
   &.visible {

@@ -25,41 +25,14 @@
   %body{ class: body_classes }
     %header
       = render 'layouts/navigation'
+    #loading.pulse.animated.infinite
+      = image_tag 'logo-bass-drop-loading.png'
     %main{role: 'main', class: body_classes}
       = render 'layouts/messages'
-      #loading.pulse.animated.infinite
-        = image_tag 'logo-bass-drop-loading.png'
       .row#content
         .small-12.small-centered.columns.content-margin
           = yield
       = render 'layouts/footer'
 
     :javascript
-      new WOW().init();
 
-      $('.grid-carousel').slick({
-        autoplay: true,
-        arrows: false,
-        dots: true,
-        autoplaySpeed: 4000
-      });
-
-      // Put stuff here because application.js wasn't always called :(
-      $(document).foundation();
-
-      // Autoload playlists
-      var plist_link = $('#playlist_link')
-      if (plist_link.length > 0) {
-        $.getScript(plist_link.attr('href'))
-      }
-
-
-
-      var infinite = new Waypoint.Infinite({
-        element: $('.infinite-container')[0],
-        offset: '110%'
-      });
-
-      init_loading_animation();
-      init_loading_links();
-      init_avatar_carousels();
