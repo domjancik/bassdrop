@@ -45,5 +45,9 @@ var start_loading = function() {
 }
 
 var init_loading_links = function() {
-    $("a[target!=blank]").click(start_loading);
+    $("a[target!=blank]").each( function() {
+        var e = $(this);
+        if (e.attr('href')[0] != '#')
+            e.click(start_loading);
+    });
 }
