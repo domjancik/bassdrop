@@ -63,6 +63,16 @@ var init_avatar_carousels = function() {
     }
 }
 
+var more_load = function() {
+    var inf_link = $('.infinite-more-link__content');
+    inf_link.addClass('animated pulse-small infinite');
+};
+
+var more_stop_load = function() {
+    var inf_link = $('.infinite-more-link__content');
+    inf_link.removeClass('animated pulse-small infinite');
+};
+
 var initialized = false;
 var init = function() {
     //if (!initialized) return;
@@ -81,7 +91,7 @@ var init = function() {
     $(document).foundation();
 
     // Autoload playlists
-    var plist_link = $('#playlist_link')
+    var plist_link = $('#playlist_link');
     if (plist_link.length > 0) {
         $.getScript(plist_link.attr('href'))
     }
@@ -90,16 +100,18 @@ var init = function() {
 
     var infinite = new Waypoint.Infinite({
         element: $('.infinite-container')[0],
-        offset: '110%'
+        offset: '110%',
+        onBeforePageLoad: more_load,
+        onAfterPageLoad: more_stop_load
     });
 
     init_loading_animation();
     init_avatar_carousels();
-}
+};
 
 var deinit = function() {
     initialized = false;
-}
+};
 
 $(document).on('page:load', init);
 $(document).on('load', init);

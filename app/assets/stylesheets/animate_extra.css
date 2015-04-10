@@ -1,0 +1,38 @@
+@-webkit-keyframes pulse-small {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.02, 1.02, 1.02);
+        transform: scale3d(1.02, 1.02, 1.02);
+    }
+
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes pulse-small {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.02, 1.02, 1.02);
+        transform: scale3d(1.02, 1.02, 1.02);
+    }
+
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.pulse-small {
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+}
