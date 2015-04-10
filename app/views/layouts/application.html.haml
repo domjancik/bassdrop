@@ -53,12 +53,7 @@
         $.getScript(plist_link.attr('href'))
       }
 
-      var avatar_links = $('.avatar-carousel');
-      if (avatar_links.length > 0) {
-        avatar_links.each(function(index) {
-          $.getScript($(this).attr('data-avatars-src'));
-        })
-      }
+
 
       var infinite = new Waypoint.Infinite({
         element: $('.infinite-container')[0],
@@ -66,3 +61,4 @@
       });
 
       init_loading_links();
+      init_avatar_carousels();

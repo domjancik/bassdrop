@@ -51,3 +51,21 @@ var init_loading_links = function() {
             e.click(start_loading);
     });
 }
+
+var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
+var is_explorer = navigator.userAgent.indexOf('MSIE') > -1;
+var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+var is_opera = navigator.userAgent.toLowerCase().indexOf("op") > -1;
+if ((is_chrome)&&(is_safari)) {is_safari=false;}
+if ((is_chrome)&&(is_opera)) {is_chrome=false;}
+
+var init_avatar_carousels = function() {
+    if (is_safari) return;
+    var avatar_links = $('.avatar-carousel');
+    if (avatar_links.length > 0) {
+        avatar_links.each(function(index) {
+            $.getScript($(this).attr('data-avatars-src'));
+        })
+    }
+}
