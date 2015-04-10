@@ -468,6 +468,16 @@ ul.block-list {
 .event-item {
 //  position: relative;
 
+  .hide-on-hover {
+    opacity: 1;
+    @include simple-transition;
+  }
+
+  &:hover .hide-on-hover {
+    @include simple-transition;
+    opacity: 0;
+  }
+
   &__cover {
     position: absolute;
     z-index: 1;

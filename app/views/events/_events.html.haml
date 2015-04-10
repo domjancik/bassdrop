@@ -22,7 +22,16 @@
                 = image_tag event.cover_url(image_style), title: title, alt: title, class: 'event-item__cover'
             .row.collapse
               %p.titular-text.nospace.stick-to-bottom
-                = event
+                - headliners = event.headliners
+                - headliners_size = headliners.count - 1
+                - if headliners.empty?
+                  = event.title
+                - else
+                  - headliners.each_with_index do |headliner, index|
+                    = headliner.title
+                    = ' / ' unless index == headliners_size
+              %p.titular-text.nospace.stick-to-bottom.hide-on-hover
+                = event.title
       - if user_admin?
         - if event.published?
           = link_to 'Hide', hide_event_path(event), method: :post, class: %w(button width-fill)
