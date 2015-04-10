@@ -27,7 +27,7 @@ class Story < ActiveRecord::Base
     Story.published.where('published_at < ?', published_at).first
   end
 
-  def image_url(style)
+  def image_url(style = :medium)
     # TODO use style
     return event.cover_url(:square_medium) unless event.blank?
     return release.image_url(:medium) unless release.blank?

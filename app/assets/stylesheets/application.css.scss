@@ -102,6 +102,23 @@ main {
   overflow-x: hidden;
 }
 
+#loading {
+  width: 100%;
+  text-align: center;
+  padding-top: 5rem;
+  opacity: 0;
+  position: absolute;
+
+  &.visible {
+    opacity: 1;
+    @include simple-transition-dur(3s)
+  }
+
+  img {
+    width: 10rem;
+  }
+}
+
 body.night, main.night {
 //  background: $background-night-color;
 }

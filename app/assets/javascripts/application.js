@@ -38,3 +38,12 @@ var init_avatar_carousel = function(carousel) {
         pauseOnHover: false
     });
 }
+
+var start_loading = function() {
+    $('#content').addClass('fadeOut animated');
+    $('#loading').addClass('visible');
+}
+
+var init_loading_links = function() {
+    $("a[target!=blank]").click(start_loading);
+}
