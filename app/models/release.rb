@@ -46,22 +46,22 @@ class Release < ActiveRecord::Base
 
   private
 
-    def image_missing_url
+    def image_missing_url(style)
       case release_type
         when 'record'
           return 'default_image_records.jpg'
         when 'set_audio', 'set_video'
-          return image_url_artist || 'default_image_records.jpg'
+          return image_url_artist(style) || 'default_image_records.jpg'
         when 'trailer', 'aftermovie'
-          return image_url_artist || 'default_image.jpg'
+          return image_url_artist(style) || 'default_image.jpg'
       end
 
       'default_image.jpg'
     end
 
     # Default image for a mix is it's main artist's avatar
-    def image_url_artist
-      return main_artists.take.image_url unless main_artists.empty?
+    def image_url_artist(style)
+      return main_artists.take.image_url(style) unless main_artists.empty?
       nil
     end
 end

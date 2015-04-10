@@ -1,3 +1,6 @@
 - title = @release.title
-- @release.image_urls(:small).each do |image_url|
+- image_urls = @release.image_urls(:small)
+- image_urls.each do |image_url|
   = image_tag(image_url, alt: title, title: title)
+- if image_urls.empty?
+  = image_tag(@release.image_url, alt: title, title: title)

@@ -12,7 +12,7 @@ module Avatarable extend ActiveSupport::Concern
   end
 
   def image_url(style = :original)
-    return image_missing_url if avatar_file_name.nil?
+    return image_missing_url(style) if avatar_file_name.nil?
     avatar.url style
   end
 end

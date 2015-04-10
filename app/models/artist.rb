@@ -68,7 +68,7 @@ class Artist < ActiveRecord::Base
   end
 
   private
-    def image_missing_url
+    def image_missing_url(style)
       refresh_image_cache # TODO move call to background
       image_url_cached ? image_url_cached : 'default_image.jpg'
     end
