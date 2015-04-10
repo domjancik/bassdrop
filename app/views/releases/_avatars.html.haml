@@ -3,4 +3,4 @@
 - image_urls.each do |image_url|
   = image_tag(image_url, alt: title, title: title)
 - if image_urls.empty?
-  = image_tag(@release.image_url, alt: title, title: title)
+  = image_tag(@release.image_url(:small), alt: title, title: title)
