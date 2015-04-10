@@ -1,3 +1,3 @@
-= link_to more_link, class: %w(infinite-more-link wow fadeIn), data: { 'wow-delay' => '1s' } do
+= link_to more_link, class: %w(infinite-more-link wow fadeIn), data: { 'wow-delay' => '1s', 'no-turbolink' => true }, remote: true do
   .infinite-more-link__content.button.width-fill
     More
