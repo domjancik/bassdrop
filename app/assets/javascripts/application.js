@@ -35,6 +35,7 @@ var init_avatar_carousel = function(carousel) {
         arrows: false,
         dots: false,
         autoplaySpeed: Math.random() * 3000 + 1000,
-        fade: true
+        fade: true,
+        pauseOnHover: false
     });
 }
