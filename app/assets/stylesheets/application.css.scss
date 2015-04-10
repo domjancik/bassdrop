@@ -465,6 +465,8 @@ ul.block-list {
 // Events
 
 .event-item {
+  position: relative;
+
   &__cover {
     position: absolute;
     z-index: 1;
@@ -735,6 +737,8 @@ ul.block-list {
 }
 
 .grid__item {
+  position: relative;
+
   .hide-on-hover {
     position: absolute;
     z-index: 10;
