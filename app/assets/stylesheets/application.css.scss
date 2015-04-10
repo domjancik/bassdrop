@@ -755,6 +755,10 @@ ul.block-list {
   }
 
   .avatar-carousel {
+    .slick-slide {
+      height: auto;
+    }
+
     position: relative;
     z-index: 9;
   }
