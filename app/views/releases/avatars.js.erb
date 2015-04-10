@@ -1,5 +1,4 @@
 var carousel_id = '#release-<%= @release.id %>-avatars'
 var carousel = $(carousel_id)
 carousel.html("<%= j (render 'avatars') %>");
-//console.log(carousel_id);
 init_avatar_carousel(carousel);

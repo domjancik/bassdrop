@@ -29,7 +29,6 @@
 //});
 
 var init_avatar_carousel = function(carousel) {
-    console.log('initializing');
     carousel.slick({
         autoplay: true,
         arrows: false,

@@ -54,7 +54,6 @@
       var avatar_links = $('.avatar-carousel');
       if (avatar_links.length > 0) {
         avatar_links.each(function(index) {
-          console.log('Loading' + $(this).attr('data-avatars-src'));
           $.getScript($(this).attr('data-avatars-src'));
         })
       }
