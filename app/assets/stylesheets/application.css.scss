@@ -99,6 +99,7 @@ body {
 main {
   background: $background-color;
   padding: 0;
+  overflow-x: hidden;
 }
 
 body.night, main.night {
