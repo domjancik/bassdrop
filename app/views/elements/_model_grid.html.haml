@@ -1,5 +1,6 @@
 - get_title = lambda { |model| model.title } if local_assigns[:get_title].nil?
-- get_image = lambda { |model| model.image_url(:small) } if local_assigns[:get_image].nil?
+- image_style = :small if local_assigns[:image_style].nil?
+- get_image = lambda { |model| model.image_url(image_style) } if local_assigns[:get_image].nil?
 - link_target = lambda { |model| model } if local_assigns[:link_target].nil?
 - get_subtitle = nil if local_assigns[:get_subtitle].nil?
 - animate = false if local_assigns[:animate].nil?
@@ -13,5 +14,5 @@
   - if xcount == 2
     - classes << 'grid__item__small'
 %ul{class: classes}
-  - locals = { get_title: get_title, get_subtitle: get_subtitle, get_image: get_image, link_target: link_target, animate: animate, content_partial: content_partial, avatar_partial: avatar_partial }
+  - locals = { get_title: get_title, get_subtitle: get_subtitle, get_image: get_image, link_target: link_target, animate: animate, content_partial: content_partial, avatar_partial: avatar_partial, image_style: image_style }
   = render partial: 'elements/model_grid_item', collection: model_grid, locals: locals

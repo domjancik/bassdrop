@@ -31,9 +31,9 @@
           .small-6.columns.halfpadding-right
             - unless @release.prev.blank?
               .story-overview__item__nav= t 'previous', scope: "release.#{@release.release_type}"
-              = render partial: 'release_grid', object: [@release.prev], locals: { xcount: 1 }
+              = render partial: 'release_grid', object: [@release.prev], locals: { xcount: 1, image_style: :big }
           .small-6.columns.halfpadding-left
             - unless @release.next.blank?
               .story-overview__item__nav= t 'next', scope: "release.#{@release.release_type}"
-              = render partial: 'release_grid', object: [@release.next], locals: { xcount: 1 }
+              = render partial: 'release_grid', object: [@release.next], locals: { xcount: 1, image_style: :big }
         = render partial: 'elements/more_content', object: no_content

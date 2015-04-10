@@ -1,7 +1,6 @@
 - title = get_title.call model_grid_item
 
-= image_tag(model_grid_item.image_url(:small), alt: title, title: title, class: 'hide-on-hover')
-= image_tag(model_grid_item.image_url(:small), alt: title, title: title, class: 'avatar')
+= image_tag(model_grid_item.image_url(image_style), alt: title, title: title, class: 'hide-on-hover')
+= image_tag(model_grid_item.image_url(image_style), alt: title, title: title, class: 'avatar')
 .avatar-carousel{ :id => "release-#{model_grid_item.id}-avatars", 'data-avatars-src' => avatars_release_path(model_grid_item) }
   = image_tag('default_image.jpg', alt: title, title: title, class: 'avatar-sizer')
-

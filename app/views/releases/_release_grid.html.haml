@@ -3,4 +3,5 @@
 - animate = true if local_assigns[:animate].nil?
 - locals[:animate] = animate
 - locals[:get_subtitle] = lambda { |release| release.in_future? ? 'Upcoming' : nil }
+- locals[:image_style] = local_assigns[:image_style] unless local_assigns[:image_style].nil?
 = render partial: 'elements/model_grid_animated', object: release_grid, locals: locals
