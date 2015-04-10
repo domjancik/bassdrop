@@ -770,6 +770,10 @@ ul.block-list {
     z-index: 8;
   }
 
+  &__subtitle {
+    z-index: 9;
+  }
+
   &__small {
     .titular-text {
       line-height: 1;

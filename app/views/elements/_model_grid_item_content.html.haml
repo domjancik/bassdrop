@@ -4,7 +4,7 @@
   - unless get_subtitle.nil?
     - subtitle = get_subtitle.call model_grid_item
     - unless subtitle.blank?
-      %p.titular-text.stick-to-top.inverted.smaller= subtitle
+      %p.titular-text.stick-to-top.inverted.smaller.grid__item__subtitle= subtitle
   %p.nospace
     = render partial: avatar_partial, locals: local_assigns
   %p.titular-text.stick-to-bottom.nospace
