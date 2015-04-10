@@ -1,6 +1,6 @@
 - title = get_title.call model_grid_item
 
 - image_url = get_image.call model_grid_item
-= image_tag('default_avatar.jpg', alt: title, title: title, class: 'avatar-sizer')
+= image_tag('default_image.jpg', alt: title, title: title, class: 'avatar-sizer')
 - if !image_url.nil?
   = image_tag(image_url, alt: title, title: title, class: 'avatar')
