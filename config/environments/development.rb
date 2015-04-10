@@ -60,6 +60,7 @@ Rails.application.configure do
   # Paperclip config
   config.paperclip_defaults = {
       :storage => :s3,
+      :s3_protocol => '',
       :s3_credentials => {
           :bucket => 'bassdrop-assets-dev',
           # :bucket => ENV['S3_BUCKET_NAME'],
