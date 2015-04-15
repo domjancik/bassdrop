@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   before_action :set_event, except: [:index, :create, :new, :year, :next]
   helper TimeFormatHelper
   helper FacebookHelper
+  helper LinkHelper
 
   PAST_YEARS = [2015, 2014, 2013]
 

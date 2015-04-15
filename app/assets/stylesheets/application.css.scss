@@ -710,6 +710,10 @@ ul.block-list {
         @extend .title-look;
       }
 
+      &__preorder {
+        @extend .content__description__top__venue;
+      }
+
       &__attending {
         @extend .content__description__top__venue;
         float: right;

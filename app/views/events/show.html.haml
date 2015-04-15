@@ -31,13 +31,14 @@
           %p.titular-text.facebook.event__quickinfo
 
   .event.content.wow.fadeIn{ 'data-wow-delay' => "1.8s" }
-    - unless @event.preorder_url.nil? || @event.preorder_url.empty?
-      %p
-        %b Preorder:
-        = link_to @event.preorder_url
-
     .row
       .small-12.medium-8.columns
+        - unless @event.preorder_url.blank?
+          .content__description__top.padded.margin-bottom
+            %p.content__description__top__preorder
+              = link_to @event.preorder_url do
+                Preorder at
+                = url_second_level @event.preorder_url
         - unless @event.venue.nil?
           .content__description__top.padded.margin-bottom
             %p.content__description__top__venue
