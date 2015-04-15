@@ -5,22 +5,23 @@ namespace :db do
   namespace :events do
     desc 'Download BASS DROP events from facebook (Basic data only)'
     task load: :environment do
-      page_id = 'bassdropcz'
+      ActiveRecord::Base.transaction do
+        page_id = 'bassdropcz'
 
-      params = {access_token: FacebookHelper.access_token}
+        params = {access_token: FacebookHelper.access_token}
 
-      response =  RestClient.get "#{FacebookHelper.graph_url}/#{page_id}/events", {params: params}
-      json_response = JSON.parse(response)
-      add_events json_response
+        response = FacebookHelper.request "#{page_id}/events", params
+        add_events response
 
-      while json_response['paging'].has_key? 'next'
-        next_page = json_response['paging']['next']
-        response = RestClient.get next_page
-        json_response = JSON.parse(response)
-        add_events json_response
+        while response['paging'].has_key? 'next'
+          next_page = response['paging']['next']
+          response = RestClient.get next_page
+          response = JSON.parse(response)
+          add_events response
+        end
+
+        puts 'Loaded FB Events (Basic info), call db:events:fill to load the rest'
       end
-
-      puts 'Loaded FB Events (Basic info), call db:events:fill to load the rest'
     end
 
     private
@@ -45,12 +46,16 @@ namespace :db do
 
     desc 'Download additional data for events from facebook'
     task fill: :environment do
-      Event.where(automatic_updates: true).each { |event| event.update_from_fb }
+      ActiveRecord::Base.transaction do
+        Event.where(automatic_updates: true).each { |event| event.update_from_fb }
+      end
     end
 
     desc 'Download date data for events from facebook'
     task reload_dates: :environment do
-      Event.all.each { |event| event.update_date }
+      ActiveRecord::Base.transaction do
+        Event.all.each { |event| event.update_date }
+      end
     end
 
     desc 'Update stats for upcoming events'
