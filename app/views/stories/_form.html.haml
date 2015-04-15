@@ -3,7 +3,15 @@
 
   .form-inputs
     = f.input :title
-    = f.input :description
+    = f.input :description, label: 'Text'
+    .help.content__description
+      %p
+        To embed an image use
+        %b ![title](imagename|style)
+      %p
+        Style can be thumb, small, medium, big, square-small, square-medium, square-big or left empty for original
+      %p
+        = link_to 'Image gallery', images_path, target: :blank
     = f.association :release
     = f.association :artist
     = f.association :event

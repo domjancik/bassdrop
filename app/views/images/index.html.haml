@@ -7,7 +7,9 @@
     %li
       = link_to image do
         .row= image_tag image.image.url :thumb
-        .row= image.title
+        .row
+          Title:
+          = image.title
         .row
           %ul.inline-list
             %li= link_to 'Show', image
