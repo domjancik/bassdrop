@@ -698,6 +698,11 @@ ul.block-list {
 
     h1, h2, h3 { color: $text-color }
 
+    img {
+      width: auto;
+      max-width: 100%;
+    }
+
     &__top {
       @extend .content__description;
       overflow: hidden; // Dealing with floating content

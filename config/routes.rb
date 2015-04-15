@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :images do
+    member do
+      get 'reveal', as: :reveal
+    end
+  end
+
   concern :playlistable do
     member do
       post 'create_playlist'

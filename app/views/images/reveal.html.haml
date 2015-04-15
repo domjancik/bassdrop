@@ -1,0 +1,5 @@
+#reveal{ data: { 'reveal' => true }}
+  = image_tag(@image.image.url)
+  - unless @image.description.blank?
+    .content__description.padded
+      @image.description

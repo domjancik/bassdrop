@@ -1,8 +1,11 @@
 module ApplicationHelper
+  include RedcarpetHelper
+
   def desc_format(data, enable_markdown = true)
     if enable_markdown
-      markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
-      data = raw markdown.render(data)
+      # markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+      # data = raw markdown.render(data)
+      data = raw redcarpet_render(data)
     else
       data = simple_format data
     end

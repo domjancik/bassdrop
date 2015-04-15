@@ -1,0 +1,10 @@
+= simple_form_for(@image, multipart: true) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :description
+    = f.input :image, as: :file
+
+  .form-actions
+    = f.button :submit

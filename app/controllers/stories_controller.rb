@@ -2,6 +2,8 @@ class StoriesController < ApplicationController
   include Playlistable
   include Publishable
 
+  helper RedcarpetHelper
+
   PAGE_SIZE = 8;
 
   before_action :set_story, only: [:show, :edit, :update, :destroy, :publish, :hide]

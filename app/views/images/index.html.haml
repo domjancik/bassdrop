@@ -1,0 +1,16 @@
+%h1 Listing images
+
+= link_to 'New Image', new_image_path
+
+%ul.small-block-grid-2.medium-block-grid-5
+  - @images.each do |image|
+    %li
+      = link_to image do
+        .row= image_tag image.image.url :thumb
+        .row= image.title
+        .row
+          %ul.inline-list
+            %li= link_to 'Show', image
+            %li= link_to 'Edit', edit_image_path(image)
+            %li= link_to 'Destroy', image, :method => :delete, :data => { :confirm => 'Are you sure?' }
+

@@ -27,6 +27,7 @@ gem 'json'
 gem 'rinku'
 gem 'rails_12factor'
 gem 'paperclip', '~> 4.2'
+gem 'paperclip-meta'
 # Social
 gem 'rest-client'
 gem 'fastimage'

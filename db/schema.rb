@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150410154641) do
+ActiveRecord::Schema.define(version: 20150415213205) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",               limit: 255
@@ -103,6 +103,19 @@ ActiveRecord::Schema.define(version: 20150410154641) do
   add_index "events", ["link_fb"], name: "index_events_on_link_fb", unique: true, using: :btree
   add_index "events", ["playlist_id"], name: "index_events_on_playlist_id", using: :btree
   add_index "events", ["venue_id"], name: "index_events_on_venue_id", using: :btree
+
+  create_table "images", force: :cascade do |t|
+    t.string   "title",              limit: 255
+    t.text     "description",        limit: 65535
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "images", ["title"], name: "index_images_on_title", unique: true, using: :btree
 
   create_table "media", force: :cascade do |t|
     t.string   "title",       limit: 255
