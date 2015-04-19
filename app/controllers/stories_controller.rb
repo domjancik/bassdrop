@@ -27,6 +27,7 @@ class StoriesController < ApplicationController
   # GET /stories/new
   def new
     @story = Story.new
+    @story.author = current_user.artist
     authorize @story
   end
 
@@ -38,6 +39,7 @@ class StoriesController < ApplicationController
   # POST /stories.json
   def create
     @story = Story.new(story_params)
+    @story.author = current_user.artist if current_user.vip?
     authorize @story
 
     respond_to do |format|

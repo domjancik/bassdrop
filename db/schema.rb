@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419110315) do
+ActiveRecord::Schema.define(version: 20150419114721) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",               limit: 255
@@ -243,8 +243,10 @@ ActiveRecord::Schema.define(version: 20150419110315) do
     t.integer  "invited_by_id",          limit: 4
     t.string   "invited_by_type",        limit: 255
     t.integer  "invitations_count",      limit: 4,   default: 0
+    t.integer  "artist_id",              limit: 4
   end
 
+  add_index "users", ["artist_id"], name: "index_users_on_artist_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
   add_index "users", ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
@@ -284,4 +286,5 @@ ActiveRecord::Schema.define(version: 20150419110315) do
   add_foreign_key "stories", "events"
   add_foreign_key "stories", "playlists"
   add_foreign_key "stories", "releases"
+  add_foreign_key "users", "artists"
 end

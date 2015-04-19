@@ -18,7 +18,8 @@
     = f.association :artist
     = f.association :event
     = f.association :playlist
-    = f.association :author
+    - if user_admin?
+      = f.association :author
     = f.input :published_at, include_blank: true
     = f.input :published
 
