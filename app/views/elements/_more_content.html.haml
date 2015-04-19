@@ -2,11 +2,10 @@
 .content__description.padded.margin-bottom
   - if no_content
     %p
-      There is nothing more yet.
+      = t 'common.nothing_more'
     %p
-      In the meantime,
-      %strong check out these upcoming events!
+      = raw t 'common.nothing_more_cta'
   - else
     %p
-      = t('more_text', scope: 'common')
+      = t 'common.more_text'
 = render partial: 'events/events', object: @upcoming_events

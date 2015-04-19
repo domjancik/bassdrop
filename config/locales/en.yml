@@ -15,6 +15,8 @@ en:
     previous: Previous
     next: Next
     more_text: Looking for more? Have you seen what events we're preparing for you?
+    nothing_more: There is nothing more yet.
+    nothing_more_cta: In the meantime, <strong>check out these upcoming events!</strong>
 
   menu:
     footer:

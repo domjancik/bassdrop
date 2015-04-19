@@ -9,6 +9,8 @@ cs:
     previous: Předchozí
     next: Další
     more_text: Zajímá tě víc? Podívej se na akce, které připravujeme!
+    nothing_more: Zatím tu nic dalšího není.
+    nothing_more_cta: Co se mezitím <strong>podívat na tyhle nadcházející akce!</strong>
 
   menu:
     footer:
