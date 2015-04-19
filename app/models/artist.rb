@@ -3,6 +3,7 @@ require 'json'
 
 class Artist < ActiveRecord::Base
   include Avatarable
+  include DescriptionLocalizable
   
   enum role: [:artist, :supported, :headliner, :bassdrop, :records, :creator]
   # default_scope { order('role desc') }

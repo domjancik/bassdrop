@@ -43,6 +43,9 @@ en:
       team: The Team
       contact: Contact Us
 
+  home:
+    all_events: All events
+
   artist:
     title: Artists
     description: The BASS DROP Crew, artists we've booked, played with or released records for. All of them right here at one place.

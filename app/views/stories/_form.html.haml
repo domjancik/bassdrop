@@ -2,8 +2,6 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :title
-    = f.input :description, label: 'Text'
     .help.content__description
       %p
         To embed an image use
@@ -13,6 +11,19 @@
         = link_to 'Cheat sheet here.', 'https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet'
       %p
         = link_to 'Image gallery', images_path, target: :blank
+    %ul.accordion{ data: { accordion: true } }
+      %li.accordion-navigation
+        = link_to 'CS', '#panel_cs'
+        #panel_cs.content.active
+          = f.input :title_cs, label: 'Title'
+          = f.input :description_cs, label: 'Text'
+      %li.accordion-navigation
+        = link_to 'EN', '#panel_en'
+        #panel_en.content
+          = f.input :title, label: 'Title'
+          = f.input :description, label: 'Text'
+
+    %h2 Other
     = f.input :avatar, as: :file
     = f.association :release
     = f.association :artist

@@ -73,9 +73,9 @@ Rails.application.routes.draw do
 
   mount Upmin::Engine => '/admin'
 
-  get '/:locale' => 'visitors#index'
-  root to: 'visitors#index'
-
   devise_for :users
   resources :users
+
+  get '/:locale' => 'visitors#index', as: :locale
+  root to: 'visitors#index'
 end

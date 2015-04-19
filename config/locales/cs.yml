@@ -36,14 +36,17 @@ cs:
       team: Tým
       contact: Kontaktovat
 
+  home:
+    all_events: Všechny události
+
   artist:
     title: Umělci
-    description: The BASS DROP Crew, artists we've booked, played with or released records for. All of them right here at one place.
+    description: BASS DROP Crew, umělci, které jsme pozvali, se kterými jsme hráli nebo kteří pod námi vydali tracky. Všichni pěkně na jednom místě.
     roles:
       bassdrop: BASS DROP Crew
       headliner: Pozvali jsme
       supported: Hráli jsme s
-      artist: And also hosted
+      artist: A nezapomeňme na
       records: Vydali jsme tracky od
     show:
       past_events: Minulé akce

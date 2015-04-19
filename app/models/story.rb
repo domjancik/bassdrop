@@ -1,5 +1,7 @@
 class Story < ActiveRecord::Base
   include Avatarable
+  include DescriptionLocalizable
+  include TitleLocalizable
 
   PEREX_REGEXP = /^.*?\r?\n\r?\n/m
 
@@ -35,5 +37,15 @@ class Story < ActiveRecord::Base
     return artist.image_url(style) unless artist.blank?
 
     'default_image.jpg'
+  end
+
+  def self.for_locale(locale)
+    column = description_column(locale)
+    all.where("#{column} IS NOT NULL AND CHAR_LENGTH(#{column}) > 0")
+  end
+
+  def self.description_column(locale)
+    return 'description' if locale.eql? :en
+    "description_#{locale.to_s}"
   end
 end

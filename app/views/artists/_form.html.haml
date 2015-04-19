@@ -6,7 +6,8 @@
     = f.association :city
     = f.association :playlist
     = f.input :avatar, as: :file
-    = f.input :description
+    = f.input :description_cs
+    = f.input :description, label: 'Description EN'
 
   .form-actions
     = f.button :submit

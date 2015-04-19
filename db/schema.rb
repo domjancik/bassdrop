@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419114721) do
+ActiveRecord::Schema.define(version: 20150419170031) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "title",               limit: 255
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150419114721) do
     t.integer  "avatar_file_size",    limit: 4
     t.datetime "avatar_updated_at"
     t.boolean  "released_record",     limit: 1,        default: false, null: false
+    t.text     "description_cs",      limit: 16777215
   end
 
   add_index "artists", ["city_id"], name: "index_artists_on_city_id", using: :btree
@@ -98,6 +99,7 @@ ActiveRecord::Schema.define(version: 20150419114721) do
     t.integer  "cover_file_size",    limit: 4
     t.datetime "cover_updated_at"
     t.boolean  "markdown_enabled",   limit: 1,        default: false, null: false
+    t.text     "description_cs",     limit: 16777215
   end
 
   add_index "events", ["link_fb"], name: "index_events_on_link_fb", unique: true, using: :btree
@@ -178,6 +180,7 @@ ActiveRecord::Schema.define(version: 20150419114721) do
     t.string   "avatar_content_type", limit: 255
     t.integer  "avatar_file_size",    limit: 4
     t.datetime "avatar_updated_at"
+    t.text     "description_cs",      limit: 16777215
   end
 
   add_index "releases", ["playlist_id"], name: "index_releases_on_playlist_id", using: :btree
@@ -193,21 +196,23 @@ ActiveRecord::Schema.define(version: 20150419114721) do
   add_index "stages", ["venue_id"], name: "index_stages_on_venue_id", using: :btree
 
   create_table "stories", force: :cascade do |t|
-    t.string   "title",               limit: 255,                   null: false
+    t.string   "title",               limit: 255,                      null: false
     t.text     "description",         limit: 65535
     t.integer  "release_id",          limit: 4
     t.integer  "artist_id",           limit: 4
     t.integer  "event_id",            limit: 4
     t.integer  "playlist_id",         limit: 4
-    t.integer  "author_id",           limit: 4,                     null: false
+    t.integer  "author_id",           limit: 4,                        null: false
     t.datetime "published_at"
-    t.boolean  "published",           limit: 1,     default: false
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
+    t.boolean  "published",           limit: 1,        default: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
     t.string   "avatar_file_name",    limit: 255
     t.string   "avatar_content_type", limit: 255
     t.integer  "avatar_file_size",    limit: 4
     t.datetime "avatar_updated_at"
+    t.text     "description_cs",      limit: 16777215
+    t.string   "title_cs",            limit: 255
   end
 
   add_index "stories", ["artist_id"], name: "index_stories_on_artist_id", using: :btree

@@ -9,7 +9,8 @@
     = f.input :release_date
     = f.input :release_type, collection: Release.release_types.keys.map {|rel_type| [rel_type.titleize,rel_type]}
     = f.association :playlist
-    = f.input :description
+    = f.input :description_cs
+    = f.input :description, label: 'Description EN'
     = f.input :avatar, as: :file
 
   .form-actions
