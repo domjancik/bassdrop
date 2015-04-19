@@ -1,26 +1,5 @@
 class StoryPolicy < ApplicationPolicy
-  def edit?
-    is_vip?
-  end
-
-  def hide?
-    is_vip?
-  end
-
-  def publish?
-    is_vip?
-  end
-
-  def new?
-    is_vip?
-  end
-
-  def create?
-    is_vip?
-  end
-
-
-  def create_playlist?
+  def can_modify?
     is_vip?
   end
 

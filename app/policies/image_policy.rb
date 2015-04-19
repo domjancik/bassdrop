@@ -1,18 +1,10 @@
 class ImagePolicy < ApplicationPolicy
+  def can_modify?
+    is_vip?
+  end
+
   def reveal?
     true
-  end
-
-  def edit?
-    is_vip?
-  end
-
-  def new?
-    is_vip?
-  end
-
-  def create?
-    is_vip?
   end
 
   class Scope < Scope

@@ -1,6 +1,10 @@
 class ApplicationPolicy
   attr_reader :user, :record
 
+  def can_modify?
+    is_admin?
+  end
+
   def initialize(user, record)
     @user = user
     @record = record
@@ -15,11 +19,11 @@ class ApplicationPolicy
   end
 
   def create?
-    is_admin?
+    can_modify?
   end
 
   def create_playlist?
-    is_admin?
+    can_modify?
   end
 
   def new?
@@ -27,15 +31,15 @@ class ApplicationPolicy
   end
 
   def update?
-    is_admin?
+    can_modify?
   end
 
   def publish?
-    is_admin?
+    can_modify?
   end
 
   def hide?
-    is_admin?
+    can_modify?
   end
 
   def edit?
@@ -43,7 +47,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    is_admin?
+    can_modify?
   end
 
   def scope

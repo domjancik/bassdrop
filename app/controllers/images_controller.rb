@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:show, :edit, :update, :destroy, :reveal]
-  before_action :authenticate_admin!
+  before_action :authenticate_vip!, except: [:reveal]
 
   # GET /images
   # GET /images.json

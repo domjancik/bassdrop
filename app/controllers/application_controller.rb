@@ -12,6 +12,11 @@ class ApplicationController < ActionController::Base
     user_not_authorized unless current_user.admin?
   end
 
+  def authenticate_vip!
+    authenticate_user!
+    user_not_authorized unless current_user.admin? || current_user.vip?
+  end
+
   if Rails.env.development? || Rails.env.test?
 # https://github.com/RailsApps/rails-devise-pundit/issues/10
     include Pundit
