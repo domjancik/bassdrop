@@ -98,6 +98,8 @@ en:
     presale: Buy ticket at %{presale}
     artists: Artists
     lineup: Lineup
+    upcoming: Upcoming
+    past: Past
 
   playlist:
     playing: Playing

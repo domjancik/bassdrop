@@ -5,12 +5,6 @@ cs:
                  Zaměřujeme se na organizaci akcí v České republice a střední Evropě od roku 2013.
                  Jsme skupina promotérů, grafiků, Djů a producentů, kteří se zaměřují na elektronickou hudbu.
 
-  facebook: Facebook
-  soundcloud: Soundcloud
-  instagram: Instagram
-  youtube: YouTube
-  twitter: Twitter
-
   common:
     previous: Předchozí
     next: Další
@@ -98,6 +92,8 @@ cs:
     presale: Předprodej skrze %{presale}
     artists: Umělci
     lineup: Lineup
+    upcoming: Nadcházející
+    past: Minulé
 
   playlist:
     playing: Právě hraje
