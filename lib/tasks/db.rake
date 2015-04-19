@@ -202,6 +202,7 @@ namespace :db do
 
           {title: 'Roksonix', country: 'UK', fb: 'roksonix', role: 'headliner'},
           {title: 'Villain', country: 'UK', fb: 'villaindub', role: 'headliner'},
+          {title: 'Gh0sh', country: 'UK', fb: 'Gh0sh', role: 'headliner'},
           {title: 'Emphasis', country: 'AT', fb: '516698048369462'},
           {title: 'Phlage', country: 'AT', city: 'Vienna', fb: 'Phlage'},
 
@@ -246,6 +247,7 @@ namespace :db do
           {title: 'Dope D.O.D.', country: 'NL', fb: 'dopedoddopedod', role: 'supported'},
           {title: 'Bassnectar', country: 'US', fb: 'Bassnectar', role: 'supported'},
           {title: 'N.O.H.A.', country: 'CZ', fb: 'NohaCircus', role: 'supported'},
+          {title: 'Modestep', country: 'UK', city: 'London', fb: 'modestep', role: 'supported'},
       ]
 
       artists.each do |artist_source|
