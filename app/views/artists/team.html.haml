@@ -6,5 +6,5 @@
 
 .content__description.padded
   %p
-    This is the core BASS DROP team.
-    = link_to "Here's the BASS DROP Crew DJ roster", artists_path(filter: 'bassdrop')
+    = t 'crew_note', scope: 'artist.team'
+    = link_to t('crew_link', scope: 'artist.team'), artists_path(filter: 'bassdrop')

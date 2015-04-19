@@ -26,6 +26,9 @@ Rails.application.routes.draw do
 
   get '/fb', to: redirect('https://www.facebook.com/bassdropcz'), as: :fb
 
+  # Static pages
+  get '/pages/*id' => 'pages#show', as: :page, format: false
+
   scope '(:locale)', locale: /cs|en/ do
     resources :stories, concerns: [:playlistable, :publishable, :pagable]
 

@@ -21,6 +21,12 @@ cs:
     next_event: Další akce už
     all_stories: Všechny články
 
+  contact:
+    title: Kontakt
+
+  about:
+    title: O BASS DROPu
+
   artist:
     title: Umělci
     description: BASS DROP Crew, umělci, které jsme pozvali, se kterými jsme hráli nebo kteří pod námi vydali tracky. Všichni pěkně na jednom místě.
@@ -35,6 +41,8 @@ cs:
     team:
       title: Tým
       description: Dozvi se víc o jádru BASS DROPu.
+      crew_note: Tohle je jádro BASS DROPu.
+      crew_link: Všichni členové BASS DROP Crew jsou k nalezení zde.
   release:
     records:
       title: Records

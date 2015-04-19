@@ -27,6 +27,12 @@ en:
     next_event: Next event on
     all_stories: All stories
 
+  contact:
+    title: Contact
+
+  about:
+    title: About BASS DROP
+
   artist:
     title: Artists
     description: The BASS DROP Crew, artists we've booked, played with or released records for. All of them right here at one place.
@@ -41,6 +47,8 @@ en:
     team:
       title: The Team
       description: Learn more about the core team behind BASS DROP.
+      crew_note: This is the core BASS DROP team.
+      crew_link: Here's the BASS DROP Crew DJ roster
   release:
     records:
       title: Records
