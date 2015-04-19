@@ -2,9 +2,9 @@
 
 %ul.tabs{ 'data-tab' => true }
   %li.event__tab-title.tab-title.active
-    = link_to 'Artists', '#artists'
+    = link_to t('artists', scope: 'event'), '#artists'
   %li.event__tab-title.tab-title
-    = link_to 'Lineup', '#lineup'
+    = link_to t('lineup', scope: 'event'), '#lineup'
 
 .tabs-content
   .content.active#artists

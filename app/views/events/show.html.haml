@@ -48,8 +48,9 @@
               - else
                 = @event.venue
             %p.content__description__top__attending
-              = @event.attending_count
-              = (in_future? @event.date_start + 12.hours) ? 'Going' : 'Went'
+              - unless @event.attending_count.blank?
+                - attendance_title = (in_future? @event.date_start + 12.hours) ? 'attendance_future' : 'attendance_past'
+                = t attendance_title, scope: 'event', count: @event.attending_count
         = render partial: 'playlists/playlist_embed', object: @event.playlist, locals: { show_release: true }
         .content__description__bottom.padded.margin-bottom
           = desc_format(@event.description, @event.markdown_enabled)

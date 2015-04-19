@@ -19,43 +19,36 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+cs:
   bassdrop:
     description: |-
                  BASS DROP is a fresh event brand under the wings of URBAN EVENTS production.
                  Focusing on event promotion in the Czech republic and Middle Europe since 2013.
                  It is an organization consisting of promoters, graphic designers, Djs and producers focusing on electronic music.
-  hello: "Hello world"
-
-  facebook: "Facebook"
-  soundcloud: "Soundcloud"
-  instagram: "Instagram"
-  youtube: "YouTube"
-  twitter: "Twitter"
 
   common:
-    previous: Previous
-    next: Next
+    previous: Předchozí
+    next: Další
 
   menu:
     footer:
-      about: What is BASS DROP?
-      team: The Team
-      contact: Contact Us
+      about: Co je BASS DROP?
+      team: Tým
+      contact: Kontaktovat
 
   artist:
-    title: Artists
+    title: Umělci
     description: The BASS DROP Crew, artists we've booked, played with or released records for. All of them right here at one place.
     roles:
       bassdrop: BASS DROP Crew
-      headliner: We've booked
-      supported: We've played with
+      headliner: Pozvali jsme
+      supported: Hráli jsme s
       artist: And also hosted
-      records: Released tracks by
+      records: Vydali jsme tracky od
     show:
-      past_events: Past events
+      past_events: Minulé akce
     team:
-      title: The Team
+      title: Tým
       description: Learn more about the core team behind BASS DROP.
   release:
     records:
@@ -63,47 +56,47 @@ en:
       description: See all the tracks released and soon to be released under BASS DROP RECORDS.
       title-full: BASS DROP Records
     sets:
-      title: Sets
+      title: Sety
       description: Regular podcasts and video sets by the BASS DROP Crew and friends.
       video: Video sets
       audio: Mixes
     videos:
-      title: Videos
+      title: Videa
       description: Looking for aftermovies or invitations to our parties? Right here.
       trailers: Trailers
       aftermovies: Aftermovies
     set_video:
-      previous: Previous Videoset
-      next: Next Videoset
+      previous: Předchozí videoset
+      next: Další videoset
     set_audio:
-      previous: Previous mix
-      next: Next mix
+      previous: Předchozí mix
+      next: Další mix
     other:
-      previous: Previous
-      next: Next
+      previous: Další
+      next: Předchozí
     record:
-      previous: Previous Record
-      next: Next Record
+      previous: Předchozí Release
+      next: Další Release
     trailer:
-      previous: Previous Trailer
-      next: Next Trailer
+      previous: Předchozí Trailer
+      next: Další Trailer
     aftermovie:
-      previous: Previous Aftermovie
-      next: Next Aftermovie
+      previous: Předchozí Aftermovie
+      next: Další Aftermovie
   story:
-    title: Stories
+    title: Články
     description: Find out the latest news about our events and other activities.
-    previous: Previous Story
-    next: Next Story
+    previous: Předchozí Článek
+    next: Další Článek
     overview:
-      read_more: Read more
+      read_more: Čti dále
   event:
-    title: Events
+    title: Události
     description: See the upcoming BASS DROP events as well as what we've done in the past.
-    attendance_future: "%{count} going"
-    attendance_past: "%{count} went"
-    venue_info: At %{venue}
-    artists: Artists
+    attendance_future: Zúčastní se %{count}
+    attendance_past: Zúčastnilo se %{count}
+    venue_info: V %{venue}
+    artists: Umělci
     lineup: Lineup
   time:
     formats:
