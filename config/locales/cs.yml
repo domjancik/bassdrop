@@ -88,8 +88,8 @@ cs:
   event:
     title: Události
     description: Nadcházející a minulé BASS DROP události.
-    attendance_future: Zúčastní se %{count}
-    attendance_past: Zúčastnilo se %{count}
+    attendance_future: Zúčastní se %{count} lidí
+    attendance_past: Zúčastnilo se %{count} lidí
     venue_info: V %{venue}
     presale: Předprodej skrze %{presale}
     artists: Umělci
