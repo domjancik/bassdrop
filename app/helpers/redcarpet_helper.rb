@@ -15,7 +15,7 @@ class HTMLBlockCode < Redcarpet::Render::HTML
     matches = link.match(/^([\w\d\.]+)(?:\|(\w+))?(?:\|([\w\s\d]+))?$/)
     {
         :id => matches[1],
-        :size => (matches[2] || 'original').to_sym,
+        :size => (matches[2] || 'big').to_sym,
         :class => matches[3]
 
     } if matches
