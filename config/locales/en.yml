@@ -1,31 +1,9 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   bassdrop:
     description: |-
                  BASS DROP is a fresh event brand under the wings of URBAN EVENTS production.
-                 Focusing on event promotion in the Czech republic and Middle Europe since 2013.
+                 Focusing on event promotion in the Czech republic and Central Europe since 2013.
                  It is an organization consisting of promoters, graphic designers, Djs and producers focusing on electronic music.
-  hello: "Hello world"
 
   facebook: "Facebook"
   soundcloud: "Soundcloud"
@@ -36,6 +14,7 @@ en:
   common:
     previous: Previous
     next: Next
+    more_text: Looking for more? Have you seen what events we're preparing for you?
 
   menu:
     footer:
@@ -45,6 +24,8 @@ en:
 
   home:
     all_events: All events
+    next_event: Next event on
+    all_stories: All stories
 
   artist:
     title: Artists

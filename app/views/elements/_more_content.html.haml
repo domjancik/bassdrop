@@ -8,5 +8,5 @@
       %strong check out these upcoming events!
   - else
     %p
-      Looking for more? Have you seen what events we're preparing for you?
+      = t('more_text', scope: 'common')
 = render partial: 'events/events', object: @upcoming_events

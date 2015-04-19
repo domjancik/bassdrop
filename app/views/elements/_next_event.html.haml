@@ -3,7 +3,7 @@
     .wow.fadeInUp.margin-bottom
       .hover
         %p.titular-text.nospace.important
-          Next Event -
+          = t('next_event', scope: 'home')
           = event_date @next_event
         %p.nospace= image_tag @next_event.cover_url(:medium)
         %p.titular-text.nospace= @next_event

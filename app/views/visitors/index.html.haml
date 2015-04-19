@@ -4,7 +4,7 @@
     = render partial: 'elements/next_event', object: @next_event
     = render partial: 'stories/stories', object: @stories, locals: { xcount: 3 }
     - if @more_stories
-      = link_to 'All stories', stories_path, class: %w(button small width-fill)
+      = link_to t('all_stories', scope: 'home'), stories_path, class: %w(button small width-fill)
 
   .small-12.medium-3.columns
     .row
