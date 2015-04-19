@@ -1,4 +1,6 @@
 class Story < ActiveRecord::Base
+  include Avatarable
+
   PEREX_REGEXP = /^.*?\r?\n\r?\n/m
 
   belongs_to :release
@@ -27,11 +29,10 @@ class Story < ActiveRecord::Base
     Story.published.where('published_at < ?', published_at).first
   end
 
-  def image_url(style = :medium)
-    # TODO use style
-    return event.cover_url(:square_medium) unless event.blank?
-    return release.image_url(:medium) unless release.blank?
-    return artist.image_url(:medium) unless artist.blank?
+  def image_missing_url(style)
+    return event.cover_url("square_#{style.to_s}".to_sym) unless event.blank?
+    return release.image_url(style) unless release.blank?
+    return artist.image_url(style) unless artist.blank?
 
     'default_image.jpg'
   end

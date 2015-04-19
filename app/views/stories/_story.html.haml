@@ -4,7 +4,7 @@
     = link_to story do
       .story-overview__item__title= story.title
       - if show_image && (not story.image_url.nil?)
-        .story-overview__image= image_tag story.image_url, alt: story.title
+        .story-overview__image= image_tag story.image_url(:medium), alt: story.title
       .story-overview__item__date= release_date story.published_at
       .content__description.margin-bottom
         .padded.text-justify

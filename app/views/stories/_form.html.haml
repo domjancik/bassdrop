@@ -1,4 +1,4 @@
-= simple_form_for(@story) do |f|
+= simple_form_for(@story, multipart: true) do |f|
   = f.error_notification
 
   .form-inputs
@@ -7,11 +7,13 @@
     .help.content__description
       %p
         To embed an image use
-        %b ![title](imagename|style)
+        %b ![title](imagename)
       %p
-        Style can be thumb, small, medium, big, square-small, square-medium, square-big or left empty for original
+        Use markdown for styling.
+        = link_to 'Cheat sheet here.', 'https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet'
       %p
         = link_to 'Image gallery', images_path, target: :blank
+    = f.input :avatar, as: :file
     = f.association :release
     = f.association :artist
     = f.association :event
