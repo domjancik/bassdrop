@@ -37,16 +37,15 @@
           .content__description__top.padded.margin-bottom
             %p.content__description__top__preorder
               = link_to @event.preorder_url do
-                Preorder at
-                = url_second_level @event.preorder_url
+                = t 'presale', scope: 'event', presale: (url_second_level @event.preorder_url)
         - unless @event.venue.nil?
           .content__description__top.padded.margin-bottom
             %p.content__description__top__venue
-              At
+              - venue_text = t 'venue_info', scope: 'event', venue: @event.venue.title
               - unless @event.venue.url.blank?
-                = link_to @event.venue, @event.venue.url, target: :blank
+                = link_to venue_text, @event.venue.url, target: :blank
               - else
-                = @event.venue
+                = venue_text
             %p.content__description__top__attending
               - unless @event.attending_count.blank?
                 - attendance_title = (in_future? @event.date_start + 12.hours) ? 'attendance_future' : 'attendance_past'

@@ -5,11 +5,11 @@ en:
                  Focusing on event promotion in the Czech republic and Central Europe since 2013.
                  It is an organization consisting of promoters, graphic designers, Djs and producers focusing on electronic music.
 
-  facebook: "Facebook"
-  soundcloud: "Soundcloud"
-  instagram: "Instagram"
-  youtube: "YouTube"
-  twitter: "Twitter"
+  facebook: Facebook
+  soundcloud: Soundcloud
+  instagram: Instagram
+  youtube: YouTube
+  twitter: Twitter
 
   common:
     previous: Previous
@@ -95,6 +95,7 @@ en:
     attendance_future: "%{count} going"
     attendance_past: "%{count} went"
     venue_info: At %{venue}
+    presale: Buy ticket at %{presale}
     artists: Artists
     lineup: Lineup
   time:
