@@ -634,11 +634,17 @@ ul.block-list {
   list-style: none;
   margin: 0;
 
+
+
     &__item {
       margin: 0.25rem 0 0 0;
       padding: 0.25rem 1rem;
       background: $block-color;
       @include simple-transition;
+
+      &__state {
+        text-transform: uppercase;
+      }
 
       &--active {
         @extend .playlist__list__item;

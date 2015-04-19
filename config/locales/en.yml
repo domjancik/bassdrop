@@ -98,6 +98,14 @@ en:
     presale: Buy ticket at %{presale}
     artists: Artists
     lineup: Lineup
+
+  playlist:
+    playing: Playing
+    play: Play
+    previous: Previous
+    next: Next
+    more_info: From %{title}. Find out more!
+
   time:
     formats:
       event_time: '%-H:%M'

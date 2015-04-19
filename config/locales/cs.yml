@@ -98,6 +98,14 @@ cs:
     presale: Předprodej skrze %{presale}
     artists: Umělci
     lineup: Lineup
+
+  playlist:
+    playing: Právě hraje
+    play: Přehrát
+    previous: Předchozí
+    next: Další
+    more_info: Z %{title}. Dozvi se víc!
+
   time:
     formats:
       event_time: '%-H:%M'
