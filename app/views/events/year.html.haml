@@ -3,4 +3,4 @@
     = render partial: 'year', object: @year
 
 - if @more_years
-  = render partial: 'elements/more_link', object: year_events_path(@year[:year] - 1)
+  = render partial: 'elements/more_link', object: year_events_path(year: @year[:year] - 1)
