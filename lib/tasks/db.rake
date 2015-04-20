@@ -79,11 +79,11 @@ namespace :db do
       # ARTISTS
       artists = [
           # Core
-          {title: 'MagNet', country: 'CZ', city: 'Prague', fb: 'MagNetSounds', sc: 'magnetcz', tw: 'magnetcz', role: 'bassdrop', team_title: 'Co-Founder, Tech Guru'},
+          {title: 'MagNet', country: 'CZ', city: 'Prague', fb: 'MagNetSounds', sc: 'magnetcz', tw: 'magnetcz', role: 'bassdrop', team_title: 'Co-Founder, IT Guru'},
           {title: 'Low Tact', country: 'CZ', city: 'Prague', fb: 'LowTact', sc: 'lowtact', role: 'bassdrop', team_title: 'Co-Founder'},
           {title: 'Hlava', country: 'CZ', city: 'Prague', fb: 'DjHlavaCZ', role: 'bassdrop', team_title: 'Co-Founder'},
           {title: 'Ollie Torr', country: 'CZ', city: 'Prague', fb: 'OllieTorrMusic', role: 'bassdrop', team_title: 'Music Artist'},
-          {title: 'Novinski', country: 'CZ', city: 'Prague', role: 'bassdrop', fb: 'tomas.novotny.739'},
+          {title: 'Novinski', country: 'CZ', city: 'Prague', role: 'bassdrop', fb: 'tomas.novotny.739', team_title: 'Tech Guru'},
           {title: 'Furious Freaks', country: 'CZ', city: 'Prague', fb: 'FuriousFreaks', role: 'bassdrop'},
           {title: 'No Cure', country: 'CZ', city: 'Prague', fb: 'NoCureOfficial', role: 'bassdrop'},
           {title: 'S-BisH', country: 'FR', fb: 'SBisHfr', role: 'bassdrop'},
