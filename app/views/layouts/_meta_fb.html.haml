@@ -2,10 +2,12 @@
 - title = 'BASS DROP'
 - title += " - #{yield(:title)}" if content_for?(:title)
 %meta{ property: 'og:title', content: title }
-%meta{ property: 'og:description', content: "#{content_for?(:description) ? yield(:description) : 'BASS DROP'}" }
+%meta{ property: 'og:description', content: "#{content_for?(:description) ? yield(:description) : t('bassdrop.description')}" }
 %meta{ property: 'og:site_name', content: 'BASS DROP' }
 - if content_for?(:image)
   - image = yield(:image)
+  - if image[0] == '/'
+    - image = "https:#{image}"
 - else
   - image = "#{request.protocol}#{request.host_with_port}#{asset_path('og-bass-drop.jpg')}"
 %meta{ property: 'og:image', content: image }
