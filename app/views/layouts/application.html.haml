@@ -12,6 +12,7 @@
       = "| #{yield(:title)}" if content_for?(:title)
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : t('bassdrop.description')}"}
     = render 'layouts/meta_fb'
+    %meta{name: "google-site-verification", content: "6iZSQlOpGra4r1ETfvcnHIOMZuVl-1aubJUw5aLjfIQ"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     - if Rails.env.development? || Rails.env.test?
       = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Montserrat:400,700'
