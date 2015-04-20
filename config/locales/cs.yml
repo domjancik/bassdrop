@@ -25,9 +25,11 @@ cs:
 
   contact:
     title: Kontakt
+    description: Chceš s námi spolupracovat nebo se na něco zeptat?
 
   about:
     title: O BASS DROPu
+    description: Co je BASS DROP a z čeho se skládá?
 
   artist:
     title: Umělci

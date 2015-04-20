@@ -8,13 +8,13 @@
     = link_to 'CS', locale_path(locale: :cs)
 
 %li{ class: [active('visitors'), 'show-for-medium-up'] }= link_to 'BASS DROP', root_path
-%li{ class: active('events') }= link_to (t 'event.title'), events_path
+%li{ class: active('events') }= link_to (t 'event.title'), events_path, alt: (t 'event.description')
 -#%li{ class: active('venues') }= link_to 'Venues', venues_path
-%li{ class: active('artists') }= link_to (t 'artist.title'), artists_path
-%li{ class: active('releases', 'sets') }= link_to (t 'release.sets.title'), sets_path
-%li{ class: active('releases', 'records') }= link_to (t 'release.records.title'), records_path
-%li{ class: active('videos', 'records') }= link_to (t 'release.videos.title'), videos_path
-%li{ class: active('stories') }= link_to (t 'story.title'), stories_path
+%li{ class: active('artists') }= link_to (t 'artist.title'), artists_path, alt: (t 'artist.description')
+%li{ class: active('releases', 'sets') }= link_to (t 'release.sets.title'), sets_path, alt: (t 'release.sets.description')
+%li{ class: active('releases', 'records') }= link_to (t 'release.records.title'), records_path, alt: (t 'release.records.description')
+%li{ class: active('videos', 'records') }= link_to (t 'release.videos.title'), videos_path, alt: (t 'release.videos.description')
+%li{ class: active('stories') }= link_to (t 'story.title'), stories_path, alt: (t 'story.description')
 
 - if user_signed_in?
   %li= link_to 'Edit account', edit_user_registration_path

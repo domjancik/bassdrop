@@ -31,9 +31,11 @@ en:
 
   contact:
     title: Contact
+    description: Want to collaborate or ask us something?
 
   about:
     title: About BASS DROP
+    description: What is BASS DROP and what is it made of?
 
   artist:
     title: Artists
