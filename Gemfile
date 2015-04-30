@@ -19,6 +19,7 @@ gem 'foundation-rails'
 gem 'haml-rails'
 gem 'high_voltage'
 gem 'mysql2'
+gem 'pg'
 gem 'pundit'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
