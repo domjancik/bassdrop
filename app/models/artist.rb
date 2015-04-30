@@ -36,6 +36,16 @@ class Artist < ActiveRecord::Base
     Artist.where(released_record: true)
   end
 
+  # Find an artist based on his id or simplified name (Artist Name -> artist_name)
+  def self.find_universal(id)
+    return self.find(id) if /^[0-9]*$/.match id
+    self.where('lower(title) = ?', id.humanize.downcase).first
+  end
+
+  def to_param
+    I18n.transliterate title.downcase.camelize.underscore
+  end
+
   def fb_image_url
     FacebookHelper.fb_profile_picture_url link_fb
   end
