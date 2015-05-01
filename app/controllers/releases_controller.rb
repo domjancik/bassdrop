@@ -95,7 +95,7 @@ class ReleasesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_release
-      @release = Release.find(params[:id])
+      @release = Release.find_universal(params[:id])
       authorize @release
     end
 

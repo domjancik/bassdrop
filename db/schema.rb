@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419170031) do
+ActiveRecord::Schema.define(version: 20150501232608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,10 +39,12 @@ ActiveRecord::Schema.define(version: 20150419170031) do
     t.datetime "avatar_updated_at"
     t.boolean  "released_record",               default: false, null: false
     t.text     "description_cs"
+    t.string   "id_string",                                     null: false
   end
 
   add_index "artists", ["city_id"], name: "index_artists_on_city_id", using: :btree
   add_index "artists", ["country_id"], name: "index_artists_on_country_id", using: :btree
+  add_index "artists", ["id_string"], name: "index_artists_on_id_string", unique: true, using: :btree
   add_index "artists", ["link_fb"], name: "index_artists_on_link_fb", unique: true, using: :btree
   add_index "artists", ["playlist_id"], name: "index_artists_on_playlist_id", using: :btree
   add_index "artists", ["title"], name: "index_artists_on_title", unique: true, using: :btree
@@ -103,8 +105,10 @@ ActiveRecord::Schema.define(version: 20150419170031) do
     t.datetime "cover_updated_at"
     t.boolean  "markdown_enabled",   default: false, null: false
     t.text     "description_cs"
+    t.string   "id_string",                          null: false
   end
 
+  add_index "events", ["id_string"], name: "index_events_on_id_string", unique: true, using: :btree
   add_index "events", ["link_fb"], name: "index_events_on_link_fb", unique: true, using: :btree
   add_index "events", ["playlist_id"], name: "index_events_on_playlist_id", using: :btree
   add_index "events", ["venue_id"], name: "index_events_on_venue_id", using: :btree
@@ -184,8 +188,10 @@ ActiveRecord::Schema.define(version: 20150419170031) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.text     "description_cs"
+    t.string   "id_string",                                 null: false
   end
 
+  add_index "releases", ["id_string"], name: "index_releases_on_id_string", unique: true, using: :btree
   add_index "releases", ["playlist_id"], name: "index_releases_on_playlist_id", using: :btree
   add_index "releases", ["rel_code"], name: "index_releases_on_rel_code", unique: true, using: :btree
 

@@ -3,6 +3,7 @@ require 'json'
 class Event < ActiveRecord::Base
   include Coverable
   include DescriptionLocalizable
+  include StringIDable
 
   default_scope { order('events.date_start desc') }
 

@@ -1,6 +1,7 @@
 class Release < ActiveRecord::Base
   include Avatarable
   include DescriptionLocalizable
+  include StringIDable
 
   enum release_type: [:other, :set_audio, :set_video, :record, :trailer, :aftermovie]
 
