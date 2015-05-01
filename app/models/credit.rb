@@ -1,5 +1,5 @@
 class Credit < ActiveRecord::Base
-  default_scope { order('list_order asc') }
+  default_scope { order('credits.list_order asc') }
 
   belongs_to :release
   belongs_to :artist

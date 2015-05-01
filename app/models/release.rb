@@ -10,8 +10,8 @@ class Release < ActiveRecord::Base
   default_scope { order('release_date desc') }
 
   has_many :credits
-  has_many :artists, through: :credits
-  has_many :main_artists, -> { where('credits.title IS NULL OR CHAR_LENGTH(credits.title) = 0').uniq }, through: :credits, source: :artist
+  has_many :artists, -> { select('artists.*, credits.list_order') }, through: :credits
+  has_many :main_artists, -> { select('artists.*, credits.list_order').where('credits.title IS NULL OR CHAR_LENGTH(credits.title) = 0').uniq }, through: :credits, source: :artist
   belongs_to :playlist
   has_many :stories, -> { published }
 
@@ -37,7 +37,7 @@ class Release < ActiveRecord::Base
   def image_urls(style, include_own = false)
     avatars = []
     avatars << avatar.url(style) if include_own && !avatar_file_name.nil?
-    main_artists.reorder('RAND()').each { |artist| avatars << artist.image_url(style) }
+    main_artists.select('artists.*, RANDOM() as rand').reorder('rand').each { |artist| avatars << artist.image_url(style) }
     avatars
   end
 
