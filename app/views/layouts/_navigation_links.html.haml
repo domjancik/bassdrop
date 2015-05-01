@@ -2,10 +2,10 @@
 
 - unless I18n.locale.eql? :en
   %li{ class: 'active' }
-    = link_to 'EN', locale_path(locale: :en)
+    = link_to 'EN', params.merge(locale: :en)
 - unless I18n.locale.eql? :cs
   %li{ class: 'active' }
-    = link_to 'CS', locale_path(locale: :cs)
+    = link_to 'CS', params.merge(locale: :cs)
 
 %li{ class: [active('visitors'), 'show-for-medium-up'] }= link_to 'BASS DROP', root_path
 %li{ class: active('events') }= link_to (t 'event.title'), events_path, alt: (t 'event.description')
