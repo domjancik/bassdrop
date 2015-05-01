@@ -133,7 +133,7 @@ namespace :db do
           {title: 'Murte Kostka', country: 'CZ', city: 'Prague', fb: 'MURTE.CZ', yt: 'd2n3b'},
           {title: 'Funspeed', country: 'CZ', city: 'Prague', fb: '120717838089943'},
           {title: 'Hugorieri', country: 'CZ', fb: 'radim.hugorieri', yt: 'channel/UCtXw5FXrNprbkX61jzDP5pg' },
-          {title: 'Dr. One', country: 'CZ', fb: 'Majinee' },
+          {title: 'Dr. One', country: 'CZ', fb: '535625056577812' },
           {title: 'The Thrillest', country: 'CZ', city: 'Prague', fb: 'TheThrillestPRG' },
 
           {title: 'Eptic', country: 'BE', fb: 'eptic', city: 'Waasmunster', role: 'headliner'},
