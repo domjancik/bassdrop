@@ -188,7 +188,6 @@ GEM
     mini_portile (0.6.2)
     minitest (5.6.0)
     multi_json (1.11.0)
-    mysql2 (0.3.18)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
@@ -406,7 +405,6 @@ DEPENDENCIES
   jquery-slick-rails
   json
   launchy
-  mysql2
   owlcarousel-rails
   paperclip (~> 4.2)
   paperclip-meta
