@@ -10,8 +10,8 @@ class Release < ActiveRecord::Base
   default_scope { order('release_date desc') }
 
   has_many :credits
-  has_many :artists, through: :credits
-  has_many :main_artists, -> { where('credits.title IS NULL OR CHAR_LENGTH(credits.title) = 0').uniq }, through: :credits, source: :artist
+  has_many :artists, -> { select('artists.*, credits.list_order') }, through: :credits
+  has_many :main_artists, -> { select('artists.*, credits.list_order').where('credits.title IS NULL OR CHAR_LENGTH(credits.title) = 0').uniq }, through: :credits, source: :artist
   belongs_to :playlist
   has_many :stories, -> { published }
 

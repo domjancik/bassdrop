@@ -11,10 +11,10 @@ class Event < ActiveRecord::Base
 
   has_many :performances, -> { order(:stage_id) }, dependent: :destroy
 
-  has_many :stages, -> { uniq }, through: :performances
+  has_many :stages, -> { select('stages.*, performances.stage_id').uniq }, through: :performances
 
-  has_many :artists, -> { uniq }, through: :performances
-  has_many :headliners, -> { where(:performances => {is_headliner: true}).uniq },
+  has_many :artists, -> { select('artists.*, performances.stage_id').uniq }, through: :performances
+  has_many :headliners, -> { select('artists.*, performances.stage_id').where(:performances => {is_headliner: true}).uniq },
            through: :performances, :source => :artist
   has_many :non_headliners, -> { where(:performances => {is_headliner: false}) },
            through: :performances, :source => :artist
@@ -22,7 +22,7 @@ class Event < ActiveRecord::Base
 
   scope :upcoming, -> { where('events.date_start > ?', 12.hours.ago).reorder('events.date_start asc') }
   scope :past, -> { where('events.date_start <= ?', 12.hours.ago) }
-  scope :past_year, ->(year) { past.where('YEAR(events.date_start) = ?', year) }
+  scope :past_year, ->(year) { past.where("date_part('year', events.date_start) = ?", year) }
 
   def to_s
     title
