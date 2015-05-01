@@ -37,7 +37,7 @@ class Release < ActiveRecord::Base
   def image_urls(style, include_own = false)
     avatars = []
     avatars << avatar.url(style) if include_own && !avatar_file_name.nil?
-    main_artists.reorder('RAND()').each { |artist| avatars << artist.image_url(style) }
+    main_artists.select('artists.*, RANDOM() as rand').reorder('rand').each { |artist| avatars << artist.image_url(style) }
     avatars
   end
 
