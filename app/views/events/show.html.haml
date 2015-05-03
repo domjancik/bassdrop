@@ -30,9 +30,12 @@
         .hover
           %p.titular-text.facebook.event__quickinfo
 
+  - has_artists = !@event.artists.empty?
+  - description_class = has_artists ? 'medium-8' : ''
+
   .event.content.wow.fadeIn{ 'data-wow-delay' => "1.8s" }
     .row
-      .small-12.medium-8.columns
+      .small-12.columns{ class: description_class }
         - unless @event.preorder_url.blank?
           .content__description__top.padded.margin-bottom
             %p.content__description__top__preorder
@@ -55,5 +58,6 @@
           = desc_format(@event.description, @event.markdown_enabled)
         = render partial: 'stories/stories', object: @event.stories, locals: { show_image: false }
 
-      .small-12.medium-4.columns
-        = render 'artists_lineup'
+      - if has_artists
+        .small-12.medium-4.columns
+          = render 'artists_lineup'
