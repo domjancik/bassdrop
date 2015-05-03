@@ -1395,15 +1395,15 @@ $topbar-bg: $topbar-bg-color;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: $font-weight-normal;
-// $topbar-title-font-size: rem-calc(17);
+$topbar-title-font-size: 1rem;//rem-calc(17);
 
 // Set the link colors and styles for top-level nav
 $topbar-link-color: $jet;
 // $topbar-link-color-hover: $white;
 // $topbar-link-color-active: $white;
 // $topbar-link-color-active-hover: $white;
-$topbar-link-weight: $font-weight-bold;
-// $topbar-link-font-size: rem-calc(13);
+$topbar-link-weight: $font-weight-normal;
+$topbar-link-font-size: 1rem;//rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 // $topbar-link-bg: $topbar-bg;
 // $topbar-link-bg-hover: $jet;
@@ -1419,7 +1419,7 @@ $topbar-link-text-transform: uppercase;
 // $topbar-button-top: 7px;
 
 // Style the top bar dropdown elements
-// $topbar-dropdown-bg: $oil;
+$topbar-dropdown-bg: $white;
 // $topbar-dropdown-link-color: $white;
 // $topbar-dropdown-link-color-hover: $topbar-link-color-hover;
 // $topbar-dropdown-link-bg: $oil;
@@ -1437,8 +1437,8 @@ $topbar-link-text-transform: uppercase;
 
 // Top menu icon styles
 // $topbar-menu-link-transform: uppercase;
-// $topbar-menu-link-font-size: rem-calc(13);
-// $topbar-menu-link-weight: $font-weight-bold;
+$topbar-menu-link-font-size: 1rem;//rem-calc(13);
+$topbar-menu-link-weight: $font-weight-normal;
 $topbar-menu-link-color: $jet;
 $topbar-menu-icon-color: $jet;
 // $topbar-menu-link-color-toggled: $jumbo;
