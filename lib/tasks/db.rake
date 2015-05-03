@@ -20,7 +20,7 @@ namespace :db do
           add_events response
         end
 
-        puts 'Loaded FB Events (Basic info), call db:events:fill to load the rest'
+        puts 'Loaded FB Events (Basic info), call db:events:fill_(empty/all) to load the rest'
       end
     end
 
@@ -30,22 +30,30 @@ namespace :db do
       json_response['data'].each do |fb_event|
         title = fb_event['name']
 
-        begin
-          date_start = fb_event['start_time']
-          link_fb = fb_event['id']
-          Time.zone = fb_event['timezone']
-          event = Event.new({title: title, date_start: date_start, link_fb: link_fb})
-          event.date_end = fb_event['end_time'] if fb_event.has_key? 'end_time'
-          event.save
-          puts 'Loaded ' + event
-        rescue ActiveRecord::RecordNotUnique
+        if Event.find_by(link_fb: fb_event['id'])
           puts 'Already in DB: ' + title
+          next
         end
+
+        date_start = fb_event['start_time']
+        link_fb = fb_event['id']
+        Time.zone = fb_event['timezone']
+        event = Event.new({title: title, date_start: date_start, link_fb: link_fb})
+        event.date_end = fb_event['end_time'] if fb_event.has_key? 'end_time'
+        event.save
+        puts 'Loaded ' + event
       end
     end
 
     desc 'Download additional data for events from facebook'
-    task fill: :environment do
+    task fill_empty: :environment do
+      ActiveRecord::Base.transaction do
+        Event.where('automatic_updates = ? AND (description IS NULL OR CHAR_LENGTH(description) = ?)', true, 0).each { |event| event.update_from_fb }
+      end
+    end
+
+    desc 'Download additional data for events from facebook'
+    task fill_all: :environment do
       ActiveRecord::Base.transaction do
         Event.where(automatic_updates: true).each { |event| event.update_from_fb }
       end
