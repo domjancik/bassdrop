@@ -17,7 +17,9 @@ module StringIDable extend ActiveSupport::Concern
   def generate_id_string(repeats = 0)
     id = I18n.transliterate(self.title).gsub(/[^0-9A-Za-z]/, '').downcase
     id << (repeats + 1).to_s if repeats != 0
-    return generate_id_string(repeats + 1) if self.class.find_by(id_string: id)
+
+    dup_instance = self.class.find_by(id_string: id);
+    return generate_id_string(repeats + 1) if dup_instance && !dup_instance.eql?(self)
 
     id
   end
