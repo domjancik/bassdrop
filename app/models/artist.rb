@@ -20,6 +20,8 @@ class Artist < ActiveRecord::Base
   has_many :stories, -> { published }
   has_many :authored_stories, class_name: 'Story', foreign_key: 'author_id'
 
+  scope :featured, -> { where('featured = ?', true) }
+
   validates :country, presence: true
   validates :title, presence: true
   validates_with CityCountryValidator
