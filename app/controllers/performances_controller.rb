@@ -82,7 +82,7 @@ class PerformancesController < ApplicationController
     end
 
     def set_event
-      @event = policy_scope Event.find params[:event_id]
+      @event = policy_scope Event.find_universal params[:event_id]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
