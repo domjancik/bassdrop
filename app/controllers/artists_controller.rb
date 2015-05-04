@@ -93,6 +93,7 @@ class ArtistsController < ApplicationController
     def artist_params
       params.require(:artist).permit(:title, :city_id, :country_id, :playlist_id, :avatar,
                                      :description, :description_cs, :link_fb,
-                                     :link_soundcloud, :link_youtube, :link_instagram, :link_twitter)
+                                     :link_soundcloud, :link_youtube, :link_instagram, :link_twitter,
+                                     :featured)
     end
 end

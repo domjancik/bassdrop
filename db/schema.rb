@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501232608) do
+ActiveRecord::Schema.define(version: 20150504100521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150501232608) do
     t.boolean  "released_record",               default: false, null: false
     t.text     "description_cs"
     t.string   "id_string",                                     null: false
+    t.boolean  "featured",                      default: false, null: false
   end
 
   add_index "artists", ["city_id"], name: "index_artists_on_city_id", using: :btree
