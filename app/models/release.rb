@@ -16,6 +16,9 @@ class Release < ActiveRecord::Base
   belongs_to :playlist
   has_many :stories, -> { published }
 
+  scope :videos, -> { where('release_type = ? OR release_type = ?', release_types['trailer'], release_types['aftermovie']) }
+  scope :sets, -> { where('release_type = ? OR release_type = ?', release_types['set_audio'], release_types['set_video']) }
+
   def to_s
     title
   end

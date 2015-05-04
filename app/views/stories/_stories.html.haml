@@ -1,7 +1,7 @@
 - xcount = 2 if local_assigns[:xcount].nil?
 - show_image = true if local_assigns[:show_image].nil?
 - classes = "medium-block-grid-#{xcount}"
-%ul.small-block-grid-2{ class: classes }
+%ul.small-block-grid-1{ class: classes }
   - stories.each do |story|
     - delay = Random.rand(5).to_f / 10.0
     %li.story-overview__item.wow.fadeInUp{ 'data-wow-offset' => '20', 'data-wow-delay' => "#{delay}s" }

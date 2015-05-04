@@ -1,12 +1,23 @@
-%h1.hello.wow.fadeIn= welcome_text
-.row
-  .small-12.medium-9.columns.margin-bottom
-    = render partial: 'elements/next_event', object: @next_event
-    = render partial: 'stories/stories', object: @stories, locals: { xcount: 3 }
-    - if @more_stories
-      = link_to t('all_stories', scope: 'home'), stories_path, class: %w(button small width-fill)
+- content_for :records do
+  = render partial: 'releases/release_grid', object: @records, locals: { xcount: 1 }
+  = link_to t('release.records.title'), records_path, class: %w(button small width-fill margin-bottom)
 
-  .small-12.medium-3.columns
+- content_for :sets do
+  = render partial: 'releases/release_grid', object: @sets, locals: { xcount: 1 }
+  = link_to t('release.sets.title'), sets_path, class: %w(button small width-fill margin-bottom)
+
+- content_for :videos do
+  = render partial: 'releases/release_grid', object: @videos, locals: { xcount: 1 }
+  = link_to t('release.videos.title'), videos_path, class: %w(button small width-fill margin-bottom)
+
+%h1.hello.wow.fadeIn= welcome_text
+
+.row.margin-top
+  .small-12.columns.margin-bottom
+    = render partial: 'elements/next_event', object: @next_event
+
+.row
+  .small-12.medium-3.columns.wow.fadeInUp
     .row
       .small-12.columns
         = render partial: 'upcoming_events', object: @upcoming_events
@@ -20,5 +31,15 @@
             = render partial: 'elements/social_links', object: records_social_links
             .social-links__title.wow.fadeIn{ 'data-wow-delay' => '1.5s' }
               BASS DROP RECORDS
+  .small-12.medium-3.columns.wow.fadeInUp{ 'data-wow-delay' => '0.3s' }
+    = render partial: 'stories/stories', object: @stories, locals: { xcount: 1 }
+    - if true#@more_stories
+      = link_to t('all_stories', scope: 'home'), stories_path, class: %w(button small width-fill)
+  .small-12.medium-3.columns.wow.fadeInUp{ 'data-wow-delay' => '0.6s' }
+    - @release_order.each do |releases|
+      = yield(releases[:type])
+  .small-12.medium-3.columns.wow.fadeInUp{ 'data-wow-delay' => '0.9s' }
+    = render partial: 'artists/artist_grid', object: @artists, locals: { xcount: 1 }
+    = link_to t('all_artists', scope: 'home'), artists_path, class: %w(button small width-fill)
 
 = link_to 'Google+', 'https://plus.google.com/117183941871343477728', rel: 'publisher', style: 'display: none;'
