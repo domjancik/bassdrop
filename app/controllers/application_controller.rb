@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
 # https://github.com/elabs/pundit#ensuring-policies-are-used
     SCOPE_ACTIONS = [:index, :records, :sets, :videos, :year, :next, :team]
     DO_NOT_AUTHORIZE = lambda do |controller|
-      controller.devise_controller? || controller.controller_name == 'pages'
+      controller.devise_controller? || controller.controller_name == 'pages' || controller.controller_name == 'lookup'
     end
 
     after_action :verify_authorized, except: SCOPE_ACTIONS, unless: DO_NOT_AUTHORIZE

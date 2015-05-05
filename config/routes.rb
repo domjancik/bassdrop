@@ -79,6 +79,8 @@ Rails.application.routes.draw do
   # Static pages
   get '/:locale/pages/*id' => 'pages#show', as: :page, format: false
 
-  get '/:locale' => 'visitors#index', as: :locale
+  get '/:locale' => 'visitors#index', as: :locale, constraints: { locale: /(en|cs)/ }
+  get '/:id' => 'lookup#lookup'
+
   root to: 'visitors#index'
 end
