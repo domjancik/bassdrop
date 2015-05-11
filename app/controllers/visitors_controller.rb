@@ -18,9 +18,21 @@ class VisitorsController < ApplicationController
     @sets = policy_scope(Release.sets.limit(1))
 
     @release_order = []
-    @release_order << { date: @records.take.release_date, type: :records }
-    @release_order << { date: @sets.take.release_date, type: :sets }
-    @release_order << { date: @videos.take.release_date, type: :videos }
+    begin
+      @release_order << { date: @records.take!.release_date, type: :records }
+    rescue
+    end
+
+    begin
+      @release_order << { date: @sets.take!.release_date, type: :sets }
+    rescue
+    end
+
+    begin
+      @release_order << { date: @videos.take!.release_date, type: :videos }
+    rescue
+    end
+
     (@release_order.sort_by! { |e| e[:date] }).reverse!
   end
 end
