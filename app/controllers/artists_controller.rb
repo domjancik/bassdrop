@@ -94,6 +94,6 @@ class ArtistsController < ApplicationController
       params.require(:artist).permit(:title, :city_id, :country_id, :playlist_id, :avatar,
                                      :description, :description_cs, :link_fb,
                                      :link_soundcloud, :link_youtube, :link_instagram, :link_twitter,
-                                     :featured)
+                                     :featured, :role)
     end
 end

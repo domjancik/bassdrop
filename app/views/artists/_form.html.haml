@@ -11,6 +11,7 @@
     = f.input :description, label: 'Description EN'
     = f.input :featured
     = f.input :link_fb
+    = f.select(:role, Artist.roles.keys.map {|role| [role.titleize,role]})
 
   .form-actions
     = f.button :submit
