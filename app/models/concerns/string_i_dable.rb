@@ -25,6 +25,6 @@ module StringIDable extend ActiveSupport::Concern
   end
 
   def default_id_string
-    self.id_string = generate_id_string
+    self.id_string = generate_id_string if id_string.blank?
   end
 end

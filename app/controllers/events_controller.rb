@@ -97,6 +97,6 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:title, :venue_id, :date_start, :date_end, :preorder_url,
                                     :playlist_id, :cover, :description, :description_cs,
-                                    :published, :automatic_updates, :markdown_enabled)
+                                    :published, :automatic_updates, :markdown_enabled, :id_string)
     end
 end
