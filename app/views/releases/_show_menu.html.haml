@@ -1,4 +1,4 @@
-- if user_admin?
+- if policy(@release).edit?
   = link_to 'Add credit', new_release_credit_path(@release), class: 'button'
   = link_to 'Show credits', release_credits_path(@release), class: 'button'
   = link_to 'Edit', edit_release_path(@release), class: 'button'

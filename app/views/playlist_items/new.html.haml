@@ -1,5 +1,7 @@
 %h1 New playlist_item
 
+= link_to 'Media', media_path, target: :blank
+
 = render 'form'
 
 = link_to 'Back', playlist_playlist_items_path(@playlist)

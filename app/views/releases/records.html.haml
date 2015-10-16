@@ -1,6 +1,6 @@
 = render partial: 'elements/index_yields', object: 'release.records'
 
-- if user_admin?
+- if policy(@releases).new?
   = link_to 'New', new_release_path, class: %w(button width-fill)
 
 %h1= t 'title-full', scope: 'release.records'

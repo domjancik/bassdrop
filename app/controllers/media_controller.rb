@@ -2,7 +2,7 @@ class MediaController < ApplicationController
   helper EmbedHelper
 
   before_action :set_medium, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!
+  before_action :authenticate_vip!
 
   # GET /media
   # GET /media.json

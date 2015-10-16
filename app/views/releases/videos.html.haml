@@ -1,6 +1,6 @@
 = render partial: 'elements/index_yields', object: 'release.videos'
 
-- if user_admin?
+- if policy(@videos).new?
   = link_to 'New', new_release_path, class: %w(button width-fill)
 
 %h1= t 'aftermovies', scope: 'release.videos'
