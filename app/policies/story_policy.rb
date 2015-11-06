@@ -5,7 +5,7 @@ class StoryPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      is_vip? ? scope : scope.published.for_locale(I18n.locale)
+      is_vip? ? scope.ordered : scope.published.for_locale(I18n.locale)
     end
   end
 end

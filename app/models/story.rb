@@ -13,6 +13,7 @@ class Story < ActiveRecord::Base
 
   scope :published, -> { where(published: true).order('published_at desc') }
   scope :hidden, -> { where(published: false) }
+  scope :ordered, -> { order('published_at desc') }
 
   validates :author, presence: true
   validates :published_at, presence: true, if: 'published == true'
