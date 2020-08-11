@@ -1,20 +1,11 @@
-Bassdrop
+BASS DROP
 ================
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+This application was created to showcase events and creators tied to the BASS DROP line of events, started in 2013.
 
-Rails Composer is open source and supported by subscribers. Please join RailsApps to support development of Rails Composer.
+Live version can be found at http://bassdrop.herokuapp.com/
 
-Problems? Issues?
------------
-
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
-
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
-
-If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
+The app uses PostgreSQL to store creators, events, works (such as videos and music releases).
 
 Ruby on Rails
 -------------
